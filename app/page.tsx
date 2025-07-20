@@ -289,20 +289,32 @@ function CasinoContent() {
           {/* Promotions Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Crypto Bonus */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-              <div className="text-center space-y-4 flex-1">
+            <Card
+              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden"
+              style={{
+                backgroundImage: "url(/images/crypto-bull-neon.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="absolute inset-0 bg-black/60"></div>
+              <div className="text-center space-y-4 flex-1 relative z-15">
                 <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand-primary-green/10 rounded-full flex items-center justify-center">
                   <Gem className="w-8 h-8 md:w-10 md:h-10 text-brand-primary-green" />
                 </div>
                 <div>
                   <div className="text-3xl md:text-4xl font-black text-brand-primary-green">200%</div>
                   <div className="text-lg md:text-xl font-bold text-brand-soft-white">CRYPTO BONUS</div>
-                  <div className="text-sm md:text-base text-brand-smoke-gray mt-2">
+                  <div className="text-sm md:text-base text-brand-soft-white font-medium mt-2">
                     Get up to $5,000 bonus on your crypto deposits
                   </div>
                 </div>
               </div>
-              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-4 text-black">
+              <Button
+                onClick={() => window.open("/promotions", "_blank")}
+                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-4 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
                 CLAIM NOW
               </Button>
             </Card>
@@ -568,7 +580,18 @@ function CasinoContent() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8">
             {popularSlots.map((game) => (
               <div key={game.name} className="group relative">
-                <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative">
+                <div
+                  className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative"
+                  style={
+                    game.name === "European Roulette"
+                      ? {
+                          backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : {}
+                  }
+                >
                   <Image
                     src={game.image || "/placeholder.svg"}
                     alt={game.name}
@@ -576,23 +599,50 @@ function CasinoContent() {
                     height={400}
                     className="object-cover w-full h-32 sm:h-48 md:h-96 group-hover:scale-110 transition-transform duration-300"
                   />
+                  {game.name === "European Roulette" && <div className="absolute inset-0 bg-black/30"></div>}
                   <div className="absolute top-1 sm:top-2 md:top-4 right-1 sm:right-2 md:right-4">
                     <Badge className="bg-black/70 text-brand-soft-white px-1 sm:px-2 md:px-3 py-1 md:py-2 text-xs">
                       RTP {game.rtp}
                     </Badge>
                   </div>
-                  <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold mb-1 sm:mb-2 md:mb-4 px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg">
-                      <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                      Play
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      className="text-brand-soft-white hover:text-brand-primary-green px-2 sm:px-3 md:px-6 py-1 sm:py-2 md:py-3 text-xs sm:text-sm"
-                    >
-                      <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
-                      Demo
-                    </Button>
+                  <div
+                    className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={
+                      game.name === "European Roulette"
+                        ? {
+                            backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundColor: "rgba(0, 0, 0, 0.7)",
+                          }
+                        : { backgroundColor: "rgba(0, 0, 0, 0.7)" }
+                    }
+                  >
+                    <div
+                      className="absolute inset-0 bg-black/70"
+                      style={
+                        game.name === "European Roulette"
+                          ? {
+                              backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                            }
+                          : {}
+                      }
+                    ></div>
+                    <div className="relative z-10 flex flex-col items-center justify-center">
+                      <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold mb-1 sm:mb-2 md:mb-4 px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg">
+                        <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+                        Play
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        className="text-brand-soft-white hover:text-brand-primary-green px-2 sm:px-3 md:px-6 py-1 sm:py-2 md:py-3 text-xs sm:text-sm"
+                      >
+                        <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
+                        Demo
+                      </Button>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-2 sm:mt-3 md:mt-6">
