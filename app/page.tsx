@@ -35,7 +35,7 @@ export default function Page() {
   const [chatOpen, setChatOpen] = useState(false)
 
   return (
-    <div className="bg-brand-charcoal-black min-h-screen text-brand-soft-white font-poppins">
+    <div className="bg-black min-h-screen text-brand-soft-white font-poppins">
       {/* Top Navigation Bar */}
       <TopNavigation
         activeTab={activeTab}
@@ -141,7 +141,8 @@ function CasinoContent() {
       {/* Hero Section - Different layout for mobile vs desktop */}
       <div className="relative w-full">
         {/* Desktop Hero - Text overlay on image */}
-        <div className="hidden md:block relative w-full h-[50vh] overflow-hidden bg-brand-charcoal-black">
+        <div className="hidden md:block relative w-full h-[60vh] overflow-hidden bg-black">
+          <div className="absolute inset-0 bg-black" />
           <Image
             src="/images/hero4.jpg"
             alt="STAKE - Three football players with dramatic green neon effects and stadium background"
@@ -150,7 +151,6 @@ function CasinoContent() {
             className="absolute bottom-0 right-0 w-4/5 h-full object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black/80 to-transparent" />
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
             <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
@@ -188,8 +188,8 @@ function CasinoContent() {
           </div>
 
           {/* Desktop Hero text content */}
-          <div className="absolute top-1/4 left-0 z-10 w-full max-w-3xl px-12 lg:px-24 text-left">
-            <div className="space-y-4 md:space-y-6 mb-12">
+          <div className="absolute top-1/3 left-0 z-10 w-full max-w-3xl px-12 lg:px-24 text-left">
+            <div className="space-y-4 md:space-y-6 mb-16">
               <h1 className="text-4xl lg:text-5xl font-black leading-none tracking-tight">
                 <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
                 <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
@@ -273,7 +273,7 @@ function CasinoContent() {
       </div>
 
       {/* PROMOTIONS SECTION - Similar to BetUS layout */}
-      <div className="w-full bg-brand-charcoal-black py-4 md:py-6">
+      <div className="w-full py-4 md:py-6 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
           {/* Section Header */}
           <div className="flex items-center justify-between mb-4 md:mb-6">
