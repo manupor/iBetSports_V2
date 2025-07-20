@@ -320,20 +320,32 @@ function CasinoContent() {
             </Card>
 
             {/* Sign Up Bonus */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-              <div className="text-center space-y-4 flex-1">
+            <Card
+              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden"
+              style={{
+                backgroundImage: "url(/images/signup-bonus-celebration.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "left center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="absolute inset-0 bg-black/60"></div>
+              <div className="text-center space-y-4 flex-1 relative z-10">
                 <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand-vibrant-green/10 rounded-full flex items-center justify-center">
                   <Gift className="w-8 h-8 md:w-10 md:h-10 text-brand-vibrant-green" />
                 </div>
                 <div>
                   <div className="text-3xl md:text-4xl font-black text-brand-vibrant-green">125%</div>
                   <div className="text-lg md:text-xl font-bold text-brand-soft-white">SIGN UP BONUS</div>
-                  <div className="text-sm md:text-base text-brand-smoke-gray mt-2">
+                  <div className="text-sm md:text-base text-brand-soft-white font-medium mt-2">
                     Welcome bonus on your first 3 deposits
                   </div>
                 </div>
               </div>
-              <Button className="w-full bg-brand-vibrant-green hover:bg-brand-vibrant-green-dark text-brand-charcoal-black font-bold py-3 mt-4">
+              <Button
+                onClick={() => window.open("/promotions", "_blank")}
+                className="w-full bg-brand-vibrant-green hover:bg-brand-vibrant-green-dark text-brand-charcoal-black font-bold py-3 mt-4 relative z-20"
+              >
                 GET STARTED
               </Button>
             </Card>
