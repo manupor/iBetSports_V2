@@ -117,7 +117,7 @@ function CasinoContent() {
     { name: "Golden Reels", image: "/images/slot-golden-reels.png", rtp: "96.5%" },
     { name: "Blackjack Pro", image: "/images/slot-blackjack-pro.png", rtp: "99.4%" },
     { name: "European Roulette", image: "/images/slot-european-roulette.png", rtp: "97.3%" },
-    { name: "Texas Hold'em", image: "/images/slot-texas-holdem.png", rtp: "98.1%" },
+    { name: "Mega Fortune", image: "/images/slot-mega-fortune.avif", rtp: "96.6%" },
     { name: "Winner's Fortune", image: "/images/slot-winners-fortune.png", rtp: "95.8%" },
   ]
 
@@ -273,7 +273,7 @@ function CasinoContent() {
       </div>
 
       {/* PROMOTIONS SECTION - Similar to BetUS layout */}
-      <div className="w-full py-4 md:py-6 bg-zinc-950">
+      <div className="w-full py-4 md:py-6 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
           {/* Section Header */}
           <div className="flex items-center justify-between mb-4 md:mb-6">
@@ -351,20 +351,29 @@ function CasinoContent() {
             </Card>
 
             {/* Casino Bonus */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-              <div className="text-center space-y-4 flex-1">
+            <Card
+              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden"
+              style={{
+                backgroundImage: "url(/images/777.png)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="absolute inset-0 bg-black/50"></div>
+              <div className="text-center space-y-4 flex-1 relative z-10">
                 <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand-primary-green/10 rounded-full flex items-center justify-center">
                   <Crown className="w-8 h-8 md:w-10 md:h-10 text-brand-primary-green" />
                 </div>
                 <div>
                   <div className="text-3xl md:text-4xl font-black text-brand-primary-green">200%</div>
                   <div className="text-lg md:text-xl font-bold text-brand-soft-white">CASINO BONUS</div>
-                  <div className="text-sm md:text-base text-brand-smoke-gray mt-2">
+                  <div className="text-sm md:text-base text-brand-soft-white font-medium mt-2">
                     Exclusive casino bonus + free spins
                   </div>
                 </div>
               </div>
-              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-4 text-black">
+              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-4 text-black relative z-20">
                 PLAY NOW
               </Button>
             </Card>
@@ -592,31 +601,34 @@ function CasinoContent() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8">
             {popularSlots.map((game) => (
               <div key={game.name} className="group relative">
-                <div
-                  className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative"
-                  style={
-                    game.name === "European Roulette"
-                      ? {
-                          backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }
-                      : {}
-                  }
-                >
-                  <Image
-                    src={game.image || "/placeholder.svg"}
-                    alt={game.name}
-                    width={300}
-                    height={400}
-                    className="object-cover w-full h-32 sm:h-48 md:h-96 group-hover:scale-110 transition-transform duration-300"
-                  />
+                <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative aspect-[3/4]">
+                  {/* Game artwork - only render Image if not European Roulette */}
+                  {game.name !== "European Roulette" ? (
+                    <Image
+                      src={game.image || "/placeholder.svg"}
+                      alt={game.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    />
+                  )}
+
                   {game.name === "European Roulette" && <div className="absolute inset-0 bg-black/30"></div>}
+
                   <div className="absolute top-1 sm:top-2 md:top-4 right-1 sm:right-2 md:right-4">
                     <Badge className="bg-black/70 text-brand-soft-white px-1 sm:px-2 md:px-3 py-1 md:py-2 text-xs">
                       RTP {game.rtp}
                     </Badge>
                   </div>
+
                   <div
                     className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     style={
