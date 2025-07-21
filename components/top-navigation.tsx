@@ -29,7 +29,7 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
           {/* Logo */}
           <div className="flex items-center space-x-3 md:flex-none flex-1 md:flex-initial justify-center md:justify-start">
             <Image
-              src="/images/ibet-sports-logo.png"
+              src="/images/ibet-sports-logo-v2.png"
               alt="Casino Logo"
               width={200}
               height={45}
@@ -83,7 +83,7 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
               {/* Mobile Logo - Left Aligned */}
               <div className="flex items-center">
                 <Image
-                  src="/images/ibet-sports-logo.png"
+                  src="/images/ibet-sports-logo-v2.png"
                   alt="Casino Logo"
                   width={160}
                   height={35}
