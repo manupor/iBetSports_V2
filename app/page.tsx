@@ -320,7 +320,7 @@ function CasinoContent() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 md:px-12 relative z-10 pt-4 md:pt-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 relative z-10 pt-0 md:pt-2">
           {/* Desktop Layout */}
           <div className="hidden md:flex items-center justify-between mb-0 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white">IBET PROMOS KEEP YOU IN THE GAME</h2>
@@ -351,10 +351,10 @@ function CasinoContent() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-0 md:pt-0 pb-4 md:pb-6">
-            <div className="flex flex-col min-h-[400px] justify-start">
-              <div className="relative z-15 pb-2">
-                <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-primary-green/20 opacity-60">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-0 md:pt-0 pb-0 md:pb-2">
+            <div className="flex flex-col min-h-[400px] justify-stretch">
+              <div className="relative z-15 pb-0">
+                <div className="bg-black/80 backdrop-blur-sm rounded-xl px-4 pt-7 border border-brand-primary-green/20 opacity-60">
                   <div className="flex items-center justify-center space-x-3 mb-3">
                     <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/30 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-brand-primary-green/60">
                       <Gem className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
@@ -377,15 +377,15 @@ function CasinoContent() {
               </div>
               <Button
                 onClick={() => window.open("/promotions", "_blank")}
-                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-3 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-0 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 CLAIM NOW
               </Button>
             </div>
 
             <div className="flex flex-col min-h-[400px] justify-start">
-              <div className="relative z-15 pb-2">
-                <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-primary-green/20 opacity-75 py-7">
+              <div className="relative z-15 pb-0">
+                <div className="bg-black/80 backdrop-blur-sm rounded-xl px-4 pt-7 border border-brand-primary-green/20 opacity-75 pb-6">
                   <div className="flex items-center justify-center space-x-3 mb-3">
                     <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/30 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-brand-primary-green/60">
                       <Gift className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
@@ -408,15 +408,15 @@ function CasinoContent() {
               </div>
               <Button
                 onClick={() => window.open("/promotions", "_blank")}
-                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-3 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-0 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 GET STARTED
               </Button>
             </div>
 
             <div className="flex flex-col min-h-[400px] justify-start">
-              <div className="relative z-15 pb-2">
-                <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-primary-green/20 opacity-60 py-7">
+              <div className="relative z-15 pb-0">
+                <div className="bg-black/80 backdrop-blur-sm rounded-xl px-4 pt-7 border border-brand-primary-green/20 opacity-60 pb-6">
                   <div className="flex items-center justify-center space-x-3 mb-3">
                     <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/30 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-brand-primary-green/60">
                       <Crown className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
@@ -437,13 +437,13 @@ function CasinoContent() {
                   </div>
                 </div>
               </div>
-              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-3 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-0 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300">
                 PLAY NOW
               </Button>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-12 md:mt-16 pt-4 md:pt-6 border-t border-brand-smoke-gray/30">
+          <div className="flex flex-col md:flex-row md:items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-6 md:mt-8 pt-0 md:pt-2 border-t border-brand-smoke-gray/30">
             <div className="flex items-center space-x-3">
               <Shield className="w-6 h-6 text-brand-primary-green" />
               <span className="text-brand-soft-white font-medium">Licensed & Secure</span>
@@ -480,154 +480,12 @@ function CasinoContent() {
         <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
           <div>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
-              <div className="mb-3 sm:mb-4 md:mb-0">
-                <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
-                  Draft Originals
-                </h3>
-                <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">
-                  Exclusive in-house games with the highest RTPs
-                </p>
-              </div>
-              <Button
-                variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg self-start"
-              >
-                View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-1 sm:ml-2 md:ml-3" />
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8">
-              {originalGames.map((game) => (
-                <Card
-                  key={game.name}
-                  className="p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl md:rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden min-h-[150px] sm:min-h-[200px] md:min-h-[280px] flex flex-col justify-end"
-                >
-                  <Image
-                    src={game.image || "/placeholder.svg"}
-                    alt={game.name}
-                    fill
-                    className="object-cover absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
-                  <div className="relative z-20 text-brand-soft-white">
-                    <span className="font-bold text-sm sm:text-lg md:text-2xl">{game.name}</span>
-                    <div className="text-xs md:text-sm bg-black/20 px-2 md:px-4 py-1 rounded-full mt-1 sm:mt-2 md:mt-3 inline-block">
-                      {game.players} playing
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-30">
-                    <Button className="bg-brand-primary-green text-brand-soft-white font-bold hover:bg-brand-primary-green-dark px-3 sm:px-4 md:px-8 py-2 md:py-4 text-xs sm:text-sm md:text-lg">
-                      <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                      Play Now
-                    </Button>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <div className="mb-3 sm:mb-4 md:mb-0">
               <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
-                Popular Slots
+                Draft Originals
               </h3>
-              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">Most played games this week</p>
-            </div>
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
-              >
-                <Filter className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                Filter
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
-              >
-                <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                Sort
-              </Button>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8">
-            {popularSlots.map((game) => (
-              <div key={game.name} className="group relative">
-                <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative aspect-[3/4]">
-                  {game.name !== "European Roulette" ? (
-                    <Image
-                      src={game.image || "/placeholder.svg"}
-                      alt={game.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div
-                      className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                      style={{
-                        backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
-                  )}
-
-                  {game.name === "European Roulette" && <div className="absolute inset-0 bg-black/30"></div>}
-
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={
-                      game.name === "European Roulette"
-                        ? {
-                            backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundColor: "rgba(0, 0, 0, 0.7)",
-                          }
-                        : { backgroundColor: "rgba(0, 0, 0, 0.7)" }
-                    }
-                  >
-                    <div
-                      className="absolute inset-0 bg-black/70"
-                      style={
-                        game.name === "European Roulette"
-                          ? {
-                              backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                            }
-                          : {}
-                      }
-                    ></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center">
-                      <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold mb-1 sm:mb-2 md:mb-4 px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg">
-                        <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                        Play Now
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg bg-transparent"
-                      >
-                        <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                        More Info
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-2 sm:mt-3 md:mt-4 text-center">
-                  <div className="font-bold text-sm sm:text-lg md:text-xl text-brand-soft-white">{game.name}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
-            <div className="mb-3 sm:mb-4 md:mb-0">
-              <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
-                Recent Bets
-              </h3>
-              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">See what others are winning</p>
+              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">
+                Exclusive in-house games with the highest RTPs
+              </p>
             </div>
             <Button
               variant="outline"
@@ -636,38 +494,176 @@ function CasinoContent() {
               View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-1 sm:ml-2 md:ml-3" />
             </Button>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full table-auto">
-              <thead className="text-xs sm:text-sm md:text-base text-brand-smoke-gray uppercase">
-                <tr>
-                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">User</th>
-                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">Game</th>
-                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">Time</th>
-                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Amount</th>
-                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Mult</th>
-                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Profit</th>
-                </tr>
-              </thead>
-              <tbody>
-                {bets.map((bet, index) => (
-                  <tr key={index} className="text-sm sm:text-base md:text-lg border-b border-brand-smoke-gray/20">
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.user}</td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.game}</td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-smoke-gray">{bet.time}</td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
-                      ${bet.amount.toFixed(2)}
-                    </td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
-                      {bet.mult.toFixed(2)}x
-                    </td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
-                      ${bet.profit.toFixed(2)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8">
+            {originalGames.map((game) => (
+              <Card
+                key={game.name}
+                className="p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl md:rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden min-h-[150px] sm:min-h-[200px] md:min-h-[280px] flex flex-col justify-end"
+              >
+                <Image
+                  src={game.image || "/placeholder.svg"}
+                  alt={game.name}
+                  fill
+                  className="object-cover absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+                <div className="relative z-20 text-brand-soft-white">
+                  <span className="font-bold text-sm sm:text-lg md:text-2xl">{game.name}</span>
+                  <div className="text-xs md:text-sm bg-black/20 px-2 md:px-4 py-1 rounded-full mt-1 sm:mt-2 md:mt-3 inline-block">
+                    {game.players} playing
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-30">
+                  <Button className="bg-brand-primary-green text-brand-soft-white font-bold hover:bg-brand-primary-green-dark px-3 sm:px-4 md:px-8 py-2 md:py-4 text-xs sm:text-sm md:text-lg">
+                    <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+                    Play Now
+                  </Button>
+                </div>
+              </Card>
+            ))}
           </div>
+        </div>
+
+        <div>
+          <div className="mb-3 sm:mb-4 md:mb-0">
+            <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
+              Popular Slots
+            </h3>
+            <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">Most played games this week</p>
+          </div>
+          <div className="flex items-center space-x-2 md:space-x-4">
+            <Button
+              variant="ghost"
+              className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
+            >
+              <Filter className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+              Sort
+            </Button>
+            <Button
+              variant="ghost"
+              className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
+            >
+              <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+              Sort
+            </Button>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8">
+          {popularSlots.map((game) => (
+            <div key={game.name} className="group relative">
+              <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative aspect-[3/4]">
+                {game.name !== "European Roulette" ? (
+                  <Image
+                    src={game.image || "/placeholder.svg"}
+                    alt={game.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                ) : (
+                  <div
+                    className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                )}
+
+                {game.name === "European Roulette" && <div className="absolute inset-0 bg-black/30"></div>}
+
+                <div
+                  className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={
+                    game.name === "European Roulette"
+                      ? {
+                          backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          backgroundColor: "rgba(0, 0, 0, 0.7)",
+                        }
+                      : { backgroundColor: "rgba(0, 0, 0, 0.7)" }
+                  }
+                >
+                  <div
+                    className="absolute inset-0 bg-black/70"
+                    style={
+                      game.name === "European Roulette"
+                        ? {
+                            backgroundImage: "url(/images/european-roulette-bg.jpg)",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                          }
+                        : {}
+                    }
+                  ></div>
+                  <div className="relative z-10 flex flex-col items-center justify-center">
+                    <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold mb-1 sm:mb-2 md:mb-4 px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg">
+                      <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+                      Play Now
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg bg-transparent"
+                    >
+                      <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+                      More Info
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-2 sm:mt-3 md:mt-4 text-center">
+                <div className="font-bold text-sm sm:text-lg md:text-xl text-brand-soft-white">{game.name}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
+          <div className="mb-3 sm:mb-4 md:mb-0">
+            <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
+              Recent Bets
+            </h3>
+            <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">See what others are winning</p>
+          </div>
+          <Button
+            variant="outline"
+            className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg self-start"
+          >
+            View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-1 sm:ml-2 md:ml-3" />
+          </Button>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto">
+            <thead className="text-xs sm:text-sm md:text-base text-brand-smoke-gray uppercase">
+              <tr>
+                <th className="text-left py-2 px-2 sm:px-4 md:px-6">User</th>
+                <th className="text-left py-2 px-2 sm:px-4 md:px-6">Game</th>
+                <th className="text-left py-2 px-2 sm:px-4 md:px-6">Time</th>
+                <th className="text-right py-2 px-2 sm:px-4 md:px-6">Amount</th>
+                <th className="text-right py-2 px-2 sm:px-4 md:px-6">Mult</th>
+                <th className="text-right py-2 px-2 sm:px-4 md:px-6">Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bets.map((bet, index) => (
+                <tr key={index} className="text-sm sm:text-base md:text-lg border-b border-brand-smoke-gray/20">
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.user}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.game}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-smoke-gray">{bet.time}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                    ${bet.amount.toFixed(2)}
+                  </td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">{bet.mult.toFixed(2)}x</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                    ${bet.profit.toFixed(2)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
