@@ -69,11 +69,11 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
               className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
             >
               <LogIn className="w-4 h-4 mr-2" />
-              Login
+              LOGIN
             </Button>
             <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
               <User className="w-4 h-4 mr-2" />
-              Sign Up
+              JOIN NOW
             </Button>
           </div>
 
@@ -93,7 +93,7 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
                   size="sm"
                   className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold text-xs px-3 py-1.5 rounded-full"
                 >
-                  GET STARTED
+                  JOIN NOW
                 </Button>
 
                 {/* Mobile Menu Button */}
