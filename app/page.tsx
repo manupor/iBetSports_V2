@@ -130,7 +130,7 @@ function CasinoContent() {
   return (
     <div>
       <div className="relative w-full">
-        <div className="hidden md:block relative w-full h-[60vh] overflow-hidden bg-black">
+        <div className="hidden md:block relative w-full h-[70vh] overflow-hidden bg-black">
           <div className="absolute inset-0 bg-black" />
           <Image
             src="/images/hero4.jpg"
@@ -175,8 +175,8 @@ function CasinoContent() {
             </div>
           </div>
 
-          <div className="absolute top-1/3 left-0 z-10 w-full max-w-3xl px-12 lg:px-24 text-left">
-            <div className="space-y-4 md:space-y-6 mb-8">
+          <div className="absolute top-1/4 left-0 z-10 w-full max-w-3xl px-12 lg:px-24 text-left">
+            <div className="space-y-4 md:space-y-6 mb-20">
               <h1 className="text-4xl lg:text-5xl font-black leading-none tracking-tight">
                 <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
                 <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
@@ -187,11 +187,11 @@ function CasinoContent() {
               <p className="text-2xl lg:text-3xl text-brand-soft-white font-bold leading-relaxed max-w-xl">
                 Bet Smarter, Win Bigger
               </p>
-            </div>
-            <div className="flex justify-end -mt-4">
-              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
-                JOIN NOW
-              </Button>
+              <div className="flex mt-8 justify-start">
+                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
+                  JOIN NOW
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -243,7 +243,7 @@ function CasinoContent() {
             </div>
           </div>
 
-          <div className="bg-brand-charcoal-black px-4 py-6">
+          <div className="bg-brand-charcoal-black px-4 py-8">
             <div className="text-center space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight tracking-tight">
                 <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
@@ -261,9 +261,10 @@ function CasinoContent() {
         </div>
       </div>
 
-      <div className="w-full py-4 md:py-6 bg-black">
+      <div className="w-full py-8 md:py-12 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
-          <div className="flex items-center justify-between mb-4 md:mb-6">
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between mb-4 md:mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white">IBET PROMOS KEEP YOU IN THE GAME</h2>
             <Button
               variant="outline"
@@ -273,7 +274,26 @@ function CasinoContent() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Mobile Layout */}
+          <div className="md:hidden flex items-end justify-between mb-6">
+            <div className="flex-1">
+              <h2 className="text-2xl font-black text-brand-soft-white leading-tight">
+                <div>IBET PROMOS</div>
+                <div>KEEP YOU IN</div>
+                <div>THE GAME</div>
+              </h2>
+            </div>
+            <div className="ml-4">
+              <Button
+                variant="outline"
+                className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black text-sm bg-transparent whitespace-nowrap px-4 py-2 rounded-lg"
+              >
+                SEE ALL PROMOTIONS →
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <Card
               className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden min-h-[400px]"
               style={{
@@ -395,7 +415,7 @@ function CasinoContent() {
             </Card>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-brand-smoke-gray/30">
+          <div className="flex flex-col md:flex-row md:items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-12 md:mt-16 pt-8 md:pt-12 border-t border-brand-smoke-gray/30">
             <div className="flex items-center space-x-3">
               <Shield className="w-6 h-6 text-brand-primary-green" />
               <span className="text-brand-soft-white font-medium">Licensed & Secure</span>
@@ -412,7 +432,7 @@ function CasinoContent() {
         </div>
       </div>
 
-      <div className="w-full bg-brand-charcoal-black py-4 md:py-0.5">
+      <div className="w-full bg-brand-charcoal-black py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
             <div className="mb-3 sm:mb-4 md:mb-0">
@@ -429,7 +449,7 @@ function CasinoContent() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
             {[
               {
                 title: "Sports Betting",
@@ -500,7 +520,7 @@ function CasinoContent() {
         </div>
       </div>
 
-      <div className="w-full relative bg-brand-charcoal-black py-6 md:py-10 overflow-hidden">
+      <div className="w-full relative bg-brand-charcoal-black py-12 md:py-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/casino-background.png"
@@ -532,8 +552,8 @@ function CasinoContent() {
         </div>
       </div>
 
-      <div className="px-3 sm:px-4 md:px-12 py-6 sm:py-8 md:py-12 bg-brand-charcoal-black space-y-6 sm:space-y-8 md:space-y-12">
-        <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 md:space-y-12">
+      <div className="px-3 sm:px-4 md:px-12 py-12 sm:py-16 md:py-20 bg-brand-charcoal-black space-y-12 sm:space-y-16 md:space-y-20">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
           <div>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
               <div className="mb-3 sm:mb-4 md:mb-0">

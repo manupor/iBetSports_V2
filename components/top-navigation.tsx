@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Home, Trophy, Gamepad2, Zap, CreditCard, Gift, Menu, X, User, LogIn } from "lucide-react"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
 
 interface TopNavigationProps {
   activeTab: string
@@ -11,134 +11,110 @@ interface TopNavigationProps {
 }
 
 export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const tabs = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "sports", label: "Sports", icon: Trophy },
-    { id: "racebook", label: "Racebook", icon: Zap },
-    { id: "live-casino", label: "Live Casino", icon: Gamepad2 },
-    { id: "banking", label: "Banking", icon: CreditCard },
-    { id: "promotions", label: "Promotions", icon: Gift },
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "sports", label: "Sports" },
+    { id: "racebook", label: "Racebook" },
+    { id: "live-casino", label: "Live Casino" },
+    { id: "banking", label: "Banking" },
+    { id: "promotions", label: "Promotions" },
   ]
 
   return (
     <nav className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 md:flex-none flex-1 md:flex-initial justify-center md:justify-start">
-            <Image
-              src="/images/ibet-sports-logo-v2.png"
-              alt="Casino Logo"
-              width={200}
-              height={45}
-              className="h-14 w-auto md:h-10"
-            />
-          </div>
-
-          {/* Mobile spacer to balance centered logo */}
-          <div className="w-10 md:hidden"></div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {tabs.map((tab) => {
-              const Icon = tab.icon
-              return (
-                <Button
-                  key={tab.id}
-                  variant="ghost"
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
-                    activeTab === tab.id
-                      ? "bg-brand-primary-green text-brand-charcoal-black font-bold"
-                      : "text-brand-soft-white hover:bg-brand-charcoal-black-secondary hover:text-brand-primary-green"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span className="text-sm font-medium">{tab.label}</span>
-                </Button>
-              )
-            })}
-          </div>
-
-          {/* Desktop Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
-            <Button
-              variant="outline"
-              className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
-            >
-              <LogIn className="w-4 h-4 mr-2" />
-              LOGIN
-            </Button>
-            <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
-              <User className="w-4 h-4 mr-2" />
-              JOIN NOW
-            </Button>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="md:hidden">
-            <div className="flex items-center justify-end w-full">
-              {/* Mobile Auth Buttons - Center/Right */}
-              <div className="flex items-center space-x-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent text-xs px-3 py-1.5 rounded-full"
-                >
-                  LOGIN
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold text-xs px-3 py-1.5 rounded-full"
-                >
-                  JOIN NOW
-                </Button>
-
-                {/* Mobile Menu Button */}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="text-brand-soft-white hover:bg-brand-charcoal-black-secondary p-2 ml-2"
-                >
-                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </Button>
-              </div>
-            </div>
-
-            {/* Mobile Menu (Conditionally Rendered) */}
-            {mobileMenuOpen && (
-              <div className="border-t border-brand-smoke-gray/20 py-4">
-                <div className="space-y-2">
-                  {tabs.map((tab) => {
-                    const Icon = tab.icon
-                    return (
-                      <Button
-                        key={tab.id}
-                        variant="ghost"
-                        onClick={() => {
-                          setActiveTab(tab.id)
-                          setMobileMenuOpen(false)
-                        }}
-                        className={`w-full justify-start flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                          activeTab === tab.id
-                            ? "bg-brand-primary-green text-brand-charcoal-black font-bold"
-                            : "text-brand-soft-white hover:bg-brand-charcoal-black-secondary hover:text-brand-primary-green"
-                        }`}
-                      >
-                        <Icon className="w-5 h-5" />
-                        <span className="font-medium">{tab.label}</span>
-                      </Button>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center justify-between px-6 py-3">
+        <div className="flex items-center space-x-8">
+          <Image
+            src="/images/ibet-sports-logo-v2.png"
+            alt="IBET Sports Logo"
+            width={120}
+            height={40}
+            className="h-10 lg:h-12 w-auto"
+          />
+          <div className="flex space-x-6">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  activeTab === item.id
+                    ? "text-brand-primary-green border-b-2 border-brand-primary-green"
+                    : "text-brand-soft-white hover:text-brand-primary-green"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
         </div>
+        <div className="flex items-center space-x-4">
+          <Button
+            variant="outline"
+            className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+          >
+            LOGIN
+          </Button>
+          <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
+            JOIN NOW
+          </Button>
+        </div>
       </div>
+
+      {/* Mobile Navigation */}
+      <div className="md:hidden flex items-center justify-between px-4 py-3">
+        <Image
+          src="/images/ibet-sports-logo-v2.png"
+          alt="IBET Sports Logo"
+          width={120}
+          height={40}
+          className="h-14 w-auto"
+        />
+        <div className="flex items-center space-x-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black text-xs px-3 py-1 rounded-full bg-transparent"
+          >
+            LOGIN
+          </Button>
+          <Button
+            size="sm"
+            className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold text-xs px-3 py-1 rounded-full"
+          >
+            JOIN NOW
+          </Button>
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-brand-soft-white p-2">
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-brand-charcoal-black-secondary border-t border-brand-smoke-gray/20">
+          <div className="px-4 py-2 space-y-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setActiveTab(item.id)
+                  setIsMobileMenuOpen(false)
+                }}
+                className={`block w-full text-left px-4 py-3 text-sm font-medium transition-colors ${
+                  activeTab === item.id
+                    ? "text-brand-primary-green bg-brand-primary-green/10"
+                    : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-smoke-gray/10"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
