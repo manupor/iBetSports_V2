@@ -5,105 +5,72 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Trophy,
-  Play,
-  Gift,
-  Gem,
-  Filter,
-  SortDesc,
-  ChevronRight,
-  Zap,
-  Crown,
-  Shield,
-  Clock,
-  Dices,
-  Wallet,
-  Target,
-  Eye,
-  Video,
-} from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Play, Gift, Gem, Filter, SortDesc, ChevronRight, Zap, Crown, Shield, Clock, Eye } from "lucide-react"
+
 import { TopNavigation } from "@/components/top-navigation"
-import { SideNav } from "@/components/side-nav"
-import { ChatSidebar } from "@/components/chat-sidebar"
-import { SportsbookContent } from "@/components/sportsbook-content"
-import { RacebookContent } from "@/components/racebook-content"
-import { LiveCasinoContent } from "@/components/live-casino-content"
-import { BankingContent } from "@/components/banking-content"
 import { Footer } from "@/components/footer"
+import CasinoTabContent from "@/components/casino-tab-content"
+import SportsbookTabContent from "@/components/sportsbook-tab-content"
+import RacebookTabContent from "@/components/racebook-tab-content"
+import LiveCasinoTabContent from "@/components/live-casino-tab-content"
+import BankingTabContent from "@/components/banking-tab-content"
+import PromotionsTabContent from "@/components/promotions-tab-content"
 
-// Import the component at the top
-import { IbetSportsCasinoContent } from "@/components/ibetsports-casino-content"
-
-// Main component with tab-based navigation
-export default function Page() {
-  // Update the main component to have "home" as default tab instead of "casino"
-  // Change the default activeTab from "casino" to "home"
+export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home")
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [chatOpen, setChatOpen] = useState(false)
-
-  // Update the tabs array to include "home" and reorder
-  const tabs = [
-    { id: "home", name: "Home", icon: Dices, href: "/" },
-    { id: "casino", name: "Casino", icon: Dices, href: "/" },
-    { id: "promotions", name: "Promotions", icon: Gift, href: "/promotions" },
-    { id: "sports", name: "Sports", icon: Trophy, href: "/" },
-    { id: "racebook", name: "Racebook", icon: Target, href: "/" },
-    { id: "livecasino", name: "Live Casino", icon: Video, href: "/" },
-    { id: "banking", name: "Banking", icon: Wallet, href: "/" },
-  ]
 
   return (
-    <div className="bg-black min-h-screen text-brand-soft-white font-poppins">
-      {/* Top Navigation Bar */}
-      <TopNavigation
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        onMenuClick={() => setSidebarOpen(!sidebarOpen)}
-        onChatClick={() => setChatOpen(!chatOpen)}
-      />
+    <div className="min-h-screen bg-brand-charcoal-black">
+      <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main Layout */}
-      <div className="flex">
-        {/* Overlay Sidebar - Only shows when opened */}
-        {sidebarOpen && (
-          <>
-            <div className="fixed inset-0 bg-black/50 z-40" onClick={() => setSidebarOpen(false)} />
-            <div className="fixed left-0 top-0 h-full w-80 md:w-80 w-full bg-brand-charcoal-black-secondary z-50 transform transition-transform">
-              <SideNav onClose={() => setSidebarOpen(false)} />
-            </div>
-          </>
-        )}
+      <main className="flex-1 transition-all duration-300">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="hidden">
+            <TabsTrigger value="home">Home</TabsTrigger>
+            <TabsTrigger value="casino">Casino</TabsTrigger>
+            <TabsTrigger value="sports">Sports</TabsTrigger>
+            <TabsTrigger value="racebook">Racebook</TabsTrigger>
+            <TabsTrigger value="live-casino">Live Casino</TabsTrigger>
+            <TabsTrigger value="banking">Banking</TabsTrigger>
+            <TabsTrigger value="promotions">Promotions</TabsTrigger>
+          </TabsList>
 
-        {/* Main Content - Full Width with bottom padding for mobile tabs */}
-        <main className="flex-1 min-h-screen pb-20 md:pb-0">
-          {/* Update the main content rendering to include both home and casino */}
-          {activeTab === "home" && <CasinoContent />}
-          {activeTab === "casino" && <IbetSportsCasinoContent />}
-          {activeTab === "promotions" && <PromotionsContent />}
-          {activeTab === "sports" && <SportsbookContent />}
-          {activeTab === "racebook" && <RacebookContent />}
-          {activeTab === "livecasino" && <LiveCasinoContent />}
-          {activeTab === "banking" && <BankingContent />}
-          <Footer />
-        </main>
+          <TabsContent value="home" className="mt-0">
+            <CasinoContent />
+          </TabsContent>
 
-        {/* Overlay Chat - Only shows when opened */}
-        {chatOpen && (
-          <>
-            <div className="fixed inset-0 bg-black/50 z-40" onClick={() => setChatOpen(false)} />
-            <div className="fixed right-0 top-0 h-full w-80 md:w-80 w-full bg-brand-charcoal-black-secondary z-50 transform transition-transform">
-              <ChatSidebar onClose={() => setChatOpen(false)} />
-            </div>
-          </>
-        )}
-      </div>
+          <TabsContent value="casino" className="mt-0">
+            <CasinoTabContent />
+          </TabsContent>
+
+          <TabsContent value="sports" className="mt-0">
+            <SportsbookTabContent />
+          </TabsContent>
+
+          <TabsContent value="racebook" className="mt-0">
+            <RacebookTabContent />
+          </TabsContent>
+
+          <TabsContent value="live-casino" className="mt-0">
+            <LiveCasinoTabContent />
+          </TabsContent>
+
+          <TabsContent value="banking" className="mt-0">
+            <BankingTabContent />
+          </TabsContent>
+
+          <TabsContent value="promotions" className="mt-0">
+            <PromotionsTabContent />
+          </TabsContent>
+        </Tabs>
+      </main>
+
+      <Footer />
     </div>
   )
 }
 
-// Casino Content with Enhanced Hero
 function CasinoContent() {
   const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
 
@@ -162,9 +129,7 @@ function CasinoContent() {
 
   return (
     <div>
-      {/* Hero Section - Different layout for mobile vs desktop */}
       <div className="relative w-full">
-        {/* Desktop Hero - Text overlay on image */}
         <div className="hidden md:block relative w-full h-[60vh] overflow-hidden bg-black">
           <div className="absolute inset-0 bg-black" />
           <Image
@@ -181,7 +146,6 @@ function CasinoContent() {
             <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
           </div>
 
-          {/* Desktop Bonus Expires box */}
           <div className="absolute bottom-8 right-12 z-20">
             <div className="bg-black/90 backdrop-blur-xl p-4 rounded-xl border border-brand-primary-green/40 shadow-xl">
               <div className="flex items-center space-x-2 mb-3">
@@ -211,9 +175,8 @@ function CasinoContent() {
             </div>
           </div>
 
-          {/* Desktop Hero text content */}
           <div className="absolute top-1/3 left-0 z-10 w-full max-w-3xl px-12 lg:px-24 text-left">
-            <div className="space-y-4 md:space-y-6 mb-16">
+            <div className="space-y-4 md:space-y-6 mb-8">
               <h1 className="text-4xl lg:text-5xl font-black leading-none tracking-tight">
                 <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
                 <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
@@ -221,13 +184,19 @@ function CasinoContent() {
               <p className="text-xl lg:text-2xl text-brand-smoke-gray font-medium leading-relaxed max-w-xl">
                 <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
               </p>
+              <p className="text-2xl lg:text-3xl text-brand-soft-white font-bold leading-relaxed max-w-xl">
+                Bet Smarter, Win Bigger
+              </p>
+            </div>
+            <div className="flex justify-end">
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
+                JOIN NOW
+              </Button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Hero - Image above, text below */}
         <div className="md:hidden">
-          {/* Mobile Image Section */}
           <div className="relative w-full h-[35vh] overflow-hidden">
             <Image
               src="/images/hero-mobile-stake.png"
@@ -236,17 +205,14 @@ function CasinoContent() {
               className="object-cover object-center"
               priority
             />
-            {/* Subtle overlay for mobile */}
             <div className="absolute inset-0 bg-black/10" />
 
-            {/* Mobile floating particles - simplified */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>
               <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-brand-vibrant-green/50 rounded-full animate-bounce"></div>
               <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
             </div>
 
-            {/* Mobile Bonus Expires box - top right */}
             <div className="absolute top-4 right-3 z-20">
               <div className="bg-black/90 backdrop-blur-xl p-2 rounded-lg border border-brand-primary-green/40 shadow-xl">
                 <div className="flex items-center space-x-1 mb-1">
@@ -277,7 +243,6 @@ function CasinoContent() {
             </div>
           </div>
 
-          {/* Mobile Text Section - Below image */}
           <div className="bg-brand-charcoal-black px-4 py-6">
             <div className="text-center space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight tracking-tight">
@@ -287,21 +252,19 @@ function CasinoContent() {
               <p className="text-base sm:text-lg text-brand-smoke-gray font-medium">
                 <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
               </p>
-              {/* Optional CTA button for mobile */}
-              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold px-8 py-3 text-lg rounded-full mt-4">
-                Get Started
+              <p className="text-lg sm:text-xl text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-10 py-3 text-xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                JOIN NOW
               </Button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* PROMOTIONS SECTION - Similar to BetUS layout */}
       <div className="w-full py-4 md:py-6 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
-          {/* Section Header */}
           <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white">PROMOTIONS</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white">IBET PROMOS KEEP YOU IN THE GAME</h2>
             <Button
               variant="outline"
               className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black text-sm md:text-base bg-transparent"
@@ -310,11 +273,9 @@ function CasinoContent() {
             </Button>
           </div>
 
-          {/* Promotions Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Crypto Bonus */}
             <Card
-              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden"
+              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden min-h-[400px]"
               style={{
                 backgroundImage: "url(/images/crypto-bull-neon.jpg)",
                 backgroundSize: "cover",
@@ -322,61 +283,73 @@ function CasinoContent() {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="absolute inset-0 bg-black/60"></div>
-              <div className="text-center space-y-4 flex-1 relative z-15">
-                <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand-primary-green/10 rounded-full flex items-center justify-center">
-                  <Gem className="w-8 h-8 md:w-10 md:h-10 text-brand-primary-green" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
+              <div className="flex-1"></div>
+              <div className="relative z-15 pb-2">
+                <div className="flex items-center justify-center space-x-3 mb-3">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-brand-primary-green/40">
+                    <Gem className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-3xl md:text-4xl font-black text-brand-primary-green drop-shadow-lg">200%</div>
+                    <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
+                      CRYPTO BONUS
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-black text-brand-primary-green">200%</div>
-                  <div className="text-lg md:text-xl font-bold text-brand-soft-white">CRYPTO BONUS</div>
-                  <div className="text-sm md:text-base text-brand-soft-white font-medium mt-2">
+                <div className="text-center">
+                  <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
                     Get up to $5,000 bonus on your crypto deposits
                   </div>
                 </div>
               </div>
               <Button
                 onClick={() => window.open("/promotions", "_blank")}
-                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-4 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-3 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 CLAIM NOW
               </Button>
             </Card>
 
-            {/* Sign Up Bonus */}
             <Card
-              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden"
+              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden min-h-[400px]"
               style={{
-                backgroundImage: "url(/images/signup-bonus-celebration.jpg)",
+                backgroundImage: "url(/images/mma-fighters-promo.jpg)",
                 backgroundSize: "cover",
-                backgroundPosition: "left center",
+                backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="absolute inset-0 bg-black/60"></div>
-              <div className="text-center space-y-4 flex-1 relative z-10">
-                <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand-vibrant-green/10 rounded-full flex items-center justify-center">
-                  <Gift className="w-8 h-8 md:w-10 md:h-10 text-brand-vibrant-green" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
+              <div className="flex-1"></div>
+              <div className="relative z-15 pb-2">
+                <div className="flex items-center justify-center space-x-3 mb-3">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-vibrant-green/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-brand-vibrant-green/40">
+                    <Gift className="w-6 h-6 md:w-7 md:h-7 text-brand-vibrant-green" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-3xl md:text-4xl font-black text-brand-vibrant-green drop-shadow-lg">125%</div>
+                    <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
+                      SIGN UP BONUS
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-black text-brand-vibrant-green">125%</div>
-                  <div className="text-lg md:text-xl font-bold text-brand-soft-white">SIGN UP BONUS</div>
-                  <div className="text-sm md:text-base text-brand-soft-white font-medium mt-2">
+                <div className="text-center">
+                  <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
                     Welcome bonus on your first 3 deposits
                   </div>
                 </div>
               </div>
               <Button
                 onClick={() => window.open("/promotions", "_blank")}
-                className="w-full bg-brand-vibrant-green hover:bg-brand-vibrant-green-dark text-brand-charcoal-black font-bold py-3 mt-4 relative z-20"
+                className="w-full bg-brand-vibrant-green hover:bg-brand-vibrant-green-dark font-bold py-3 mt-3 text-brand-charcoal-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 GET STARTED
               </Button>
             </Card>
 
-            {/* Casino Bonus */}
             <Card
-              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden"
+              className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex flex-col relative overflow-hidden min-h-[400px]"
               style={{
                 backgroundImage: "url(/images/777.png)",
                 backgroundSize: "cover",
@@ -384,26 +357,32 @@ function CasinoContent() {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="absolute inset-0 bg-black/50"></div>
-              <div className="text-center space-y-4 flex-1 relative z-10">
-                <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-brand-primary-green/10 rounded-full flex items-center justify-center">
-                  <Crown className="w-8 h-8 md:w-10 md:h-10 text-brand-primary-green" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
+              <div className="flex-1"></div>
+              <div className="relative z-15 pb-2">
+                <div className="flex items-center justify-center space-x-3 mb-3">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-brand-primary-green/40">
+                    <Crown className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-3xl md:text-4xl font-black text-brand-primary-green drop-shadow-lg">200%</div>
+                    <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
+                      CASINO BONUS
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-black text-brand-primary-green">200%</div>
-                  <div className="text-lg md:text-xl font-bold text-brand-soft-white">CASINO BONUS</div>
-                  <div className="text-sm md:text-base text-brand-soft-white font-medium mt-2">
+                <div className="text-center">
+                  <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
                     Exclusive casino bonus + free spins
                   </div>
                 </div>
               </div>
-              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-4 text-black relative z-20">
+              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold py-3 mt-3 text-black relative z-20 shadow-lg hover:shadow-xl transition-all duration-300">
                 PLAY NOW
               </Button>
             </Card>
           </div>
 
-          {/* Trust Indicators */}
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-brand-smoke-gray/30">
             <div className="flex items-center space-x-3">
               <Shield className="w-6 h-6 text-brand-primary-green" />
@@ -421,12 +400,15 @@ function CasinoContent() {
         </div>
       </div>
 
-      {/* GAMING OPTIONS SECTION */}
       <div className="w-full bg-brand-charcoal-black py-4 md:py-0.5">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
-          {/* Section Header */}
-          <div className="flex items-center justify-between mb-4 md:mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white">GAMING OPTIONS</h2>
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
+            <div className="mb-3 sm:mb-4 md:mb-0">
+              <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
+                GAMING OPTIONS
+              </h3>
+              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">Explore our gaming options</p>
+            </div>
             <Button
               variant="outline"
               className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-white text-sm md:text-base bg-transparent"
@@ -435,7 +417,6 @@ function CasinoContent() {
             </Button>
           </div>
 
-          {/* Gaming Options Grid */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
             {[
               {
@@ -483,9 +464,7 @@ function CasinoContent() {
                   <div className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-80`}></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-                  {/* Content - Fixed positioning for consistent alignment */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
-                    {/* Button container - Always at bottom */}
                     <div className="mb-3 md:mb-4">
                       <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm text-black">
                         <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
@@ -493,7 +472,6 @@ function CasinoContent() {
                       </Button>
                     </div>
 
-                    {/* Title container - Fixed height for alignment */}
                     <div className="h-12 md:h-16 flex flex-col justify-center">
                       <h3 className="text-white font-bold text-sm md:text-lg mb-1 drop-shadow-lg leading-tight">
                         {option.title}
@@ -510,10 +488,7 @@ function CasinoContent() {
         </div>
       </div>
 
-      {/* ONLINE CASINO SECTION - Dark Green Background */}
-      {/* ONLINE CASINO SECTION - Black Background with Casino Elements */}
       <div className="w-full relative bg-brand-charcoal-black py-6 md:py-10 overflow-hidden">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
             src="/images/casino-background.png"
@@ -524,7 +499,6 @@ function CasinoContent() {
           <div className="absolute inset-0"></div>
         </div>
 
-        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 text-center">
           <div className="space-y-6 md:space-y-8">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-soft-white">ONLINE CASINO</h2>
@@ -546,10 +520,8 @@ function CasinoContent() {
         </div>
       </div>
 
-      {/* Main Content Sections - Mobile optimized */}
       <div className="px-3 sm:px-4 md:px-12 py-6 sm:py-8 md:py-12 bg-brand-charcoal-black space-y-6 sm:space-y-8 md:space-y-12">
         <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 md:space-y-12">
-          {/* Originals Section - Mobile optimized */}
           <div>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
               <div className="mb-3 sm:mb-4 md:mb-0">
@@ -597,7 +569,6 @@ function CasinoContent() {
             </div>
           </div>
 
-          {/* Popular Slots Section - Mobile optimized */}
           <div>
             <div className="mb-3 sm:mb-4 md:mb-0">
               <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
@@ -610,14 +581,14 @@ function CasinoContent() {
                 variant="ghost"
                 className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
               >
-                <Filter className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+                <Filter className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:w-5 mr-1 sm:mr-2 md:mr-3" />
                 Filter
               </Button>
               <Button
                 variant="ghost"
                 className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
               >
-                <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
+                <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:w-5 mr-1 sm:mr-2 md:mr-3" />
                 Sort
               </Button>
             </div>
@@ -626,7 +597,6 @@ function CasinoContent() {
             {popularSlots.map((game) => (
               <div key={game.name} className="group relative">
                 <div className="rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden relative aspect-[3/4]">
-                  {/* Game artwork - only render Image if not European Roulette */}
                   {game.name !== "European Roulette" ? (
                     <Image
                       src={game.image || "/placeholder.svg"}
@@ -687,7 +657,7 @@ function CasinoContent() {
                         variant="outline"
                         className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg bg-transparent"
                       >
-                        <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
+                        <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
                         More Info
                       </Button>
                     </div>
@@ -701,7 +671,6 @@ function CasinoContent() {
           </div>
         </div>
 
-        {/* Recent Bets Section - Mobile optimized */}
         <div>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
             <div className="mb-3 sm:mb-4 md:mb-0">
@@ -751,15 +720,6 @@ function CasinoContent() {
           </div>
         </div>
       </div>
-    </div>
-  )
-}
-
-function PromotionsContent() {
-  return (
-    <div>
-      <h1>Promotions Content</h1>
-      <p>This is the promotions content.</p>
     </div>
   )
 }
