@@ -33,7 +33,7 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
               alt="Casino Logo"
               width={200}
               height={45}
-              className="h-10 w-auto md:h-8"
+              className="h-12 w-auto md:h-10"
             />
           </div>
 
@@ -81,15 +81,13 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
           <div className="md:hidden">
             <div className="flex items-center justify-between w-full">
               {/* Mobile Logo - Left Aligned */}
-              <div className="flex items-center">
-                <Image
-                  src="/images/ibet-sports-logo-v2.png"
-                  alt="Casino Logo"
-                  width={160}
-                  height={35}
-                  className="h-8 w-auto"
-                />
-              </div>
+              <Image
+                src="/images/ibet-sports-logo-v2.png"
+                alt="Casino Logo"
+                width={150}
+                height={35}
+                className="h-10 w-auto"
+              />
 
               {/* Mobile Auth Buttons - Center/Right */}
               <div className="flex items-center space-x-2">
