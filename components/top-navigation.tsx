@@ -77,61 +77,78 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Navigation */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-brand-soft-white hover:bg-brand-charcoal-black-secondary"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </Button>
+            <div className="flex items-center justify-between w-full">
+              {/* Mobile Logo - Left Aligned */}
+              <div className="flex items-center">
+                <Image
+                  src="/images/ibet-sports-logo.png"
+                  alt="Casino Logo"
+                  width={160}
+                  height={35}
+                  className="h-8 w-auto"
+                />
+              </div>
+
+              {/* Mobile Auth Buttons - Center/Right */}
+              <div className="flex items-center space-x-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent text-xs px-3 py-1.5 rounded-full"
+                >
+                  LOGIN
+                </Button>
+                <Button
+                  size="sm"
+                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold text-xs px-3 py-1.5 rounded-full"
+                >
+                  GET STARTED
+                </Button>
+
+                {/* Mobile Menu Button */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="text-brand-soft-white hover:bg-brand-charcoal-black-secondary p-2 ml-2"
+                >
+                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </Button>
+              </div>
+            </div>
+
+            {/* Mobile Menu (Conditionally Rendered) */}
+            {mobileMenuOpen && (
+              <div className="border-t border-brand-smoke-gray/20 py-4">
+                <div className="space-y-2">
+                  {tabs.map((tab) => {
+                    const Icon = tab.icon
+                    return (
+                      <Button
+                        key={tab.id}
+                        variant="ghost"
+                        onClick={() => {
+                          setActiveTab(tab.id)
+                          setMobileMenuOpen(false)
+                        }}
+                        className={`w-full justify-start flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                          activeTab === tab.id
+                            ? "bg-brand-primary-green text-brand-charcoal-black font-bold"
+                            : "text-brand-soft-white hover:bg-brand-charcoal-black-secondary hover:text-brand-primary-green"
+                        }`}
+                      >
+                        <Icon className="w-5 h-5" />
+                        <span className="font-medium">{tab.label}</span>
+                      </Button>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-brand-smoke-gray/20 py-4">
-            <div className="space-y-2">
-              {tabs.map((tab) => {
-                const Icon = tab.icon
-                return (
-                  <Button
-                    key={tab.id}
-                    variant="ghost"
-                    onClick={() => {
-                      setActiveTab(tab.id)
-                      setMobileMenuOpen(false)
-                    }}
-                    className={`w-full justify-start flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                      activeTab === tab.id
-                        ? "bg-brand-primary-green text-brand-charcoal-black font-bold"
-                        : "text-brand-soft-white hover:bg-brand-charcoal-black-secondary hover:text-brand-primary-green"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span className="font-medium">{tab.label}</span>
-                  </Button>
-                )
-              })}
-            </div>
-
-            {/* Mobile Auth Buttons */}
-            <div className="mt-6 space-y-3 px-4">
-              <Button
-                variant="outline"
-                className="w-full border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
-              >
-                <LogIn className="w-4 h-4 mr-2" />
-                Login
-              </Button>
-              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
-                <User className="w-4 h-4 mr-2" />
-                Sign Up
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   )
