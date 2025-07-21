@@ -1,135 +1,24 @@
 "use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
-export function BankingContent() {
+export function LiveCasinoContent() {
   return (
     <section className="px-4 md:px-12 py-12 md:py-20 bg-brand-charcoal-black text-brand-soft-white">
       <div className="max-w-7xl mx-auto space-y-12">
-        {/* Banking Banner */}
+        {/* Live Casino Iframe */}
         <div className="w-full">
-          <img src="/banking-banner-secure-payments.png" alt="Banking Banner" className="w-full h-auto rounded-lg" />
-        </div>
-
-        {/* Banking Introduction */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-brand-electric-green">Banking</h1>
-          <p className="text-lg md:text-xl text-brand-smoke-gray max-w-2xl mx-auto">
-            There are multiple ways to fund your account. Review the information below and choose an option that suits
-            your needs.
-          </p>
-        </div>
-
-        {/* Banking Tabs */}
-        <Tabs defaultValue="deposits" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 bg-brand-charcoal-black/50 border border-brand-electric-green/30 rounded-full p-2">
-            <TabsTrigger
-              value="deposits"
-              className="rounded-full data-[state=active]:bg-brand-electric-green data-[state=active]:text-brand-charcoal-black font-bold uppercase"
-            >
-              Deposits
-            </TabsTrigger>
-            <TabsTrigger
-              value="withdrawals"
-              className="rounded-full data-[state=active]:bg-brand-electric-green data-[state=active]:text-brand-charcoal-black font-bold uppercase"
-            >
-              Withdrawal
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="deposits" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Crypto Deposits */}
-              <Card className="bg-gradient-to-br from-brand-electric-green/20 to-brand-neon-yellow/20 border-brand-electric-green/30">
-                <CardContent className="p-6 text-center space-y-4">
-                  <img src="/cryptocurrency-payment-logo.png" alt="Crypto Payment" className="mx-auto h-16" />
-                  <Button className="w-full bg-brand-electric-green text-brand-charcoal-black hover:bg-brand-neon-yellow font-bold">
-                    Deposit Now
-                  </Button>
-                  <p className="text-sm text-brand-smoke-gray">*Minimum deposit $25</p>
-                </CardContent>
-              </Card>
-
-              {/* Credit Card Deposits */}
-              <Card className="bg-gradient-to-br from-brand-electric-green/20 to-brand-neon-yellow/20 border-brand-electric-green/30">
-                <CardContent className="p-6 text-center space-y-4">
-                  <img src="/credit-card-payment-logos.png" alt="Credit Card Payment" className="mx-auto h-16" />
-                  <Button className="w-full bg-brand-electric-green text-brand-charcoal-black hover:bg-brand-neon-yellow font-bold">
-                    Deposit Now
-                  </Button>
-                  <p className="text-sm text-brand-smoke-gray">*Minimum deposit $50</p>
-                </CardContent>
-              </Card>
-
-              {/* P2P Deposits */}
-              <Card className="bg-gradient-to-br from-brand-electric-green/20 to-brand-neon-yellow/20 border-brand-electric-green/30">
-                <CardContent className="p-6 text-center space-y-4">
-                  <img src="/peer-to-peer-payment-logo.png" alt="P2P Payment" className="mx-auto h-16" />
-                  <Button className="w-full bg-brand-electric-green text-brand-charcoal-black hover:bg-brand-neon-yellow font-bold">
-                    Deposit Now
-                  </Button>
-                  <p className="text-sm text-brand-smoke-gray">*Minimum deposit $50</p>
-                </CardContent>
-              </Card>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="withdrawals" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {/* Crypto Withdrawals */}
-              <Card className="bg-gradient-to-br from-brand-electric-green/20 to-brand-neon-yellow/20 border-brand-electric-green/30">
-                <CardContent className="p-6 text-center space-y-4">
-                  <img src="/cryptocurrency-payment-logo.png" alt="Crypto Payment" className="mx-auto h-16" />
-                  <Button className="w-full bg-brand-electric-green text-brand-charcoal-black hover:bg-brand-neon-yellow font-bold">
-                    Withdraw Now
-                  </Button>
-                  <p className="text-sm text-brand-smoke-gray">Request your payout online NOW!</p>
-                </CardContent>
-              </Card>
-
-              {/* P2P Withdrawals */}
-              <Card className="bg-gradient-to-br from-brand-electric-green/20 to-brand-neon-yellow/20 border-brand-electric-green/30">
-                <CardContent className="p-6 text-center space-y-4">
-                  <img src="/peer-to-peer-payment-logo.png" alt="P2P Payment" className="mx-auto h-16" />
-                  <Button className="w-full bg-brand-electric-green text-brand-charcoal-black hover:bg-brand-neon-yellow font-bold">
-                    Withdraw Now
-                  </Button>
-                  <p className="text-sm text-brand-smoke-gray">Request your payout online NOW!</p>
-                </CardContent>
-              </Card>
-            </div>
-          </TabsContent>
-        </Tabs>
-
-        {/* Banking Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {[
-            {
-              title: "Instant Deposits",
-              desc: "Top-up your balance instantly using cards or crypto.",
-            },
-            {
-              title: "Fast Withdrawals",
-              desc: "Most payouts are processed under 10 minutes.",
-            },
-            {
-              title: "Secure Payments",
-              desc: "All transactions are protected by SSL encryption.",
-            },
-            {
-              title: "24/7 Support",
-              desc: "Need help? Our payment team is always online.",
-            },
-          ].map((item) => (
-            <Card key={item.title} className="bg-brand-charcoal-black/50 border-brand-electric-green/30">
-              <CardContent className="p-6">
-                <h3 className="font-bold text-xl mb-2 text-brand-electric-green">{item.title}</h3>
-                <p className="text-brand-smoke-gray">{item.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
+          <iframe
+            src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_LIVE"
+            width="100%"
+            height="1000"
+            className="border-0 rounded-lg"
+            allowFullScreen
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          />
         </div>
 
         {/* Promotional Cards */}
@@ -323,6 +212,64 @@ export function BankingContent() {
               </Dialog>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Live Casino Information */}
+        <div className="space-y-8 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-brand-electric-green">
+            Play Your Favorite Games in Our Immersive Live Casino
+          </h2>
+
+          <p className="text-lg md:text-xl text-brand-smoke-gray max-w-4xl mx-auto">
+            Enjoy real-time excitement with our Live Dealer Casino, where the action is streamed directly to you in
+            high-definition. With a range of classic games like Live Blackjack, Live Baccarat, Live Roulette, and Live
+            Craps, you can enjoy the thrill of a land-based casino from the comfort of your own space.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            {[
+              {
+                title: "Live Blackjack",
+                desc: "Challenge the dealer in real time and use strategy to get closer to 21.",
+              },
+              {
+                title: "Live Roulette",
+                desc: "Experience the suspenseful spins with our professional dealers.",
+              },
+              {
+                title: "Live Baccarat",
+                desc: "Enjoy the elegance of this classic card game with live streaming.",
+              },
+              {
+                title: "HD Streaming",
+                desc: "Crystal clear video quality brings the casino to your screen.",
+              },
+              {
+                title: "Professional Dealers",
+                desc: "Interact with experienced dealers in real-time chat.",
+              },
+              {
+                title: "24/7 Availability",
+                desc: "Play anytime, anywhere on desktop or mobile devices.",
+              },
+            ].map((feature) => (
+              <Card key={feature.title} className="bg-brand-charcoal-black/50 border-brand-electric-green/30">
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-xl mb-2 text-brand-electric-green">{feature.title}</h3>
+                  <p className="text-brand-smoke-gray">{feature.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="pt-8">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-brand-electric-green to-brand-neon-yellow text-brand-charcoal-black hover:from-brand-neon-yellow hover:to-brand-electric-green font-bold px-8 py-4 text-lg"
+            >
+              Join Live Casino Now
+            </Button>
+          </div>
         </div>
       </div>
     </section>

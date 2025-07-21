@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Trophy, Gift, Wallet, Dices, Menu, MessageCircle, X, User } from "lucide-react"
+import { Trophy, Gift, Wallet, Dices, Menu, MessageCircle, X, User, Target, Video } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -15,7 +15,7 @@ interface TopNavigationProps {
 }
 
 export function TopNavigation({
-  activeTab = "casino",
+  activeTab = "home",
   setActiveTab,
   onMenuClick,
   onChatClick,
@@ -25,9 +25,12 @@ export function TopNavigation({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const tabs = [
+    { id: "home", name: "Home", icon: Dices, href: "/" },
     { id: "casino", name: "Casino", icon: Dices, href: "/" },
     { id: "promotions", name: "Promotions", icon: Gift, href: "/promotions" },
-    { id: "sportsbook", name: "Sportsbook", icon: Trophy, href: "/" },
+    { id: "sports", name: "Sports", icon: Trophy, href: "/" },
+    { id: "racebook", name: "Racebook", icon: Target, href: "/" },
+    { id: "livecasino", name: "Live Casino", icon: Video, href: "/" },
     { id: "banking", name: "Banking", icon: Wallet, href: "/" },
   ]
 

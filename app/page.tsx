@@ -10,29 +10,49 @@ import {
   Play,
   Gift,
   Gem,
-  BarChart,
   Filter,
   SortDesc,
-  Eye,
   ChevronRight,
-  RefreshCw,
   Zap,
   Crown,
   Shield,
   Clock,
+  Dices,
+  Wallet,
+  Target,
+  Eye,
+  Video,
 } from "lucide-react"
 import { TopNavigation } from "@/components/top-navigation"
 import { SideNav } from "@/components/side-nav"
 import { ChatSidebar } from "@/components/chat-sidebar"
 import { SportsbookContent } from "@/components/sportsbook-content"
+import { RacebookContent } from "@/components/racebook-content"
+import { LiveCasinoContent } from "@/components/live-casino-content"
 import { BankingContent } from "@/components/banking-content"
 import { Footer } from "@/components/footer"
 
+// Import the component at the top
+import { IbetSportsCasinoContent } from "@/components/ibetsports-casino-content"
+
 // Main component with tab-based navigation
 export default function Page() {
-  const [activeTab, setActiveTab] = useState("casino")
+  // Update the main component to have "home" as default tab instead of "casino"
+  // Change the default activeTab from "casino" to "home"
+  const [activeTab, setActiveTab] = useState("home")
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [chatOpen, setChatOpen] = useState(false)
+
+  // Update the tabs array to include "home" and reorder
+  const tabs = [
+    { id: "home", name: "Home", icon: Dices, href: "/" },
+    { id: "casino", name: "Casino", icon: Dices, href: "/" },
+    { id: "promotions", name: "Promotions", icon: Gift, href: "/promotions" },
+    { id: "sports", name: "Sports", icon: Trophy, href: "/" },
+    { id: "racebook", name: "Racebook", icon: Target, href: "/" },
+    { id: "livecasino", name: "Live Casino", icon: Video, href: "/" },
+    { id: "banking", name: "Banking", icon: Wallet, href: "/" },
+  ]
 
   return (
     <div className="bg-black min-h-screen text-brand-soft-white font-poppins">
@@ -58,9 +78,13 @@ export default function Page() {
 
         {/* Main Content - Full Width with bottom padding for mobile tabs */}
         <main className="flex-1 min-h-screen pb-20 md:pb-0">
-          {activeTab === "casino" && <CasinoContent />}
+          {/* Update the main content rendering to include both home and casino */}
+          {activeTab === "home" && <CasinoContent />}
+          {activeTab === "casino" && <IbetSportsCasinoContent />}
           {activeTab === "promotions" && <PromotionsContent />}
-          {activeTab === "sportsbook" && <SportsbookContent />}
+          {activeTab === "sports" && <SportsbookContent />}
+          {activeTab === "racebook" && <RacebookContent />}
+          {activeTab === "livecasino" && <LiveCasinoContent />}
           {activeTab === "banking" && <BankingContent />}
           <Footer />
         </main>
@@ -464,7 +488,7 @@ function CasinoContent() {
                     {/* Button container - Always at bottom */}
                     <div className="mb-3 md:mb-4">
                       <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm text-black">
-                        <Play className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                        <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
                         Play Now
                       </Button>
                     </div>
@@ -593,7 +617,7 @@ function CasinoContent() {
                 variant="ghost"
                 className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
               >
-                <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:w-5 mr-1 sm:mr-2 md:mr-3" />
+                <SortDesc className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
                 Sort
               </Button>
             </div>
@@ -657,144 +681,68 @@ function CasinoContent() {
                     <div className="relative z-10 flex flex-col items-center justify-center">
                       <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold mb-1 sm:mb-2 md:mb-4 px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg">
                         <Play className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" />
-                        Play
+                        Play Now
                       </Button>
                       <Button
-                        variant="ghost"
-                        className="text-brand-soft-white hover:text-brand-primary-green px-2 sm:px-3 md:px-6 py-1 sm:py-2 md:py-3 text-xs sm:text-sm"
+                        variant="outline"
+                        className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 sm:px-4 md:px-8 py-1 sm:py-2 md:py-4 text-xs sm:text-sm md:text-lg bg-transparent"
                       >
                         <Eye className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 md:mr-2" />
-                        Demo
+                        More Info
                       </Button>
                     </div>
                   </div>
                 </div>
-                <div className="mt-2 sm:mt-3 md:mt-6">
-                  <h4 className="font-semibold text-brand-soft-white text-sm sm:text-base md:text-xl">{game.name}</h4>
-                  <p className="text-brand-smoke-gray text-xs sm:text-sm md:text-lg">RTP: {game.rtp}</p>
+                <div className="mt-2 sm:mt-3 md:mt-4 text-center">
+                  <div className="font-bold text-sm sm:text-lg md:text-xl text-brand-soft-white">{game.name}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Live Bets Section - Mobile optimized */}
+        {/* Recent Bets Section - Mobile optimized */}
         <div>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
             <div className="mb-3 sm:mb-4 md:mb-0">
               <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
-                Live Bets
+                Recent Bets
               </h3>
-              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">Real-time betting activity</p>
+              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">See what others are winning</p>
             </div>
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <Button className="bg-brand-charcoal-black-tertiary text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg">
-                <BarChart className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" /> All Bets
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-2 sm:px-3 md:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-lg"
-              >
-                <Trophy className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 md:mr-3" /> Big Wins
-              </Button>
-            </div>
+            <Button
+              variant="outline"
+              className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg self-start"
+            >
+              View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-1 sm:ml-2 md:ml-3" />
+            </Button>
           </div>
-          <div className="bg-brand-charcoal-black-secondary/30 backdrop-blur-sm rounded-xl sm:rounded-2xl md:rounded-3xl border border-brand-smoke-gray/20 overflow-hidden">
-            {/* Mobile version - Enhanced */}
-            <div className="md:hidden space-y-3 sm:space-y-4 p-3 sm:p-4">
-              {bets.slice(0, 8).map((bet, index) => (
-                <div
-                  key={index}
-                  className="bg-brand-charcoal-black-secondary/50 border border-brand-smoke-gray/30 p-3 sm:p-4 rounded-lg sm:rounded-xl"
-                >
-                  <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <div className="flex items-center space-x-2 sm:space-x-3">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-brand-primary-green to-brand-vibrant-green rounded-full"></div>
-                      <div>
-                        <span className="font-bold text-brand-soft-white text-xs sm:text-sm">{bet.user}</span>
-                        <div className="text-brand-smoke-gray text-xs">{bet.time}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-1 sm:space-x-2">
-                      <Gem className="w-3 h-3 sm:w-4 sm:h-4 text-brand-primary-green" />
-                      <span className="text-brand-soft-white text-xs sm:text-sm">{bet.game}</span>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
-                    <div>
-                      <div className="text-brand-smoke-gray text-xs">Bet</div>
-                      <div className="font-bold text-brand-soft-white text-xs sm:text-sm">${bet.amount.toFixed(0)}</div>
-                    </div>
-                    <div>
-                      <div className="text-brand-smoke-gray text-xs">Mult</div>
-                      <div
-                        className={`font-bold text-xs sm:text-sm ${bet.mult > 1 ? "text-brand-primary-green" : bet.mult === 0 ? "text-brand-primary-green" : "text-brand-soft-white"}`}
-                      >
-                        {bet.mult > 0 ? `${bet.mult.toFixed(2)}x` : "BUST"}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-brand-smoke-gray text-xs">Profit</div>
-                      <div
-                        className={`font-bold text-xs sm:text-sm ${bet.profit > 0 ? "text-brand-primary-green" : "text-brand-primary-green"}`}
-                      >
-                        {bet.profit > 0 ? "+" : ""}${bet.profit.toFixed(0)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Desktop table - unchanged */}
-            <table className="hidden md:table w-full">
-              <thead className="bg-brand-charcoal-black-tertiary/20">
-                <tr className="text-brand-smoke-gray uppercase text-lg">
-                  <th className="p-8 text-left">Player</th>
-                  <th className="p-8 text-left">Game</th>
-                  <th className="p-8 text-left">Time</th>
-                  <th className="p-8 text-left">Bet Amount</th>
-                  <th className="p-8 text-left">Multiplier</th>
-                  <th className="p-8 text-left">Profit</th>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead className="text-xs sm:text-sm md:text-base text-brand-smoke-gray uppercase">
+                <tr>
+                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">User</th>
+                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">Game</th>
+                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">Time</th>
+                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Amount</th>
+                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Mult</th>
+                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Profit</th>
                 </tr>
               </thead>
               <tbody>
                 {bets.map((bet, index) => (
-                  <tr
-                    key={index}
-                    className="border-b border-brand-smoke-gray/10 hover:bg-brand-charcoal-black-tertiary/10 transition-colors"
-                  >
-                    <td className="p-8">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 bg-gradient-to-br from-brand-primary-green to-brand-vibrant-green rounded-full"></div>
-                        <span className="font-bold text-brand-soft-white text-lg">{bet.user}</span>
-                      </div>
+                  <tr key={index} className="text-sm sm:text-base md:text-lg border-b border-brand-smoke-gray/20">
+                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.user}</td>
+                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.game}</td>
+                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-smoke-gray">{bet.time}</td>
+                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                      ${bet.amount.toFixed(2)}
                     </td>
-                    <td className="p-8">
-                      <div className="flex items-center space-x-3">
-                        <Gem className="w-5 h-5 text-brand-primary-green" />
-                        <span className="text-brand-soft-white text-lg">{bet.game}</span>
-                      </div>
+                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                      {bet.mult.toFixed(2)}x
                     </td>
-                    <td className="p-8 text-brand-smoke-gray text-lg">{bet.time}</td>
-                    <td className="p-8 font-bold text-brand-soft-white text-lg">${bet.amount.toFixed(2)}</td>
-                    <td
-                      className={`p-8 font-bold text-lg ${
-                        bet.mult > 1
-                          ? "text-brand-primary-green"
-                          : bet.mult === 0
-                            ? "text-brand-primary-green"
-                            : "text-brand-soft-white"
-                      }`}
-                    >
-                      {bet.mult > 0 ? `${bet.mult.toFixed(2)}x` : "BUST"}
-                    </td>
-                    <td
-                      className={`p-8 font-bold text-lg ${
-                        bet.profit > 0 ? "text-brand-primary-green" : "text-brand-primary-green"
-                      }`}
-                    >
-                      {bet.profit > 0 ? "+" : ""}${bet.profit.toFixed(2)}
+                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                      ${bet.profit.toFixed(2)}
                     </td>
                   </tr>
                 ))}
@@ -807,214 +755,11 @@ function CasinoContent() {
   )
 }
 
-// Promotions Content
 function PromotionsContent() {
-  const promotions = [
-    {
-      title: "Welcome Bonus",
-      description: "Get up to $5,000 + 200 Free Spins",
-      type: "New Players",
-      value: "$5,000",
-      icon: Gift,
-      expires: "No Expiry",
-      code: "WELCOME5K",
-      color: "from-brand-primary-green to-brand-primary-green-dark",
-    },
-    {
-      title: "Daily Cashback",
-      description: "10% cashback on all losses",
-      type: "Daily",
-      value: "10%",
-      icon: RefreshCw,
-      expires: "Daily Reset",
-      code: "CASHBACK10",
-      color: "from-brand-primary-green to-brand-primary-green-dark",
-    },
-    {
-      title: "Weekend Reload",
-      description: "50% bonus up to $1,000",
-      type: "Weekend",
-      value: "$1,000",
-      icon: Zap,
-      expires: "2 days",
-      code: "WEEKEND50",
-      color: "from-brand-primary-green to-brand-primary-green-dark",
-    },
-    {
-      title: "VIP Exclusive",
-      description: "Monthly bonus for VIP members",
-      type: "VIP Only",
-      value: "$2,500",
-      icon: Crown,
-      expires: "Monthly",
-      code: "VIP2500",
-      color: "from-brand-vibrant-green to-brand-vibrant-green-dark",
-    },
-  ]
-
-  const tournaments = [
-    { name: "Slot Tournament", prize: "$50,000", participants: "2,847", timeLeft: "2d 14h", status: "Active" },
-    { name: "Blackjack Championship", prize: "$25,000", participants: "1,234", timeLeft: "5d 8h", status: "Active" },
-    { name: "Crypto Cup", prize: "$100,000", participants: "5,621", timeLeft: "Starting Soon", status: "Upcoming" },
-  ]
-
   return (
-    <div className="px-4 md:px-12 py-12 md:py-20 bg-brand-charcoal-black">
-      <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
-        <div className="text-center space-y-6 md:space-y-8">
-          <h1 className="text-5xl md:text-7xl font-bold">
-            <span className="text-brand-soft-white">Amazing</span>{" "}
-            <span className="bg-gradient-to-r from-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent">
-              Promotions
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-brand-smoke-gray max-w-3xl mx-auto">
-            Boost your gameplay with our exclusive bonuses, cashback offers, and exciting tournaments
-          </p>
-        </div>
-
-        <div>
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 md:mb-12">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4 text-brand-soft-white">Active Promotions</h3>
-              <p className="text-brand-smoke-gray text-lg md:text-xl">Claim your bonuses now</p>
-            </div>
-            <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg self-start">
-              <Gift className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-              View All Offers
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {promotions.map((promo, index) => (
-              <div
-                key={index}
-                className={`bg-gradient-to-br ${promo.color} p-6 md:p-8 rounded-2xl md:rounded-3xl relative overflow-hidden`}
-              >
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4 md:mb-6">
-                    <div className="flex items-center space-x-3">
-                      <promo.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-soft-white" />
-                      <Badge className="bg-black/20 text-brand-soft-white px-2 md:px-3 py-1">{promo.type}</Badge>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl md:text-3xl font-bold text-brand-soft-white">{promo.value}</div>
-                      <div className="text-xs md:text-sm opacity-80 text-brand-soft-white">Max Bonus</div>
-                    </div>
-                  </div>
-                  <div className="space-y-3 md:space-y-4">
-                    <h4 className="text-xl md:text-2xl font-bold text-brand-soft-white">{promo.title}</h4>
-                    <p className="text-base md:text-lg opacity-90 text-brand-soft-white">{promo.description}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="space-y-1">
-                        <div className="text-xs md:text-sm opacity-80 text-brand-soft-white">Promo Code</div>
-                        <div className="font-bold bg-black/20 px-2 md:px-3 py-1 rounded-lg inline-block text-sm text-brand-soft-white">
-                          {promo.code}
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-xs md:text-sm opacity-80 text-brand-soft-white">Expires</div>
-                        <div className="font-bold text-sm text-brand-soft-white">{promo.expires}</div>
-                      </div>
-                    </div>
-                    <Button className="w-full bg-black/20 hover:bg-black/30 text-brand-soft-white font-bold py-2 md:py-3 mt-4 md:mt-6">
-                      Claim Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 md:mb-12">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4 text-brand-soft-white">Tournaments</h3>
-              <p className="text-brand-smoke-gray text-lg md:text-xl">Compete for massive prizes</p>
-            </div>
-            <Button
-              variant="outline"
-              className="border-brand-vibrant-green text-brand-vibrant-green hover:bg-brand-vibrant-green hover:text-brand-charcoal-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg bg-transparent self-start"
-            >
-              <Trophy className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-              All Tournaments
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {tournaments.map((tournament, index) => (
-              <div
-                key={index}
-                className="bg-brand-charcoal-black-secondary/50 border border-brand-smoke-gray/30 p-6 md:p-8 rounded-2xl md:rounded-3xl"
-              >
-                <div className="space-y-4 md:space-y-6">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-xl md:text-2xl font-bold text-brand-soft-white">{tournament.name}</h4>
-                    <Badge
-                      className={`${tournament.status === "Active" ? "bg-brand-primary-green/20 text-brand-primary-green border-brand-primary-green/30" : "bg-brand-vibrant-green/20 text-brand-vibrant-green border-brand-vibrant-green/30"}`}
-                    >
-                      {tournament.status}
-                    </Badge>
-                  </div>
-                  <div className="space-y-3 md:space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-brand-smoke-gray">Prize Pool</span>
-                      <span className="text-xl md:text-2xl font-bold text-brand-vibrant-green">{tournament.prize}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-brand-smoke-gray">Participants</span>
-                      <span className="text-brand-soft-white font-bold">{tournament.participants}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-brand-smoke-gray">Time Left</span>
-                      <span className="text-brand-soft-white font-bold">{tournament.timeLeft}</span>
-                    </div>
-                  </div>
-                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-bold py-2 md:py-3">
-                    {tournament.status === "Active" ? "Join Tournament" : "Register Now"}
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-r from-brand-charcoal-black-secondary/50 to-brand-charcoal-black-tertiary/50 rounded-2xl md:rounded-3xl p-8 md:p-12 border border-brand-vibrant-green/20">
-          <div className="text-center space-y-6 md:space-y-8">
-            <div className="flex flex-col md:flex-row md:items-center justify-center space-y-3 md:space-y-0 md:space-x-3">
-              <Crown className="w-10 h-10 md:w-12 md:h-12 text-brand-vibrant-green" />
-              <h3 className="text-3xl md:text-5xl font-bold text-brand-soft-white">VIP Loyalty Program</h3>
-            </div>
-            <p className="text-lg md:text-xl text-brand-smoke-gray max-w-3xl mx-auto">
-              Earn points with every bet and unlock exclusive rewards, higher withdrawal limits, and personal account
-              managers
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-8 md:mt-12">
-              {["Bronze", "Silver", "Gold", "Diamond"].map((tier, index) => (
-                <div key={tier} className="text-center space-y-3 md:space-y-4">
-                  <div
-                    className={`w-12 h-12 md:w-16 md:h-16 mx-auto rounded-full flex items-center justify-center ${
-                      index === 0
-                        ? "bg-brand-vibrant-green/20 text-brand-vibrant-green"
-                        : index === 1
-                          ? "bg-brand-smoke-gray/20 text-brand-smoke-gray"
-                          : index === 2
-                            ? "bg-brand-vibrant-green/20 text-brand-vibrant-green"
-                            : "bg-brand-primary-green/20 text-brand-primary-green"
-                    }`}
-                  >
-                    <Crown className="w-6 h-6 md:w-8 md:h-8" />
-                  </div>
-                  <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">{tier}</h4>
-                  <p className="text-brand-smoke-gray text-sm md:text-base">{index + 1}% Cashback</p>
-                </div>
-              ))}
-            </div>
-            <Button className="bg-brand-vibrant-green hover:bg-brand-vibrant-green-dark text-brand-charcoal-black font-bold py-3 md:py-4 px-6 md:px-8">
-              Learn More
-            </Button>
-          </div>
-        </div>
-      </div>
+    <div>
+      <h1>Promotions Content</h1>
+      <p>This is the promotions content.</p>
     </div>
   )
 }
