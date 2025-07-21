@@ -188,7 +188,7 @@ function CasinoContent() {
                 Bet Smarter, Win Bigger
               </p>
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-end -mt-4">
               <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
                 JOIN NOW
               </Button>
@@ -253,7 +253,7 @@ function CasinoContent() {
                 <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
               </p>
               <p className="text-lg sm:text-xl text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
-              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-10 py-3 text-xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-10 py-3 text-xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
                 JOIN NOW
               </Button>
             </div>
@@ -286,20 +286,24 @@ function CasinoContent() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
               <div className="flex-1"></div>
               <div className="relative z-15 pb-2">
-                <div className="flex items-center justify-center space-x-3 mb-3">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-brand-primary-green/40">
-                    <Gem className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-3xl md:text-4xl font-black text-brand-primary-green drop-shadow-lg">200%</div>
-                    <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
-                      CRYPTO BONUS
+                <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-primary-green/20">
+                  <div className="flex items-center justify-center space-x-3 mb-3">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/30 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-brand-primary-green/60">
+                      <Gem className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-3xl md:text-4xl font-black text-brand-primary-green drop-shadow-2xl">
+                        200%
+                      </div>
+                      <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
+                        CRYPTO BONUS
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
-                    Get up to $5,000 bonus on your crypto deposits
+                  <div className="text-center">
+                    <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
+                      Get up to $5,000 bonus on your crypto deposits
+                    </div>
                   </div>
                 </div>
               </div>
@@ -323,20 +327,24 @@ function CasinoContent() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
               <div className="flex-1"></div>
               <div className="relative z-15 pb-2">
-                <div className="flex items-center justify-center space-x-3 mb-3">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-vibrant-green/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-brand-vibrant-green/40">
-                    <Gift className="w-6 h-6 md:w-7 md:h-7 text-brand-vibrant-green" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-3xl md:text-4xl font-black text-brand-vibrant-green drop-shadow-lg">125%</div>
-                    <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
-                      SIGN UP BONUS
+                <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-vibrant-green/20">
+                  <div className="flex items-center justify-center space-x-3 mb-3">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-vibrant-green/30 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-brand-vibrant-green/60">
+                      <Gift className="w-6 h-6 md:w-7 md:h-7 text-brand-vibrant-green" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-3xl md:text-4xl font-black text-brand-vibrant-green drop-shadow-2xl">
+                        125%
+                      </div>
+                      <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
+                        SIGN UP BONUS
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
-                    Welcome bonus on your first 3 deposits
+                  <div className="text-center">
+                    <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
+                      Welcome bonus on your first 3 deposits
+                    </div>
                   </div>
                 </div>
               </div>
@@ -360,20 +368,24 @@ function CasinoContent() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
               <div className="flex-1"></div>
               <div className="relative z-15 pb-2">
-                <div className="flex items-center justify-center space-x-3 mb-3">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-brand-primary-green/40">
-                    <Crown className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-3xl md:text-4xl font-black text-brand-primary-green drop-shadow-lg">200%</div>
-                    <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
-                      CASINO BONUS
+                <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-primary-green/20">
+                  <div className="flex items-center justify-center space-x-3 mb-3">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-brand-primary-green/30 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-brand-primary-green/60">
+                      <Crown className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-3xl md:text-4xl font-black text-brand-primary-green drop-shadow-2xl">
+                        200%
+                      </div>
+                      <div className="text-lg md:text-xl font-bold text-brand-soft-white drop-shadow-lg">
+                        CASINO BONUS
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
-                    Exclusive casino bonus + free spins
+                  <div className="text-center">
+                    <div className="text-sm md:text-base text-brand-soft-white font-medium drop-shadow-md">
+                      Exclusive casino bonus + free spins
+                    </div>
                   </div>
                 </div>
               </div>
@@ -383,7 +395,7 @@ function CasinoContent() {
             </Card>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-brand-smoke-gray/30">
+          <div className="flex flex-col md:flex-row md:items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-brand-smoke-gray/30">
             <div className="flex items-center space-x-3">
               <Shield className="w-6 h-6 text-brand-primary-green" />
               <span className="text-brand-soft-white font-medium">Licensed & Secure</span>

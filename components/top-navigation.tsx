@@ -25,17 +25,20 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
   return (
     <nav className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 md:justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 md:flex-none flex-1 md:flex-initial justify-center md:justify-start">
             <Image
               src="/images/ibet-sports-logo.png"
               alt="Casino Logo"
-              width={180}
-              height={40}
-              className="h-8 w-auto"
+              width={200}
+              height={45}
+              className="h-10 w-auto md:h-8"
             />
           </div>
+
+          {/* Mobile spacer to balance centered logo */}
+          <div className="w-10 md:hidden"></div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
