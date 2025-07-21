@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
+import defaultTheme from "tailwindcss/defaultTheme"
 
-const config: Config = {
+const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -19,9 +20,6 @@ const config: Config = {
       },
     },
     extend: {
-      fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,21 +54,15 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        brand: {
-          "charcoal-black": "#0E0E0E",
-          "charcoal-black-secondary": "#1C1C1C",
-          "charcoal-black-tertiary": "#2A2A2A",
-          "primary-green": "#00ff02", // Tropical bright green
-          "primary-green-dark": "#00cc00", // Darker shade
-          "vibrant-green": "#00ff02", // Same bright tropical green
-          "vibrant-green-dark": "#00cc00", // Darker shade
-          "neon-green": "#00ff41", // Additional neon variation
-          "neon-green-dark": "#00e639", // Darker neon variation
-          "lime-green": "#32ff32", // Lighter lime variation
-          "lime-green-dark": "#28cc28", // Darker lime variation
-          "smoke-gray": "#B0B0B0",
-          "soft-white": "#F2F2F2",
-        },
+        // Custom brand colors
+        "brand-charcoal-black": "#1A1A1A",
+        "brand-charcoal-black-secondary": "#222222",
+        "brand-primary-green": "#00FF00", // A bright green
+        "brand-primary-green-dark": "#00CC00", // A darker shade for hover
+        "brand-vibrant-green": "#39FF14", // A slightly different vibrant green
+        "brand-vibrant-green-dark": "#30CC10", // A darker shade for hover
+        "brand-soft-white": "#F0F0F0",
+        "brand-smoke-gray": "#A0A0A0",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -86,37 +78,13 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "neon-pulse": {
-          "0%, 100%": {
-            boxShadow: "0 0 5px #00ff02, 0 0 10px #00ff02, 0 0 15px #00ff02",
-            textShadow: "0 0 5px #00ff02",
-          },
-          "50%": {
-            boxShadow: "0 0 10px #00ff02, 0 0 20px #00ff02, 0 0 30px #00ff02",
-            textShadow: "0 0 10px #00ff02",
-          },
-        },
-        "tropical-glow": {
-          "0%, 100%": {
-            backgroundColor: "#00ff02",
-            boxShadow: "0 0 20px rgba(0, 255, 2, 0.5)",
-          },
-          "50%": {
-            backgroundColor: "#00cc00",
-            boxShadow: "0 0 30px rgba(0, 255, 2, 0.8)",
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "neon-pulse": "neon-pulse 2s ease-in-out infinite",
-        "tropical-glow": "tropical-glow 3s ease-in-out infinite",
       },
-      backgroundImage: {
-        "tropical-gradient": "linear-gradient(135deg, #00ff02 0%, #00cc00 100%)",
-        "neon-gradient": "linear-gradient(135deg, #00ff02 0%, #00ff41 50%, #00cc00 100%)",
-        "lime-gradient": "linear-gradient(135deg, #32ff32 0%, #00ff02 50%, #28cc28 100%)",
+      fontFamily: {
+        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       },
     },
   },
