@@ -129,133 +129,100 @@ function CasinoContent() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <div className="relative w-full bg-black">
-        <div className="relative w-full h-[80vh] overflow-hidden">
+      <div className="relative w-full">
+        <div className="hidden md:block relative w-full h-[70vh] overflow-hidden bg-black">
           <Image
             src="/images/hero-nfl-players-bonus.png"
             alt="STAKE - Jugadores de la NFL con texto de bonus de 125% y pagos rápidos"
             width={1200}
             height={600}
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute bottom-0 right-0 w-full h-full object-cover object-center"
             priority
           />
+          {/* Moved the gradient div here to be on top of the image */}
 
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
-
-          {/* Animated elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
             <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
             <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
           </div>
 
-          {/* Hero Content */}
-          <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Left side - Text Content */}
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <p className="text-brand-primary-green text-lg font-medium uppercase tracking-wide">
-                      Weekly Rebate, Daily Payouts
-                    </p>
-                    <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white leading-tight">
-                      125% SIGN UP BONUS!
-                    </h1>
-                    <p className="text-xl md:text-2xl text-brand-soft-white font-bold">
-                      Same Day Payouts, True VIP Experience
-                    </p>
-                  </div>
-                  <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-8 py-4 text-xl rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-                    JOIN NOW
-                  </Button>
-                </div>
+          <div className="absolute bottom-8 right-12 z-20"></div>
 
-                {/* Right side - Image space (content from background image) */}
-                <div className="hidden lg:block"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile countdown timer */}
-          <div className="absolute top-4 right-3 z-20 md:hidden">
-            <div className="bg-black/90 backdrop-blur-xl p-2 rounded-lg border border-brand-primary-green/40 shadow-xl">
-              <div className="flex items-center space-x-1 mb-1">
-                <Gift className="w-3 h-3 text-brand-vibrant-green" />
-                <span className="text-brand-soft-white font-bold text-xs">Bonus Expires</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1">
-                <div className="bg-brand-primary-green/20 p-1 rounded text-center">
-                  <div className="text-xs font-bold text-brand-primary-green">
-                    {String(timeLeft.hours).padStart(2, "0")}
-                  </div>
-                  <div className="text-xs text-brand-smoke-gray">HRS</div>
-                </div>
-                <div className="bg-brand-vibrant-green/20 p-1 rounded text-center">
-                  <div className="text-xs font-bold text-brand-vibrant-green">
-                    {String(timeLeft.minutes).padStart(2, "0")}
-                  </div>
-                  <div className="text-xs text-brand-smoke-gray">MIN</div>
-                </div>
-                <div className="bg-brand-vibrant-green/20 p-1 rounded text-center">
-                  <div className="text-xs font-bold text-brand-vibrant-green">
-                    {String(timeLeft.seconds).padStart(2, "0")}
-                  </div>
-                  <div className="text-xs text-brand-smoke-gray">SEC</div>
-                </div>
-              </div>
+          <div className="absolute bottom-4 left-[53px] z-10 w-full max-w-3xl px-12 lg:px-24 mx-[53px]">
+            <div className="flex justify-start">
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
+                JOIN NOW
+              </Button>
             </div>
           </div>
         </div>
 
-        {/* Feature boxes at bottom */}
-        <div className="relative z-10 bg-brand-charcoal-black/95 backdrop-blur-sm border-t border-brand-primary-green/20">
-          <div className="max-w-7xl mx-auto px-6 py-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-primary-green/20 rounded-full flex items-center justify-center">
-                  <Crown className="w-5 h-5 text-brand-primary-green" />
+        <div className="md:hidden">
+          <div className="relative w-full h-[35vh] overflow-hidden">
+            <Image
+              src="/images/hero-mobile-stake.png"
+              alt="STAKE - Three football players with dramatic green effects and sports betting interface"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Moved the gradient div here to be on top of the image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
+
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-brand-vibrant-green/50 rounded-full animate-bounce"></div>
+              <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
+            </div>
+
+            <div className="absolute top-4 right-3 z-20">
+              <div className="bg-black/90 backdrop-blur-xl p-2 rounded-lg border border-brand-primary-green/40 shadow-xl">
+                <div className="flex items-center space-x-1 mb-1">
+                  <Gift className="w-3 h-3 text-brand-vibrant-green" />
+                  <span className="text-brand-soft-white font-bold text-xs">Bonus Expires</span>
                 </div>
-                <div>
-                  <h3 className="text-brand-soft-white font-bold text-sm">VIP Rewards</h3>
-                  <p className="text-brand-smoke-gray text-xs">Level up with exclusive perks</p>
+                <div className="grid grid-cols-3 gap-1">
+                  <div className="bg-brand-primary-green/20 p-1 rounded text-center">
+                    <div className="text-xs font-bold text-brand-primary-green">
+                      {String(timeLeft.hours).padStart(2, "0")}
+                    </div>
+                    <div className="text-xs text-brand-smoke-gray">HRS</div>
+                  </div>
+                  <div className="bg-brand-vibrant-green/20 p-1 rounded text-center">
+                    <div className="text-xs font-bold text-brand-vibrant-green">
+                      {String(timeLeft.minutes).padStart(2, "0")}
+                    </div>
+                    <div className="text-xs text-brand-smoke-gray">MIN</div>
+                  </div>
+                  <div className="bg-brand-vibrant-green/20 p-1 rounded text-center">
+                    <div className="text-xs font-bold text-brand-vibrant-green">
+                      {String(timeLeft.seconds).padStart(2, "0")}
+                    </div>
+                    <div className="text-xs text-brand-smoke-gray">SEC</div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-primary-green/20 rounded-full flex items-center justify-center">
-                  <Gem className="w-5 h-5 text-brand-primary-green" />
-                </div>
-                <div>
-                  <h3 className="text-brand-soft-white font-bold text-sm">Crypto Friendly</h3>
-                  <p className="text-brand-smoke-gray text-xs">Fast, Secure and effective</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-primary-green/20 rounded-full flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-brand-primary-green" />
-                </div>
-                <div>
-                  <h3 className="text-brand-soft-white font-bold text-sm">Personal VIP Service</h3>
-                  <p className="text-brand-smoke-gray text-xs">Tailored care from our team</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-brand-primary-green/20 rounded-full flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-brand-primary-green" />
-                </div>
-                <div>
-                  <h3 className="text-brand-soft-white font-bold text-sm">Fast Payouts</h3>
-                  <p className="text-brand-smoke-gray text-xs">Paid securely within minutes</p>
-                </div>
-              </div>
+            </div>
+          </div>
+
+          <div className="bg-brand-charcoal-black px-4 py-8">
+            <div className="text-center space-y-4">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight tracking-tight">
+                <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
+                <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
+              </h1>
+              <p className="text-base sm:text-lg text-brand-smoke-gray font-medium">
+                <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
+              </p>
+              <p className="text-lg sm:text-xl text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-10 py-3 text-xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                JOIN NOW
+              </Button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Rest of the content remains the same */}
       <div className="w-full py-8 md:py-12 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
