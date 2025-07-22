@@ -407,7 +407,7 @@ function CasinoContent() {
         </div>
       </div>
 
-      <div className="w-full bg-brand-charcoal-black py-8 md:py-12">
+      <div className="w-full py-8 md:py-12 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
             <div className="mb-3 sm:mb-4 md:mb-0">
@@ -503,7 +503,7 @@ function CasinoContent() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0"></div>
+          <div className="absolute inset-0 text-black bg-black"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 text-center">
@@ -527,7 +527,7 @@ function CasinoContent() {
         </div>
       </div>
 
-      <div className="px-3 sm:px-4 md:px-12 py-12 sm:py-16 md:py-20 bg-brand-charcoal-black space-y-12 sm:space-y-16 md:space-y-20">
+      <div className="px-3 sm:px-4 md:px-12 py-12 sm:py-16 md:py-20 space-y-12 sm:space-y-16 md:space-y-20 text-black bg-black">
         <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
           <div>
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
