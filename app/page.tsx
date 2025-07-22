@@ -131,42 +131,29 @@ function CasinoContent() {
     <div>
       <div className="relative w-full">
         <div className="hidden md:block relative w-full h-[70vh] overflow-hidden bg-black">
-          <div className="absolute inset-0 bg-black" />
           <Image
-            src="/images/hero4.jpg"
-            alt="STAKE - Three football players with dramatic green neon effects and stadium background"
+            src="/images/hero-nfl-players-bonus.png"
+            alt="STAKE - Jugadores de la NFL con texto de bonus de 125% y pagos rápidos"
             width={1200}
             height={600}
-            className="absolute bottom-0 right-0 w-4/5 h-full object-cover object-center"
+            className="absolute bottom-0 right-0 w-full h-full object-cover object-center"
             priority
           />
+          {/* Moved the gradient div here to be on top of the image */}
+
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
             <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
             <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
           </div>
 
-          <div className="absolute bottom-8 right-12 z-20">
-            
-          </div>
+          <div className="absolute bottom-8 right-12 z-20"></div>
 
-          <div className="absolute top-1/4 left-0 z-10 w-full max-w-3xl px-12 lg:px-24 text-left">
-            <div className="space-y-4 md:space-y-6 mb-20">
-              <h1 className="text-4xl lg:text-5xl font-black leading-none tracking-tight">
-                <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
-                <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
-              </h1>
-              <p className="text-xl lg:text-2xl text-brand-smoke-gray font-medium leading-relaxed max-w-xl">
-                <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
-              </p>
-              <p className="text-2xl lg:text-3xl text-brand-soft-white font-bold leading-relaxed max-w-xl">
-                Bet Smarter, Win Bigger
-              </p>
-              <div className="flex mt-8 justify-start">
-                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
-                  JOIN NOW
-                </Button>
-              </div>
+          <div className="absolute bottom-4 left-[53px] z-10 w-full max-w-3xl px-12 lg:px-24 mx-[53px]">
+            <div className="flex justify-start">
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-center">
+                JOIN NOW
+              </Button>
             </div>
           </div>
         </div>
@@ -180,7 +167,8 @@ function CasinoContent() {
               className="object-cover object-center"
               priority
             />
-            <div className="absolute inset-0 bg-black/10" />
+            {/* Moved the gradient div here to be on top of the image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>
@@ -237,19 +225,28 @@ function CasinoContent() {
       </div>
       <div className="w-full py-8 md:py-12 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-            <div className="flex items-center space-x-3">
-              <Shield className="w-6 h-6 text-brand-primary-green" />
-              <span className="text-brand-soft-white font-medium">Licensed & Secure</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Zap className="w-6 h-6 text-brand-vibrant-green" />
-              <span className="text-brand-soft-white font-medium">Instant Withdrawals</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Clock className="w-6 h-6 text-brand-primary-green" />
-              <span className="text-brand-soft-white font-medium">24/7 Support</span>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-3">
+              <Shield className="w-8 h-8 text-brand-primary-green" />
+              <span className="text-brand-soft-white font-bold text-lg">Licensed & Secure</span>
+              <p className="text-brand-smoke-gray text-sm">
+                Your safety is our priority. We operate under strict regulations.
+              </p>
+            </Card>
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-3">
+              <Zap className="w-8 h-8 text-brand-vibrant-green" />
+              <span className="text-brand-soft-white font-bold text-lg">Instant Withdrawals</span>
+              <p className="text-brand-smoke-gray text-sm">
+                Get your winnings quickly with our fast and efficient payout system.
+              </p>
+            </Card>
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-3">
+              <Clock className="w-8 h-8 text-brand-primary-green" />
+              <span className="text-brand-soft-white font-bold text-lg">24/7 Support</span>
+              <p className="text-brand-smoke-gray text-sm">
+                Our dedicated support team is always here to assist you, day or night.
+              </p>
+            </Card>
           </div>
         </div>
       </div>
@@ -296,7 +293,7 @@ function CasinoContent() {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal-black/95 via-transparent to-transparent"></div>
               <div className="flex-1"></div>
               <div className="relative z-15 pb-2">
                 <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-primary-green/20">
@@ -337,7 +334,7 @@ function CasinoContent() {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal-black/95 via-transparent to-transparent"></div>
               <div className="flex-1"></div>
               <div className="relative z-15 pb-2">
                 <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-brand-vibrant-green/20">
@@ -683,51 +680,47 @@ function CasinoContent() {
 
         <div>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6">
-            <div className="mb-3 sm:mb-4 md:mb-0">
-              <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
-                Recent Bets
-              </h3>
-              <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">See what others are winning</p>
-            </div>
-            <Button
-              variant="outline"
-              className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg self-start"
-            >
-              View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-1 sm:ml-2 md:ml-3" />
-            </Button>
+            <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2 md:mb-4 text-brand-soft-white">
+              Recent Bets
+            </h3>
+            <p className="text-brand-smoke-gray text-base sm:text-lg md:text-xl">See what others are winning</p>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full table-auto">
-              <thead className="text-xs sm:text-sm md:text-base text-brand-smoke-gray uppercase">
-                <tr>
-                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">User</th>
-                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">Game</th>
-                  <th className="text-left py-2 px-2 sm:px-4 md:px-6">Time</th>
-                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Amount</th>
-                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Mult</th>
-                  <th className="text-right py-2 px-2 sm:px-4 md:px-6">Profit</th>
+          <Button
+            variant="outline"
+            className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg self-start"
+          >
+            View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-1 sm:ml-2 md:ml-3" />
+          </Button>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto">
+            <thead className="text-xs sm:text-sm md:text-base text-brand-smoke-gray uppercase">
+              <tr>
+                <th className="text-left py-2 px-2 sm:px-4 md:px-6">User</th>
+                <th className="text-left py-2 px-2 sm:px-4 md:px-6">Game</th>
+                <th className="text-left py-2 px-2 sm:px-4 md:px-6">Time</th>
+                <th className="text-right py-2 px-2 sm:px-4 md:px-6">Amount</th>
+                <th className="text-right py-2 px-2 sm:px-4 md:px-6">Mult</th>
+                <th className="text-right py-2 px-2 sm:px-4 md:px-6">Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bets.map((bet, index) => (
+                <tr key={index} className="text-sm sm:text-base md:text-lg border-b border-brand-smoke-gray/20">
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.user}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.game}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-smoke-gray">{bet.time}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                    ${bet.amount.toFixed(2)}
+                  </td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">{bet.mult.toFixed(2)}x</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
+                    ${bet.profit.toFixed(2)}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {bets.map((bet, index) => (
-                  <tr key={index} className="text-sm sm:text-base md:text-lg border-b border-brand-smoke-gray/20">
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.user}</td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-soft-white">{bet.game}</td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-brand-smoke-gray">{bet.time}</td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
-                      ${bet.amount.toFixed(2)}
-                    </td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
-                      {bet.mult.toFixed(2)}x
-                    </td>
-                    <td className="py-3 px-2 sm:px-4 md:px-6 text-right text-brand-soft-white">
-                      ${bet.profit.toFixed(2)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

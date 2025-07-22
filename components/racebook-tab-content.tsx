@@ -108,11 +108,17 @@ export default function RacebookTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16">
-        <div className="absolute inset-0 opacity-20">
-          <Image src="/images/hero-football-players.jpg" alt="Horse racing background" fill className="object-cover" />
+      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16 min-h-[400px] flex items-center justify-center">
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+            alt="Horse racing background"
+            fill
+            className="object-cover object-[50%_90%]" // Adjusted object-position to 50% 90%
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal-black via-transparent to-brand-charcoal-black"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-center z-10">
           <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white mb-4">HORSE RACING</h1>
           <p className="text-xl md:text-2xl text-brand-smoke-gray mb-8 max-w-3xl mx-auto">
             Bet on the most exciting horse races from tracks around the world
