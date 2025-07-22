@@ -265,22 +265,18 @@ function CasinoContent() {
           </div>
 
           {/* Mobile Layout */}
-          <div className="md:hidden flex items-end justify-between mb-6">
-            <div className="flex-1">
-              <h2 className="text-2xl font-black text-brand-soft-white leading-tight">
-                <div>IBET PROMOS</div>
-                <div>KEEP YOU IN</div>
-                <div>THE GAME</div>
-              </h2>
-            </div>
-            <div className="ml-4">
-              <Button
-                variant="outline"
-                className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black text-sm bg-transparent whitespace-nowrap px-4 py-2 rounded-lg"
-              >
-                SEE ALL PROMOTIONS →
-              </Button>
-            </div>
+          <div className="md:hidden flex flex-col items-center text-center mb-6 space-y-4">
+            <h2 className="text-2xl font-black text-brand-soft-white leading-tight">
+              <div>IBET PROMOS</div>
+              <div>KEEP YOU IN</div>
+              <div>THE GAME</div>
+            </h2>
+            <Button
+              variant="outline"
+              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black text-sm bg-transparent whitespace-nowrap px-6 py-2 rounded-lg"
+            >
+              SEE ALL PROMOTIONS →
+            </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
