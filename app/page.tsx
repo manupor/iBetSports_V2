@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Play, Gift, ChevronRight, Zap, Shield, Clock } from "lucide-react"
+import { Play, ChevronRight, Zap, Shield, Clock } from "lucide-react"
 
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
@@ -95,22 +95,6 @@ function CasinoContent() {
     return () => clearInterval(timer)
   }, [])
 
-  const originalGames = [
-    { name: "Cases", image: "/images/originals-cases.png", players: "2.1K" },
-    { name: "Slots", image: "/images/originals-slots.png", players: "5.2K" },
-    { name: "Crash", image: "/images/originals-crash.png", players: "3.8K" },
-    { name: "Coinflip", image: "/images/originals-coinflip.png", players: "1.5K" },
-    { name: "Mines", image: "/images/originals-mines.png", players: "2.9K" },
-  ]
-
-  const popularSlots = [
-    { name: "Golden Reels", image: "/images/slot-golden-reels.png", rtp: "96.5%" },
-    { name: "Blackjack Pro", image: "/images/slot-blackjack-pro.png", rtp: "99.4%" },
-    { name: "European Roulette", image: "/images/slot-european-roulette.png", rtp: "97.3%" },
-    { name: "Mega Fortune", image: "/images/slot-mega-fortune.avif", rtp: "96.6%" },
-    { name: "Winner's Fortune", image: "/images/slot-winners-fortune.png", rtp: "95.8%" },
-  ]
-
   const bets = [
     { user: "abirdesigns", game: "Mines", time: "7:49 PM", amount: 2893.0, mult: 1.032, profit: 92.58 },
     { user: "CryptoKing", game: "Crash", time: "7:48 PM", amount: 1250.0, mult: 2.45, profit: 1812.5 },
@@ -191,36 +175,6 @@ function CasinoContent() {
               <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-brand-vibrant-green/50 rounded-full animate-bounce"></div>
               <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
             </div>
-
-            {/* Mobile Timer */}
-            <div className="absolute top-4 right-4 z-20">
-              <div className="bg-black/90 backdrop-blur-xl p-3 rounded-lg border border-brand-primary-green/40 shadow-xl">
-                <div className="flex items-center space-x-2 mb-2">
-                  <Gift className="w-4 h-4 text-brand-vibrant-green" />
-                  <span className="text-brand-soft-white font-bold text-sm">Bonus Expires</span>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="bg-brand-primary-green/20 p-2 rounded text-center">
-                    <div className="text-sm font-bold text-brand-primary-green">
-                      {String(timeLeft.hours).padStart(2, "0")}
-                    </div>
-                    <div className="text-xs text-brand-smoke-gray">HRS</div>
-                  </div>
-                  <div className="bg-brand-vibrant-green/20 p-2 rounded text-center">
-                    <div className="text-sm font-bold text-brand-vibrant-green">
-                      {String(timeLeft.minutes).padStart(2, "0")}
-                    </div>
-                    <div className="text-xs text-brand-smoke-gray">MIN</div>
-                  </div>
-                  <div className="bg-brand-vibrant-green/20 p-2 rounded text-center">
-                    <div className="text-sm font-bold text-brand-vibrant-green">
-                      {String(timeLeft.seconds).padStart(2, "0")}
-                    </div>
-                    <div className="text-xs text-brand-smoke-gray">SEC</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Mobile Content */}
@@ -242,8 +196,6 @@ function CasinoContent() {
           </div>
         </div>
       </section>
-
-      {/* Trust Indicators Section */}
 
       {/* Promotions Section */}
       <section className="py-8 bg-black border-b border-brand-smoke-gray/10 md:py-6">
@@ -557,7 +509,7 @@ function CasinoContent() {
               </Button>
               <Button
                 variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl bg-transparent font-bold rounded-lg w-full sm:w-auto"
+                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl bg-transparent font-bold rounded-lg w-full sm:w-auto"
               >
                 SEE ALL GAMES
               </Button>
@@ -569,10 +521,6 @@ function CasinoContent() {
       {/* Games Sections */}
       <section className="py-16 md:py-20 bg-black">
         <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
-          {/* Draft Originals */}
-
-          {/* Popular Slots */}
-
           {/* Recent Bets */}
           <div className="px-4 sm:px-6 md:px-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-10">
