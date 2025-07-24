@@ -44,7 +44,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                 alt="IBET Sports Logo"
                 width={120}
                 height={40}
-                className="h-8 sm:h-10 md:h-12 w-auto hover:opacity-80 transition-opacity"
+                className="h-10 sm:h-12 md:h-12 w-auto hover:opacity-80 transition-opacity"
               />
             </button>
 
