@@ -74,8 +74,21 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            {/* Mobile Actions and Menu Button */}
+            <div className="md:hidden flex items-center space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-2 py-1 bg-transparent text-xs"
+              >
+                Login
+              </Button>
+              <Button
+                size="sm"
+                className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 py-1 text-xs"
+              >
+                Join
+              </Button>
               <Button
                 variant="ghost"
                 size="sm"
@@ -156,18 +169,6 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                 >
                   <Wallet className="w-4 h-4 mr-2" />
                   $0.00
-                </Button>
-              </div>
-              <div className="space-y-2">
-                <Button
-                  variant="outline"
-                  className="w-full border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-black py-2.5 h-auto text-sm font-medium bg-transparent"
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Login
-                </Button>
-                <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-black font-medium py-2.5 h-auto text-sm">
-                  Sign Up
                 </Button>
               </div>
             </div>
