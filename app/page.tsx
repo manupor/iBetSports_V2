@@ -128,7 +128,7 @@ function CasinoContent() {
   ]
 
   return (
-    <div className="font-poppins">
+    <div className="font-poppins bg-black">
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
@@ -250,14 +250,14 @@ function CasinoContent() {
       <section className="w-full py-12 bg-black border-b border-brand-smoke-gray/10 md:py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-brand-soft-white mb-6 md:mb-8">
+          <div className="text-center mb-4 md:mb-6 mt-6">
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-soft-white mb-3 md:mb-4 md:text-3xl">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 IBET PROMOS
               </span>{" "}
               KEEP YOU IN THE GAME
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-6 md:mb-8 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-4 md:mb-6 max-w-3xl mx-auto font-medium leading-relaxed">
               Unlock exclusive bonuses and maximize your gaming experience
             </p>
             <Button
@@ -571,111 +571,9 @@ function CasinoContent() {
       <section className="py-16 md:py-20 bg-black">
         <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
           {/* Draft Originals */}
-          
 
           {/* Popular Slots */}
-          <div className="px-4 sm:px-6 md:px-12">
-            <div className="mb-4 md:mb-6">
-              <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white text-center md:text-left">
-                Popular Slots
-              </h3>
-              <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium text-center md:text-left">
-                Most played games this week
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center justify-center md:justify-start space-x-4 md:space-x-6 mb-8 md:mb-12">
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg font-medium"
-              >
-                <Filter className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                Filter
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg font-medium"
-              >
-                <SortDesc className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                Sort
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
-              {popularSlots.map((game) => (
-                <div key={game.name} className="group relative">
-                  <div className="rounded-3xl overflow-hidden relative aspect-[3/4]">
-                    {game.name !== "European Roulette" ? (
-                      <Image
-                        src={game.image || "/placeholder.svg"}
-                        alt={game.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div
-                        className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
-                        style={{
-                          backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                      />
-                    )}
-
-                    {game.name === "European Roulette" && <div className="absolute inset-0 bg-black/30"></div>}
-
-                    <div className="absolute top-2 md:top-4 right-2 md:right-4">
-                      <Badge className="bg-black/70 text-brand-soft-white px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm font-medium">
-                        RTP {game.rtp}
-                      </Badge>
-                    </div>
-
-                    <div
-                      className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={
-                        game.name === "European Roulette"
-                          ? {
-                              backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                              backgroundColor: "rgba(0, 0, 0, 0.7)",
-                            }
-                          : { backgroundColor: "rgba(0, 0, 0, 0.7)" }
-                      }
-                    >
-                      <div
-                        className="absolute inset-0 bg-black/70"
-                        style={
-                          game.name === "European Roulette"
-                            ? {
-                                backgroundImage: "url(/images/european-roulette-bg.jpg)",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                              }
-                            : {}
-                        }
-                      ></div>
-                      <div className="relative z-10 flex flex-col items-center justify-center space-y-2 md:space-y-4">
-                        <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-black px-4 md:px-8 py-2 md:py-4 text-sm md:text-lg rounded-lg">
-                          <Play className="w-3 h-3 md:w-5 md:h-5 mr-1 md:mr-3" />
-                          Play Now
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 md:px-8 py-2 md:py-4 text-sm md:text-lg bg-transparent font-bold rounded-lg"
-                        >
-                          <Eye className="w-3 h-3 md:w-5 md:h-5 mr-1 md:mr-3" />
-                          More Info
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-3 md:mt-4 text-center">
-                    <div className="font-black text-base md:text-xl text-brand-soft-white">{game.name}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          
 
           {/* Recent Bets */}
           <div className="px-4 sm:px-6 md:px-12">

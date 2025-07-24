@@ -5,118 +5,122 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Trophy, Clock, Target, TrendingUp, Calendar, MapPin, Users, Zap, Star, Play, ExternalLink } from "lucide-react"
+import { Trophy, Target, Clock, TrendingUp, Play, Eye } from "lucide-react"
 
 export default function RacebookTabContent() {
-  const [selectedTrack, setSelectedTrack] = useState("all")
+  const [selectedTrack, setSelectedTrack] = useState("churchill")
+
+  const tracks = [
+    { id: "churchill", name: "Churchill Downs", location: "Louisville, KY" },
+    { id: "belmont", name: "Belmont Park", location: "Elmont, NY" },
+    { id: "santa-anita", name: "Santa Anita", location: "Arcadia, CA" },
+    { id: "gulfstream", name: "Gulfstream Park", location: "Hallandale Beach, FL" },
+  ]
+
+  const liveRaces = [
+    {
+      track: "Churchill Downs",
+      race: "Race 7",
+      time: "3:45 PM",
+      distance: "1 1/8 miles",
+      horses: 8,
+      prize: "$75,000",
+      status: "Live",
+    },
+    {
+      track: "Belmont Park",
+      race: "Race 5",
+      time: "4:15 PM",
+      distance: "1 mile",
+      horses: 10,
+      prize: "$50,000",
+      status: "Starting Soon",
+    },
+    {
+      track: "Santa Anita",
+      race: "Race 6",
+      time: "4:30 PM",
+      distance: "6 furlongs",
+      horses: 12,
+      prize: "$40,000",
+      status: "Upcoming",
+    },
+  ]
 
   const upcomingRaces = [
     {
-      id: 1,
+      time: "4:45 PM",
       track: "Churchill Downs",
-      location: "Louisville, KY",
-      race: "Kentucky Derby Prep",
-      time: "3:45 PM EST",
-      distance: "1 1/8 miles",
-      surface: "Dirt",
-      purse: "$400,000",
-      horses: 12,
+      race: "Race 8",
+      distance: "1 1/4 miles",
+      horses: 9,
       favorite: "Thunder Strike",
       odds: "3/1",
-      status: "upcoming",
     },
     {
-      id: 2,
-      track: "Santa Anita",
-      location: "Arcadia, CA",
-      race: "Santa Anita Handicap",
-      time: "4:15 PM EST",
-      distance: "1 1/4 miles",
-      surface: "Dirt",
-      purse: "$600,000",
-      horses: 10,
-      favorite: "Golden Thunder",
-      odds: "5/2",
-      status: "live",
-    },
-    {
-      id: 3,
+      time: "5:00 PM",
       track: "Belmont Park",
-      location: "Elmont, NY",
-      race: "Belmont Stakes Prep",
-      time: "5:30 PM EST",
-      distance: "1 1/2 miles",
-      surface: "Dirt",
-      purse: "$750,000",
+      race: "Race 6",
+      distance: "1 1/16 miles",
+      horses: 11,
+      favorite: "Lightning Bolt",
+      odds: "5/2",
+    },
+    {
+      time: "5:15 PM",
+      track: "Santa Anita",
+      race: "Race 7",
+      distance: "7 furlongs",
       horses: 8,
-      favorite: "Storm Chaser",
-      odds: "2/1",
-      status: "upcoming",
-    },
-    {
-      id: 4,
-      track: "Del Mar",
-      location: "Del Mar, CA",
-      race: "Pacific Classic",
-      time: "6:00 PM EST",
-      distance: "1 1/4 miles",
-      surface: "Dirt",
-      purse: "$1,000,000",
-      horses: 9,
       favorite: "Speed Demon",
+      odds: "2/1",
+    },
+    {
+      time: "5:30 PM",
+      track: "Gulfstream Park",
+      race: "Race 4",
+      distance: "1 mile",
+      horses: 10,
+      favorite: "Royal Thunder",
       odds: "7/2",
-      status: "upcoming",
     },
   ]
 
-  const tracks = [
-    { id: "all", name: "All Tracks", count: 24 },
-    { id: "churchill", name: "Churchill Downs", count: 8 },
-    { id: "santa-anita", name: "Santa Anita", count: 6 },
-    { id: "belmont", name: "Belmont Park", count: 5 },
-    { id: "del-mar", name: "Del Mar", count: 5 },
-  ]
-
-  const raceStats = [
+  const racingFeatures = [
     {
-      title: "Total Races Today",
-      value: "47",
       icon: Trophy,
-      color: "text-brand-primary-green",
+      title: "Live Racing",
+      description: "Watch and bet on live horse races from top tracks worldwide",
     },
     {
-      title: "Live Races",
-      value: "3",
-      icon: Zap,
-      color: "text-red-500",
-    },
-    {
-      title: "Total Purse",
-      value: "$12.4M",
       icon: Target,
-      color: "text-brand-vibrant-green",
+      title: "Best Odds",
+      description: "Competitive odds on win, place, show, and exotic bets",
     },
     {
-      title: "Active Tracks",
-      value: "24",
-      icon: MapPin,
-      color: "text-blue-500",
+      icon: TrendingUp,
+      title: "Expert Tips",
+      description: "Get insights from professional handicappers",
+    },
+    {
+      icon: Clock,
+      title: "24/7 Racing",
+      description: "Racing action available around the clock",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-brand-charcoal-black">
+    <div className="bg-brand-charcoal-black min-h-screen text-brand-soft-white font-poppins">
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-[45vh] overflow-hidden bg-black">
           <Image
             src="/images/ibetsports-horse-racing-hero.png"
-            alt="Dynamic horse and jockey silhouette with green neon lighting effects"
+            alt="Dramatic horse and jockey silhouette in motion with intense green lighting effects"
             width={1920}
             height={600}
-            className="absolute bottom-0 right-0 w-full h-full object-cover object-[50%_90%]"
+            className="absolute bottom-0 right-0 w-full h-full object-cover object-center"
             priority
           />
 
@@ -158,9 +162,9 @@ export default function RacebookTabContent() {
           <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden">
             <Image
               src="/images/ibetsports-horse-racing-hero.png"
-              alt="Dynamic horse and jockey silhouette with green neon lighting effects"
+              alt="Dramatic horse and jockey silhouette in motion with intense green lighting effects"
               fill
-              className="object-cover object-[50%_90%]"
+              className="object-cover object-center"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
@@ -173,17 +177,17 @@ export default function RacebookTabContent() {
           </div>
 
           {/* Mobile Content */}
-          <div className="bg-brand-charcoal-black px-4 py-8">
-            <div className="text-center space-y-6">
+          <div className="bg-brand-charcoal-black px-4 py-6 sm:py-8">
+            <div className="text-center space-y-4 sm:space-y-6">
               <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
                 <div className="text-brand-soft-white mb-2">HORSE RACING BETS</div>
-                <div className="text-brand-vibrant-green">+ LIVE ACTION !</div>
+                <div className="text-brand-vibrant-green">LIVE ACTION!</div>
               </h1>
               <p className="text-base text-brand-smoke-gray font-medium">
-                <span className="text-brand-vibrant-green font-bold">BEST ODDS</span>
+                <span className="text-brand-vibrant-green font-bold">LIVE RACING ACTION</span>
               </p>
               <p className="text-lg text-brand-soft-white font-bold">Bet on the World's Best Tracks</p>
-              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
+              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto min-h-[52px]">
                 <span className="relative z-10 drop-shadow-lg">BET NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
               </Button>
@@ -192,197 +196,216 @@ export default function RacebookTabContent() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <div className="py-8 bg-brand-charcoal-black-secondary">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {raceStats.map((stat, index) => (
+      {/* Racing Features */}
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 md:mb-12 text-center">
+            Why Choose Our Racebook
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            {racingFeatures.map((feature, index) => (
               <Card
                 key={index}
-                className="bg-brand-charcoal-black border border-brand-primary-green/30 p-6 text-center"
+                className="bg-brand-charcoal-black-secondary/50 border border-brand-smoke-gray/30 p-4 sm:p-6 rounded-2xl text-center hover:border-brand-primary-green/50 transition-all duration-300"
               >
-                <div className="flex items-center justify-center mb-3">
-                  <stat.icon className={`w-8 h-8 ${stat.color}`} />
-                </div>
-                <div className="text-3xl font-bold text-brand-soft-white mb-1">{stat.value}</div>
-                <div className="text-sm text-brand-smoke-gray">{stat.title}</div>
+                <feature.icon className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 text-brand-primary-green" />
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-brand-smoke-gray text-sm sm:text-base leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Race Schedule */}
-      <div className="py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-soft-white mb-4">TODAY'S RACES</h2>
-            <p className="text-xl text-brand-smoke-gray">Don't miss out on today's exciting racing action</p>
+      {/* Track Selection */}
+      <section className="py-8 sm:py-12 md:py-16 bg-brand-charcoal-black-secondary/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center">Select Track</h2>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+            {tracks.map((track) => (
+              <Button
+                key={track.id}
+                onClick={() => setSelectedTrack(track.id)}
+                variant={selectedTrack === track.id ? "default" : "outline"}
+                className={`px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg min-h-[44px] ${
+                  selectedTrack === track.id
+                    ? "bg-brand-primary-green text-brand-charcoal-black"
+                    : "border-brand-smoke-gray/50 text-brand-smoke-gray hover:text-brand-soft-white hover:border-brand-primary-green/50"
+                }`}
+              >
+                <div className="text-center">
+                  <div className="font-bold">{track.name}</div>
+                  <div className="text-xs opacity-80">{track.location}</div>
+                </div>
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Live Races */}
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 md:mb-12 text-center">Live Races</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            {liveRaces.map((race, index) => (
+              <Card
+                key={index}
+                className="bg-brand-charcoal-black-secondary/50 border border-brand-smoke-gray/30 p-4 sm:p-6 rounded-2xl hover:border-brand-primary-green/50 transition-all duration-300"
+              >
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold">{race.track}</h3>
+                  <Badge
+                    className={`px-2 sm:px-3 py-1 text-xs sm:text-sm font-semibold ${
+                      race.status === "Live"
+                        ? "bg-red-500/20 text-red-400 border-red-500/30"
+                        : race.status === "Starting Soon"
+                          ? "bg-brand-vibrant-green/20 text-brand-vibrant-green border-brand-vibrant-green/30"
+                          : "bg-brand-primary-green/20 text-brand-primary-green border-brand-primary-green/30"
+                    }`}
+                  >
+                    {race.status}
+                  </Badge>
+                </div>
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                  <div className="flex justify-between text-sm sm:text-base">
+                    <span className="text-brand-smoke-gray">Race:</span>
+                    <span className="text-brand-soft-white font-semibold">{race.race}</span>
+                  </div>
+                  <div className="flex justify-between text-sm sm:text-base">
+                    <span className="text-brand-smoke-gray">Time:</span>
+                    <span className="text-brand-soft-white font-semibold">{race.time}</span>
+                  </div>
+                  <div className="flex justify-between text-sm sm:text-base">
+                    <span className="text-brand-smoke-gray">Distance:</span>
+                    <span className="text-brand-soft-white font-semibold">{race.distance}</span>
+                  </div>
+                  <div className="flex justify-between text-sm sm:text-base">
+                    <span className="text-brand-smoke-gray">Horses:</span>
+                    <span className="text-brand-soft-white font-semibold">{race.horses}</span>
+                  </div>
+                  <div className="flex justify-between text-sm sm:text-base">
+                    <span className="text-brand-smoke-gray">Prize:</span>
+                    <span className="text-brand-vibrant-green font-bold">{race.prize}</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-2 sm:py-3 text-sm sm:text-base min-h-[44px]">
+                    <Play className="w-4 h-4 mr-2" />
+                    Watch
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black py-2 sm:py-3 text-sm sm:text-base min-h-[44px] bg-transparent"
+                  >
+                    <Eye className="w-4 h-4 mr-2" />
+                    Bet
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Races */}
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-brand-charcoal-black-secondary/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 md:mb-12 text-center">
+            Upcoming Races
+          </h2>
+
+          {/* Mobile Card Layout */}
+          <div className="block md:hidden space-y-4">
+            {upcomingRaces.map((race, index) => (
+              <Card
+                key={index}
+                className="bg-brand-charcoal-black-secondary/50 border border-brand-smoke-gray/30 p-4 rounded-2xl"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="text-brand-primary-green font-bold text-lg">{race.time}</div>
+                    <Badge className="bg-brand-vibrant-green/20 text-brand-vibrant-green px-2 py-1 text-xs">
+                      {race.horses} horses
+                    </Badge>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-brand-smoke-gray text-sm">Track:</span>
+                      <span className="text-brand-soft-white font-semibold text-sm">{race.track}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-brand-smoke-gray text-sm">Race:</span>
+                      <span className="text-brand-soft-white font-semibold text-sm">{race.race}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-brand-smoke-gray text-sm">Distance:</span>
+                      <span className="text-brand-soft-white font-semibold text-sm">{race.distance}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-brand-smoke-gray text-sm">Favorite:</span>
+                      <span className="text-brand-vibrant-green font-bold text-sm">{race.favorite}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-brand-smoke-gray text-sm">Odds:</span>
+                      <span className="text-brand-soft-white font-bold text-sm">{race.odds}</span>
+                    </div>
+                  </div>
+                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-3 min-h-[48px]">
+                    Place Bet
+                  </Button>
+                </div>
+              </Card>
+            ))}
           </div>
 
-          <Tabs value={selectedTrack} onValueChange={setSelectedTrack} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 bg-brand-charcoal-black-secondary mb-8">
-              {tracks.map((track) => (
-                <TabsTrigger
-                  key={track.id}
-                  value={track.id}
-                  className="data-[state=active]:bg-brand-primary-green data-[state=active]:text-brand-charcoal-black text-brand-soft-white"
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="text-sm font-bold">{track.name}</span>
-                    <span className="text-xs opacity-70">({track.count})</span>
-                  </div>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            <TabsContent value={selectedTrack} className="space-y-6">
-              {upcomingRaces.map((race) => (
-                <Card
-                  key={race.id}
-                  className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6"
-                >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between space-y-4 lg:space-y-0">
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <h3 className="text-xl font-bold text-brand-soft-white">{race.race}</h3>
-                        {race.status === "live" && <Badge className="bg-red-500 text-white animate-pulse">LIVE</Badge>}
-                        {race.status === "upcoming" && (
-                          <Badge className="bg-brand-primary-green text-brand-charcoal-black">UPCOMING</Badge>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-brand-smoke-gray mb-3">
-                        <div className="flex items-center space-x-1">
-                          <MapPin className="w-4 h-4" />
-                          <span>
-                            {race.track}, {race.location}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="w-4 h-4" />
-                          <span>{race.time}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Target className="w-4 h-4" />
-                          <span>
-                            {race.distance} • {race.surface}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-4 text-sm">
-                        <div className="text-brand-soft-white">
-                          <span className="text-brand-smoke-gray">Purse:</span>{" "}
-                          <span className="font-bold text-brand-primary-green">{race.purse}</span>
-                        </div>
-                        <div className="text-brand-soft-white">
-                          <span className="text-brand-smoke-gray">Horses:</span>{" "}
-                          <span className="font-bold">{race.horses}</span>
-                        </div>
-                        <div className="text-brand-soft-white">
-                          <span className="text-brand-smoke-gray">Favorite:</span>{" "}
-                          <span className="font-bold text-brand-vibrant-green">{race.favorite}</span>{" "}
-                          <span className="text-brand-primary-green">({race.odds})</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-                      <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
-                        <Play className="w-4 h-4 mr-2" />
-                        Bet Now
-                      </Button>
+          {/* Desktop Table Layout */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead className="text-sm md:text-base text-brand-smoke-gray uppercase border-b border-brand-smoke-gray/20">
+                <tr>
+                  <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Time</th>
+                  <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Track</th>
+                  <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Race</th>
+                  <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Distance</th>
+                  <th className="text-center py-3 md:py-4 px-3 md:px-6 font-bold">Horses</th>
+                  <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Favorite</th>
+                  <th className="text-center py-3 md:py-4 px-3 md:px-6 font-bold">Odds</th>
+                  <th className="text-center py-3 md:py-4 px-3 md:px-6 font-bold">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {upcomingRaces.map((race, index) => (
+                  <tr
+                    key={index}
+                    className="text-sm md:text-base border-b border-brand-smoke-gray/10 hover:bg-brand-charcoal-black-secondary/30 transition-colors"
+                  >
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-primary-green font-bold">{race.time}</td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{race.track}</td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{race.race}</td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{race.distance}</td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-center">
+                      {race.horses}
+                    </td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-vibrant-green font-bold">{race.favorite}</td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-bold text-center">
+                      {race.odds}
+                    </td>
+                    <td className="py-3 md:py-4 px-3 md:px-6 text-center">
                       <Button
-                        variant="outline"
-                        className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+                        size="sm"
+                        className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2"
                       >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Card
+                        Bet
                       </Button>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </TabsContent>
-          </Tabs>
-        </div>
-      </div>
-
-      {/* Features Section */}
-      <div className="py-12 md:py-16 bg-brand-charcoal-black-secondary">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-soft-white mb-4">RACING FEATURES</h2>
-            <p className="text-xl text-brand-smoke-gray">Everything you need for successful horse race betting</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Trophy,
-                title: "Live Streaming",
-                description: "Watch races live as they happen with HD quality streams",
-              },
-              {
-                icon: TrendingUp,
-                title: "Expert Tips",
-                description: "Get insights from professional handicappers and analysts",
-              },
-              {
-                icon: Target,
-                title: "Best Odds",
-                description: "Competitive odds on win, place, show, and exotic bets",
-              },
-              {
-                icon: Calendar,
-                title: "Race Calendar",
-                description: "Never miss a race with our comprehensive racing calendar",
-              },
-              {
-                icon: Users,
-                title: "Community",
-                description: "Join discussions with fellow racing enthusiasts",
-              },
-              {
-                icon: Star,
-                title: "VIP Program",
-                description: "Exclusive benefits for our most loyal racing fans",
-              },
-            ].map((feature, index) => (
-              <Card
-                key={index}
-                className="bg-brand-charcoal-black border border-brand-primary-green/30 p-6 text-center hover:shadow-xl transition-shadow"
-              >
-                <div className="w-16 h-16 bg-brand-primary-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-8 h-8 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold text-brand-soft-white mb-2">{feature.title}</h3>
-                <p className="text-brand-smoke-gray">{feature.description}</p>
-              </Card>
-            ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-brand-soft-white mb-4">START BETTING ON RACES</h2>
-          <p className="text-xl text-brand-smoke-gray mb-8">
-            Join the excitement of horse racing with the best odds and features
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-4 text-lg">
-              <Trophy className="w-5 h-5 mr-2" />
-              View Today's Races
-            </Button>
-            <Button
-              variant="outline"
-              className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-8 py-4 text-lg bg-transparent"
-            >
-              Racing Guide
-            </Button>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   )
 }
