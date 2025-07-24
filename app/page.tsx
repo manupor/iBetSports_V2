@@ -134,22 +134,22 @@ function CasinoContent() {
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col justify-center pl-12 lg:pl-24 pr-12 lg:pr-24">
             <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
-              <div className="text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-none tracking-tight">
+              <div className="text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-none tracking-tight">
                 125%
               </div>
-              <div className="text-xl lg:text-2xl xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+              <div className="text-lg lg:text-xl xl:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
                 SIGN UP BONUS
               </div>
-              <div className="text-base lg:text-lg xl:text-xl font-bold text-white leading-tight tracking-tight">
+              <div className="text-sm lg:text-base xl:text-lg font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
               </div>
-              <div className="text-sm lg:text-base xl:text-lg font-semibold text-white leading-tight tracking-tight mb-4">
+              <div className="text-xs lg:text-sm xl:text-base font-semibold text-white leading-tight tracking-tight mb-4">
                 Bet Smarter, Win Bigger
               </div>
 
               {/* Button integrated in text flow */}
               <div className="pt-2">
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 lg:px-12 py-3 lg:py-4 text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 lg:px-12 py-3 lg:py-4 text-lg lg:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
                 </Button>
@@ -323,7 +323,8 @@ function CasinoContent() {
                       <path
                         fill="currentColor"
                         fillRule="evenodd"
-                        d="M1400.54,1817.49c293.29,0,531.07,237.78,531.07,531.08s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.59l-61.09-86.4c-98.16-173.24,20.02-382.62,268.54-324.18,146.36,76.12,240.79,150.7,9.5,57.54-13.03,11.91-23.32,42.24-30.3,65.75-4.26,14.36-14.56,24.73-28.9,29.08-14.32,4.38-28.65,1.51-40.21-8.02-75.75-62.6-150.63-117.21-191.49-127.17-18.84-4.59-36.09-1.52-49.71,6.21-21.03,11.91-41.48,40.92-27.94,64.78l86.14,121.5c9.6,13.53,10.77,30.16,3.16,44.91-7.61,14.76-21.81,23.44-38.41,23.47l-104.64.16c-14.53.02-27.05-6.45-35.43-18.32h0ZM1400.55,170.94c88.26,0,160.65,68.06,167.51,154.56,1.96,24.55-5.61,46.39-22.31,64.48-16.71,18.08-37.9,27.35-62.52,27.35h-165.39c-24.62,0-45.8-9.27-62.51-27.35-16.69-18.09-24.27-39.95-22.31-64.48,6.86-86.5,79.26-154.56,167.53-154.56h0ZM1625.07,160.7c94.41-74.58,185.93-137.34,240.76-150.7,248.52-58.43,366.71,150.94,268.55,324.18l-61.09,86.4c-8.39,11.87-20.9,18.33-35.44,18.32l-104.64-.16c-16.61-.03-30.81-8.71-38.41-23.47-7.61-14.75-6.44-31.36,3.16-44.91l86.14-121.5c13.54-23.86-6.91-52.87-27.93-64.78-13.63-7.73-30.88-10.8-49.72-6.21-40.87,9.96-115.73,64.57-191.48,127.17-11.55,9.53-25.88,12.39-40.21,8-14.32-4.33-24.63-14.71-28.9-29.06-6.99-23.51-17.28-45.62-30.32-65.77-12.19-18.83-8.08-43.6,9.53-57.51h0ZM1193.77,2213.14c0-92.2,60.97-162.55,147.4-188.44v-71.19c0-13.88,11.31-25.18,25.19-25.18h68.36c13.88,0,25.19,11.31,25.19,25.18l.34,68.57c16.4,4.16,32.26,10.34,47.04,18.57,54.03,30.08,85.77,82.32,96.1,142.45,1.29,7.49-.66,14.68-5.57,20.49-4.9,5.8-11.65,8.95-19.25,8.95h-62.72c-11.22,0-20.84-7.17-24.09-17.91-24.49-81.04-175.27-89.1-175.27,10.29,0,54.17,69.06,74.2,110.38,89.28,95.59,34.9,180.42,71.61,180.42,189.81,0,92.2-60.95,162.57-147.4,188.45v71.17c0,13.86-11.32,25.18-25.19,25.18h-68.36c-13.88,0-25.19-11.3-25.19-25.18l-.34-68.56c-16.41-4.14-32.27-10.32-47.08-18.56-54.02-30.07-85.77-82.34-96.09-142.47-1.29-7.49.68-14.67,5.57-20.48,4.9-5.82,11.64-8.97,19.25-8.97h62.72c11.22,0,20.85,7.17,24.09,17.91,24.49,81.05,175.26,89.1,175.26-10.27,0-57.38-79.26-77.83-122.47-93.71-91.61-33.68-168.31-73.39-168.31-185.39h0Z"
+                        d="M1400.54,1817.49c293.29,0,531.07,237.78,531.07,531.08s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.\\\`\`\`xml
+s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.59l-61.09-86.4c-98.16-173.24,20.02-382.62,268.54-324.18,146.36,76.12,240.79,150.7,9.5,57.54-13.03,11.91-23.32,42.24-30.3,65.75-4.26,14.36-14.56,24.73-28.9,29.08-14.32,4.38-28.65,1.51-40.21-8.02-75.75-62.6-150.63-117.21-191.49-127.17-18.84-4.59-36.09-1.52-49.71,6.21-21.03,11.91-41.48,40.92-27.94,64.78l86.14,121.5c9.6,13.53,10.77,30.16,3.16,44.91-7.61,14.76-21.81,23.44-38.41,23.47l-104.64.16c-14.53.02-27.05-6.45-35.43-18.32h0ZM1400.55,170.94c88.26,0,160.65,68.06,167.51,154.56,1.96,24.55-5.61,46.39-22.31,64.48-16.71,18.08-37.9,27.35-62.52,27.35h-165.39c-24.62,0-45.8-9.27-62.51-27.35-16.69-18.09-24.27-39.95-22.31-64.48,6.86-86.5,79.26-154.56,167.53-154.56h0ZM1625.07,160.7c94.41-74.58,185.93-137.34,240.76-150.7,248.52-58.43,366.71,150.94,268.55,324.18l-61.09,86.4c-8.39,11.87-20.9,18.33-35.44,18.32l-104.64-.16c-16.61-.03-30.81-8.71-38.41-23.47-7.61-14.75-6.44-31.36,3.16-44.91l86.14-121.5c13.54-23.86-6.91-52.87-27.93-64.78-13.63-7.73-30.88-10.8-49.72-6.21-40.87,9.96-115.73,64.57-191.48,127.17-11.55,9.53-25.88,12.39-40.21,8-14.32-4.33-24.63-14.71-28.9-29.06-6.99-23.51-17.28-45.62-30.32-65.77-12.19-18.83-8.08-43.6,9.53-57.51h0ZM1193.77,2213.14c0-92.2,60.97-162.55,147.4-188.44v-71.19c0-13.88,11.31-25.18,25.19-25.18h68.36c13.88,0,25.19,11.31,25.19,25.18l.34,68.57c16.4,4.16,32.26,10.34,47.04,18.57,54.03,30.08,85.77,82.32,96.1,142.45,1.29,7.49-.66,14.68-5.57,20.49-4.9,5.8-11.65,8.95-19.25,8.95h-62.72c-11.22,0-20.84-7.17-24.09-17.91-24.49-81.04-175.27-89.1-175.27,10.29,0,54.17,69.06,74.2,110.38,89.28,95.59,34.9,180.42,71.61,180.42,189.81,0,92.2-60.95,162.57-147.4,188.45v71.17c0,13.86-11.32,25.18-25.19,25.18h-68.36c-13.88,0-25.19-11.3-25.19-25.18l-.34-68.56c-16.41-4.14-32.27-10.32-47.08-18.56-54.02-30.07-85.77-82.34-96.09-142.47-1.29-7.49.68-14.67,5.57-20.48,4.9-5.82,11.64-8.97,19.25-8.97h62.72c11.22,0,20.85,7.17,24.09,17.91,24.49,81.05,175.26,89.1,175.26-10.27,0-57.38-79.26-77.83-122.47-93.71-91.61-33.68-168.31-73.39-168.31-185.39h0Z"
                       />
                     </svg>
                   </div>
@@ -461,12 +462,13 @@ function CasinoContent() {
             ].map((option, index) => (
               <div key={index} className="group cursor-pointer transform hover:scale-105 transition-all duration-300">
                 <Card className="relative overflow-hidden rounded-2xl bg-brand-charcoal-black-secondary border border-brand-primary-green/30 shadow-lg hover:shadow-xl hover:border-brand-primary-green/60 transition-all duration-300">
-                  <div className="aspect-[4/3] relative">
+                  <div className="relative overflow-hidden">
                     <Image
                       src={option.image || "/placeholder.svg"}
                       alt={option.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      width={300}
+                      height={200}
+                      className="w-full h-auto object-contain group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                 </Card>
