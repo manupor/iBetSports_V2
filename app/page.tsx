@@ -132,11 +132,11 @@ function CasinoContent() {
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
-        <div className="hidden md:block relative w-full h-[70vh] overflow-hidden bg-black">
+        <div className="hidden md:block relative w-full h-[45vh] overflow-hidden bg-black">
           <Image
-            src="/images/hero-nfl-stadium-players.jpg"
-            alt="NFL players in action with dramatic stadium lighting - sports betting hero image"
-            width={1200}
+            src="/images/ibetsports-hero-players.png"
+            alt="NFL players in dynamic action poses with dramatic green lighting effects - sports betting hero"
+            width={1920}
             height={600}
             className="absolute bottom-0 right-0 w-full h-full object-cover object-center"
             priority
@@ -149,33 +149,38 @@ function CasinoContent() {
           </div>
 
           {/* Text Overlay */}
-          <div className="absolute inset-0 flex items-center justify-start pl-12 lg:pl-24">
-            <div className="text-left space-y-4">
-              <div className="text-8xl lg:text-9xl font-black text-white leading-none tracking-tight">125%</div>
-              <div className="text-4xl lg:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight">
+          <div className="absolute inset-0 flex flex-col justify-center pl-12 lg:pl-24 pr-12 lg:pr-24">
+            <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
+              <div className="text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-none tracking-tight">
+                125%
+              </div>
+              <div className="text-xl lg:text-2xl xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
                 SIGN UP BONUS
               </div>
-              <div className="text-2xl lg:text-3xl font-bold text-white leading-none tracking-tight">QUICK PAYOUTS</div>
-              <div className="text-xl lg:text-2xl font-semibold text-white leading-none tracking-tight">
+              <div className="text-base lg:text-lg xl:text-xl font-bold text-white leading-tight tracking-tight">
+                QUICK PAYOUTS
+              </div>
+              <div className="text-sm lg:text-base xl:text-lg font-semibold text-white leading-tight tracking-tight mb-4">
                 Bet Smarter, Win Bigger
               </div>
-            </div>
-          </div>
 
-          <div className="absolute bottom-4 left-12 lg:left-24 z-10">
-            <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-16 py-6 text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
-              <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
-            </Button>
+              {/* Button integrated in text flow */}
+              <div className="pt-2">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 lg:px-12 py-3 lg:py-4 text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
+                  <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Mobile Hero */}
         <div className="md:hidden">
-          <div className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
+          <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden">
             <Image
-              src="/images/hero-mobile-stake.png"
-              alt="STAKE - Three football players with dramatic green effects and sports betting interface"
+              src="/images/ibetsports-hero-players.png"
+              alt="NFL players in dynamic action poses with dramatic green lighting effects - sports betting hero"
               fill
               className="object-cover object-center"
               priority
@@ -222,7 +227,7 @@ function CasinoContent() {
           {/* Mobile Content */}
           <div className="bg-brand-charcoal-black px-4 py-8">
             <div className="text-center space-y-6">
-              <h1 className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
+              <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
                 <div className="text-brand-soft-white mb-2">125% SIGN UP BONUS</div>
                 <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
               </h1>
@@ -230,7 +235,7 @@ function CasinoContent() {
                 <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
               </p>
               <p className="text-lg text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
-              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
+              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
               </Button>
