@@ -220,15 +220,15 @@ function CasinoContent() {
           </div>
 
           {/* Promotions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {/* Crypto Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
-              <div className="flex flex-col items-center text-center space-y-6">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-4 md:p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
-                      className="w-10 h-10 md:w-12 md:h-12 text-brand-primary-green"
+                      className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green"
                       fill="currentColor"
                       viewBox="0 0 317.73 420.7"
                     >
@@ -238,19 +238,17 @@ function CasinoContent() {
                 </div>
 
                 {/* Content */}
-                <div className="text-center space-y-4">
-                  <div className="flex flex-col items-center space-y-2">
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
-                      <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-soft-white">200%</span>
-                      <span className="text-xl sm:text-2xl font-bold text-brand-primary-green">CRYPTO BONUS</span>
+                <div className="text-center space-y-3">
+                  <div className="flex flex-col items-center space-y-1">
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
+                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">125%</span>
+                      <span className="text-sm sm:text-base font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-sm md:text-base font-medium">
-                      150% SPORTSBOOK + 50% CASINO
-                    </p>
+                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
                   </div>
                   <Button
                     variant="link"
-                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-sm md:text-base"
+                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
                     MORE INFO
                   </Button>
@@ -259,13 +257,13 @@ function CasinoContent() {
             </Card>
 
             {/* Sign Up Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
-              <div className="flex flex-col items-center text-center space-y-6">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-4 md:p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <svg
-                      className="w-10 h-10 md:w-12 md:h-12 text-brand-vibrant-green"
+                      className="w-6 h-6 md:w-7 md:h-7 text-brand-vibrant-green"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -282,17 +280,17 @@ function CasinoContent() {
                 </div>
 
                 {/* Content */}
-                <div className="text-center space-y-4">
-                  <div className="flex flex-col items-center space-y-2">
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
-                      <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-soft-white">125%</span>
-                      <span className="text-xl sm:text-2xl font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
+                <div className="text-center space-y-3">
+                  <div className="flex flex-col items-center space-y-1">
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
+                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">125%</span>
+                      <span className="text-sm sm:text-base font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-sm md:text-base font-medium">ON YOUR FIRST 3 DEPOSITS</p>
+                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
                   </div>
                   <Button
                     variant="link"
-                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-sm md:text-base"
+                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
                     MORE INFO
                   </Button>
@@ -301,13 +299,13 @@ function CasinoContent() {
             </Card>
 
             {/* Casino Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
-              <div className="flex flex-col items-center text-center space-y-6">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-4 md:p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
                 {/* Playing Cards Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
-                      className="w-10 h-10 md:w-12 md:h-12 text-brand-primary-green"
+                      className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green"
                       fill="currentColor"
                       stroke="currentColor"
                       viewBox="0 0 2801.07 2879.64"
@@ -323,24 +321,24 @@ function CasinoContent() {
                       <path
                         fill="currentColor"
                         fillRule="evenodd"
-                        d="M1400.54,1817.49c293.29,0,531.07,237.78,531.07,531.08s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.59l-61.09-86.4c-98.16-173.24,20.02-382.62,268.54-324.18,54.84,13.35,146.36,76.12,240.79,150.7,17.59,13.91,21.69,38.69,9.5,57.54-13.03,20.13-23.32,42.24-30.3,65.75-4.26,14.36-14.56,24.73-28.9,29.08-14.32,4.38-28.65,1.51-40.21-8.02-75.75-62.6-150.63-117.21-191.49-127.17-18.84-4.59-36.09-1.52-49.71,6.21-21.03,11.91-41.48,40.92-27.94,64.78l86.14,121.5c9.6,13.53,10.77,30.16,3.16,44.91-7.61,14.76-21.81,23.44-38.41,23.47l-104.64.16c-14.53.02-27.05-6.45-35.43-18.32h0ZM1400.55,170.94c88.26,0,160.65,68.06,167.51,154.56,1.96,24.55-5.61,46.39-22.31,64.48-16.71,18.08-37.9,27.35-62.52,27.35h-165.39c-24.62,0-45.8-9.27-62.51-27.35-16.69-18.09-24.27-39.95-22.31-64.48,6.86-86.5,79.26-154.56,167.53-154.56h0ZM1625.07,160.7c94.41-74.58,185.93-137.34,240.76-150.7,248.52-58.43,366.71,150.94,268.55,324.18l-61.09,86.4c-8.39,11.87-20.9,18.33-35.44,18.32l-104.64-.16c-16.61-.03-30.81-8.71-38.41-23.47-7.61-14.75-6.44-31.36,3.16-44.91l86.14-121.5c13.54-23.86-6.91-52.87-27.93-64.78-13.63-7.73-30.88-10.8-49.72-6.21-40.87,9.96-115.73,64.57-191.48,127.17-11.55,9.53-25.88,12.39-40.21,8-14.32-4.33-24.63-14.71-28.9-29.06-6.99-23.51-17.28-45.62-30.32-65.77-12.19-18.83-8.08-43.6,9.53-57.51h0ZM1193.77,2213.14c0-92.2,60.97-162.55,147.4-188.44v-71.19c0-13.88,11.31-25.18,25.19-25.18h68.36c13.88,0,25.19,11.31,25.19,25.18l.34,68.57c16.4,4.16,32.26,10.34,47.04,18.57,54.03,30.08,85.77,82.32,96.1,142.45,1.29,7.49-.66,14.68-5.57,20.49-4.9,5.8-11.65,8.95-19.25,8.95h-62.72c-11.22,0-20.84-7.17-24.09-17.91-24.49-81.04-175.27-89.1-175.27,10.29,0,54.17,69.06,74.2,110.38,89.28,95.59,34.9,180.42,71.61,180.42,189.81,0,92.2-60.95,162.57-147.4,188.45v71.17c0,13.86-11.32,25.18-25.19,25.18h-68.36c-13.88,0-25.19-11.3-25.19-25.18l-.34-68.56c-16.41-4.14-32.27-10.32-47.08-18.56-54.02-30.07-85.77-82.34-96.09-142.47-1.29-7.49.68-14.67,5.57-20.48,4.9-5.82,11.64-8.97,19.25-8.97h62.72c11.22,0,20.85,7.17,24.09,17.91,24.49,81.05,175.26,89.1,175.26-10.27,0-57.38-79.26-77.83-122.47-93.71-91.61-33.68-168.31-73.39-168.31-185.39h0Z"
+                        d="M1400.54,1817.49c293.29,0,531.07,237.78,531.07,531.08s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.59l-61.09-86.4c-98.16-173.24,20.02-382.62,268.54-324.18,146.36,76.12,240.79,150.7,9.5,57.54-13.03,11.91-23.32,42.24-30.3,65.75-4.26,14.36-14.56,24.73-28.9,29.08-14.32,4.38-28.65,1.51-40.21-8.02-75.75-62.6-150.63-117.21-191.49-127.17-18.84-4.59-36.09-1.52-49.71,6.21-21.03,11.91-41.48,40.92-27.94,64.78l86.14,121.5c9.6,13.53,10.77,30.16,3.16,44.91-7.61,14.76-21.81,23.44-38.41,23.47l-104.64.16c-14.53.02-27.05-6.45-35.43-18.32h0ZM1400.55,170.94c88.26,0,160.65,68.06,167.51,154.56,1.96,24.55-5.61,46.39-22.31,64.48-16.71,18.08-37.9,27.35-62.52,27.35h-165.39c-24.62,0-45.8-9.27-62.51-27.35-16.69-18.09-24.27-39.95-22.31-64.48,6.86-86.5,79.26-154.56,167.53-154.56h0ZM1625.07,160.7c94.41-74.58,185.93-137.34,240.76-150.7,248.52-58.43,366.71,150.94,268.55,324.18l-61.09,86.4c-8.39,11.87-20.9,18.33-35.44,18.32l-104.64-.16c-16.61-.03-30.81-8.71-38.41-23.47-7.61-14.75-6.44-31.36,3.16-44.91l86.14-121.5c13.54-23.86-6.91-52.87-27.93-64.78-13.63-7.73-30.88-10.8-49.72-6.21-40.87,9.96-115.73,64.57-191.48,127.17-11.55,9.53-25.88,12.39-40.21,8-14.32-4.33-24.63-14.71-28.9-29.06-6.99-23.51-17.28-45.62-30.32-65.77-12.19-18.83-8.08-43.6,9.53-57.51h0ZM1193.77,2213.14c0-92.2,60.97-162.55,147.4-188.44v-71.19c0-13.88,11.31-25.18,25.19-25.18h68.36c13.88,0,25.19,11.31,25.19,25.18l.34,68.57c16.4,4.16,32.26,10.34,47.04,18.57,54.03,30.08,85.77,82.32,96.1,142.45,1.29,7.49-.66,14.68-5.57,20.49-4.9,5.8-11.65,8.95-19.25,8.95h-62.72c-11.22,0-20.84-7.17-24.09-17.91-24.49-81.04-175.27-89.1-175.27,10.29,0,54.17,69.06,74.2,110.38,89.28,95.59,34.9,180.42,71.61,180.42,189.81,0,92.2-60.95,162.57-147.4,188.45v71.17c0,13.86-11.32,25.18-25.19,25.18h-68.36c-13.88,0-25.19-11.3-25.19-25.18l-.34-68.56c-16.41-4.14-32.27-10.32-47.08-18.56-54.02-30.07-85.77-82.34-96.09-142.47-1.29-7.49.68-14.67,5.57-20.48,4.9-5.82,11.64-8.97,19.25-8.97h62.72c11.22,0,20.85,7.17,24.09,17.91,24.49,81.05,175.26,89.1,175.26-10.27,0-57.38-79.26-77.83-122.47-93.71-91.61-33.68-168.31-73.39-168.31-185.39h0Z"
                       />
                     </svg>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="text-center space-y-4">
-                  <div className="flex flex-col items-center space-y-2">
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
-                      <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-soft-white">200%</span>
-                      <span className="text-xl sm:text-2xl font-bold text-brand-primary-green">CASINO BONUS</span>
+                <div className="text-center space-y-3">
+                  <div className="flex flex-col items-center space-y-1">
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
+                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">200%</span>
+                      <span className="text-sm sm:text-base font-bold text-brand-primary-green">CASINO BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-sm md:text-base font-medium">MATCH BONUS UP TO $5,000</p>
+                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">MATCH BONUS UP TO $5,000</p>
                   </div>
                   <Button
                     variant="link"
-                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-sm md:text-base"
+                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
                     MORE INFO
                   </Button>
@@ -509,7 +507,7 @@ function CasinoContent() {
               </Button>
               <Button
                 variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl bg-transparent font-bold rounded-lg w-full sm:w-auto"
+                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl bg-transparent font-bold rounded-lg w-full md:w-auto"
               >
                 SEE ALL GAMES
               </Button>
