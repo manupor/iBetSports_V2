@@ -170,28 +170,30 @@ function CasinoContent() {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
 
+            {/* Mobile Content Overlay */}
+            <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6">
+              <div className="text-left space-y-3 sm:space-y-4 max-w-xs sm:max-w-sm">
+                <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
+                  <div className="text-brand-soft-white mb-1 drop-shadow-lg">125% SIGN UP BONUS</div>
+                  <div className="text-brand-vibrant-green drop-shadow-lg">+ CRYPTO BOOST !</div>
+                </h1>
+                <p className="text-base text-brand-smoke-gray font-medium leading-tight drop-shadow-lg">
+                  <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
+                </p>
+                <p className="text-lg text-brand-soft-white font-bold leading-tight drop-shadow-lg">
+                  Bet Smarter, Win Bigger
+                </p>
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-3 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full">
+                  <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
+                </Button>
+              </div>
+            </div>
+
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>
               <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-brand-vibrant-green/50 rounded-full animate-bounce"></div>
               <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
-            </div>
-          </div>
-
-          {/* Mobile Content */}
-          <div className="bg-brand-charcoal-black px-4 py-6">
-            <div className="text-center space-y-4">
-              <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
-                <div className="text-brand-soft-white mb-1">125% SIGN UP BONUS</div>
-                <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
-              </h1>
-              <p className="text-base text-brand-smoke-gray font-medium leading-tight">
-                <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
-              </p>
-              <p className="text-lg text-brand-soft-white font-bold leading-tight">Bet Smarter, Win Bigger</p>
-              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-3 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
-                <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
-              </Button>
             </div>
           </div>
         </div>
