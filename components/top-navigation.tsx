@@ -85,9 +85,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               </Button>
               <Button
                 size="sm"
-                className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 py-1 text-xs"
+                className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 py-1 text-xs animate-pulse"
               >
-                Join
+                Join Now!
               </Button>
               <Button
                 variant="ghost"
