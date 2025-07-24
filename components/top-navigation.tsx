@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X } from 'lucide-react'
 
 interface TopNavigationProps {
   activeTab: string
@@ -14,7 +14,6 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { id: "home", label: "Home" },
     { id: "sports", label: "Sports" },
     { id: "racebook", label: "Racebook" },
     { id: "live-casino", label: "Live Casino" },
@@ -27,13 +26,15 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center justify-between px-6 py-3">
         <div className="flex items-center space-x-8">
-          <Image
-            src="/images/ibet-sports-logo-v2.png"
-            alt="IBET Sports Logo"
-            width={120}
-            height={40}
-            className="h-10 lg:h-12 w-auto"
-          />
+          <button onClick={() => setActiveTab("home")} className="cursor-pointer">
+            <Image
+              src="/images/ibet-sports-logo-v2.png"
+              alt="IBET Sports Logo"
+              width={120}
+              height={40}
+              className="h-10 lg:h-12 w-auto hover:opacity-80 transition-opacity"
+            />
+          </button>
           <div className="flex space-x-6">
             {navItems.map((item) => (
               <button
@@ -65,13 +66,15 @@ export function TopNavigation({ activeTab, setActiveTab }: TopNavigationProps) {
 
       {/* Mobile Navigation */}
       <div className="md:hidden flex items-center justify-between px-4 py-3">
-        <Image
-          src="/images/ibet-sports-logo-v2.png"
-          alt="IBET Sports Logo"
-          width={120}
-          height={40}
-          className="h-14 w-auto"
-        />
+        <button onClick={() => setActiveTab("home")} className="cursor-pointer">
+          <Image
+            src="/images/ibet-sports-logo-v2.png"
+            alt="IBET Sports Logo"
+            width={120}
+            height={40}
+            className="h-14 w-auto hover:opacity-80 transition-opacity"
+          />
+        </button>
         <div className="flex items-center space-x-2">
           <Button
             variant="outline"
