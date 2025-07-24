@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Play, Users, Video, Crown, Star, Target, Eye, Heart, Share2 } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Play, Users, Video, Crown, Star, Target, Eye, Heart, Share2 } from 'lucide-react'
 
 /* ────────────────────────────
    DATA
@@ -152,6 +153,74 @@ const liveGames = [
   },
 ] as const
 
+const promotions = [
+  {
+    id: "IBS125CS",
+    title: "125% SPORTS WELCOME BONUS",
+    image: "/images/125-sports-bonus.png",
+    terms: [
+      "You will receive a 125% bonus on your qualifying initial deposit only.",
+      "A minimum deposit of $100 USD is required to qualify for the bonus.",
+      "The maximum bonus per deposit is $1000 USD",
+      "Bonus awarded as Free Play money.",
+      "There is a 15X rollover requirement associated with this promotion.",
+      "There is a Max cashout of $10,000.00 USD and the bonus expires in 14 days.",
+      "Rollover (w) is calculated based on your deposit (d) plus bonus, (b) multiplied by the rollover requirement of your bonus (r). Rollover Formula w = (d+b)* r",
+      "Please note that only the lowest amount between the risk and the win counts towards your rollover requirement. Horses, Casino, and Poker will not contribute action towards the rollover.",
+      "To receive the bonus, you must use Promo Code IBS125CS",
+      "To redeem the bonus, you must contact us through our NEED HELP section on the upper right hand corner of the page.",
+      "This promotion is non-transferable.",
+      "The free plays can only be used on straight bets up to +250. They cannot be used in the Racebook, Casino, and Poker",
+      "IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.",
+      "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number."
+    ]
+  },
+  {
+    id: "IBS200CP",
+    title: "200% CRYPTO CASINO WELCOME BONUS",
+    image: "/images/200-crypto-bonus.png",
+    terms: [
+      "You will receive a 200% bonus on your qualifying INITIAL deposit only.",
+      "A minimum deposit of $50 is required to qualify for the bonus.",
+      "The maximum amount awarded for this bonus is $2000.00 USD",
+      "The maximum cash out for this bonus is $10,000 and expires in 7 days.",
+      "There is a 40X rollover requirement associated with this promotion.",
+      "Deposits made via CRYPTO only are eligible for this bonus.",
+      "The Bonus applies ONLY for online casino.",
+      "Bonuses are for USA Players, bonuses for other players are at the discretion of management.",
+      "To receive the bonus, you must use Promo Code IBS200CP",
+      "To redeem the bonus, you may do so through our CASHIER/ PROMO CODE FIELD",
+      "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.",
+      "IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice."
+    ]
+  },
+  {
+    id: "IBS150CS",
+    title: "150% CASINO RELOAD BONUS",
+    image: "/images/150-casino-reload.png",
+    terms: [
+      "First Time Deposit Crypto Casino 250% min 100$ max 2k 40x rollover max cash 10k 7 day expiration",
+      "First Time Deposit Other Deposit Type other 200% min 50$ max 1k 30x rollover max cash out 5k 7 days expiration",
+      "Reload crypto 150% 100 min 1k max 40x rollover max cash 10k 7 day expiration",
+      "Reload Other Deposit Type 100% 100 min 1k max 40x rollover max cash 5k 7 day expiration",
+      "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.",
+      "All bonuses come with a rollover requirement , please make sure you understand the requirements prior to agreeing. You may decline the bonus but every deposit has a one time rollover requirement."
+    ]
+  },
+  {
+    id: "IBS200CPR",
+    title: "200% REFER A FRIEND BONUS",
+    image: "/images/200-refer-bonus.png",
+    terms: [
+      "Friends have more fun together.",
+      "Share your invite link with your friends via email, social media, or SMS and ask them to sign up, we'll give you a 200% bonus up to $200 when they make their first deposit (min: $50).",
+      "Unlimited Referrals, Unlimited Bonuses!",
+      "Repeat & Repeat",
+      "Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!"
+    ]
+  }
+]
+
 /* ────────────────────────────
    COMPONENT
    ──────────────────────────── */
@@ -260,6 +329,87 @@ export default function LiveCasinoTabContent() {
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      {/* Live Casino Interface */}
+      <section className="w-full mb-8">
+        <div className="bg-brand-charcoal-black-secondary/50 p-4 mb-6 rounded-lg border border-brand-primary-green/30">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+              <h2 className="text-xl font-bold">LIVE CASINO LOBBY</h2>
+            </div>
+            <Badge className="bg-brand-primary-green text-brand-charcoal-black">
+              <Users className="w-4 h-4 mr-1" />
+              8.7K Playing
+            </Badge>
+          </div>
+          
+          <div className="w-full rounded-lg overflow-hidden border border-brand-smoke-gray/30">
+            <iframe
+              src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_LIVE"
+              width="100%"
+              height="1000"
+              frameBorder="0"
+              allowFullScreen
+              loading="lazy"
+              className="w-full"
+              title="Live Casino Lobby"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Promotional Banners */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {promotions.map((promo) => (
+            <Card key={promo.id} className="group relative overflow-hidden bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green transition-all duration-300">
+              <div className="relative">
+                <Image
+                  src={promo.image || "/placeholder.svg"}
+                  alt={promo.title}
+                  width={640}
+                  height={350}
+                  className="w-full h-auto object-cover"
+                />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button 
+                      className="absolute bottom-4 left-4 bg-brand-primary-green/90 hover:bg-brand-primary-green text-brand-charcoal-black font-bold text-xs px-4 py-2"
+                    >
+                      TERMS
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-brand-soft-white max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="text-brand-primary-green text-lg font-bold">
+                        TERMS AND CONDITIONS
+                      </DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <h3 className="font-bold text-brand-soft-white">{promo.title}</h3>
+                      <ol className="list-decimal list-inside space-y-2 text-sm">
+                        {promo.terms.map((term, index) => (
+                          <li key={index} className="text-brand-smoke-gray leading-relaxed">
+                            {term}
+                          </li>
+                        ))}
+                      </ol>
+                      <div className="mt-6 p-4 bg-brand-charcoal-black/50 rounded-lg">
+                        <p className="font-bold text-brand-soft-white mb-2">Important Disclaimer:</p>
+                        <p className="text-sm text-brand-smoke-gray">
+                          The user is warned that they should make their own inquiry into the legality of participating in any of these games and/or activities. IBETSPORTS assumes no responsibility for the actions by and makes no representation or endorsement of any of these games and/or activities if they are illegal in the jurisdiction of the reader or client of this site.
+                        </p>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16">
         <Image
@@ -357,6 +507,41 @@ export default function LiveCasinoTabContent() {
             </div>
           </TabsContent>
         </Tabs>
+      </section>
+
+      {/* Content Sections */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div className="space-y-12">
+          {/* Section 1 */}
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+              Play Your Favorite Games in Our Immersive Live Casino
+            </h2>
+            <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
+              Enjoy real-time excitement with our Live Dealer Casino, where the action is streamed directly to you in high-definition. With a range of classic games like Live Blackjack, Live Baccarat, Live Roulette, and Live Craps, you can enjoy the thrill of a land-based casino from the comfort of your own space. Each game is hosted by professional dealers, creating an authentic atmosphere where you can chat with both dealers and other players, adding a social dimension to your experience.
+            </p>
+          </div>
+
+          {/* Section 2 */}
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+              Live Blackjack: Challenge the Dealer in Real Time
+            </h2>
+            <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
+              In our Live Dealer Casino, classic table games come to life. With Live Blackjack, you can test your skills against a live dealer and use strategy to get closer to 21. Watch every deal, react to every hand, and see if you have what it takes to beat the house!
+            </p>
+          </div>
+
+          {/* Section 3 */}
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+              Live Roulette, Baccarat, and More – Anytime, Anywhere
+            </h2>
+            <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
+              From the suspenseful spins of Live Roulette to the elegance of Live Baccarat, each game is designed to bring the true essence of casino gaming to you. Our live streaming technology ensures seamless play on desktop and mobile, so you never miss a moment of the action, no matter where you are. Immerse yourself in a real casino experience. Join our Live Dealer Casino today and feel the rush of live-action betting. Sign up now and take your seat at the table!
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   )

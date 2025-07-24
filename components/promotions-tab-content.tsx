@@ -173,7 +173,6 @@ export default function PromotionsTabContent() {
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
       {/* ─────────────────────── HERO ─────────────────────── */}
       <section className="relative h-64 md:h-80 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/hero2.jpg')" }} />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
         <div className="absolute inset-0 flex items-end md:items-center justify-center pb-4 md:pb-0">
           <div className="text-center space-y-4">
