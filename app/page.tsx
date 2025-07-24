@@ -245,7 +245,6 @@ function CasinoContent() {
       </section>
 
       {/* Trust Indicators Section */}
-      
 
       {/* Promotions Section */}
       <section className="w-full py-12 bg-black border-b border-brand-smoke-gray/10 md:py-0">
@@ -459,69 +458,77 @@ function CasinoContent() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
             {[
               {
-                title: "Sports Betting",
-                desc: "Live odds & instant payouts",
-                image: "/images/thrill-sports-betting.png",
-                color: "from-blue-500 to-blue-600",
+                title: "Wild Mustang",
+                desc: "Gallop to big wins",
+                image: "/images/wild-mustang.jpg",
               },
               {
-                title: "Premium Slots",
-                desc: "500+ games with mega jackpots",
-                image: "/images/thrill-premium-slots.png",
-                color: "from-purple-500 to-purple-600",
+                title: "Wild Rocks",
+                desc: "Castle adventures await",
+                image: "/images/wild-rocks.jpg",
               },
               {
-                title: "Table Games",
-                desc: "Classic casino experience",
-                image: "/images/thrill-table-games.png",
-                color: "from-green-500 to-green-600",
+                title: "Último Bingo París",
+                desc: "French bingo excitement",
+                image: "/images/ultimo-bingo-paris.jpg",
               },
               {
-                title: "VIP Lounge",
-                desc: "Exclusive high-roller games",
-                image: "/images/thrill-vip-lounge.png",
-                color: "from-yellow-500 to-yellow-600",
+                title: "Tacomania",
+                desc: "Spicy slot action",
+                image: "/images/tacomania.jpg",
               },
               {
-                title: "Live Casino",
-                desc: "Real dealers, real time",
-                image: "/images/thrill-premium-slots.png",
-                color: "from-red-500 to-red-600",
+                title: "Xtreme",
+                desc: "Maximum thrill gaming",
+                image: "/images/xtreme.jpg",
+              },
+              {
+                title: "Warrior Angels",
+                desc: "Epic battle rewards",
+                image: "/images/warrior-angels.jpg",
+              },
+              {
+                title: "Totem Spirits",
+                desc: "Mystical tribal wins",
+                image: "/images/totem-spirits.jpg",
+              },
+              {
+                title: "Triple Bonus",
+                desc: "Triple the excitement",
+                image: "/images/triple-bonus.jpg",
+              },
+              {
+                title: "Turbo 2",
+                desc: "High-speed slot fun",
+                image: "/images/turbo-2.jpg",
+              },
+              {
+                title: "Wonderful Lamp",
+                desc: "Genie's magical prizes",
+                image: "/images/wonderful-lamp.jpg",
               },
             ].map((option, index) => (
-              <Card
-                key={index}
-                className="group relative overflow-hidden rounded-2xl bg-brand-charcoal-black-secondary border border-brand-primary-green/30 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105"
-              >
-                <div className="aspect-[4/3] relative">
-                  <Image
-                    src={option.image || "/placeholder.svg"}
-                    alt={option.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-80`}></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                    <div className="mb-3 md:mb-4">
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-black rounded-lg">
-                        <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                        Play Now
-                      </Button>
-                    </div>
-
-                    <div className="text-center space-y-1 md:space-y-2">
-                      <h3 className="text-white font-bold text-sm md:text-lg drop-shadow-lg leading-tight">
-                        {option.title}
-                      </h3>
-                      <p className="text-white/90 text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-tight">
-                        {option.desc}
-                      </p>
-                    </div>
+              <div key={index} className="group cursor-pointer transform hover:scale-105 transition-all duration-300">
+                <Card className="relative overflow-hidden rounded-2xl bg-brand-charcoal-black-secondary border border-brand-primary-green/30 shadow-lg hover:shadow-xl hover:border-brand-primary-green/60 transition-all duration-300">
+                  <div className="aspect-[4/3] relative">
+                    <Image
+                      src={option.image || "/placeholder.svg"}
+                      alt={option.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
+                </Card>
+
+                <div className="mt-4 text-center space-y-3">
+                  <h3 className="text-white font-bold text-sm md:text-lg leading-tight">{option.title}</h3>
+                  <p className="text-brand-smoke-gray text-xs md:text-sm font-medium leading-tight">{option.desc}</p>
+                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-black rounded-lg">
+                    <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
+                    Play Now
+                  </Button>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -564,52 +571,7 @@ function CasinoContent() {
       <section className="py-16 md:py-20 bg-black">
         <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
           {/* Draft Originals */}
-          <div className="px-4 sm:px-6 md:px-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-10">
-              <div className="mb-6 md:mb-0 text-center md:text-left">
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">
-                  Draft Originals
-                </h3>
-                <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
-                  Exclusive in-house games with the highest RTPs
-                </p>
-              </div>
-              <Button
-                variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-bold rounded-lg w-full md:w-auto"
-              >
-                View All <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" />
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
-              {originalGames.map((game) => (
-                <Card
-                  key={game.name}
-                  className="p-4 md:p-6 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden min-h-[200px] md:min-h-[280px] flex flex-col justify-end"
-                >
-                  <Image
-                    src={game.image || "/placeholder.svg"}
-                    alt={game.name}
-                    fill
-                    className="object-cover absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
-                  <div className="relative z-20 text-brand-soft-white text-center">
-                    <span className="font-black text-lg md:text-2xl block mb-2">{game.name}</span>
-                    <div className="text-xs md:text-sm bg-black/20 px-3 md:px-4 py-1 rounded-full inline-block font-medium">
-                      {game.players} playing
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-30">
-                    <Button className="bg-brand-primary-green text-brand-soft-white font-black hover:bg-brand-primary-green-dark px-6 md:px-8 py-3 md:py-4 text-sm md:text-lg rounded-lg">
-                      <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                      Play Now
-                    </Button>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
+          
 
           {/* Popular Slots */}
           <div className="px-4 sm:px-6 md:px-12">

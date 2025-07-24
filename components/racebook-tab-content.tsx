@@ -108,33 +108,89 @@ export default function RacebookTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16 min-h-[400px] flex items-center justify-center">
-        <div className="absolute inset-0 opacity-40">
+      <section className="relative w-full">
+        {/* Desktop Hero */}
+        <div className="hidden md:block relative w-full h-[45vh] overflow-hidden bg-black">
           <Image
-            src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
-            alt="Horse racing background"
-            fill
-            className="object-cover object-[50%_90%]" // Adjusted object-position to 50% 90%
+            src="/images/ibetsports-horse-racing-hero.png"
+            alt="Dynamic horse and jockey silhouette with green neon lighting effects"
+            width={1920}
+            height={600}
+            className="absolute bottom-0 right-0 w-full h-full object-cover object-[50%_90%]"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal-black via-transparent to-brand-charcoal-black"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-center z-10">
-          <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white mb-4">HORSE RACING</h1>
-          <p className="text-xl md:text-2xl text-brand-smoke-gray mb-8 max-w-3xl mx-auto">
-            Bet on the most exciting horse races from tracks around the world
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-6 py-3 rounded-full">
-              <Trophy className="w-6 h-6 text-brand-primary-green" />
-              <span className="text-brand-soft-white font-bold">Live Racing</span>
-            </div>
-            <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-6 py-3 rounded-full">
-              <Target className="w-6 h-6 text-brand-vibrant-green" />
-              <span className="text-brand-soft-white font-bold">Best Odds</span>
+
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
+            <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
+          </div>
+
+          {/* Text Overlay */}
+          <div className="absolute inset-0 flex flex-col justify-center pl-12 lg:pl-24 pr-12 lg:pr-24">
+            <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
+              <div className="text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-none tracking-tight">
+                HORSE
+              </div>
+              <div className="text-xl lg:text-2xl xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                RACING BETS
+              </div>
+              <div className="text-base lg:text-lg xl:text-xl font-bold text-white leading-tight tracking-tight">
+                LIVE RACING ACTION
+              </div>
+              <div className="text-sm lg:text-base xl:text-lg font-semibold text-white leading-tight tracking-tight mb-4">
+                Bet on the World's Best Tracks
+              </div>
+
+              {/* Button integrated in text flow */}
+              <div className="pt-2">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 lg:px-12 py-3 lg:py-4 text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
+                  <span className="relative z-10 drop-shadow-lg">BET NOW</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        {/* Mobile Hero */}
+        <div className="md:hidden">
+          <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden">
+            <Image
+              src="/images/ibetsports-horse-racing-hero.png"
+              alt="Dynamic horse and jockey silhouette with green neon lighting effects"
+              fill
+              className="object-cover object-[50%_90%]"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
+
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-brand-vibrant-green/50 rounded-full animate-bounce"></div>
+              <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
+            </div>
+          </div>
+
+          {/* Mobile Content */}
+          <div className="bg-brand-charcoal-black px-4 py-8">
+            <div className="text-center space-y-6">
+              <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
+                <div className="text-brand-soft-white mb-2">HORSE RACING BETS</div>
+                <div className="text-brand-vibrant-green">+ LIVE ACTION !</div>
+              </h1>
+              <p className="text-base text-brand-smoke-gray font-medium">
+                <span className="text-brand-vibrant-green font-bold">BEST ODDS</span>
+              </p>
+              <p className="text-lg text-brand-soft-white font-bold">Bet on the World's Best Tracks</p>
+              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
+                <span className="relative z-10 drop-shadow-lg">BET NOW</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Stats Section */}
       <div className="py-8 bg-brand-charcoal-black-secondary">
