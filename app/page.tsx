@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Play, Gift, Filter, SortDesc, ChevronRight, Zap, Shield, Clock, Eye } from 'lucide-react'
+import { Play, Gift, Filter, SortDesc, ChevronRight, Zap, Shield, Clock, Eye } from "lucide-react"
 
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
@@ -131,6 +131,7 @@ function CasinoContent() {
     <div className="font-poppins">
       {/* Hero Section */}
       <section className="relative w-full">
+        {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-[70vh] overflow-hidden bg-black">
           <Image
             src="/images/hero-nfl-stadium-players.jpg"
@@ -154,9 +155,7 @@ function CasinoContent() {
               <div className="text-4xl lg:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight">
                 SIGN UP BONUS
               </div>
-              <div className="text-2xl lg:text-3xl font-bold text-white leading-none tracking-tight">
-                QUICK PAYOUTS
-              </div>
+              <div className="text-2xl lg:text-3xl font-bold text-white leading-none tracking-tight">QUICK PAYOUTS</div>
               <div className="text-xl lg:text-2xl font-semibold text-white leading-none tracking-tight">
                 Bet Smarter, Win Bigger
               </div>
@@ -171,8 +170,9 @@ function CasinoContent() {
           </div>
         </div>
 
+        {/* Mobile Hero */}
         <div className="md:hidden">
-          <div className="relative w-full h-[35vh] overflow-hidden">
+          <div className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
             <Image
               src="/images/hero-mobile-stake.png"
               alt="STAKE - Three football players with dramatic green effects and sports betting interface"
@@ -188,27 +188,28 @@ function CasinoContent() {
               <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
             </div>
 
-            <div className="absolute top-4 right-3 z-20">
-              <div className="bg-black/90 backdrop-blur-xl p-2 rounded-lg border border-brand-primary-green/40 shadow-xl">
-                <div className="flex items-center space-x-1 mb-1">
-                  <Gift className="w-3 h-3 text-brand-vibrant-green" />
-                  <span className="text-brand-soft-white font-bold text-xs">Bonus Expires</span>
+            {/* Mobile Timer */}
+            <div className="absolute top-4 right-4 z-20">
+              <div className="bg-black/90 backdrop-blur-xl p-3 rounded-lg border border-brand-primary-green/40 shadow-xl">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Gift className="w-4 h-4 text-brand-vibrant-green" />
+                  <span className="text-brand-soft-white font-bold text-sm">Bonus Expires</span>
                 </div>
-                <div className="grid grid-cols-3 gap-1">
-                  <div className="bg-brand-primary-green/20 p-1 rounded text-center">
-                    <div className="text-xs font-bold text-brand-primary-green">
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="bg-brand-primary-green/20 p-2 rounded text-center">
+                    <div className="text-sm font-bold text-brand-primary-green">
                       {String(timeLeft.hours).padStart(2, "0")}
                     </div>
                     <div className="text-xs text-brand-smoke-gray">HRS</div>
                   </div>
-                  <div className="bg-brand-vibrant-green/20 p-1 rounded text-center">
-                    <div className="text-xs font-bold text-brand-vibrant-green">
+                  <div className="bg-brand-vibrant-green/20 p-2 rounded text-center">
+                    <div className="text-sm font-bold text-brand-vibrant-green">
                       {String(timeLeft.minutes).padStart(2, "0")}
                     </div>
                     <div className="text-xs text-brand-smoke-gray">MIN</div>
                   </div>
-                  <div className="bg-brand-vibrant-green/20 p-1 rounded text-center">
-                    <div className="text-xs font-bold text-brand-vibrant-green">
+                  <div className="bg-brand-vibrant-green/20 p-2 rounded text-center">
+                    <div className="text-sm font-bold text-brand-vibrant-green">
                       {String(timeLeft.seconds).padStart(2, "0")}
                     </div>
                     <div className="text-xs text-brand-smoke-gray">SEC</div>
@@ -218,17 +219,18 @@ function CasinoContent() {
             </div>
           </div>
 
+          {/* Mobile Content */}
           <div className="bg-brand-charcoal-black px-4 py-8">
-            <div className="text-center space-y-4">
-              <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight tracking-tight">
-                <div className="text-brand-soft-white">125% SIGN UP BONUS</div>
+            <div className="text-center space-y-6">
+              <h1 className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
+                <div className="text-brand-soft-white mb-2">125% SIGN UP BONUS</div>
                 <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
               </h1>
-              <p className="text-base sm:text-lg text-brand-smoke-gray font-medium">
+              <p className="text-base text-brand-smoke-gray font-medium">
                 <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
               </p>
-              <p className="text-lg sm:text-xl text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
-              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-12 py-4 text-2xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-2 border-white/20">
+              <p className="text-lg text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
+              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-xl rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
               </Button>
@@ -238,38 +240,40 @@ function CasinoContent() {
       </section>
 
       {/* Trust Indicators Section */}
-      <section className="w-full py-16 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-8 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4 hover:border-brand-primary-green/50 transition-colors">
+      <section className="w-full py-12 md:py-16 bg-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6 md:p-8 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4 hover:border-brand-primary-green/50 transition-colors">
               <div className="flex items-center justify-center">
-                <Shield className="w-12 h-12 text-brand-primary-green" />
+                <Shield className="w-10 h-10 md:w-12 md:h-12 text-brand-primary-green" />
               </div>
               <div className="text-center">
-                <span className="text-brand-soft-white font-bold text-xl block mb-2">Licensed & Secure</span>
-                <p className="text-brand-smoke-gray text-base leading-relaxed">
+                <span className="text-brand-soft-white font-bold text-lg md:text-xl block mb-2">Licensed & Secure</span>
+                <p className="text-brand-smoke-gray text-sm md:text-base leading-relaxed">
                   Your safety is our priority. We operate under strict regulations.
                 </p>
               </div>
             </Card>
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 p-8 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4 hover:border-brand-vibrant-green/50 transition-colors">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 p-6 md:p-8 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4 hover:border-brand-vibrant-green/50 transition-colors">
               <div className="flex items-center justify-center">
-                <Zap className="w-12 h-12 text-brand-vibrant-green" />
+                <Zap className="w-10 h-10 md:w-12 md:h-12 text-brand-vibrant-green" />
               </div>
               <div className="text-center">
-                <span className="text-brand-soft-white font-bold text-xl block mb-2">Instant Withdrawals</span>
-                <p className="text-brand-smoke-gray text-base leading-relaxed">
+                <span className="text-brand-soft-white font-bold text-lg md:text-xl block mb-2">
+                  Instant Withdrawals
+                </span>
+                <p className="text-brand-smoke-gray text-sm md:text-base leading-relaxed">
                   Get your winnings quickly with our fast and efficient payout system.
                 </p>
               </div>
             </Card>
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-8 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4 hover:border-brand-primary-green/50 transition-colors">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6 md:p-8 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4 hover:border-brand-primary-green/50 transition-colors">
               <div className="flex items-center justify-center">
-                <Clock className="w-12 h-12 text-brand-primary-green" />
+                <Clock className="w-10 h-10 md:w-12 md:h-12 text-brand-primary-green" />
               </div>
               <div className="text-center">
-                <span className="text-brand-soft-white font-bold text-xl block mb-2">24/7 Support</span>
-                <p className="text-brand-smoke-gray text-base leading-relaxed">
+                <span className="text-brand-soft-white font-bold text-lg md:text-xl block mb-2">24/7 Support</span>
+                <p className="text-brand-smoke-gray text-sm md:text-base leading-relaxed">
                   Our dedicated support team is always here to assist you, day or night.
                 </p>
               </div>
@@ -279,36 +283,40 @@ function CasinoContent() {
       </section>
 
       {/* Promotions Section */}
-      <section className="w-full py-20 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-12">
+      <section className="w-full py-16 md:py-20 bg-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black text-brand-soft-white mb-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-brand-soft-white mb-4 md:mb-6">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 IBET PROMOS
               </span>{" "}
               KEEP YOU IN THE GAME
             </h2>
-            <p className="text-xl md:text-2xl text-brand-smoke-gray mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-8 md:mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
               Unlock exclusive bonuses and maximize your gaming experience
             </p>
             <Button
               variant="outline"
-              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-10 py-4 text-xl font-bold rounded-lg"
+              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-8 md:px-10 py-3 md:py-4 text-lg md:text-xl font-bold rounded-lg"
             >
               SEE ALL PROMOTIONS →
             </Button>
           </div>
 
           {/* Promotions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {/* Crypto Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-10 rounded-2xl">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
               <div className="flex flex-col items-center text-center space-y-6">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
-                    <svg className="w-12 h-12 text-brand-primary-green" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                    <svg
+                      className="w-10 h-10 md:w-12 md:h-12 text-brand-primary-green"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z" />
                       <path
                         fill="#fff"
@@ -321,15 +329,17 @@ function CasinoContent() {
                 {/* Content */}
                 <div className="text-center space-y-4">
                   <div className="flex flex-col items-center space-y-2">
-                    <div className="flex items-center justify-center space-x-3">
-                      <span className="text-5xl md:text-6xl font-black text-brand-soft-white">200%</span>
-                      <span className="text-2xl font-bold text-brand-primary-green">CRYPTO BONUS</span>
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
+                      <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-soft-white">200%</span>
+                      <span className="text-xl sm:text-2xl font-bold text-brand-primary-green">CRYPTO BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-base font-medium">150% SPORTSBOOK + 50% CASINO</p>
+                    <p className="text-brand-smoke-gray text-sm md:text-base font-medium">
+                      150% SPORTSBOOK + 50% CASINO
+                    </p>
                   </div>
                   <Button
                     variant="link"
-                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-base"
+                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-sm md:text-base"
                   >
                     MORE INFO
                   </Button>
@@ -338,13 +348,13 @@ function CasinoContent() {
             </Card>
 
             {/* Sign Up Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-10 rounded-2xl">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
               <div className="flex flex-col items-center text-center space-y-6">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <svg
-                      className="w-12 h-12 text-brand-vibrant-green"
+                      className="w-10 h-10 md:w-12 md:h-12 text-brand-vibrant-green"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -363,15 +373,15 @@ function CasinoContent() {
                 {/* Content */}
                 <div className="text-center space-y-4">
                   <div className="flex flex-col items-center space-y-2">
-                    <div className="flex items-center justify-center space-x-3">
-                      <span className="text-5xl md:text-6xl font-black text-brand-soft-white">125%</span>
-                      <span className="text-2xl font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
+                      <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-soft-white">125%</span>
+                      <span className="text-xl sm:text-2xl font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-base font-medium">ON YOUR FIRST 3 DEPOSITS</p>
+                    <p className="text-brand-smoke-gray text-sm md:text-base font-medium">ON YOUR FIRST 3 DEPOSITS</p>
                   </div>
                   <Button
                     variant="link"
-                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-base"
+                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-sm md:text-base"
                   >
                     MORE INFO
                   </Button>
@@ -380,13 +390,13 @@ function CasinoContent() {
             </Card>
 
             {/* Casino Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-10 rounded-2xl">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
               <div className="flex flex-col items-center text-center space-y-6">
                 {/* Playing Cards Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
-                      className="w-12 h-12 text-brand-primary-green"
+                      className="w-10 h-10 md:w-12 md:h-12 text-brand-primary-green"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -410,15 +420,15 @@ function CasinoContent() {
                 {/* Content */}
                 <div className="text-center space-y-4">
                   <div className="flex flex-col items-center space-y-2">
-                    <div className="flex items-center justify-center space-x-3">
-                      <span className="text-5xl md:text-6xl font-black text-brand-soft-white">200%</span>
-                      <span className="text-2xl font-bold text-brand-primary-green">CASINO BONUS</span>
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3">
+                      <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-soft-white">200%</span>
+                      <span className="text-xl sm:text-2xl font-bold text-brand-primary-green">CASINO BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-base font-medium">MATCH BONUS UP TO $5,000</p>
+                    <p className="text-brand-smoke-gray text-sm md:text-base font-medium">MATCH BONUS UP TO $5,000</p>
                   </div>
                   <Button
                     variant="link"
-                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-base"
+                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-sm md:text-base"
                   >
                     MORE INFO
                   </Button>
@@ -428,34 +438,36 @@ function CasinoContent() {
           </div>
 
           {/* Bottom Features */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8 text-brand-primary-green" />
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                <Shield className="w-6 h-6 md:w-8 md:h-8 text-brand-primary-green" />
               </div>
               <div className="space-y-3">
-                <h4 className="text-xl font-bold text-brand-soft-white">Licensed & Secure</h4>
-                <p className="text-brand-smoke-gray text-base font-medium leading-relaxed">
+                <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">Licensed & Secure</h4>
+                <p className="text-brand-smoke-gray text-sm md:text-base font-medium leading-relaxed">
                   Your safety is our priority with strict regulations
                 </p>
               </div>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand-vibrant-green/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Zap className="w-8 h-8 text-brand-vibrant-green" />
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-vibrant-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                <Zap className="w-6 h-6 md:w-8 md:h-8 text-brand-vibrant-green" />
               </div>
               <div className="space-y-3">
-                <h4 className="text-xl font-bold text-brand-soft-white">Instant Withdrawals</h4>
-                <p className="text-brand-smoke-gray text-base font-medium leading-relaxed">Get your winnings quickly with fast payouts</p>
+                <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">Instant Withdrawals</h4>
+                <p className="text-brand-smoke-gray text-sm md:text-base font-medium leading-relaxed">
+                  Get your winnings quickly with fast payouts
+                </p>
               </div>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock className="w-8 h-8 text-brand-primary-green" />
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                <Clock className="w-6 h-6 md:w-8 md:h-8 text-brand-primary-green" />
               </div>
               <div className="space-y-3">
-                <h4 className="text-xl font-bold text-brand-soft-white">24/7 Support</h4>
-                <p className="text-brand-smoke-gray text-base font-medium leading-relaxed">
+                <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">24/7 Support</h4>
+                <p className="text-brand-smoke-gray text-sm md:text-base font-medium leading-relaxed">
                   Dedicated support team available around the clock
                 </p>
               </div>
@@ -465,26 +477,24 @@ function CasinoContent() {
       </section>
 
       {/* Gaming Options Section */}
-      <section className="w-full py-20 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-12">
-            <div className="mb-8 md:mb-0">
-              <h3 className="text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">
-                GAMING OPTIONS
-              </h3>
-              <p className="text-brand-smoke-gray text-xl md:text-2xl font-medium">
+      <section className="w-full py-16 md:py-20 bg-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 md:mb-12">
+            <div className="mb-6 md:mb-0 text-center md:text-left">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">GAMING OPTIONS</h3>
+              <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
                 Explore our gaming options
               </p>
             </div>
             <Button
               variant="outline"
-              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-white text-lg bg-transparent font-bold px-8 py-4 rounded-lg"
+              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-white text-base md:text-lg bg-transparent font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg w-full md:w-auto"
             >
               SEE ALL OPTIONS →
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
             {[
               {
                 title: "Sports Betting",
@@ -531,19 +541,19 @@ function CasinoContent() {
                   <div className={`absolute inset-0 bg-gradient-to-t ${option.color} opacity-80`}></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="mb-4">
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-6 py-4 text-base text-black rounded-lg">
-                        <Play className="w-5 h-5 mr-3" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                    <div className="mb-3 md:mb-4">
+                      <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-black rounded-lg">
+                        <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
                         Play Now
                       </Button>
                     </div>
 
-                    <div className="text-center space-y-2">
-                      <h3 className="text-white font-bold text-lg drop-shadow-lg leading-tight">
+                    <div className="text-center space-y-1 md:space-y-2">
+                      <h3 className="text-white font-bold text-sm md:text-lg drop-shadow-lg leading-tight">
                         {option.title}
                       </h3>
-                      <p className="text-white/90 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-tight">
+                      <p className="text-white/90 text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-tight">
                         {option.desc}
                       </p>
                     </div>
@@ -556,7 +566,7 @@ function CasinoContent() {
       </section>
 
       {/* Online Casino CTA Section */}
-      <section className="w-full relative bg-brand-charcoal-black py-24 overflow-hidden border-b border-brand-smoke-gray/10">
+      <section className="w-full relative bg-brand-charcoal-black py-20 md:py-24 overflow-hidden border-b border-brand-smoke-gray/10">
         <div className="absolute inset-0">
           <Image
             src="/images/casino-background.png"
@@ -567,19 +577,19 @@ function CasinoContent() {
           <div className="absolute inset-0 bg-black/80"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 text-center">
-          <div className="space-y-10">
-            <h2 className="text-4xl md:text-6xl font-black text-brand-soft-white">ONLINE CASINO</h2>
-            <p className="text-2xl md:text-3xl text-brand-smoke-gray max-w-4xl mx-auto font-medium leading-relaxed">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 text-center">
+          <div className="space-y-8 md:space-y-10">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-brand-soft-white">ONLINE CASINO</h2>
+            <p className="text-lg sm:text-xl md:text-3xl text-brand-smoke-gray max-w-4xl mx-auto font-medium leading-relaxed">
               Experience the thrill of our premium casino games with the highest RTPs and biggest jackpots
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark font-black px-12 py-6 text-xl text-black rounded-lg">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8">
+              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark font-black px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl text-black rounded-lg w-full sm:w-auto">
                 PLAY CASINO GAMES
               </Button>
               <Button
                 variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white px-12 py-6 text-xl bg-transparent font-bold rounded-lg"
+                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl bg-transparent font-bold rounded-lg w-full sm:w-auto"
               >
                 SEE ALL GAMES
               </Button>
@@ -589,31 +599,31 @@ function CasinoContent() {
       </section>
 
       {/* Games Sections */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto space-y-32">
+      <section className="py-20 md:py-24 bg-black">
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
           {/* Draft Originals */}
-          <div className="px-4 md:px-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-12">
-              <div className="mb-8 md:mb-0">
-                <h3 className="text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 md:mb-12">
+              <div className="mb-6 md:mb-0 text-center md:text-left">
+                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">
                   Draft Originals
                 </h3>
-                <p className="text-brand-smoke-gray text-xl md:text-2xl font-medium">
+                <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
                   Exclusive in-house games with the highest RTPs
                 </p>
               </div>
               <Button
                 variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-10 py-4 text-lg font-bold rounded-lg"
+                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-bold rounded-lg w-full md:w-auto"
               >
-                View All <ChevronRight className="w-5 h-5 ml-3" />
+                View All <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" />
               </Button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
               {originalGames.map((game) => (
                 <Card
                   key={game.name}
-                  className="p-6 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden min-h-[280px] flex flex-col justify-end"
+                  className="p-4 md:p-6 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden min-h-[200px] md:min-h-[280px] flex flex-col justify-end"
                 >
                   <Image
                     src={game.image || "/placeholder.svg"}
@@ -623,14 +633,14 @@ function CasinoContent() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
                   <div className="relative z-20 text-brand-soft-white text-center">
-                    <span className="font-black text-2xl block mb-2">{game.name}</span>
-                    <div className="text-sm bg-black/20 px-4 py-1 rounded-full inline-block font-medium">
+                    <span className="font-black text-lg md:text-2xl block mb-2">{game.name}</span>
+                    <div className="text-xs md:text-sm bg-black/20 px-3 md:px-4 py-1 rounded-full inline-block font-medium">
                       {game.players} playing
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-30">
-                    <Button className="bg-brand-primary-green text-brand-soft-white font-black hover:bg-brand-primary-green-dark px-8 py-4 text-lg rounded-lg">
-                      <Play className="w-5 h-5 mr-3" />
+                    <Button className="bg-brand-primary-green text-brand-soft-white font-black hover:bg-brand-primary-green-dark px-6 md:px-8 py-3 md:py-4 text-sm md:text-lg rounded-lg">
+                      <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
                       Play Now
                     </Button>
                   </div>
@@ -640,32 +650,32 @@ function CasinoContent() {
           </div>
 
           {/* Popular Slots */}
-          <div className="px-4 md:px-12">
-            <div className="mb-8">
-              <h3 className="text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="mb-6 md:mb-8">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white text-center md:text-left">
                 Popular Slots
               </h3>
-              <p className="text-brand-smoke-gray text-xl md:text-2xl font-medium">
+              <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium text-center md:text-left">
                 Most played games this week
               </p>
             </div>
-            <div className="flex items-center space-x-6 mb-12">
+            <div className="flex flex-wrap items-center justify-center md:justify-start space-x-4 md:space-x-6 mb-8 md:mb-12">
               <Button
                 variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-6 py-3 text-lg font-medium"
+                className="text-brand-smoke-gray hover:text-brand-soft-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg font-medium"
               >
-                <Filter className="w-5 h-5 mr-3" />
+                <Filter className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
                 Filter
               </Button>
               <Button
                 variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white px-6 py-3 text-lg font-medium"
+                className="text-brand-smoke-gray hover:text-brand-soft-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg font-medium"
               >
-                <SortDesc className="w-5 h-5 mr-3" />
+                <SortDesc className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
                 Sort
               </Button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
               {popularSlots.map((game) => (
                 <div key={game.name} className="group relative">
                   <div className="rounded-3xl overflow-hidden relative aspect-[3/4]">
@@ -689,8 +699,8 @@ function CasinoContent() {
 
                     {game.name === "European Roulette" && <div className="absolute inset-0 bg-black/30"></div>}
 
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-black/70 text-brand-soft-white px-3 py-2 text-sm font-medium">
+                    <div className="absolute top-2 md:top-4 right-2 md:right-4">
+                      <Badge className="bg-black/70 text-brand-soft-white px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm font-medium">
                         RTP {game.rtp}
                       </Badge>
                     </div>
@@ -720,23 +730,23 @@ function CasinoContent() {
                             : {}
                         }
                       ></div>
-                      <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
-                        <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-black px-8 py-4 text-lg rounded-lg">
-                          <Play className="w-5 h-5 mr-3" />
+                      <div className="relative z-10 flex flex-col items-center justify-center space-y-2 md:space-y-4">
+                        <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-soft-white font-black px-4 md:px-8 py-2 md:py-4 text-sm md:text-lg rounded-lg">
+                          <Play className="w-3 h-3 md:w-5 md:h-5 mr-1 md:mr-3" />
                           Play Now
                         </Button>
                         <Button
                           variant="outline"
-                          className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-8 py-4 text-lg bg-transparent font-bold rounded-lg"
+                          className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 md:px-8 py-2 md:py-4 text-sm md:text-lg bg-transparent font-bold rounded-lg"
                         >
-                          <Eye className="w-5 h-5 mr-3" />
+                          <Eye className="w-3 h-3 md:w-5 md:h-5 mr-1 md:mr-3" />
                           More Info
                         </Button>
                       </div>
                     </div>
                   </div>
-                  <div className="mt-4 text-center">
-                    <div className="font-black text-xl text-brand-soft-white">{game.name}</div>
+                  <div className="mt-3 md:mt-4 text-center">
+                    <div className="font-black text-base md:text-xl text-brand-soft-white">{game.name}</div>
                   </div>
                 </div>
               ))}
@@ -744,48 +754,46 @@ function CasinoContent() {
           </div>
 
           {/* Recent Bets */}
-          <div className="px-4 md:px-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-12">
-              <div className="mb-8 md:mb-0">
-                <h3 className="text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">
-                  Recent Bets
-                </h3>
-                <p className="text-brand-smoke-gray text-xl md:text-2xl font-medium">
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 md:mb-12">
+              <div className="mb-6 md:mb-0 text-center md:text-left">
+                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">Recent Bets</h3>
+                <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
                   See what others are winning
                 </p>
               </div>
               <Button
                 variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-10 py-4 text-lg font-bold rounded-lg"
+                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-bold rounded-lg w-full md:w-auto"
               >
-                View All <ChevronRight className="w-5 h-5 ml-3" />
+                View All <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" />
               </Button>
             </div>
             <div className="overflow-x-auto">
-              <table className="w-full table-auto">
-                <thead className="text-base text-brand-smoke-gray uppercase">
+              <table className="w-full table-auto min-w-[600px]">
+                <thead className="text-sm md:text-base text-brand-smoke-gray uppercase">
                   <tr>
-                    <th className="text-left py-4 px-6 font-bold">User</th>
-                    <th className="text-left py-4 px-6 font-bold">Game</th>
-                    <th className="text-left py-4 px-6 font-bold">Time</th>
-                    <th className="text-right py-4 px-6 font-bold">Amount</th>
-                    <th className="text-right py-4 px-6 font-bold">Mult</th>
-                    <th className="text-right py-4 px-6 font-bold">Profit</th>
+                    <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">User</th>
+                    <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Game</th>
+                    <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Time</th>
+                    <th className="text-right py-3 md:py-4 px-3 md:px-6 font-bold">Amount</th>
+                    <th className="text-right py-3 md:py-4 px-3 md:px-6 font-bold">Mult</th>
+                    <th className="text-right py-3 md:py-4 px-3 md:px-6 font-bold">Profit</th>
                   </tr>
                 </thead>
                 <tbody>
                   {bets.map((bet, index) => (
-                    <tr key={index} className="text-lg border-b border-brand-smoke-gray/20">
-                      <td className="py-4 px-6 text-brand-soft-white font-medium">{bet.user}</td>
-                      <td className="py-4 px-6 text-brand-soft-white font-medium">{bet.game}</td>
-                      <td className="py-4 px-6 text-brand-smoke-gray font-medium">{bet.time}</td>
-                      <td className="py-4 px-6 text-brand-soft-white font-medium">
+                    <tr key={index} className="text-sm md:text-lg border-b border-brand-smoke-gray/20">
+                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{bet.user}</td>
+                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{bet.game}</td>
+                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-smoke-gray font-medium">{bet.time}</td>
+                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-right">
                         ${bet.amount.toFixed(2)}
                       </td>
-                      <td className="py-4 px-6 text-brand-soft-white font-medium">
+                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-right">
                         {bet.mult.toFixed(2)}x
                       </td>
-                      <td className="py-4 px-6 text-brand-soft-white font-medium">
+                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-right">
                         ${bet.profit.toFixed(2)}
                       </td>
                     </tr>

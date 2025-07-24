@@ -385,40 +385,40 @@ export default function CasinoTabContent() {
 
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-          <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold mb-3 px-6 py-2">
-            <Play className="w-4 h-4 mr-2" />
+          <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold mb-3 px-4 md:px-6 py-2">
+            <Play className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
             Play Now
           </Button>
           <div className="flex space-x-2">
             <Button
               variant="outline"
               size="sm"
-              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent p-2"
             >
-              <Eye className="w-4 h-4" />
+              <Eye className="w-3 h-3 md:w-4 md:h-4" />
             </Button>
             <Button
               variant="outline"
               size="sm"
-              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent p-2"
             >
-              <Heart className="w-4 h-4" />
+              <Heart className="w-3 h-3 md:w-4 md:h-4" />
             </Button>
             <Button
               variant="outline"
               size="sm"
-              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent p-2"
             >
-              <Share2 className="w-4 h-4" />
+              <Share2 className="w-3 h-3 md:w-4 md:h-4" />
             </Button>
           </div>
         </div>
       </div>
 
       {/* Game Info */}
-      <div className="p-4">
+      <div className="p-3 md:p-4">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="font-bold text-brand-soft-white text-sm truncate">{game.name}</h3>
+          <h3 className="font-bold text-brand-soft-white text-xs md:text-sm truncate">{game.name}</h3>
           <div className="flex items-center space-x-1">
             <Star className="w-3 h-3 text-yellow-400 fill-current" />
             <span className="text-xs text-brand-smoke-gray">{game.rating}</span>
@@ -435,35 +435,35 @@ export default function CasinoTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16">
+      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-8 md:py-12 lg:py-16">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/casino-background.png" alt="Casino background" fill className="object-cover" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white mb-4">CASINO GAMES</h1>
-          <p className="text-xl md:text-2xl text-brand-smoke-gray mb-8 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-soft-white mb-4">CASINO GAMES</h1>
+          <p className="text-lg md:text-xl lg:text-2xl text-brand-smoke-gray mb-6 md:mb-8 max-w-3xl mx-auto">
             Experience the thrill of over 2,800+ premium casino games with the highest RTPs and biggest jackpots
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-6 py-3 rounded-full">
-              <Crown className="w-6 h-6 text-brand-primary-green" />
-              <span className="text-brand-soft-white font-bold">VIP Rewards Available</span>
+            <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-4 md:px-6 py-2 md:py-3 rounded-full">
+              <Crown className="w-5 h-5 md:w-6 md:h-6 text-brand-primary-green" />
+              <span className="text-brand-soft-white font-bold text-sm md:text-base">VIP Rewards Available</span>
             </div>
-            <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-6 py-3 rounded-full">
-              <Zap className="w-6 h-6 text-brand-vibrant-green" />
-              <span className="text-brand-soft-white font-bold">Instant Play</span>
+            <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-4 md:px-6 py-2 md:py-3 rounded-full">
+              <Zap className="w-5 h-5 md:w-6 md:h-6 text-brand-vibrant-green" />
+              <span className="text-brand-soft-white font-bold text-sm md:text-base">Instant Play</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-brand-charcoal-black-secondary border-b border-brand-smoke-gray/20 py-6">
+      <div className="bg-brand-charcoal-black-secondary border-b border-brand-smoke-gray/20 py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             {/* Search */}
             <div className="relative w-full md:w-96">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-smoke-gray w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-smoke-gray w-4 h-4 md:w-5 md:h-5" />
               <Input
                 placeholder="Search games..."
                 value={searchQuery}
@@ -509,18 +509,18 @@ export default function CasinoTabContent() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
         <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
           {/* Category Tabs */}
-          <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 bg-brand-charcoal-black-secondary mb-8">
+          <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 bg-brand-charcoal-black-secondary mb-6 md:mb-8">
             {categories.map((category) => (
               <TabsTrigger
                 key={category.id}
                 value={category.id}
-                className="data-[state=active]:bg-brand-primary-green data-[state=active]:text-brand-charcoal-black text-brand-soft-white"
+                className="data-[state=active]:bg-brand-primary-green data-[state=active]:text-brand-charcoal-black text-brand-soft-white text-xs md:text-sm"
               >
                 <div className="flex flex-col items-center">
-                  <span className="text-sm font-bold">{category.name}</span>
+                  <span className="font-bold">{category.name}</span>
                   <span className="text-xs opacity-70">({category.count})</span>
                 </div>
               </TabsTrigger>
@@ -528,15 +528,15 @@ export default function CasinoTabContent() {
           </TabsList>
 
           {/* Featured Games */}
-          <TabsContent value="all" className="space-y-8">
+          <TabsContent value="all" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <TrendingUp className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <TrendingUp className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Featured Games
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {featuredGames.map((game) => (
                   <GameCard key={game.id} game={game} />
                 ))}
@@ -545,14 +545,14 @@ export default function CasinoTabContent() {
           </TabsContent>
 
           {/* All Games */}
-          <TabsContent value="all" className="space-y-8">
+          <TabsContent value="all" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white">
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white">
                   All Games ({filteredGames.length})
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {filteredGames.map((game) => (
                   <GameCard key={game.id} game={game} />
                 ))}
@@ -561,15 +561,15 @@ export default function CasinoTabContent() {
           </TabsContent>
 
           {/* Slots */}
-          <TabsContent value="slots" className="space-y-8">
+          <TabsContent value="slots" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Gem className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <Gem className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Slot Games
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {slotGames.map((game) => (
                   <GameCard key={game.id} game={game} />
                 ))}
@@ -578,15 +578,15 @@ export default function CasinoTabContent() {
           </TabsContent>
 
           {/* Table Games */}
-          <TabsContent value="table" className="space-y-8">
+          <TabsContent value="table" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Crown className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <Crown className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Table Games
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {tableGames.map((game) => (
                   <GameCard key={game.id} game={game} />
                 ))}
@@ -595,15 +595,15 @@ export default function CasinoTabContent() {
           </TabsContent>
 
           {/* Live Casino */}
-          <TabsContent value="live" className="space-y-8">
+          <TabsContent value="live" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Zap className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <Zap className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Live Casino
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {liveGames.map((game) => (
                   <GameCard key={game.id} game={game} />
                 ))}
@@ -612,15 +612,15 @@ export default function CasinoTabContent() {
           </TabsContent>
 
           {/* Other categories would follow similar pattern */}
-          <TabsContent value="jackpot" className="space-y-8">
+          <TabsContent value="jackpot" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Crown className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <Crown className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Jackpot Games
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {featuredGames
                   .filter((game) => game.jackpot)
                   .map((game) => (
@@ -630,15 +630,15 @@ export default function CasinoTabContent() {
             </div>
           </TabsContent>
 
-          <TabsContent value="new" className="space-y-8">
+          <TabsContent value="new" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Clock className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <Clock className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   New Games
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {allGames
                   .filter((game) => game.isNew)
                   .map((game) => (
@@ -648,15 +648,15 @@ export default function CasinoTabContent() {
             </div>
           </TabsContent>
 
-          <TabsContent value="popular" className="space-y-8">
+          <TabsContent value="popular" className="space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <TrendingUp className="w-6 h-6 mr-3 text-brand-primary-green" />
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+                  <TrendingUp className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Popular Games
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
                 {allGames
                   .filter((game) => game.isHot)
                   .map((game) => (

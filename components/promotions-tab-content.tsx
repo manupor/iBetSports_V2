@@ -3,341 +3,299 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Star } from "lucide-react"
+import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react"
 
-export default function PromotionsTabContent() {
-  const [openModal, setOpenModal] = useState<string | null>(null)
-
-  /* --------------------------------------------------------------------- */
-  /*                               DATA                                    */
-  /* --------------------------------------------------------------------- */
+export function PromotionsTabContent() {
+  const [selectedCategory, setSelectedCategory] = useState("all")
 
   const promotions = [
     {
-      id: "sports-welcome",
+      id: 1,
       title: "125% Sports Welcome Bonus",
-      image: "/images/sports-promo.png",
-      description: "Get a 125% bonus on your first sports deposit up to $1,000",
-      code: "SPORTS125",
-      category: "Sports",
-      isNew: true,
-      terms: [
-        "125% bonus on qualifying initial deposit only",
-        "Minimum deposit of $100 USD required",
-        "Maximum bonus per deposit is $1,000 USD",
-        "15X rollover requirement",
-        "Max cashout of $10,000 USD",
-        "Bonus expires in 14 days",
-        "Free plays can only be used on straight bets up to +250",
-      ],
+      description: "Get up to $1,000 bonus on your first sports deposit",
+      image: "/images/125-sports-bonus.png",
+      category: "sports",
+      bonus: "125%",
+      maxBonus: "$1,000",
+      code: "IBS125CS",
+      featured: true,
+      terms: `
+        <h3>125% SP WELCOME BONUS</h3>
+        <ol>
+          <li>You will receive a 125% bonus on your qualifying initial deposit only.</li>
+          <li>A minimum deposit of $100 USD is required to qualify for the bonus.</li>
+          <li>The maximum bonus per deposit is $1000 USD</li>
+          <li>Bonus awarded as Free Play money.</li>
+          <li>There is a 15X rollover requirement associated with this promotion.</li>
+          <li>There is a Max cashout of $10,000.00 USD and the bonus expires in 14 days.</li>
+          <li>Rollover (w) is calculated based on your deposit (d) plus bonus, (b) multiplied by the rollover requirement of your bonus (r). Rollover Formula w = (d+b)* r</li>
+          <li>Please note that only the lowest amount between the risk and the win counts towards your rollover requirement. Horses, Casino, and Poker will not contribute action towards the rollover.</li>
+          <li>To receive the bonus, you must use Promo Code <strong>IBS125CS</strong></li>
+          <li>To redeem the bonus, you must contact us through our NEED HELP section on the upper right hand corner of the page.</li>
+          <li>This promotion is non-transferable.</li>
+          <li>The free plays can only be used on straight bets up to +250. They cannot be used in the Racebook, Casino, and Poker</li>
+          <li>IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.</li>
+          <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
+        </ol>
+      `,
     },
     {
-      id: "crypto-casino",
+      id: 2,
       title: "200% Crypto Casino Bonus",
-      image: "/images/crypto-promo.png",
-      description: "Double your crypto deposit with our exclusive casino bonus",
-      code: "CRYPTO200",
-      category: "Casino",
-      isHot: true,
-      terms: [
-        "200% bonus on qualifying INITIAL deposit only",
-        "Minimum deposit of $50 required",
-        "Maximum bonus amount is $2,000 USD",
-        "40X rollover requirement",
-        "Crypto deposits only",
-        "Casino games only",
-        "Max cashout of $10,000",
-        "Expires in 7 days",
-      ],
+      description: "Double your crypto deposits with our exclusive casino bonus",
+      image: "/images/200-crypto-bonus.png",
+      category: "casino",
+      bonus: "200%",
+      maxBonus: "$2,000",
+      code: "IBS200CP",
+      featured: true,
+      terms: `
+        <h3>200% CRYPTO CASINO WELCOME BONUS</h3>
+        <ol>
+          <li>You will receive a <strong>200%</strong> bonus on your qualifying INITIAL deposit only.</li>
+          <li>A minimum deposit of <strong>$50</strong> is required to qualify for the bonus.</li>
+          <li>The maximum amount awarded for this bonus is <strong>$2000.00</strong> USD</li>
+          <li>The maximum cash out for this bonus is <strong>$10,000</strong> and expires in 7 days.</li>
+          <li>There is a <strong>40X</strong> rollover requirement associated with this promotion.</li>
+          <li>Deposits made via CRYPTO only are eligible for this bonus.</li>
+          <li>The Bonus applies ONLY for online casino.</li>
+          <li>Bonuses are for USA Players, bonuses for other players are at the discretion of management.</li>
+          <li>To receive the bonus, you must use Promo Code <strong>IBS200CP</strong></li>
+          <li>To redeem the bonus, you may do so through our CASHIER/ PROMO CODE FIELD</li>
+          <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
+          <li>IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.</li>
+        </ol>
+      `,
     },
     {
-      id: "casino-reload",
+      id: 3,
       title: "150% Casino Reload Bonus",
-      image: "/images/casino-reload-promo.png",
-      description: "Reload your account and get 150% bonus on casino games",
-      code: "RELOAD150",
-      category: "Casino",
-      isNew: false,
-      terms: [
-        "150% reload bonus for existing players",
-        "Minimum deposit of $100 required",
-        "Maximum bonus of $1,000",
-        "40X rollover requirement",
-        "Casino games only",
-        "Max cashout of $10,000",
-        "Expires in 7 days",
-      ],
+      description: "Reload your account and get 150% extra to play with",
+      image: "/images/150-casino-reload.png",
+      category: "casino",
+      bonus: "150%",
+      maxBonus: "$1,000",
+      code: "IBS150CS",
+      featured: false,
+      terms: `
+        <h3>150% CASINO RELOAD BONUS</h3>
+        <ol>
+          <li>First Time Deposit Crypto Casino 250% min 100$ max 2k 40x rollover max cash 10k 7 day expiration</li>
+          <li>First Time Deposit Other Deposit Type other 200% min 50$ max 1k 30x rollover max cash out 5k 7 days expiration</li>
+          <li>Reload crypto 150% 100 min 1k max 40x rollover max cash 10k 7 day expiration</li>
+          <li>Reload Other Deposit Type 100% 100 min 1k max 40x rollover max cash 5k 7 day expiration</li>
+          <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
+          <li>All bonuses come with a rollover requirement , please make sure you understand the requirements prior to agreeing. You may decline the bonus but every deposit has a one time rollover requirement.</li>
+        </ol>
+      `,
     },
     {
-      id: "refer-friend",
+      id: 4,
       title: "200% Refer a Friend Bonus",
-      image: "/images/refer-friend-promo.png",
-      description: "Earn 200% bonus up to $200 for each friend you refer",
-      code: "REFER200",
-      category: "Referral",
-      isHot: false,
-      terms: [
-        "200% bonus up to $200 per referral",
-        "Friend must make minimum deposit of $50",
-        "Unlimited referrals allowed",
-        "Bonus paid when friend makes first deposit",
-        "Standard rollover requirements apply",
-      ],
+      description: "Earn bonuses for every friend you refer to our platform",
+      image: "/images/200-refer-bonus.png",
+      category: "referral",
+      bonus: "200%",
+      maxBonus: "$200",
+      code: "IBS200CPR",
+      featured: false,
+      terms: `
+        <h3>200% REFER A FRIEND BONUS</h3>
+        <p>Friends have more fun together.</p>
+        <p>Share your invite link with your friends via email, social media, or SMS and ask them to sign up, we'll give you a 200% bonus up to $200 when they make their first deposit (min: $50).</p>
+        <p><strong>Unlimited Referrals, Unlimited Bonuses!</strong></p>
+        <p>Repeat & Repeat</p>
+        <p>Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!</p>
+      `,
     },
   ]
 
-  const dailyPromotions = [
-    {
-      day: "Monday",
-      promo: "Reload Monday",
-      bonus: "50% up to $500",
-      game: "All Games",
-    },
-    {
-      day: "Tuesday",
-      promo: "Table Tuesday",
-      bonus: "25% up to $250",
-      game: "Table Games",
-    },
-    {
-      day: "Wednesday",
-      promo: "Wild Wednesday",
-      bonus: "75% up to $750",
-      game: "Slots",
-    },
-    {
-      day: "Thursday",
-      promo: "Throwback Thursday",
-      bonus: "100% up to $1000",
-      game: "Classic Games",
-    },
-    {
-      day: "Friday",
-      promo: "Free Bet Friday",
-      bonus: "$25 Free Bet",
-      game: "Sports",
-    },
-    {
-      day: "Saturday",
-      promo: "Super Saturday",
-      bonus: "200% up to $2000",
-      game: "All Games",
-    },
-    {
-      day: "Sunday",
-      promo: "Sunday Funday",
-      bonus: "150% up to $1500",
-      game: "Live Casino",
-    },
+  const categories = [
+    { id: "all", label: "All Promotions", icon: Gift },
+    { id: "sports", label: "Sports", icon: Trophy },
+    { id: "casino", label: "Casino", icon: Star },
+    { id: "referral", label: "Referral", icon: Users },
   ]
 
-  const vipLevels = [
-    {
-      level: "Bronze",
-      icon: "🥉",
-      requirements: "$1,000+ wagered",
-      benefits: ["5% cashback", "Weekly bonuses", "Priority support"],
-      color: "from-amber-600/20 to-amber-800/10 border-amber-600/30",
-    },
-    {
-      level: "Silver",
-      icon: "🥈",
-      requirements: "$10,000+ wagered",
-      benefits: ["7% cashback", "Exclusive tournaments", "Personal account manager"],
-      color: "from-gray-400/20 to-gray-600/10 border-gray-400/30",
-    },
-    {
-      level: "Gold",
-      icon: "🥇",
-      requirements: "$50,000+ wagered",
-      benefits: ["10% cashback", "VIP events", "Higher betting limits"],
-      color: "from-yellow-400/20 to-yellow-600/10 border-yellow-400/30",
-    },
-    {
-      level: "Platinum",
-      icon: "💎",
-      requirements: "$100,000+ wagered",
-      benefits: ["15% cashback", "Luxury gifts", "Dedicated VIP host"],
-      color: "from-purple-400/20 to-purple-600/10 border-purple-400/30",
-    },
-  ]
-
-  /* --------------------------------------------------------------------- */
-  /*                               RENDER                                  */
-  /* --------------------------------------------------------------------- */
+  const filteredPromotions =
+    selectedCategory === "all" ? promotions : promotions.filter((promo) => promo.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
-      {/* ─────────────────────── HERO ─────────────────────── */}
+    <div className="min-h-screen bg-gradient-to-b from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black">
+      {/* Hero Section */}
       <section className="relative h-64 md:h-80 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
         <div className="absolute inset-0 flex items-end md:items-center justify-center pb-4 md:pb-0">
           <div className="text-center space-y-4">
             <h1 className="text-4xl md:text-6xl font-black">PROMOTIONS</h1>
             <p className="text-xl md:text-2xl text-brand-smoke-gray">Exclusive bonuses and rewards await</p>
-            <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
-              Claim Bonus
-            </Button>
           </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-12 py-10 space-y-16">
-        {/* ────────────────── FEATURED PROMOS ───────────────── */}
-        <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Featured Promotions</h2>
+      {/* Stats Section */}
+      <section className="py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">$50K+</div>
+              <div className="text-brand-smoke-gray">Daily Bonuses</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">24/7</div>
+              <div className="text-brand-smoke-gray">Active Promos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">200%</div>
+              <div className="text-brand-smoke-gray">Max Bonus</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">15K+</div>
+              <div className="text-brand-smoke-gray">Happy Winners</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {promotions.map((promo) => (
+      {/* Category Filter */}
+      <section className="py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {categories.map((category) => {
+              const IconComponent = category.icon
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all ${
+                    selectedCategory === category.id
+                      ? "bg-brand-primary-green text-brand-charcoal-black"
+                      : "bg-brand-charcoal-black-secondary text-brand-soft-white hover:bg-brand-primary-green/20"
+                  }`}
+                >
+                  <IconComponent size={20} />
+                  <span>{category.label}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Promotions Grid */}
+      <section className="py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {filteredPromotions.map((promo) => (
               <Card
                 key={promo.id}
-                className="relative overflow-hidden bg-brand-charcoal-black-secondary border border-brand-smoke-gray/30 hover:border-brand-primary-green/60 transition-all"
+                className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 overflow-hidden group hover:border-brand-primary-green/50 transition-all duration-300"
               >
-                {/* IMAGE */}
-                <Image
-                  src={promo.image || "/placeholder.svg"}
-                  alt={promo.title}
-                  width={640}
-                  height={360}
-                  className="w-full h-56 object-cover"
-                  priority
-                />
-
-                {/* CATEGORY + NEW/HOT BADGES (top-left) */}
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <Badge
-                    className={
-                      promo.category === "Sports"
-                        ? "bg-blue-500 text-white"
-                        : promo.category === "Casino"
-                          ? "bg-purple-500 text-white"
-                          : "bg-green-500 text-white"
-                    }
-                  >
-                    {promo.category}
-                  </Badge>
-                  {promo.isNew && <Badge className="bg-brand-vibrant-green text-brand-charcoal-black">NEW</Badge>}
-                  {promo.isHot && <Badge className="bg-red-500 text-white">HOT</Badge>}
-                </div>
-
-                {/* COMPACT OVERLAY (bottom) */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 space-y-4">
-                  <h3 className="text-xl font-bold">{promo.title}</h3>
-                  <p className="text-brand-smoke-gray text-sm">{promo.description}</p>
-
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="text-xs">
-                      <span className="text-brand-smoke-gray">Code:&nbsp;</span>
-                      <span className="text-brand-primary-green font-mono font-semibold">{promo.code}</span>
-                    </div>
-
-                    <div className="flex gap-2">
-                      {/* TERMS MODAL */}
-                      <Dialog
-                        open={openModal === promo.id}
-                        onOpenChange={(open) => setOpenModal(open ? promo.id : null)}
-                      >
-                        <DialogTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="border-brand-smoke-gray text-brand-smoke-gray hover:border-brand-primary-green hover:text-brand-primary-green bg-transparent"
-                          >
-                            Terms
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-brand-soft-white max-w-2xl">
-                          <DialogHeader>
-                            <DialogTitle className="text-brand-primary-green">
-                              {promo.title} – Terms &amp; Conditions
-                            </DialogTitle>
-                          </DialogHeader>
-                          <ul className="space-y-2 text-sm mt-4 max-h-[60vh] overflow-y-auto pr-2">
-                            {promo.terms.map((term, i) => (
-                              <li key={i} className="flex items-start text-brand-smoke-gray">
-                                <span className="text-brand-primary-green mr-2">•</span>
-                                {term}
-                              </li>
-                            ))}
-                          </ul>
-                        </DialogContent>
-                      </Dialog>
-
-                      <Button
-                        size="sm"
-                        className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black"
-                      >
-                        Claim
-                      </Button>
-                    </div>
+                <div className="relative">
+                  <Image
+                    src={promo.image || "/placeholder.svg"}
+                    alt={promo.title}
+                    width={600}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {promo.featured && (
+                    <Badge className="absolute top-4 left-4 bg-brand-primary-green text-brand-charcoal-black">
+                      <Star size={16} className="mr-1" />
+                      Featured
+                    </Badge>
+                  )}
+                  <div className="absolute top-4 right-4 bg-brand-primary-green text-brand-charcoal-black px-3 py-1 rounded-full font-bold">
+                    {promo.bonus}
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
-        </section>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-brand-soft-white mb-2">{promo.title}</h3>
+                  <p className="text-brand-smoke-gray mb-4">{promo.description}</p>
 
-        {/* ────────────────── DAILY PROMOS ───────────────── */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6">Daily Promotions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
-            {dailyPromotions.map((d) => (
-              <Card
-                key={d.day}
-                className="p-4 bg-brand-charcoal-black-secondary border border-brand-smoke-gray/30 hover:border-brand-primary-green/60 transition-colors text-center"
-              >
-                <h3 className="font-bold text-brand-primary-green mb-2">{d.day}</h3>
-                <h4 className="font-semibold text-sm mb-1">{d.promo}</h4>
-                <div className="text-xs text-brand-smoke-gray mb-1">{d.bonus}</div>
-                <Badge className="bg-brand-primary-green/20 text-brand-primary-green text-xs">{d.game}</Badge>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* ────────────────── VIP PROGRAM ───────────────── */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 text-center">VIP Loyalty Program</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {vipLevels.map((level) => (
-              <Card
-                key={level.level}
-                className={`p-6 bg-gradient-to-br ${level.color} text-center hover:scale-105 transition-transform`}
-              >
-                <div className="text-5xl mb-4">{level.icon}</div>
-                <h3 className="text-xl font-bold mb-1">{level.level}</h3>
-                <p className="text-sm text-brand-smoke-gray mb-4">{level.requirements}</p>
-                <div className="space-y-2">
-                  {level.benefits.map((b) => (
-                    <div key={b} className="text-sm flex items-center justify-center">
-                      <Star className="w-3 h-3 mr-1 text-brand-primary-green" />
-                      {b}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex items-center space-x-1 text-brand-primary-green">
+                        <DollarSign size={16} />
+                        <span className="font-bold">{promo.maxBonus}</span>
+                      </div>
+                      <div className="flex items-center space-x-1 text-brand-smoke-gray">
+                        <Calendar size={16} />
+                        <span className="text-sm">Code: {promo.code}</span>
+                      </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+
+                  <div className="flex space-x-3">
+                    <Button className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
+                      Claim Bonus
+                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+                        >
+                          Terms
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 text-brand-soft-white max-w-2xl max-h-[80vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle className="text-brand-primary-green">Terms and Conditions</DialogTitle>
+                        </DialogHeader>
+                        <div
+                          className="prose prose-invert max-w-none"
+                          dangerouslySetInnerHTML={{ __html: promo.terms }}
+                        />
+                        <div className="mt-6 p-4 bg-brand-charcoal-black rounded-lg">
+                          <p className="text-sm text-brand-smoke-gray">
+                            <strong>Important Disclaimer:</strong> The user is warned that they should make their own
+                            inquiry into the legality of participating in any of these games and/or activities.
+                            IBETSPORTS assumes no responsibility for the actions by and makes no representation or
+                            endorsement of any of these games and/or activities if they are illegal in the jurisdiction
+                            of the reader or client of this site.
+                          </p>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ────────────────── PROMO CATEGORIES (simple) ───────────────── */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6">Promotion Categories</h2>
-          <div className="flex flex-wrap gap-4">
-            {[...new Set(promotions.map((p) => p.category))].map((cat) => (
-              <Badge
-                key={cat}
-                className="bg-brand-primary-green/20 text-brand-primary-green px-4 py-2 rounded-full text-sm"
-              >
-                {cat}
-              </Badge>
-            ))}
+      {/* VIP Program Teaser */}
+      <section className="py-16 px-4 bg-gradient-to-r from-brand-primary-green/10 to-transparent">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-primary-green rounded-full mb-6">
+            <Trophy size={32} className="text-brand-charcoal-black" />
           </div>
-        </section>
-      </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-soft-white mb-4">Ready for VIP Treatment?</h2>
+          <p className="text-xl text-brand-smoke-gray mb-8 max-w-2xl mx-auto">
+            Join our exclusive VIP program and unlock premium bonuses, personal account managers, and exclusive events.
+          </p>
+          <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
+            Learn More About VIP
+          </Button>
+        </div>
+      </section>
+
+      {/* Responsible Gaming Notice */}
+      <section className="py-8 px-4 bg-brand-charcoal-black-secondary">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-brand-smoke-gray text-sm">
+            Please gamble responsibly. All bonuses come with terms and conditions. Players must be 18+ and located in
+            eligible jurisdictions. If you feel you have a gambling problem, please seek help.
+          </p>
+        </div>
+      </section>
     </div>
   )
 }
+
+export default PromotionsTabContent
