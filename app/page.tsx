@@ -4,9 +4,8 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Play, Gift, Filter, SortDesc, ChevronRight, Zap, Shield, Clock, Eye } from "lucide-react"
+import { Play, Gift, ChevronRight, Zap, Shield, Clock } from "lucide-react"
 
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
@@ -247,10 +246,10 @@ function CasinoContent() {
       {/* Trust Indicators Section */}
 
       {/* Promotions Section */}
-      <section className="w-full py-12 bg-black border-b border-brand-smoke-gray/10 md:py-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <section className="py-8 bg-black border-b border-brand-smoke-gray/10 md:py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           {/* Header */}
-          <div className="text-center mb-4 md:mb-6 mt-6">
+          <div className="text-center mb-3 md:mb-4 mt-4">
             <h2 className="text-3xl sm:text-4xl font-black text-brand-soft-white mb-3 md:mb-4 md:text-3xl">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 IBET PROMOS
@@ -269,7 +268,7 @@ function CasinoContent() {
           </div>
 
           {/* Promotions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Crypto Bonus Card */}
             <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-8 md:p-10 rounded-2xl">
               <div className="flex flex-col items-center text-center space-y-6">
@@ -399,7 +398,7 @@ function CasinoContent() {
           </div>
 
           {/* Bottom Features */}
-          <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <div className="text-center">
               <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
                 <Shield className="w-6 h-6 md:w-8 md:h-8 text-brand-primary-green" />
@@ -573,7 +572,6 @@ function CasinoContent() {
           {/* Draft Originals */}
 
           {/* Popular Slots */}
-          
 
           {/* Recent Bets */}
           <div className="px-4 sm:px-6 md:px-12">
