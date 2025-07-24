@@ -114,22 +114,22 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-14 sm:top-16 bg-brand-charcoal-black-secondary/98 backdrop-blur-sm z-50">
+        <div className="md:hidden fixed inset-0 top-14 sm:top-16 bg-black border-t border-brand-smoke-gray/20 z-50">
           <div className="flex flex-col h-full">
             {/* Mobile Navigation */}
             {showTabs && (
-              <div className="flex-1 px-4 py-6 space-y-2">
-                <div className="mb-6">
-                  <h3 className="text-brand-soft-white font-bold text-lg mb-4">Navigation</h3>
-                  <div className="space-y-2">
+              <div className="flex-1 px-4 py-3 bg-gray-900">
+                <div className="mb-3">
+                  <h3 className="text-white font-medium text-sm mb-2 px-1">Navigation</h3>
+                  <div className="space-y-1">
                     {tabs.map((tab) => (
                       <button
                         key={tab.id}
                         onClick={() => handleTabChange(tab.id)}
-                        className={`w-full text-left px-4 py-4 rounded-lg text-base font-semibold transition-all duration-200 min-h-[52px] ${
+                        className={`w-full text-left px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${
                           activeTab === tab.id
-                            ? "bg-brand-primary-green/20 text-brand-primary-green border border-brand-primary-green/30"
-                            : "text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black-secondary/50"
+                            ? "bg-brand-primary-green text-black"
+                            : "text-gray-300 hover:text-white hover:bg-gray-800"
                         }`}
                       >
                         {tab.label}
@@ -141,32 +141,32 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
             )}
 
             {/* Mobile Actions */}
-            <div className="border-t border-brand-smoke-gray/20 p-4 space-y-3">
-              <div className="grid grid-cols-2 gap-3">
+            <div className="border-t border-gray-700 p-4 space-y-3 bg-gray-800">
+              <div className="grid grid-cols-2 gap-2">
                 <Button
                   variant="ghost"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white justify-start px-4 py-4 h-auto min-h-[52px]"
+                  className="text-gray-300 hover:text-white hover:bg-gray-700 justify-start px-3 py-2.5 h-auto text-sm"
                 >
-                  <Bell className="w-5 h-5 mr-3" />
+                  <Bell className="w-4 h-4 mr-2" />
                   Notifications
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white justify-start px-4 py-4 h-auto min-h-[52px]"
+                  className="text-gray-300 hover:text-white hover:bg-gray-700 justify-start px-3 py-2.5 h-auto text-sm"
                 >
-                  <Wallet className="w-5 h-5 mr-3" />
+                  <Wallet className="w-4 h-4 mr-2" />
                   $0.00
                 </Button>
               </div>
-              <div className="grid grid-cols-1 gap-3">
+              <div className="space-y-2">
                 <Button
                   variant="outline"
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black py-4 h-auto min-h-[52px] text-base font-semibold bg-transparent"
+                  className="w-full border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-black py-2.5 h-auto text-sm font-medium bg-transparent"
                 >
-                  <User className="w-5 h-5 mr-3" />
+                  <User className="w-4 h-4 mr-2" />
                   Login
                 </Button>
-                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-4 h-auto min-h-[52px] text-base">
+                <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-black font-medium py-2.5 h-auto text-sm">
                   Sign Up
                 </Button>
               </div>

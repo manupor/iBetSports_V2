@@ -178,17 +178,17 @@ function CasinoContent() {
           </div>
 
           {/* Mobile Content */}
-          <div className="bg-brand-charcoal-black px-4 py-8">
-            <div className="text-center space-y-6">
+          <div className="bg-brand-charcoal-black px-4 py-6">
+            <div className="text-center space-y-4">
               <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
-                <div className="text-brand-soft-white mb-2">125% SIGN UP BONUS</div>
+                <div className="text-brand-soft-white mb-1">125% SIGN UP BONUS</div>
                 <div className="text-brand-vibrant-green">+ CRYPTO BOOST !</div>
               </h1>
-              <p className="text-base text-brand-smoke-gray font-medium">
+              <p className="text-base text-brand-smoke-gray font-medium leading-tight">
                 <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
               </p>
-              <p className="text-lg text-brand-soft-white font-bold">Bet Smarter, Win Bigger</p>
-              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
+              <p className="text-lg text-brand-soft-white font-bold leading-tight">Bet Smarter, Win Bigger</p>
+              <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-3 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto">
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
               </Button>
@@ -387,11 +387,11 @@ function CasinoContent() {
       </section>
 
       {/* Gaming Options Section */}
-      <section className="w-full py-12 bg-black border-b border-brand-smoke-gray/10 md:py-11">
+      <section className="w-full py-12 bg-black border-b border-brand-smoke-gray/10 md:py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-10">
             <div className="mb-6 md:mb-0 text-center md:text-left">
-              <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">GAMING OPTIONS</h3>
+              <h3 className="text-3xl sm:text-4xl font-black mb-4 text-brand-soft-white md:text-3xl">GAMING OPTIONS</h3>
               <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
                 Explore our gaming options
               </p>
@@ -497,8 +497,8 @@ function CasinoContent() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 text-center">
           <div className="space-y-6 md:space-y-8">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-brand-soft-white">ONLINE CASINO</h2>
-            <p className="text-lg sm:text-xl md:text-3xl text-brand-smoke-gray max-w-4xl mx-auto font-medium leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-soft-white md:text-3xl">ONLINE CASINO</h2>
+            <p className="text-lg sm:text-xl text-brand-smoke-gray max-w-4xl mx-auto font-medium leading-relaxed md:text-xl">
               Experience the thrill of our premium casino games with the highest RTPs and biggest jackpots
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8">
@@ -517,7 +517,7 @@ function CasinoContent() {
       </section>
 
       {/* Games Sections */}
-      <section className="py-16 md:py-20 bg-black">
+      <section className="py-16 bg-black md:py-2.5">
         <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
           {/* Recent Bets */}
           <div className="px-4 sm:px-6 md:px-12">
