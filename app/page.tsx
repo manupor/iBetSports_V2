@@ -194,18 +194,18 @@ function CasinoContent() {
           <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden bg-black">
             {/* Text Overlay - Left Side */}
             <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 z-20">
-              <div className="text-left space-y-2 sm:space-y-3 max-w-xs sm:max-w-sm">
-                <div className="text-2xl sm:text-3xl font-black text-white leading-none tracking-tight">125%</div>
-                <div className="text-base sm:text-lg font-black text-brand-golden-yellow leading-none tracking-tight">
+              <div className="text-left space-y-2 sm:space-y-3 max-w-sm sm:max-w-md">
+                <div className="text-4xl sm:text-5xl font-black text-white leading-none tracking-tight">125%</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
                   SIGN UP BONUS
                 </div>
-                <div className="text-sm sm:text-base font-bold text-white leading-tight tracking-tight">
+                <div className="text-lg sm:text-xl font-bold text-white leading-tight tracking-tight">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-white leading-tight tracking-tight mb-3">
+                <div className="text-base sm:text-lg font-semibold text-white leading-tight tracking-tight mb-3">
                   Bet Smarter, Win Bigger
                 </div>
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-base sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full">
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
                 </Button>
@@ -226,7 +226,7 @@ function CasinoContent() {
             </div>
 
             {/* Hero Image - NFL Player on Right Side */}
-            <div className="absolute bottom-0 right-0 w-[50%] h-[70%] z-15">
+            <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-15">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -238,7 +238,7 @@ function CasinoContent() {
             </div>
 
             {/* Wave Effects Behind Player - Mobile Optimized */}
-            <div className="absolute bottom-0 right-0 w-[50%] h-[70%] z-8 overflow-hidden pointer-events-none">
+            <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-8 overflow-hidden pointer-events-none">
               <div className="absolute inset-0">
                 {/* Wave 1 */}
                 <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
