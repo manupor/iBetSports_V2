@@ -118,22 +118,22 @@ function CasinoContent() {
           {/* Text Overlay - Left Side */}
           <div className="absolute inset-0 flex flex-col justify-center pl-12 lg:pl-24 pr-12 lg:pr-24 z-20">
             <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
-              <div className="text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-none tracking-tight">
+              <div className="text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none tracking-tight">
                 125%
               </div>
-              <div className="text-2xl lg:text-3xl xl:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight">
+              <div className="text-3xl lg:text-4xl xl:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight">
                 SIGN UP BONUS
               </div>
-              <div className="text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight tracking-tight">
+              <div className="text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
               </div>
-              <div className="text-base lg:text-lg xl:text-xl font-semibold text-white leading-tight tracking-tight mb-4">
+              <div className="text-lg lg:text-xl xl:text-2xl font-semibold text-white leading-tight tracking-tight mb-4">
                 Bet Smarter, Win Bigger
               </div>
 
               {/* Button integrated in text flow */}
               <div className="pt-2">
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 lg:px-12 py-3 lg:py-4 text-lg lg:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 lg:px-12 py-3 lg:py-4 text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
                 </Button>
@@ -164,6 +164,12 @@ function CasinoContent() {
               className="w-full h-full object-contain object-center"
               priority
             />
+          </div>
+
+          {/* Green Smoke Effect */}
+          <div className="absolute top-0 right-0 w-[60%] h-full z-10 pointer-events-none">
+            <div className="absolute bottom-0 right-1/4 w-2/3 h-2/3 bg-gradient-radial from-brand-primary-green/20 via-brand-primary-green/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-gradient-radial from-brand-vibrant-green/10 to-transparent rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
           </div>
 
           {/* Wave Effects Behind Player */}
@@ -235,6 +241,11 @@ function CasinoContent() {
                 className="w-full h-full object-contain object-bottom"
                 priority
               />
+            </div>
+
+            {/* Green Smoke Effect - Mobile */}
+            <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-10 pointer-events-none">
+              <div className="absolute bottom-0 right-1/4 w-full h-full bg-gradient-radial from-brand-primary-green/25 via-brand-primary-green/10 to-transparent rounded-full blur-2xl animate-pulse"></div>
             </div>
 
             {/* Wave Effects Behind Player - Mobile Optimized */}
@@ -424,42 +435,73 @@ function CasinoContent() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { name: "Cases", image: "/images/originals-cases.png" },
-              { name: "Slots", image: "/images/originals-slots.png" },
-              { name: "Crash", image: "/images/originals-crash.png" },
-              { name: "Coinflip", image: "/images/originals-coinflip.png" },
-              { name: "Mines", image: "/images/originals-mines.png" },
-              { name: "Golden Reels", image: "/images/slot-golden-reels.png" },
-              { name: "Blackjack Pro", image: "/images/slot-blackjack-pro.png" },
-              { name: "Texas Hold'em", image: "/images/slot-texas-holdem.png" },
-            ].map((game, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20"
-              >
-                <div className="aspect-square relative">
-                  <Image
-                    src={game.image || "/placeholder.svg"}
-                    alt={game.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white font-bold text-lg mb-2">{game.name}</h3>
-                    <Button
-                      size="sm"
-                      className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold"
-                    >
-                      PLAY NOW
-                    </Button>
+          {/* Updated Gaming Options Section - 3 items per row */}
+          {(() => {
+            const games = [
+              {
+                name: "Fizzy Pennyslot",
+                image: "/images/Fizzy-Pennyslot.jpg",
+              },
+              {
+                name: "Golden Catch",
+                image: "/images/Golden-Catch.jpg",
+              },
+              {
+                name: "Max Megaways 2",
+                image: "/images/Max-Megaways-2.jpg",
+              },
+              {
+                name: "Gifts of Fortune",
+                image: "/images/Gifts-of-Fortune.jpg",
+              },
+              {
+                name: "Kingmaker Fully Loaded",
+                image: "/images/Kingmaker-Fully-Loaded.jpg",
+              },
+              {
+                name: "Castle of Terror",
+                image: "/images/Castle-of-Terror.jpg",
+              },
+              {
+                name: "Danger High Voltage",
+                image: "/images/Danger-High-Voltage.jpg",
+              },
+              {
+                name: "Chocolates",
+                image: "/images/Chocolates.jpg",
+              },
+              {
+                name: "Big Bad Bison",
+                image: "/images/Big-Bad-Bison.jpg",
+              },
+            ]
+
+            return (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {games.map((game, index) => (
+                  <div
+                    key={index}
+                    className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20 rounded-xl overflow-hidden group flex flex-col"
+                  >
+                    <div className="relative w-full aspect-[3/4] overflow-hidden">
+                      <Image
+                        src={game.image || "/placeholder.svg"}
+                        alt={game.name}
+                        layout="fill"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        priority={index < 3}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <Button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+                        PLAY NOW
+                      </Button>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )
+          })()}
         </div>
       </section>
 
