@@ -5,7 +5,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Play, ChevronRight, Zap, Shield, Clock } from "lucide-react"
 
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
@@ -116,34 +115,19 @@ function CasinoContent() {
       <section className="relative w-full">
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-[45vh] overflow-hidden bg-black">
-          <Image
-            src="/images/ibetsports-hero-players.png"
-            alt="NFL players in dynamic action poses with dramatic green lighting effects - sports betting hero"
-            width={1920}
-            height={600}
-            className="absolute bottom-0 right-0 w-full h-full object-cover object-center"
-            priority
-          />
-
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
-          </div>
-
-          {/* Text Overlay */}
-          <div className="absolute inset-0 flex flex-col justify-center pl-12 lg:pl-24 pr-12 lg:pr-24">
+          {/* Text Overlay - Left Side */}
+          <div className="absolute inset-0 flex flex-col justify-center pl-12 lg:pl-24 pr-12 lg:pr-24 z-20">
             <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
-              <div className="text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-none tracking-tight">
+              <div className="text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-none tracking-tight">
                 125%
               </div>
-              <div className="text-lg lg:text-xl xl:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
+              <div className="text-2xl lg:text-3xl xl:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight">
                 SIGN UP BONUS
               </div>
-              <div className="text-sm lg:text-base xl:text-lg font-bold text-white leading-tight tracking-tight">
+              <div className="text-lg lg:text-xl xl:text-2xl font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
               </div>
-              <div className="text-xs lg:text-sm xl:text-base font-semibold text-white leading-tight tracking-tight mb-4">
+              <div className="text-base lg:text-lg xl:text-xl font-semibold text-white leading-tight tracking-tight mb-4">
                 Bet Smarter, Win Bigger
               </div>
 
@@ -156,44 +140,123 @@ function CasinoContent() {
               </div>
             </div>
           </div>
+
+          {/* Stadium Background - Full Width */}
+          <div className="absolute inset-0 w-full h-full z-5">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/estadio-de-futbol-vacio-por-la-noche-multitud-viendo-el-juego-bajo-las-luces.jpg-IRMstCEjNsbMbfuOHOqhaOMDwzaQHH.jpeg"
+              alt="Football stadium at night with dramatic lighting and 30 yard line marking"
+              width={1920}
+              height={600}
+              className="w-full h-full object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+          </div>
+
+          {/* Hero Image - NFL Player on Right Side */}
+          <div className="absolute top-0 right-0 w-[60%] h-full z-15">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
+              alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
+              width={800}
+              height={600}
+              className="w-full h-full object-contain object-center"
+              priority
+            />
+          </div>
+
+          {/* Wave Effects Behind Player */}
+          <div className="absolute top-0 right-0 w-[60%] h-full z-8 overflow-hidden pointer-events-none">
+            <div className="absolute inset-0">
+              {/* Wave 1 */}
+              <div className="absolute top-1/4 right-1/4 w-96 h-96 border-2 border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
+              {/* Wave 2 */}
+              <div className="absolute top-1/3 right-1/5 w-80 h-80 border-2 border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+              {/* Wave 3 */}
+              <div className="absolute top-1/2 right-1/3 w-64 h-64 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
+              {/* Wave 4 */}
+              <div className="absolute bottom-1/3 right-1/6 w-72 h-72 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
+              {/* Wave 5 - Larger background wave */}
+              <div className="absolute top-1/6 right-1/8 w-[500px] h-[500px] border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
+            </div>
+          </div>
+
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
+            <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
+            <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
+          </div>
         </div>
 
         {/* Mobile Hero */}
         <div className="md:hidden">
-          <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden">
-            <Image
-              src="/images/ibetsports-hero-players.png"
-              alt="NFL players in dynamic action poses with dramatic green lighting effects - sports betting hero"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
-
-            {/* Mobile Content Overlay */}
-            <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6">
-              <div className="text-left space-y-3 sm:space-y-4 max-w-xs sm:max-w-sm">
-                <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight">
-                  <div className="text-brand-soft-white mb-1 drop-shadow-lg">125% SIGN UP BONUS</div>
-                  <div className="text-brand-vibrant-green drop-shadow-lg">+ CRYPTO BOOST !</div>
-                </h1>
-                <p className="text-base text-brand-smoke-gray font-medium leading-tight drop-shadow-lg">
-                  <span className="text-brand-vibrant-green font-bold">QUICK PAYOUTS</span>
-                </p>
-                <p className="text-lg text-brand-soft-white font-bold leading-tight drop-shadow-lg">
+          <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden bg-black">
+            {/* Text Overlay - Left Side */}
+            <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 z-20">
+              <div className="text-left space-y-2 sm:space-y-3 max-w-xs sm:max-w-sm">
+                <div className="text-2xl sm:text-3xl font-black text-white leading-none tracking-tight">125%</div>
+                <div className="text-base sm:text-lg font-black text-brand-golden-yellow leading-none tracking-tight">
+                  SIGN UP BONUS
+                </div>
+                <div className="text-sm sm:text-base font-bold text-white leading-tight tracking-tight">
+                  QUICK PAYOUTS
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-white leading-tight tracking-tight mb-3">
                   Bet Smarter, Win Bigger
-                </p>
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg rounded-full mt-3 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full">
+                </div>
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-base sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full">
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
                 </Button>
               </div>
             </div>
 
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>
-              <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-brand-vibrant-green/50 rounded-full animate-bounce"></div>
-              <div className="absolute bottom-1/3 left-1/6 w-4 h-4 bg-brand-vibrant-green/30 rounded-full animate-ping"></div>
+            {/* Stadium Background - Full Width */}
+            <div className="absolute inset-0 w-full h-full z-5">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/estadio-de-futbol-vacio-por-la-noche-multitud-viendo-el-juego-bajo-las-luces.jpg-IRMstCEjNsbMbfuOHOqhaOMDwzaQHH.jpeg"
+                alt="Football stadium at night with dramatic lighting and 30 yard line marking"
+                width={1920}
+                height={600}
+                className="w-full h-full object-cover object-center"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+            </div>
+
+            {/* Hero Image - NFL Player on Right Side */}
+            <div className="absolute bottom-0 right-0 w-[50%] h-[80%] z-15">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
+                alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
+                width={400}
+                height={300}
+                className="w-full h-full object-contain object-center"
+                priority
+              />
+            </div>
+
+            {/* Wave Effects Behind Player - Mobile Optimized */}
+            <div className="absolute bottom-0 right-0 w-[50%] h-[80%] z-8 overflow-hidden pointer-events-none">
+              <div className="absolute inset-0">
+                {/* Wave 1 */}
+                <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
+                {/* Wave 2 */}
+                <div className="absolute top-1/3 right-1/5 w-28 h-28 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+                {/* Wave 3 */}
+                <div className="absolute top-1/2 right-1/3 w-24 h-24 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
+                {/* Wave 4 */}
+                <div className="absolute bottom-1/3 right-1/6 w-20 h-20 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
+                {/* Wave 5 - Larger background wave */}
+                <div className="absolute top-1/6 right-1/8 w-40 h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
+              </div>
+            </div>
+
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
+              <div className="absolute top-1/4 left-1/6 w-8 h-8 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/3 right-1/5 w-6 h-6 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
+              <div className="absolute bottom-1/3 left-1/4 w-4 h-4 border border-brand-vibrant-green/25 rounded-full animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -243,10 +306,10 @@ function CasinoContent() {
                 <div className="text-center space-y-3">
                   <div className="flex flex-col items-center space-y-1">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">125%</span>
-                      <span className="text-sm sm:text-base font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
+                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">200%</span>
+                      <span className="text-sm sm:text-base font-bold text-brand-vibrant-green">CRYPTO BONUS</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
+                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">BITCOIN & ETHEREUM</p>
                   </div>
                   <Button
                     variant="link"
@@ -320,12 +383,6 @@ function CasinoContent() {
                         strokeWidth="77.99"
                         d="M889.84,2701.98h-354.16c-120.85,0-220.13-99.04-220.13-220.12v-1286.64c0-46.81,38.28-85.08,85.09-85.08h711.37M1699.73,1110.14h700.69c46.81,0,85.09,38.49,85.09,85.08v1286.64c0,120.93-99.2,220.12-220.13,220.12h-354.14M128.26,511.81h909.38c46.87,0,85.09,38.22,85.09,85.09v324.44c0,46.87-38.22,85.09-85.09,85.09H128.26c-49.1,0-89.27-40.16-89.27-89.26v-316.09c0-49.1,40.16-89.27,89.27-89.27h0ZM1250.38,1745.83V582.89c0-29.5,24.13-53.62,53.63-53.62h193.06c29.5,0,53.63,24.13,53.63,53.62v1162.93M1763.45,511.81h909.37c49.1,0,89.26,40.17,89.26,89.27v316.09c0,49.1-40.16,89.26-89.26,89.26h-909.37c-46.88,0-85.1-38.22-85.1-85.09v-324.44c0-46.87,38.22-85.09,85.1-85.09h0Z"
                       />
-                      <path
-                        fill="currentColor"
-                        fillRule="evenodd"
-                        d="M1400.54,1817.49c293.29,0,531.07,237.78,531.07,531.08s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.\\\`\`\`xml
-s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-531.08h0ZM727.8,420.59l-61.09-86.4c-98.16-173.24,20.02-382.62,268.54-324.18,146.36,76.12,240.79,150.7,9.5,57.54-13.03,11.91-23.32,42.24-30.3,65.75-4.26,14.36-14.56,24.73-28.9,29.08-14.32,4.38-28.65,1.51-40.21-8.02-75.75-62.6-150.63-117.21-191.49-127.17-18.84-4.59-36.09-1.52-49.71,6.21-21.03,11.91-41.48,40.92-27.94,64.78l86.14,121.5c9.6,13.53,10.77,30.16,3.16,44.91-7.61,14.76-21.81,23.44-38.41,23.47l-104.64.16c-14.53.02-27.05-6.45-35.43-18.32h0ZM1400.55,170.94c88.26,0,160.65,68.06,167.51,154.56,1.96,24.55-5.61,46.39-22.31,64.48-16.71,18.08-37.9,27.35-62.52,27.35h-165.39c-24.62,0-45.8-9.27-62.51-27.35-16.69-18.09-24.27-39.95-22.31-64.48,6.86-86.5,79.26-154.56,167.53-154.56h0ZM1625.07,160.7c94.41-74.58,185.93-137.34,240.76-150.7,248.52-58.43,366.71,150.94,268.55,324.18l-61.09,86.4c-8.39,11.87-20.9,18.33-35.44,18.32l-104.64-.16c-16.61-.03-30.81-8.71-38.41-23.47-7.61-14.75-6.44-31.36,3.16-44.91l86.14-121.5c13.54-23.86-6.91-52.87-27.93-64.78-13.63-7.73-30.88-10.8-49.72-6.21-40.87,9.96-115.73,64.57-191.48,127.17-11.55,9.53-25.88,12.39-40.21,8-14.32-4.33-24.63-14.71-28.9-29.06-6.99-23.51-17.28-45.62-30.32-65.77-12.19-18.83-8.08-43.6,9.53-57.51h0ZM1193.77,2213.14c0-92.2,60.97-162.55,147.4-188.44v-71.19c0-13.88,11.31-25.18,25.19-25.18h68.36c13.88,0,25.19,11.31,25.19,25.18l.34,68.57c16.4,4.16,32.26,10.34,47.04,18.57,54.03,30.08,85.77,82.32,96.1,142.45,1.29,7.49-.66,14.68-5.57,20.49-4.9,5.8-11.65,8.95-19.25,8.95h-62.72c-11.22,0-20.84-7.17-24.09-17.91-24.49-81.04-175.27-89.1-175.27,10.29,0,54.17,69.06,74.2,110.38,89.28,95.59,34.9,180.42,71.61,180.42,189.81,0,92.2-60.95,162.57-147.4,188.45v71.17c0,13.86-11.32,25.18-25.19,25.18h-68.36c-13.88,0-25.19-11.3-25.19-25.18l-.34-68.56c-16.41-4.14-32.27-10.32-47.08-18.56-54.02-30.07-85.77-82.34-96.09-142.47-1.29-7.49.68-14.67,5.57-20.48,4.9-5.82,11.64-8.97,19.25-8.97h62.72c11.22,0,20.85,7.17,24.09,17.91,24.49,81.05,175.26,89.1,175.26-10.27,0-57.38-79.26-77.83-122.47-93.71-91.61-33.68-168.31-73.39-168.31-185.39h0Z"
-                      />
                     </svg>
                   </div>
                 </div>
@@ -334,10 +391,10 @@ s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-5
                 <div className="text-center space-y-3">
                   <div className="flex flex-col items-center space-y-1">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">200%</span>
-                      <span className="text-sm sm:text-base font-bold text-brand-primary-green">CASINO BONUS</span>
+                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-soft-white">150%</span>
+                      <span className="text-sm sm:text-base font-bold text-brand-primary-green">CASINO RELOAD</span>
                     </div>
-                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">MATCH BONUS UP TO $5,000</p>
+                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">WEEKLY RELOAD BONUS</p>
                   </div>
                   <Button
                     variant="link"
@@ -349,137 +406,56 @@ s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-5
               </div>
             </Card>
           </div>
-
-          {/* Bottom Features */}
-          <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                <Shield className="w-6 h-6 md:w-8 md:h-8 text-brand-primary-green" />
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">Licensed & Secure</h4>
-                <p className="text-brand-smoke-gray text-sm md:text-base font-medium leading-relaxed">
-                  Your safety is our priority with strict regulations
-                </p>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-vibrant-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                <Zap className="w-6 h-6 md:w-8 md:h-8 text-brand-vibrant-green" />
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">Instant Withdrawals</h4>
-                <p className="text-brand-smoke-gray text-sm md:text-base font-medium leading-relaxed">
-                  Get your winnings quickly with fast payouts
-                </p>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                <Clock className="w-6 h-6 md:w-8 md:h-8 text-brand-primary-green" />
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-lg md:text-xl font-bold text-brand-soft-white">24/7 Support</h4>
-                <p className="text-brand-smoke-gray text-sm md:text-base font-medium leading-relaxed">
-                  Dedicated support team available around the clock
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Gaming Options Section */}
-      <section className="w-full py-12 bg-black border-b border-brand-smoke-gray/10 md:py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-10">
-            <div className="mb-6 md:mb-0 text-center md:text-left">
-              <h3 className="text-3xl sm:text-4xl font-black mb-4 text-brand-soft-white md:text-3xl">GAMING OPTIONS</h3>
-              <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
-                Explore our gaming options
-              </p>
-            </div>
-            <Button
-              variant="outline"
-              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-white text-base md:text-lg bg-transparent font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg w-full md:w-auto"
-            >
-              SEE ALL OPTIONS →
-            </Button>
+      <section className="py-8 bg-brand-charcoal-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-black text-brand-soft-white mb-4">
+              <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                GAMING OPTIONS
+              </span>{" "}
+              FOR EVERY PLAYER
+            </h2>
+            <p className="text-xl text-brand-smoke-gray max-w-3xl mx-auto font-medium leading-relaxed">
+              From thrilling slots to strategic table games, discover your perfect gaming experience
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              {
-                title: "Wild Mustang",
-                desc: "Gallop to big wins",
-                image: "/images/wild-mustang.jpg",
-              },
-              {
-                title: "Wild Rocks",
-                desc: "Castle adventures await",
-                image: "/images/wild-rocks.jpg",
-              },
-              {
-                title: "Último Bingo París",
-                desc: "French bingo excitement",
-                image: "/images/ultimo-bingo-paris.jpg",
-              },
-              {
-                title: "Tacomania",
-                desc: "Spicy slot action",
-                image: "/images/tacomania.jpg",
-              },
-              {
-                title: "Xtreme",
-                desc: "Maximum thrill gaming",
-                image: "/images/xtreme.jpg",
-              },
-              {
-                title: "Warrior Angels",
-                desc: "Epic battle rewards",
-                image: "/images/warrior-angels.jpg",
-              },
-              {
-                title: "Totem Spirits",
-                desc: "Mystical tribal wins",
-                image: "/images/totem-spirits.jpg",
-              },
-              {
-                title: "Triple Bonus",
-                desc: "Triple the excitement",
-                image: "/images/triple-bonus.jpg",
-              },
-              {
-                title: "Turbo 2",
-                desc: "High-speed slot fun",
-                image: "/images/turbo-2.jpg",
-              },
-              {
-                title: "Wonderful Lamp",
-                desc: "Genie's magical prizes",
-                image: "/images/wonderful-lamp.jpg",
-              },
-            ].map((option, index) => (
-              <div key={index} className="group cursor-pointer transform hover:scale-105 transition-all duration-300">
-                <Card className="relative overflow-hidden rounded-2xl bg-brand-charcoal-black-secondary border border-brand-primary-green/30 shadow-lg hover:shadow-xl hover:border-brand-primary-green/60 transition-all duration-300">
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={option.image || "/placeholder.svg"}
-                      alt={option.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-auto object-contain group-hover:scale-110 transition-transform duration-500"
-                    />
+              { name: "Cases", image: "/images/originals-cases.png" },
+              { name: "Slots", image: "/images/originals-slots.png" },
+              { name: "Crash", image: "/images/originals-crash.png" },
+              { name: "Coinflip", image: "/images/originals-coinflip.png" },
+              { name: "Mines", image: "/images/originals-mines.png" },
+              { name: "Golden Reels", image: "/images/slot-golden-reels.png" },
+              { name: "Blackjack Pro", image: "/images/slot-blackjack-pro.png" },
+              { name: "Texas Hold'em", image: "/images/slot-texas-holdem.png" },
+            ].map((game, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20"
+              >
+                <div className="aspect-square relative">
+                  <Image
+                    src={game.image || "/placeholder.svg"}
+                    alt={game.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white font-bold text-lg mb-2">{game.name}</h3>
+                    <Button
+                      size="sm"
+                      className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold"
+                    >
+                      PLAY NOW
+                    </Button>
                   </div>
-                </Card>
-
-                <div className="mt-4 text-center space-y-3">
-                  <h3 className="text-white font-bold text-sm md:text-lg leading-tight">{option.title}</h3>
-                  <p className="text-brand-smoke-gray text-xs md:text-sm font-medium leading-tight">{option.desc}</p>
-                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold px-4 md:px-6 py-3 md:py-4 text-sm md:text-base text-black rounded-lg">
-                    <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                    Play Now
-                  </Button>
                 </div>
               </div>
             ))}
@@ -487,89 +463,53 @@ s-237.78,531.07-531.07,531.07-531.08-237.77-531.08-531.07,237.78-531.08,531.08-5
         </div>
       </section>
 
-      {/* Online Casino CTA Section */}
-      <section className="w-full relative bg-brand-charcoal-black py-16 md:py-20 overflow-hidden border-b border-brand-smoke-gray/10">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/casino-background.png"
-            alt="Casino background with money, cards, chips and dice"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/80"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 text-center">
-          <div className="space-y-6 md:space-y-8">
-            <h2 className="text-3xl sm:text-4xl font-black text-brand-soft-white md:text-3xl">ONLINE CASINO</h2>
-            <p className="text-lg sm:text-xl text-brand-smoke-gray max-w-4xl mx-auto font-medium leading-relaxed md:text-xl">
-              Experience the thrill of our premium casino games with the highest RTPs and biggest jackpots
+      {/* Recent Bets Section */}
+      <section className="py-8 bg-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-black text-brand-soft-white mb-4">
+              <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                RECENT BETS
+              </span>{" "}
+              LIVE FEED
+            </h2>
+            <p className="text-xl text-brand-smoke-gray max-w-3xl mx-auto font-medium leading-relaxed">
+              See what other players are winning in real-time
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-8">
-              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark font-black px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl text-black rounded-lg w-full sm:w-auto">
-                PLAY CASINO GAMES
-              </Button>
-              <Button
-                variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl bg-transparent font-bold rounded-lg w-full md:w-auto"
-              >
-                SEE ALL GAMES
-              </Button>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Games Sections */}
-      <section className="py-16 bg-black md:py-2.5">
-        <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
-          {/* Recent Bets */}
-          <div className="px-4 sm:px-6 md:px-12">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-10">
-              <div className="mb-6 md:mb-0 text-center md:text-left">
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 text-brand-soft-white">Recent Bets</h3>
-                <p className="text-brand-smoke-gray text-lg sm:text-xl md:text-2xl font-medium">
-                  See what others are winning
-                </p>
-              </div>
-              <Button
-                variant="outline"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-soft-white bg-transparent px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-bold rounded-lg w-full md:w-auto"
-              >
-                View All <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" />
-              </Button>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full table-auto min-w-[600px]">
-                <thead className="text-sm md:text-base text-brand-smoke-gray uppercase">
-                  <tr>
-                    <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">User</th>
-                    <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Game</th>
-                    <th className="text-left py-3 md:py-4 px-3 md:px-6 font-bold">Time</th>
-                    <th className="text-right py-3 md:py-4 px-3 md:px-6 font-bold">Amount</th>
-                    <th className="text-right py-3 md:py-4 px-3 md:px-6 font-bold">Mult</th>
-                    <th className="text-right py-3 md:py-4 px-3 md:px-6 font-bold">Profit</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bets.map((bet, index) => (
-                    <tr key={index} className="text-sm md:text-lg border-b border-brand-smoke-gray/20">
-                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{bet.user}</td>
-                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium">{bet.game}</td>
-                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-smoke-gray font-medium">{bet.time}</td>
-                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-right">
-                        ${bet.amount.toFixed(2)}
-                      </td>
-                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-right">
-                        {bet.mult.toFixed(2)}x
-                      </td>
-                      <td className="py-3 md:py-4 px-3 md:px-6 text-brand-soft-white font-medium text-right">
-                        ${bet.profit.toFixed(2)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          <div className="bg-brand-charcoal-black-secondary rounded-xl border border-brand-smoke-gray/20 overflow-hidden">
+            <div className="max-h-96 overflow-y-auto">
+              {bets.map((bet, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-4 border-b border-brand-smoke-gray/10 last:border-b-0 hover:bg-brand-smoke-gray/5 transition-colors duration-200"
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center">
+                      <span className="text-brand-charcoal-black font-bold text-sm">
+                        {bet.user.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="text-brand-soft-white font-semibold">{bet.user}</div>
+                      <div className="text-brand-smoke-gray text-sm">
+                        {bet.game} • {bet.time}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-brand-soft-white font-bold">
+                      ${bet.amount.toFixed(2)} × {bet.mult.toFixed(2)}
+                    </div>
+                    <div
+                      className={`text-sm font-semibold ${bet.profit > 0 ? "text-brand-primary-green" : "text-red-400"}`}
+                    >
+                      {bet.profit > 0 ? "+" : ""}${bet.profit.toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
