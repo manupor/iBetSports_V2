@@ -238,7 +238,7 @@ function CasinoContent() {
             ></div>
 
             {/* Hero Image - NFL Player on Right Side */}
-            <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-15">
+            <div className="absolute bottom-0 right-0 w-[75%] h-[95%] z-15">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
