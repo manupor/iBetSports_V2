@@ -296,7 +296,7 @@ function CasinoContent() {
           </div>
 
           {/* Promotions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-3 gap-2 md:gap-6">
             {/* Crypto Bonus Card */}
             <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-4 md:p-6 rounded-xl">
               <div className="flex flex-col items-center text-center space-y-4">
@@ -477,7 +477,7 @@ function CasinoContent() {
             ]
 
             return (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-3 gap-4">
                 {games.map((game, index) => (
                   <div
                     key={index}
@@ -492,8 +492,8 @@ function CasinoContent() {
                         priority={index < 3}
                       />
                     </div>
-                    <div className="p-4">
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+                    <div className="p-2 md:p-4">
+                      <Button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-2 md:px-4 text-xs md:text-base rounded-lg transition-colors duration-300">
                         PLAY NOW
                       </Button>
                     </div>
