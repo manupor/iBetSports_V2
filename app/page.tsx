@@ -226,19 +226,19 @@ function CasinoContent() {
             </div>
 
             {/* Hero Image - NFL Player on Right Side */}
-            <div className="absolute bottom-0 right-0 w-[50%] h-[80%] z-15">
+            <div className="absolute bottom-0 right-0 w-[50%] h-[70%] z-15">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
                 width={400}
                 height={300}
-                className="w-full h-full object-contain object-center"
+                className="w-full h-full object-contain object-bottom"
                 priority
               />
             </div>
 
             {/* Wave Effects Behind Player - Mobile Optimized */}
-            <div className="absolute bottom-0 right-0 w-[50%] h-[80%] z-8 overflow-hidden pointer-events-none">
+            <div className="absolute bottom-0 right-0 w-[50%] h-[70%] z-8 overflow-hidden pointer-events-none">
               <div className="absolute inset-0">
                 {/* Wave 1 */}
                 <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
@@ -267,7 +267,7 @@ function CasinoContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           {/* Header */}
           <div className="text-center mb-3 md:mb-4 mt-4">
-            <h2 className="text-3xl sm:text-4xl font-black text-brand-soft-white mb-3 md:mb-4 md:text-3xl">
+            <h2 className="font-black text-brand-soft-white mb-3 md:mb-4 md:text-3xl text-2xl">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 IBET PROMOS
               </span>{" "}
