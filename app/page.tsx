@@ -231,6 +231,12 @@ function CasinoContent() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
             </div>
 
+            {/* Triangle Shape */}
+            <div
+              className="absolute inset-0 bg-black/50 z-12"
+              style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+            ></div>
+
             {/* Hero Image - NFL Player on Right Side */}
             <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-15">
               <Image
