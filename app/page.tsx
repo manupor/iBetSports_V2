@@ -124,7 +124,7 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
               <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
               </div>
-              <div className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-white leading-tight tracking-tight mb-4">
+              <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white leading-tight tracking-tight mb-4">
                 Bet Smarter, Win Bigger
               </div>
 
