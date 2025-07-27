@@ -35,7 +35,7 @@ export default function HomePage() {
           </TabsList>
 
           <TabsContent value="home" className="mt-0">
-            <CasinoContent />
+            <CasinoContent setActiveTab={setActiveTab} />
           </TabsContent>
 
           <TabsContent value="casino" className="mt-0">
@@ -69,7 +69,7 @@ export default function HomePage() {
   )
 }
 
-function CasinoContent() {
+function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }) {
   const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
 
   useEffect(() => {
@@ -114,26 +114,26 @@ function CasinoContent() {
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
-        <div className="hidden md:block relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] lg:h-[55vh] xl:h-[60vh] 2xl:h-[65vh] overflow-hidden bg-black">
+        <div className="hidden md:block relative w-full h-[45vh] lg:h-[50vh] xl:h-[55vh] 2xl:h-[60vh] overflow-hidden bg-black">
           {/* Text Overlay - Left Side */}
-          <div className="absolute inset-0 flex flex-col justify-center pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 2xl:pl-20 pr-4 sm:pr-6 md:pr-8 lg:pr-12 xl:pr-16 2xl:pr-20 z-20">
-            <div className="text-left space-y-1 sm:space-y-2 md:space-y-3 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-white leading-none tracking-tight">
+          <div className="absolute inset-0 flex flex-col justify-center pl-6 md:pl-12 lg:pl-16 xl:pl-24 2xl:pl-32 pr-6 md:pr-12 lg:pr-16 xl:pr-24 2xl:pr-32 z-20">
+            <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
+              <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-white leading-none tracking-tight">
                 125%
               </div>
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight">
+              <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black text-brand-golden-yellow leading-none tracking-tight">
                 SIGN UP BONUS
               </div>
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-white leading-tight tracking-tight">
+              <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
               </div>
-              <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold text-white leading-tight tracking-tight mb-2 sm:mb-3 md:mb-4">
+              <div className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-white leading-tight tracking-tight mb-4">
                 Bet Smarter, Win Bigger
               </div>
 
               {/* Button integrated in text flow */}
-              <div className="pt-1 sm:pt-2">
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 sm:hover:scale-110 border-2 sm:border-4 border-white/20 backdrop-blur-sm">
+              <div className="pt-2">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2.5 md:py-3 lg:py-4 xl:py-5 text-lg md:text-xl lg:text-2xl xl:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white/20 backdrop-blur-sm">
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
                 </Button>
@@ -155,7 +155,7 @@ function CasinoContent() {
           </div>
 
           {/* Hero Image - NFL Player on Right Side */}
-          <div className="absolute top-0 right-0 w-[45%] sm:w-[50%] md:w-[55%] lg:w-[60%] xl:w-[65%] 2xl:w-[70%] h-full z-15">
+          <div className="absolute top-0 right-0 w-[50%] lg:w-[55%] xl:w-[60%] 2xl:w-[65%] h-full z-15">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
               alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -167,46 +167,51 @@ function CasinoContent() {
           </div>
 
           {/* Green Smoke Effect */}
-          <div className="absolute top-0 right-0 w-[50%] sm:w-[55%] md:w-[60%] lg:w-[65%] xl:w-[70%] h-full z-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[60%] h-full z-10 pointer-events-none">
             <div className="absolute bottom-0 right-1/4 w-2/3 h-2/3 bg-gradient-radial from-brand-primary-green/20 via-brand-primary-green/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-gradient-radial from-brand-vibrant-green/10 to-transparent rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
           </div>
 
           {/* Wave Effects Behind Player */}
-          <div className="absolute top-0 right-0 w-[50%] sm:w-[55%] md:w-[60%] lg:w-[65%] xl:w-[70%] h-full z-8 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-[60%] h-full z-8 overflow-hidden pointer-events-none">
             <div className="absolute inset-0">
-              <div className="absolute top-1/4 right-1/4 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 border-2 border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
-              <div className="absolute top-1/3 right-1/5 w-40 sm:w-56 md:w-72 lg:w-80 h-40 sm:h-56 md:h-72 lg:h-80 border-2 border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
-              <div className="absolute top-1/2 right-1/3 w-32 sm:w-48 md:w-64 lg:w-72 h-32 sm:h-48 md:h-64 lg:h-72 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
-              <div className="absolute bottom-1/3 right-1/6 w-36 sm:w-52 md:w-68 lg:w-72 h-36 sm:h-52 md:h-68 lg:h-72 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
-              <div className="absolute top-1/6 right-1/8 w-80 sm:w-96 md:w-[400px] lg:w-[500px] h-80 sm:h-96 md:h-[400px] lg:h-[500px] border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
+              {/* Wave 1 */}
+              <div className="absolute top-1/4 right-1/4 w-96 h-96 border-2 border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
+              {/* Wave 2 */}
+              <div className="absolute top-1/3 right-1/5 w-80 h-80 border-2 border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+              {/* Wave 3 */}
+              <div className="absolute top-1/2 right-1/3 w-64 h-64 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
+              {/* Wave 4 */}
+              <div className="absolute bottom-1/3 right-1/6 w-72 h-72 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
+              {/* Wave 5 - Larger background wave */}
+              <div className="absolute top-1/6 right-1/8 w-[500px] h-[500px] border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
             </div>
           </div>
 
           <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
-            <div className="absolute top-1/4 left-1/6 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/5 w-12 sm:w-18 md:w-24 h-12 sm:h-18 md:h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-1/3 left-1/4 w-8 sm:w-12 md:w-16 h-8 sm:h-12 md:h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
+            <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
+            <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-vibrant-green/25 rounded-full animate-ping"></div>
           </div>
         </div>
 
         {/* Mobile Hero */}
         <div className="md:hidden">
-          <div className="relative w-full h-[35vh] sm:h-[40vh] min-h-[280px] sm:min-h-[320px] overflow-hidden bg-black">
+          <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden bg-black">
             {/* Text Overlay - Left Side */}
-            <div className="absolute inset-0 flex items-center justify-start px-3 sm:px-4 z-20">
-              <div className="text-left space-y-1 sm:space-y-2 max-w-[60%] sm:max-w-[65%]">
-                <div className="text-3xl sm:text-4xl font-black text-white leading-none tracking-tight">125%</div>
-                <div className="text-lg sm:text-xl font-black text-brand-golden-yellow leading-none tracking-tight">
+            <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 z-20">
+              <div className="text-left space-y-2 sm:space-y-3 max-w-sm sm:max-w-md">
+                <div className="text-4xl sm:text-5xl font-black text-white leading-none tracking-tight">125%</div>
+                <div className="text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
                   SIGN UP BONUS
                 </div>
-                <div className="text-base sm:text-lg font-bold text-white leading-tight tracking-tight">
+                <div className="text-lg sm:text-xl font-bold text-white leading-tight tracking-tight">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-sm sm:text-base font-semibold text-white leading-tight tracking-tight mb-2 sm:mb-3">
+                <div className="text-base sm:text-lg font-semibold text-white leading-tight tracking-tight mb-3">
                   Bet Smarter, Win Bigger
                 </div>
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] sm:max-w-[160px]">
+                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 py-3 text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full">
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
                 </Button>
@@ -233,7 +238,7 @@ function CasinoContent() {
             ></div>
 
             {/* Hero Image - NFL Player on Right Side */}
-            <div className="absolute bottom-0 right-0 w-[70%] sm:w-[75%] h-[90%] sm:h-[95%] z-15">
+            <div className="absolute bottom-0 right-0 w-[75%] h-[95%] z-15">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -245,62 +250,68 @@ function CasinoContent() {
             </div>
 
             {/* Green Smoke Effect - Mobile */}
-            <div className="absolute bottom-0 right-0 w-[55%] sm:w-[60%] h-[80%] sm:h-[85%] z-10 pointer-events-none">
+            <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-10 pointer-events-none">
               <div className="absolute bottom-0 right-1/4 w-full h-full bg-gradient-radial from-brand-primary-green/25 via-brand-primary-green/10 to-transparent rounded-full blur-2xl animate-pulse"></div>
             </div>
 
             {/* Wave Effects Behind Player - Mobile Optimized */}
-            <div className="absolute bottom-0 right-0 w-[55%] sm:w-[60%] h-[80%] sm:h-[85%] z-8 overflow-hidden pointer-events-none">
+            <div className="absolute bottom-0 right-0 w-[60%] h-[85%] z-8 overflow-hidden pointer-events-none">
               <div className="absolute inset-0">
-                <div className="absolute top-1/4 right-1/4 w-24 sm:w-32 h-24 sm:h-32 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
-                <div className="absolute top-1/3 right-1/5 w-20 sm:w-28 h-20 sm:h-28 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
-                <div className="absolute top-1/2 right-1/3 w-16 sm:w-24 h-16 sm:h-24 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
-                <div className="absolute bottom-1/3 right-1/6 w-14 sm:w-20 h-14 sm:h-20 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
-                <div className="absolute top-1/6 right-1/8 w-32 sm:w-40 h-32 sm:h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
+                {/* Wave 1 */}
+                <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
+                {/* Wave 2 */}
+                <div className="absolute top-1/3 right-1/5 w-28 h-28 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+                {/* Wave 3 */}
+                <div className="absolute top-1/2 right-1/3 w-24 h-24 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
+                {/* Wave 4 */}
+                <div className="absolute bottom-1/3 right-1/6 w-20 h-20 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
+                {/* Wave 5 - Larger background wave */}
+                <div className="absolute top-1/6 right-1/8 w-40 h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
               </div>
             </div>
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
-              <div className="absolute top-1/4 left-1/6 w-6 sm:w-8 h-6 sm:h-8 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
-              <div className="absolute top-1/3 right-1/5 w-4 sm:w-6 h-4 sm:h-6 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
-              <div className="absolute bottom-1/3 left-1/4 w-3 sm:w-4 h-3 sm:h-4 border border-brand-vibrant-green/25 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/4 left-1/6 w-8 h-8 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/3 right-1/5 w-6 h-6 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
+              <div className="absolute bottom-1/3 left-1/4 w-4 h-4 border border-brand-vibrant-green/25 rounded-full animate-pulse"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Promotions Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <section className="py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
           {/* Header */}
-          <div className="text-center mb-4 sm:mb-6 md:mb-8 mt-2 sm:mt-4">
-            <h2 className="font-black text-brand-soft-white mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+          <div className="text-center mb-3 md:mb-4 mt-4">
+            <h2 className="font-black text-brand-soft-white mb-3 md:mb-4 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 POWER YOUR PLAY
               </span>{" "}
               WITH IBET PROMOTIONS
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray mb-3 sm:mb-4 md:mb-6 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray mb-4 md:mb-6 max-w-3xl mx-auto font-medium leading-relaxed">
               Unlock exclusive bonuses and maximize your gaming experience
             </p>
             <Button
               variant="outline"
-              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 sm:py-2.5 md:py-3 lg:py-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold rounded-lg"
+              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 md:py-3 lg:py-4 text-base md:text-lg lg:text-xl xl:text-2xl font-bold rounded-lg"
+              onClick={() => setActiveTab("promotions")}
             >
               SEE ALL PROMOTIONS →
             </Button>
           </div>
 
           {/* Promotions Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10">
             {/* Crypto Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 rounded-xl">
-              <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 md:p-4 lg:p-5 xl:p-6 2xl:p-8 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
-                      className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-brand-primary-green"
+                      className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green"
                       fill="currentColor"
                       viewBox="0 0 317.73 420.7"
                     >
@@ -310,15 +321,13 @@ function CasinoContent() {
                 </div>
 
                 {/* Content */}
-                <div className="text-center space-y-2 sm:space-y-3">
+                <div className="text-center space-y-3">
                   <div className="flex flex-col items-center space-y-1">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
+                      <span className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
                         200%
                       </span>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-brand-vibrant-green">
-                        CRYPTO BONUS
-                      </span>
+                      <span className="text-sm sm:text-base font-bold text-brand-vibrant-green">CRYPTO BONUS</span>
                     </div>
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">BITCOIN & ETHEREUM</p>
                   </div>
@@ -333,13 +342,13 @@ function CasinoContent() {
             </Card>
 
             {/* Sign Up Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 rounded-xl">
-              <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-3 md:p-4 lg:p-5 xl:p-6 2xl:p-8 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <svg
-                      className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-brand-vibrant-green"
+                      className="w-6 h-6 md:w-7 md:h-7 text-brand-vibrant-green"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -356,15 +365,13 @@ function CasinoContent() {
                 </div>
 
                 {/* Content */}
-                <div className="text-center space-y-2 sm:space-y-3">
+                <div className="text-center space-y-3">
                   <div className="flex flex-col items-center space-y-1">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
+                      <span className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
                         125%
                       </span>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-brand-vibrant-green">
-                        SIGN-UP BONUS
-                      </span>
+                      <span className="text-sm sm:text-base font-bold text-brand-vibrant-green">SIGN-UP BONUS</span>
                     </div>
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
                   </div>
@@ -379,13 +386,13 @@ function CasinoContent() {
             </Card>
 
             {/* Casino Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 rounded-xl sm:col-span-2 lg:col-span-1">
-              <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 md:p-4 lg:p-5 xl:p-6 2xl:p-8 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
                 {/* Playing Cards Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
-                      className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-brand-primary-green"
+                      className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green"
                       fill="currentColor"
                       stroke="currentColor"
                       viewBox="0 0 2801.07 2879.64"
@@ -403,15 +410,13 @@ function CasinoContent() {
                 </div>
 
                 {/* Content */}
-                <div className="text-center space-y-2 sm:space-y-3">
+                <div className="text-center space-y-3">
                   <div className="flex flex-col items-center space-y-1">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
+                      <span className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
                         150%
                       </span>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-brand-primary-green">
-                        CASINO RELOAD
-                      </span>
+                      <span className="text-sm sm:text-base font-bold text-brand-primary-green">CASINO RELOAD</span>
                     </div>
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">WEEKLY RELOAD BONUS</p>
                   </div>
@@ -429,21 +434,21 @@ function CasinoContent() {
       </section>
 
       {/* Gaming Options Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
+      <section className="py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black text-brand-soft-white mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 GAMING OPTIONS
               </span>{" "}
               FOR EVERY PLAYER
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-3xl mx-auto font-medium leading-relaxed">
               From thrilling slots to strategic table games, discover your perfect gaming experience
             </p>
           </div>
 
-          {/* Updated Gaming Options Section - Responsive Grid */}
+          {/* Updated Gaming Options Section - 3 items per row */}
           {(() => {
             const games = [
               {
@@ -485,11 +490,11 @@ function CasinoContent() {
             ]
 
             return (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-8">
                 {games.map((game, index) => (
                   <div
                     key={index}
-                    className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20 rounded-lg sm:rounded-xl overflow-hidden group flex flex-col"
+                    className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20 rounded-xl overflow-hidden group flex flex-col"
                   >
                     <div className="relative w-full aspect-[3/4] overflow-hidden">
                       <Image
@@ -497,11 +502,11 @@ function CasinoContent() {
                         alt={game.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        priority={index < 6}
+                        priority={index < 3}
                       />
                     </div>
-                    <div className="p-1.5 sm:p-2 md:p-3">
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-1.5 sm:py-2 md:py-2.5 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base lg:text-lg rounded-md sm:rounded-lg transition-colors duration-300">
+                    <div className="p-2 md:p-4">
+                      <Button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-2 md:px-4 text-xs md:text-sm lg:text-base xl:text-lg rounded-lg transition-colors duration-300">
                         PLAY NOW
                       </Button>
                     </div>
@@ -514,48 +519,46 @@ function CasinoContent() {
       </section>
 
       {/* Recent Bets Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
+      <section className="py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black text-brand-soft-white mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 RECENT BETS
               </span>{" "}
               LIVE FEED
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-3xl mx-auto font-medium leading-relaxed">
               See what other players are winning in real-time
             </p>
           </div>
 
-          <div className="bg-brand-charcoal-black-secondary rounded-lg sm:rounded-xl border border-brand-smoke-gray/20 overflow-hidden">
-            <div className="max-h-80 sm:max-h-96 overflow-y-auto">
+          <div className="bg-brand-charcoal-black-secondary rounded-xl border border-brand-smoke-gray/20 overflow-hidden">
+            <div className="max-h-96 overflow-y-auto">
               {bets.map((bet, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 border-b border-brand-smoke-gray/10 last:border-b-0 hover:bg-brand-smoke-gray/5 transition-colors duration-200"
+                  className="flex items-center justify-between p-3 md:p-4 lg:p-5 xl:p-6 border-b border-brand-smoke-gray/10 last:border-b-0 hover:bg-brand-smoke-gray/5 transition-colors duration-200"
                 >
-                  <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center flex-shrink-0">
-                      <span className="text-brand-charcoal-black font-bold text-xs sm:text-sm">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center">
+                      <span className="text-brand-charcoal-black font-bold text-sm">
                         {bet.user.charAt(0).toUpperCase()}
                       </span>
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-brand-soft-white font-semibold text-sm sm:text-base truncate">
-                        {bet.user}
-                      </div>
-                      <div className="text-brand-smoke-gray text-xs sm:text-sm">
+                    <div>
+                      <div className="text-brand-soft-white font-semibold">{bet.user}</div>
+                      <div className="text-brand-smoke-gray text-sm">
                         {bet.game} • {bet.time}
                       </div>
                     </div>
                   </div>
-                  <div className="text-right flex-shrink-0">
-                    <div className="text-brand-soft-white font-bold text-xs sm:text-sm md:text-base">
+                  <div className="text-right">
+                    <div className="text-brand-soft-white font-bold">
                       ${bet.amount.toFixed(2)} × {bet.mult.toFixed(2)}
                     </div>
                     <div
-                      className={`text-xs sm:text-sm font-semibold ${bet.profit > 0 ? "text-brand-primary-green" : "text-red-400"}`}
+                      className={`text-sm font-semibold ${bet.profit > 0 ? "text-brand-primary-green" : "text-red-400"}`}
                     >
                       {bet.profit > 0 ? "+" : ""}${bet.profit.toFixed(2)}
                     </div>
