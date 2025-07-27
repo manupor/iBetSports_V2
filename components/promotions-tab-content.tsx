@@ -127,11 +127,21 @@ export function PromotionsTabContent() {
     <div className="min-h-screen bg-gradient-to-b from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black">
       {/* Hero Section */}
       <section className="relative h-64 md:h-80 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
-        <div className="absolute inset-0 flex items-end md:items-center justify-center pb-4 md:pb-0">
-          <div className="text-center space-y-4">
+        <Image
+          src="/images/Hero1.jpg"
+          alt="Football Promotions Hero"
+          fill
+          className="object-cover object-right scale-90"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
+          <div className="text-left space-y-4">
             <h1 className="text-4xl md:text-6xl font-black">PROMOTIONS</h1>
             <p className="text-xl md:text-2xl text-brand-smoke-gray">Exclusive bonuses and rewards await</p>
+            <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg mt-6">
+              Claim Bonus
+            </Button>
           </div>
         </div>
       </section>

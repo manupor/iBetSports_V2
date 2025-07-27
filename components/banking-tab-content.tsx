@@ -150,10 +150,16 @@ export default function BankingTabContent() {
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
       {/* Hero Section */}
       <div className="relative h-64 md:h-80 overflow-hidden">
-        <Image src="/images/banking-banner-secure-payments.png" alt="Banking" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center space-y-4">
+        <Image
+          src="/images/hero1.png"
+          alt="Sports Banking Hero"
+          fill
+          className="object-contain object-right"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+        <div className="absolute inset-0 flex items-center justify-start pl-12 lg:pl-24">
+          <div className="text-left space-y-4">
             <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">BANKING</h1>
             <p className="text-xl md:text-2xl text-brand-smoke-gray">Secure deposits and withdrawals</p>
             <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
@@ -199,7 +205,6 @@ export default function BankingTabContent() {
                         key={index}
                         className="p-6 bg-brand-charcoal-black-secondary border border-brand-smoke-gray/30"
                       >
-                        
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {category.methods.map((method, methodIndex) => (
                             <Card
@@ -237,7 +242,9 @@ export default function BankingTabContent() {
                     <h3 className="text-xl font-bold mb-4 text-white">Deposit Funds</h3>
                     <div className="space-y-4">
                       <div>
-                        <Label className="text-white" htmlFor="amount">Amount</Label>
+                        <Label className="text-white" htmlFor="amount">
+                          Amount
+                        </Label>
                         <Input
                           id="amount"
                           placeholder="Enter amount"
@@ -245,7 +252,9 @@ export default function BankingTabContent() {
                         />
                       </div>
                       <div>
-                        <Label className="text-white" htmlFor="method">Payment Method</Label>
+                        <Label className="text-white" htmlFor="method">
+                          Payment Method
+                        </Label>
                         <Select>
                           <SelectTrigger className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/50 text-white">
                             <SelectValue placeholder="Select method" />
@@ -259,7 +268,9 @@ export default function BankingTabContent() {
                         </Select>
                       </div>
                       <div>
-                        <Label className="text-white" htmlFor="bonus">Bonus Code (Optional)</Label>
+                        <Label className="text-white" htmlFor="bonus">
+                          Bonus Code (Optional)
+                        </Label>
                         <Input
                           id="bonus"
                           placeholder="Enter bonus code"

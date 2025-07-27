@@ -116,13 +116,15 @@ export default function RacebookTabContent() {
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-[45vh] overflow-hidden bg-black">
           <Image
-            src="/images/ibetsports-horse-racing-hero.png"
-            alt="Dramatic horse and jockey silhouette in motion with intense green lighting effects"
+            src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+            alt="Horse racing track with neon background lighting effects"
             width={1920}
             height={600}
-            className="absolute bottom-0 right-0 w-full h-full object-cover object-center"
+            className="absolute top-4 right-0 w-full h-full object-cover object-right"
             priority
           />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"></div>
 
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
@@ -161,13 +163,13 @@ export default function RacebookTabContent() {
         <div className="md:hidden">
           <div className="relative w-full h-[40vh] min-h-[300px] overflow-hidden">
             <Image
-              src="/images/ibetsports-horse-racing-hero.png"
-              alt="Dramatic horse and jockey silhouette in motion with intense green lighting effects"
+              src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+              alt="Horse racing track with neon background lighting effects"
               fill
-              className="object-cover object-center"
+              className="object-cover object-right object-top"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-brand-primary-green/40 rounded-full animate-pulse"></div>

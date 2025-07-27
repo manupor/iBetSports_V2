@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, User, Wallet, Bell } from "lucide-react"
-import Image from "next/image"
 
 interface TopNavigationProps {
   activeTab?: string
@@ -39,22 +38,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
           <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo */}
             <button onClick={() => handleTabChange("home")} className="cursor-pointer">
-              {/* Mobile Logo */}
-              <Image
-                src="/images/mobile-logo-club.png"
-                alt="IBET Sports Mobile Logo"
-                width={50}
-                height={30}
-                className="h-8 w-auto md:hidden hover:opacity-80 transition-opacity"
-              />
-              {/* Desktop Logo */}
-              <Image
-                src="/images/ibet-sports-logo-v2.png"
-                alt="IBET Sports Logo"
-                width={120}
-                height={40}
-                className="hidden md:block h-12 w-auto hover:opacity-80 transition-opacity"
-              />
+              <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-xl md:text-2xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
+                ibetsports.ag
+              </span>
             </button>
 
             {/* Desktop Actions */}
