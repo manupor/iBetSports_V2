@@ -31,145 +31,184 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
   }
 
   return (
-    <nav className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 sticky top-0 z-50 backdrop-blur-sm">
-      {/* Top Bar */}
-      <div className="border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-12">
-          <div className="flex items-center justify-between h-14 sm:h-16">
-            {/* Logo */}
-            <button onClick={() => handleTabChange("home")} className="cursor-pointer">
-              <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-xl md:text-2xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
-                ibetsports.ag
-              </span>
-            </button>
-
-            {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
-              <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white px-3 py-2">
-                <Bell className="w-4 h-4 mr-2" />
-                <span className="hidden lg:inline">Notifications</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white px-3 py-2">
-                <Wallet className="w-4 h-4 mr-2" />
-                <span className="hidden lg:inline">$0.00</span>
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 py-2 bg-transparent"
-              >
-                <User className="w-4 h-4 mr-2" />
-                Login
-              </Button>
-              <Button
-                size="sm"
-                className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2"
-              >
-                Sign Up
-              </Button>
-            </div>
-
-            {/* Mobile Actions and Menu Button */}
-            <div className="md:hidden flex items-center space-x-3">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
-              >
-                Login
-              </Button>
-              <Button
-                size="sm"
-                className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2 text-sm animate-pulse shadow-sm"
-              >
-                Join Now!
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-brand-soft-white hover:text-brand-primary-green p-2.5 min-w-[48px] min-h-[48px]"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation Tabs - Desktop */}
-      {showTabs && (
-        <div className="hidden md:block">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
-            <div className="flex items-center justify-center space-x-1 lg:space-x-2 overflow-x-auto scrollbar-hide">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => handleTabChange(tab.id)}
-                  className={`px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 min-w-[100px] ${
-                    activeTab === tab.id
-                      ? "text-brand-primary-green border-brand-primary-green"
-                      : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
-                  }`}
-                >
-                  {tab.label}
+    <>
+      <nav className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 sticky top-0 z-50 backdrop-blur-sm">
+        {/* Top Bar */}
+        <div className="border-b border-brand-smoke-gray/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16 sm:h-18">
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <button onClick={() => handleTabChange("home")} className="cursor-pointer">
+                  <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-lg sm:text-xl md:text-2xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
+                    ibetsports.ag
+                  </span>
                 </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-14 sm:top-16 bg-black border-t border-brand-smoke-gray/20 z-50">
-          <div className="flex flex-col h-full">
-            {/* Mobile Navigation */}
-            {showTabs && (
-              <div className="flex-1 px-4 py-3 bg-gray-900">
-                <div className="mb-3">
-                  <h3 className="text-white font-medium text-sm mb-2 px-1">Navigation</h3>
-                  <div className="space-y-1">
-                    {tabs.map((tab) => (
-                      <button
-                        key={tab.id}
-                        onClick={() => handleTabChange(tab.id)}
-                        className={`w-full text-left px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${
-                          activeTab === tab.id
-                            ? "bg-brand-primary-green text-black"
-                            : "text-gray-300 hover:text-white hover:bg-gray-800"
-                        }`}
-                      >
-                        {tab.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
               </div>
-            )}
 
-            {/* Mobile Actions */}
-            <div className="border-t border-gray-700 p-4 space-y-3 bg-gray-800">
-              <div className="grid grid-cols-2 gap-2">
+              {/* Desktop Actions */}
+              <div className="hidden lg:flex items-center space-x-4">
                 <Button
                   variant="ghost"
-                  className="text-gray-300 hover:text-white hover:bg-gray-700 justify-start px-3 py-2.5 h-auto text-sm"
+                  size="sm"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white px-3 py-2 h-9"
                 >
                   <Bell className="w-4 h-4 mr-2" />
                   Notifications
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-gray-300 hover:text-white hover:bg-gray-700 justify-start px-3 py-2.5 h-auto text-sm"
+                  size="sm"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white px-3 py-2 h-9"
                 >
                   <Wallet className="w-4 h-4 mr-2" />
                   $0.00
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 py-2 h-9 bg-transparent"
+                >
+                  <User className="w-4 h-4 mr-2" />
+                  Login
+                </Button>
+                <Button
+                  size="sm"
+                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2 h-9"
+                >
+                  Sign Up
+                </Button>
+              </div>
+
+              {/* Tablet Actions */}
+              <div className="hidden md:flex lg:hidden items-center space-x-3">
+                <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white p-2">
+                  <Bell className="w-4 h-4" />
+                </Button>
+                <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white p-2">
+                  <Wallet className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
+                >
+                  Login
+                </Button>
+                <Button
+                  size="sm"
+                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-2 text-sm"
+                >
+                  Sign Up
+                </Button>
+              </div>
+
+              {/* Mobile Actions and Menu Button */}
+              <div className="flex md:hidden items-center space-x-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-1.5 bg-transparent text-xs"
+                >
+                  Login
+                </Button>
+                <Button
+                  size="sm"
+                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-1.5 text-xs animate-pulse shadow-sm"
+                >
+                  Join Now!
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="text-brand-soft-white hover:text-brand-primary-green p-2 ml-2"
+                >
+                  {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </Button>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Navigation Tabs - Desktop & Tablet */}
+        {showTabs && (
+          <div className="hidden md:block">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-center lg:justify-start">
+                <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => handleTabChange(tab.id)}
+                      className={`px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
+                        activeTab === tab.id
+                          ? "text-brand-primary-green border-brand-primary-green"
+                          : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-16 bg-brand-charcoal-black/95 backdrop-blur-sm z-40">
+          <div className="flex flex-col h-full">
+            {/* Mobile Navigation */}
+            {showTabs && (
+              <div className="flex-1 px-4 py-6 overflow-y-auto">
+                <div className="space-y-2">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => handleTabChange(tab.id)}
+                      className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                        activeTab === tab.id
+                          ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
+                          : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Mobile Actions Footer */}
+            <div className="border-t border-brand-smoke-gray/20 p-4 space-y-3 bg-brand-charcoal-black-secondary">
+              <div className="grid grid-cols-2 gap-3">
+                <Button
+                  variant="ghost"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-3 py-3 h-auto text-sm"
+                >
+                  <Bell className="w-4 h-4 mr-2" />
+                  Notifications
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-3 py-3 h-auto text-sm"
+                >
+                  <Wallet className="w-4 h-4 mr-2" />
+                  Balance: $0.00
+                </Button>
+              </div>
+              <div className="pt-2 border-t border-brand-smoke-gray/10">
+                <p className="text-xs text-brand-smoke-gray text-center">
+                  Welcome to ibetsports.ag - Your Premium Gaming Destination
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
-    </nav>
+    </>
   )
 }
