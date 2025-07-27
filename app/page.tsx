@@ -277,10 +277,21 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
       </section>
 
       {/* Promotions Section */}
-      <section className="py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
+      <section className="relative py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10 overflow-hidden">
+        {/* Stadium Background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/estadio-de-futbol-vacio-por-la-noche-multitud-viendo-el-juego-bajo-las-luces.jpg-IRMstCEjNsbMbfuOHOqhaOMDwzaQHH.jpeg"
+            alt="American football stadium background"
+            fill
+            className="object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-black/80"></div>
+        </div>
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
           {/* Header */}
-          <div className="text-center mb-3 md:mb-4 mt-4">
+          <div className="relative z-10 text-center mb-3 md:mb-4 mt-4">
             <h2 className="font-black text-brand-soft-white mb-3 md:mb-4 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 POWER YOUR PLAY
@@ -300,7 +311,7 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
           </div>
 
           {/* Promotions Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10">
             {/* Crypto Bonus Card */}
             <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 md:p-4 lg:p-5 xl:p-6 2xl:p-8 rounded-xl">
               <div className="flex flex-col items-center text-center space-y-4">
