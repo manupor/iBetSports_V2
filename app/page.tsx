@@ -15,7 +15,7 @@ import LiveCasinoTabContent from "@/components/live-casino-tab-content"
 import BankingTabContent from "@/components/banking-tab-content"
 import PromotionsTabContent from "@/components/promotions-tab-content"
 
-export default function HomePage() {
+export default function HomePage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const [activeTab, setActiveTab] = useState("home")
 
   return (
