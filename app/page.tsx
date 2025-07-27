@@ -309,7 +309,7 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
               <div className="flex flex-col items-center text-center space-y-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:w-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
                       className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green"
                       fill="currentColor"
@@ -346,7 +346,7 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
               <div className="flex flex-col items-center text-center space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:w-16 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <svg
                       className="w-6 h-6 md:w-7 md:h-7 text-brand-vibrant-green"
                       fill="none"
@@ -390,7 +390,7 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
               <div className="flex flex-col items-center text-center space-y-4">
                 {/* Playing Cards Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:w-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <svg
                       className="w-6 h-6 md:w-7 md:h-7 text-brand-primary-green"
                       fill="currentColor"
@@ -486,6 +486,11 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
               {
                 name: "Big Bad Bison",
                 image: "/images/Big-Bad-Bison.jpg",
+              },
+              {
+                name: "American Blackjack",
+                image:
+                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/american-blackjack.jpg-0I60m9SZVYYN7KEoaz6UCnVmQjwc73.jpeg",
               },
             ]
 
