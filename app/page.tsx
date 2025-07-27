@@ -119,10 +119,7 @@ function CasinoContent({ setActiveTab }: { setActiveTab: (tab: string) => void }
           <div className="absolute inset-0 flex flex-col justify-center pl-6 md:pl-12 lg:pl-16 xl:pl-24 2xl:pl-32 pr-6 md:pr-12 lg:pr-16 xl:pr-24 2xl:pr-32 z-20">
             <div className="text-left space-y-1 md:space-y-2 max-w-2xl">
               <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-white leading-none tracking-tight">
-                125%
-              </div>
-              <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black text-brand-golden-yellow leading-none tracking-tight">
-                SIGN UP BONUS
+                125% <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-brand-golden-yellow">SIGN UP BONUS</span>
               </div>
               <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
