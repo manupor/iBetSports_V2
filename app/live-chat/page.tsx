@@ -86,7 +86,7 @@ export default function LiveChatPage() {
                     <Headphones className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold">Support Team</h3>
+                    <h3 className="font-bold text-white text-black text-white text-white">Support Team</h3>
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-brand-primary-green rounded-full"></div>
                       <span className="text-sm text-brand-smoke-gray">Online - Average response time: 30 seconds</span>
@@ -154,7 +154,7 @@ export default function LiveChatPage() {
           <div className="space-y-6">
             {/* Quick Questions */}
             <Card className="bg-brand-charcoal-black-secondary/50 border border-brand-smoke-gray/30 p-6 rounded-2xl">
-              <h3 className="text-lg font-bold mb-4">Quick Questions</h3>
+              <h3 className="text-lg font-bold mb-4 text-white text-white">Quick Questions</h3>
               <div className="space-y-2">
                 {commonQuestions.map((question, index) => (
                   <button

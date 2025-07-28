@@ -171,6 +171,52 @@ function Footer() {
                 </div>
               )}
             </div>
+
+            {/* Terms & Conditions Section */}
+            <div className="border-b border-brand-smoke-gray/10 pb-2">
+              <button onClick={() => toggleSection("terms")} className="flex justify-between items-center w-full py-2">
+                <h3 className="text-brand-primary-green font-bold text-sm uppercase">Terms & Conditions</h3>
+                {expandedSection === "terms" ? (
+                  <ChevronUp className="w-4 h-4 text-brand-primary-green" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-brand-primary-green" />
+                )}
+              </button>
+              {expandedSection === "terms" && (
+                <div className="grid grid-cols-1 gap-1 mt-2">
+                  <a
+                    href="/terms-conditions"
+                    className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
+                  >
+                    General Terms
+                  </a>
+                  <a
+                    href="/account-registration"
+                    className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
+                  >
+                    Account Registration
+                  </a>
+                  <a
+                    href="/deposits-withdrawals"
+                    className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
+                  >
+                    Deposits & Withdrawals
+                  </a>
+                  <a
+                    href="/bonuses-promotions"
+                    className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
+                  >
+                    Bonuses & Promotions
+                  </a>
+                  <a
+                    href="/game-rules"
+                    className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
+                  >
+                    Game Rules & Fair Play
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Desktop Grid */}
@@ -309,7 +355,7 @@ function Footer() {
                     href="/help-faqs"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
-                    Help FAQs
+                    Help & FAQs
                   </a>
                 </li>
                 <li>
@@ -322,6 +368,7 @@ function Footer() {
                     Affiliate Program
                   </a>
                 </li>
+                <li></li>
               </ul>
             </div>
           </div>
