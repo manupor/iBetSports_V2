@@ -6,10 +6,13 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { TrendingUp, Users, Clock, Trophy, Target, Zap, Star, Play, Gift, DollarSign } from 'lucide-react'
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { TrendingUp, Users, Clock, Trophy, Target, Zap, Star, Play, DollarSign } from "lucide-react"
 
 export default function SportsbookTabContent() {
   const [selectedSport, setSelectedSport] = useState("featured")
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
 
   const promotions = [
     {
@@ -30,8 +33,8 @@ export default function SportsbookTabContent() {
         "This promotion is non-transferable.",
         "The free plays can only be used on straight bets up to +250. They cannot be used in the Racebook, Casino, and Poker",
         "IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.",
-        "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number."
-      ]
+        "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.",
+      ],
     },
     {
       id: "IBS200CP",
@@ -49,8 +52,8 @@ export default function SportsbookTabContent() {
         "To receive the bonus, you must use Promo Code IBS200CP",
         "To redeem the bonus, you may do so through our CASHIER/ PROMO CODE FIELD",
         "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.",
-        "IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice."
-      ]
+        "IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.",
+      ],
     },
     {
       id: "IBS150CS",
@@ -62,8 +65,8 @@ export default function SportsbookTabContent() {
         "Reload crypto 150% 100 min 1k max 40x rollover max cash 10k 7 day expiration",
         "Reload Other Deposit Type 100% 100 min 1k max 40x rollover max cash 5k 7 day expiration",
         "Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.",
-        "All bonuses come with a rollover requirement , please make sure you understand the requirements prior to agreeing. You may decline the bonus but every deposit has a one time rollover requirement."
-      ]
+        "All bonuses come with a rollover requirement , please make sure you understand the requirements prior to agreeing. You may decline the bonus but every deposit has a one time rollover requirement.",
+      ],
     },
     {
       id: "IBS200CPR",
@@ -74,9 +77,9 @@ export default function SportsbookTabContent() {
         "Share your invite link with your friends via email, social media, or SMS and ask them to sign up, we'll give you a 200% bonus up to $200 when they make their first deposit (min: $50).",
         "Unlimited Referrals, Unlimited Bonuses!",
         "Repeat & Repeat",
-        "Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!"
-      ]
-    }
+        "Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!",
+      ],
+    },
   ]
 
   return (
@@ -94,13 +97,13 @@ export default function SportsbookTabContent() {
               12.4K Active
             </Badge>
           </div>
-          
+
           <div className="w-full rounded-lg overflow-hidden border border-brand-smoke-gray/30">
-            <iframe 
-              src="https://betslip.ibetsports.com/mainbk/betslip" 
-              width="100%" 
-              height="1100" 
-              frameBorder="0" 
+            <iframe
+              src="https://betslip.ibetsports.com/mainbk/betslip"
+              width="100%"
+              height="1100"
+              frameBorder="0"
               allowFullScreen
               className="w-full"
               title="Sports Betting Interface"
@@ -113,7 +116,10 @@ export default function SportsbookTabContent() {
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {promotions.map((promo) => (
-            <Card key={promo.id} className="group relative overflow-hidden bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green transition-all duration-300">
+            <Card
+              key={promo.id}
+              className="group relative overflow-hidden bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green transition-all duration-300"
+            >
               <div className="relative">
                 <Image
                   src={promo.image || "/placeholder.svg"}
@@ -124,9 +130,7 @@ export default function SportsbookTabContent() {
                 />
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button 
-                      className="absolute bottom-4 left-4 bg-brand-primary-green/90 hover:bg-brand-primary-green text-brand-charcoal-black font-bold text-xs px-4 py-2"
-                    >
+                    <Button className="absolute bottom-4 left-4 bg-brand-primary-green/90 hover:bg-brand-primary-green text-brand-charcoal-black font-bold text-xs px-4 py-2">
                       TERMS
                     </Button>
                   </DialogTrigger>
@@ -148,7 +152,10 @@ export default function SportsbookTabContent() {
                       <div className="mt-6 p-4 bg-brand-charcoal-black/50 rounded-lg">
                         <p className="font-bold text-brand-soft-white mb-2">Important Disclaimer:</p>
                         <p className="text-sm text-brand-smoke-gray">
-                          The user is warned that they should make their own inquiry into the legality of participating in any of these games and/or activities. IBETSPORTS assumes no responsibility for the actions by and makes no representation or endorsement of any of these games and/or activities if they are illegal in the jurisdiction of the reader or client of this site.
+                          The user is warned that they should make their own inquiry into the legality of participating
+                          in any of these games and/or activities. IBETSPORTS assumes no responsibility for the actions
+                          by and makes no representation or endorsement of any of these games and/or activities if they
+                          are illegal in the jurisdiction of the reader or client of this site.
                         </p>
                       </div>
                     </div>
@@ -180,7 +187,10 @@ export default function SportsbookTabContent() {
               Your Destination for Comprehensive Sports Betting Odds
             </h2>
             <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
-              Our online sportsbook offers everything you need to elevate your sports betting experience. From the latest NFL odds to MLB, NHL, NBA, and soccer odds, we bring you competitive betting lines across all major leagues and tournaments worldwide. Get ahead with accurate betting odds, updated in real-time to reflect every game-changing moment and player update, so you're always ready to place winning bets.
+              Our online sportsbook offers everything you need to elevate your sports betting experience. From the
+              latest NFL odds to MLB, NHL, NBA, and soccer odds, we bring you competitive betting lines across all major
+              leagues and tournaments worldwide. Get ahead with accurate betting odds, updated in real-time to reflect
+              every game-changing moment and player update, so you're always ready to place winning bets.
             </p>
           </div>
 
@@ -189,7 +199,7 @@ export default function SportsbookTabContent() {
             <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6">
               <div className="flex items-center gap-4 mb-4">
                 <Clock className="w-8 h-8 text-brand-primary-green" />
-                <h3 className="text-xl font-bold">Pre-Match Betting</h3>
+                <h3 className="text-xl font-bold text-white">Pre-Match Betting</h3>
               </div>
               <p className="text-brand-smoke-gray">
                 Get in early on your favorite teams with comprehensive pre-match odds and analysis.
@@ -198,7 +208,7 @@ export default function SportsbookTabContent() {
             <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 p-6">
               <div className="flex items-center gap-4 mb-4">
                 <Zap className="w-8 h-8 text-brand-vibrant-green" />
-                <h3 className="text-xl font-bold">Live Betting</h3>
+                <h3 className="text-xl font-bold text-white">Live Betting</h3>
               </div>
               <p className="text-brand-smoke-gray">
                 Experience instant action with live betting that puts you right at the heart of each game.
@@ -212,7 +222,10 @@ export default function SportsbookTabContent() {
               Explore Pre-Match and Live Betting for Maximum Thrills
             </h2>
             <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
-              Whether you prefer pre-match odds to get in early on your favorite teams or live betting for instant action, our sportsbook has you covered. With a wide range of options from straight bets to parlays, spreads, and props, you can tailor your bets to match your strategy. Our live betting feature lets you follow every intense play as it happens, putting you right at the heart of each game.
+              Whether you prefer pre-match odds to get in early on your favorite teams or live betting for instant
+              action, our sportsbook has you covered. With a wide range of options from straight bets to parlays,
+              spreads, and props, you can tailor your bets to match your strategy. Our live betting feature lets you
+              follow every intense play as it happens, putting you right at the heart of each game.
             </p>
           </div>
 
@@ -222,7 +235,9 @@ export default function SportsbookTabContent() {
               Bet on Top Leagues with Unmatched Variety
             </h2>
             <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
-              From NFL and NBA to MLB, NHL, UFC, and international soccer leagues, our online sportsbook brings you the most popular events and betting markets. We also provide insights and data to support your decisions, ensuring you can bet with confidence and precision.
+              From NFL and NBA to MLB, NHL, UFC, and international soccer leagues, our online sportsbook brings you the
+              most popular events and betting markets. We also provide insights and data to support your decisions,
+              ensuring you can bet with confidence and precision.
             </p>
 
             {/* Leagues Grid */}
@@ -231,11 +246,14 @@ export default function SportsbookTabContent() {
                 { name: "NFL", icon: Trophy },
                 { name: "NBA", icon: Target },
                 { name: "MLB", icon: Star },
-                { name: "NHL", icon: TrendingUp }
+                { name: "NHL", icon: TrendingUp },
               ].map((league) => (
-                <Card key={league.name} className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 text-center hover:border-brand-primary-green transition-colors">
+                <Card
+                  key={league.name}
+                  className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-4 text-center hover:border-brand-primary-green transition-colors"
+                >
                   <league.icon className="w-8 h-8 mx-auto mb-2 text-brand-primary-green" />
-                  <h4 className="font-bold">{league.name}</h4>
+                  <h4 className="text-xl font-bold text-white">{league.name}</h4>
                 </Card>
               ))}
             </div>
@@ -244,17 +262,100 @@ export default function SportsbookTabContent() {
           {/* Call to Action */}
           <div className="text-center space-y-6 py-12">
             <p className="text-lg text-brand-smoke-gray max-w-3xl mx-auto">
-              Don't miss a beat—join today and start betting on your favorite sports! Sign up now, make your deposit, and take advantage of our exclusive betting offers to kick off your winning streak!
+              Don't miss a beat—join today and start betting on your favorite sports! Sign up now, make your deposit,
+              and take advantage of our exclusive betting offers to kick off your winning streak!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
-                <Play className="w-5 h-5 mr-2" />
-                SIGN UP NOW
-              </Button>
-              <Button variant="outline" className="border-brand-vibrant-green text-brand-vibrant-green hover:bg-brand-vibrant-green hover:text-brand-charcoal-black font-bold px-8 py-3 text-lg">
-                <DollarSign className="w-5 h-5 mr-2" />
-                START BETTING
-              </Button>
+              <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
+                <DialogTrigger asChild>
+                  <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
+                    <Play className="w-5 h-5 mr-2" />
+                    SIGN UP NOW
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
+                      CREATE YOUR ACCOUNT
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4 p-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-white">
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="username" className="text-white">
+                        Username
+                      </Label>
+                      <Input
+                        id="username"
+                        type="text"
+                        placeholder="Choose a username"
+                        className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="password" className="text-white">
+                        Password
+                      </Label>
+                      <Input
+                        id="password"
+                        type="password"
+                        placeholder="Create a password"
+                        className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="confirmPassword" className="text-white">
+                        Confirm Password
+                      </Label>
+                      <Input
+                        id="confirmPassword"
+                        type="password"
+                        placeholder="Confirm your password"
+                        className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        id="terms"
+                        className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
+                      />
+                      <Label htmlFor="terms" className="text-sm text-white">
+                        I agree to the Terms & Conditions and Privacy Policy
+                      </Label>
+                    </div>
+                    <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-2">
+                      CREATE ACCOUNT
+                    </Button>
+                    <p className="text-center text-sm text-white">
+                      Already have an account?{" "}
+                      <button className="text-brand-primary-green hover:underline">Sign In</button>
+                    </p>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="border-brand-vibrant-green hover:bg-brand-vibrant-green hover:text-brand-charcoal-black font-bold px-8 py-3 text-lg text-white bg-transparent"
+                  >
+                    <DollarSign className="w-5 h-5 mr-2" />
+                    START BETTING
+                  </Button>
+                </DialogTrigger>
+              </Dialog>
             </div>
           </div>
         </div>
