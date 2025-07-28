@@ -127,7 +127,7 @@ export default function HomePage() {
           </TabsList>
 
           <TabsContent value="home" className="mt-0">
-            <CasinoContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <CasinoContent setIsRegistrationOpen={setIsRegistrationOpen} setActiveTab={setActiveTab} />
           </TabsContent>
 
           <TabsContent value="casino" className="mt-0">
@@ -162,7 +162,13 @@ export default function HomePage() {
   )
 }
 
-function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open: boolean) => void }) {
+function CasinoContent({
+  setIsRegistrationOpen,
+  setActiveTab,
+}: {
+  setIsRegistrationOpen: (open: boolean) => void
+  setActiveTab: (tab: string) => void
+}) {
   const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
 
   useEffect(() => {
@@ -383,6 +389,7 @@ function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open
               Unlock exclusive bonuses and maximize your gaming experience
             </p>
             <Button
+              onClick={() => setActiveTab("promotions")}
               variant="outline"
               className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 sm:py-2.5 md:py-3 lg:py-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold rounded-lg"
             >
@@ -422,6 +429,7 @@ function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">BITCOIN & ETHEREUM</p>
                   </div>
                   <Button
+                    onClick={() => setIsRegistrationOpen(true)}
                     variant="link"
                     className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
@@ -468,6 +476,7 @@ function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
                   </div>
                   <Button
+                    onClick={() => setIsRegistrationOpen(true)}
                     variant="link"
                     className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
@@ -515,6 +524,7 @@ function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">WEEKLY RELOAD BONUS</p>
                   </div>
                   <Button
+                    onClick={() => setIsRegistrationOpen(true)}
                     variant="link"
                     className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
@@ -600,7 +610,10 @@ function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open
                       />
                     </div>
                     <div className="p-1.5 sm:p-2 md:p-3">
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-1.5 sm:py-2 md:py-2.5 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base lg:text-lg rounded-md sm:rounded-lg transition-colors duration-300">
+                      <Button
+                        onClick={() => setIsRegistrationOpen(true)}
+                        className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-1.5 sm:py-2 md:py-2.5 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base lg:text-lg rounded-md sm:rounded-lg transition-colors duration-300"
+                      >
                         PLAY NOW
                       </Button>
                     </div>

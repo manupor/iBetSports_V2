@@ -113,59 +113,7 @@ export default function SportsbookTabContent() {
       </section>
 
       {/* Promotional Banners */}
-      <section className="max-w-7xl mx-auto px-4 md:px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {promotions.map((promo) => (
-            <Card
-              key={promo.id}
-              className="group relative overflow-hidden bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green transition-all duration-300"
-            >
-              <div className="relative">
-                <Image
-                  src={promo.image || "/placeholder.svg"}
-                  alt={promo.title}
-                  width={640}
-                  height={350}
-                  className="w-full h-auto object-cover"
-                />
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="absolute bottom-4 left-4 bg-brand-primary-green/90 hover:bg-brand-primary-green text-brand-charcoal-black font-bold text-xs px-4 py-2">
-                      TERMS
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-brand-soft-white max-w-2xl max-h-[80vh] overflow-y-auto">
-                    <DialogHeader>
-                      <DialogTitle className="text-brand-primary-green text-lg font-bold">
-                        TERMS AND CONDITIONS
-                      </DialogTitle>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      <h3 className="font-bold text-brand-soft-white">{promo.title}</h3>
-                      <ol className="list-decimal list-inside space-y-2 text-sm">
-                        {promo.terms.map((term, index) => (
-                          <li key={index} className="text-brand-smoke-gray leading-relaxed">
-                            {term}
-                          </li>
-                        ))}
-                      </ol>
-                      <div className="mt-6 p-4 bg-brand-charcoal-black/50 rounded-lg">
-                        <p className="font-bold text-brand-soft-white mb-2">Important Disclaimer:</p>
-                        <p className="text-sm text-brand-smoke-gray">
-                          The user is warned that they should make their own inquiry into the legality of participating
-                          in any of these games and/or activities. IBETSPORTS assumes no responsibility for the actions
-                          by and makes no representation or endorsement of any of these games and/or activities if they
-                          are illegal in the jurisdiction of the reader or client of this site.
-                        </p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
+      
 
       {/* Content Sections */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12">
