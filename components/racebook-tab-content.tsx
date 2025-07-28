@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Trophy, Target, Clock, TrendingUp, Play, Eye } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Checkbox } from "@/components/ui/checkbox"
 
 export default function RacebookTabContent() {
   const [selectedTrack, setSelectedTrack] = useState("churchill")
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
 
   const tracks = [
     { id: "churchill", name: "Churchill Downs", location: "Louisville, KY" },
@@ -292,13 +297,17 @@ export default function RacebookTabContent() {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-2 sm:py-3 text-sm sm:text-base min-h-[44px]">
+                  <Button
+                    className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-2 sm:py-3 text-sm sm:text-base min-h-[44px]"
+                    onClick={() => setIsRegistrationOpen(true)}
+                  >
                     <Play className="w-4 h-4 mr-2" />
                     Watch
                   </Button>
                   <Button
                     variant="outline"
                     className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black py-2 sm:py-3 text-sm sm:text-base min-h-[44px] bg-transparent"
+                    onClick={() => setIsRegistrationOpen(true)}
                   >
                     <Eye className="w-4 h-4 mr-2" />
                     Bet
@@ -353,7 +362,10 @@ export default function RacebookTabContent() {
                       <span className="text-brand-soft-white font-bold text-sm">{race.odds}</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-3 min-h-[48px]">
+                  <Button
+                    className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-3 min-h-[48px]"
+                    onClick={() => setIsRegistrationOpen(true)}
+                  >
                     Place Bet
                   </Button>
                 </div>
@@ -397,6 +409,7 @@ export default function RacebookTabContent() {
                       <Button
                         size="sm"
                         className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2"
+                        onClick={() => setIsRegistrationOpen(true)}
                       >
                         Bet
                       </Button>
@@ -408,6 +421,83 @@ export default function RacebookTabContent() {
           </div>
         </div>
       </section>
+      {/* Registration Modal */}
+      <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
+        <DialogContent className="bg-brand-charcoal-black border border-brand-smoke-gray/30 text-brand-soft-white max-w-md mx-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center text-brand-primary-green">
+              Create Your Account
+            </DialogTitle>
+          </DialogHeader>
+          <form className="space-y-4 mt-4">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-brand-soft-white">
+                Email
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-brand-soft-white">
+                Username
+              </Label>
+              <Input
+                id="username"
+                type="text"
+                placeholder="Choose a username"
+                className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-brand-soft-white">
+                Password
+              </Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Create a password"
+                className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword" className="text-brand-soft-white">
+                Confirm Password
+              </Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm your password"
+                className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+                required
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="terms" className="border-brand-smoke-gray/30 data-[state=checked]:bg-brand-primary-green" />
+              <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
+                I agree to the{" "}
+                <span className="text-brand-primary-green hover:underline cursor-pointer">Terms & Conditions</span>
+              </Label>
+            </div>
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3 text-lg rounded-lg"
+            >
+              Create Account
+            </Button>
+            <p className="text-center text-sm text-brand-smoke-gray">
+              Already have an account?{" "}
+              <span className="text-brand-primary-green hover:underline cursor-pointer">Sign In</span>
+            </p>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

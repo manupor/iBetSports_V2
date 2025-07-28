@@ -10,9 +10,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { CreditCard, Wallet, Shield, Clock, CheckCircle, AlertCircle, DollarSign, TrendingUp } from "lucide-react"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { X } from "lucide-react"
 
 export default function BankingTabContent() {
   const [activeTab, setActiveTab] = useState("deposit")
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false)
 
   const paymentMethods = [
     {
@@ -151,20 +154,141 @@ export default function BankingTabContent() {
       {/* Hero Section */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src="/images/hero1.png"
-          alt="Sports Banking Hero"
+          src="/images/banking-hero-money.jpg"
+          alt="Banking Hero - Money and Casino"
           fill
-          className="object-contain object-right"
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
         <div className="absolute inset-0 flex items-center justify-start pl-12 lg:pl-24">
           <div className="text-left space-y-4">
             <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">BANKING</h1>
-            <p className="text-xl md:text-2xl text-brand-smoke-gray">Secure deposits and withdrawals</p>
-            <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
-              Make Deposit
-            </Button>
+            <p className="text-xl md:text-2xl text-white">Secure deposits and withdrawals</p>
+            <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+              <DialogTrigger asChild>
+                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
+                  Join Now
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-lg bg-gray-700 border-gray-600 p-0 gap-0">
+                <div className="relative p-8">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsRegisterOpen(false)}
+                    className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+
+                  {/* Register Title */}
+                  <div className="text-center mb-8">
+                    <h2 className="text-white text-2xl font-bold">REGISTER</h2>
+                  </div>
+
+                  {/* Progress Steps */}
+                  <div className="flex items-center justify-center mb-8">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-brand-primary-green rounded-full flex items-center justify-center text-black font-bold text-sm">
+                        1
+                      </div>
+                      <div className="text-brand-primary-green text-sm font-medium ml-2">STEP 1</div>
+                    </div>
+                    <div className="flex-1 h-0.5 bg-gray-600 mx-4"></div>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-gray-400 font-bold text-sm">
+                        2
+                      </div>
+                      <div className="text-gray-400 text-sm font-medium ml-2">STEP 2</div>
+                    </div>
+                  </div>
+
+                  {/* Registration Form */}
+                  <div className="space-y-4">
+                    <div className="relative">
+                      <Input
+                        type="text"
+                        placeholder="First Name"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        First Name
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <Input
+                        type="text"
+                        placeholder="Last Name"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        Last Name
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <Input
+                        type="email"
+                        placeholder="Email"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        Email
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <Input
+                        type="email"
+                        placeholder="Email Confirmation"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        Email Confirmation
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        Password
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <Input
+                        type="password"
+                        placeholder="Password Confirmation"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        Password Confirmation
+                      </label>
+                    </div>
+
+                    <div className="relative">
+                      <Input
+                        type="text"
+                        placeholder="Promotional Code"
+                        className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                      />
+                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                        Promotional Code
+                      </label>
+                    </div>
+
+                    <Button className="w-full h-12 bg-purple-600 hover:bg-purple-700 font-bold rounded-full text-lg mt-6 text-white">
+                      Next
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
@@ -297,7 +421,7 @@ export default function BankingTabContent() {
                         key={index}
                         className="p-6 bg-brand-charcoal-black-secondary border border-brand-smoke-gray/30"
                       >
-                        <div className="flex items-center mb-4">
+                        <div className="flex items-center mb-4 text-white">
                           <Image
                             src={category.icon || "/placeholder.svg"}
                             alt={category.category}
@@ -313,7 +437,7 @@ export default function BankingTabContent() {
                               key={methodIndex}
                               className="p-4 bg-brand-charcoal-black-tertiary/30 border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 cursor-pointer"
                             >
-                              <div className="flex justify-between items-start mb-2">
+                              <div className="flex justify-between items-start mb-2 text-white">
                                 <h4 className="font-semibold">{method.name}</h4>
                                 <Badge
                                   className={

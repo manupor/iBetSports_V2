@@ -5,6 +5,9 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
@@ -17,6 +20,95 @@ import PromotionsTabContent from "@/components/promotions-tab-content"
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home")
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
+
+  const RegistrationModal = () => (
+    <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
+      <DialogContent className="bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white max-w-md mx-auto">
+        <DialogHeader>
+          <DialogTitle className="text-center text-xl font-black text-brand-soft-white mb-4">
+            <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+              JOIN IBETSPORTS
+            </span>
+          </DialogTitle>
+        </DialogHeader>
+        <form className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-brand-soft-white font-semibold">
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="username" className="text-brand-soft-white font-semibold">
+              Username
+            </Label>
+            <Input
+              id="username"
+              type="text"
+              placeholder="Choose a username"
+              className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password" className="text-brand-soft-white font-semibold">
+              Password
+            </Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Create a password"
+              className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="confirmPassword" className="text-brand-soft-white font-semibold">
+              Confirm Password
+            </Label>
+            <Input
+              id="confirmPassword"
+              type="password"
+              placeholder="Confirm your password"
+              className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green"
+              required
+            />
+          </div>
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="terms"
+              className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded focus:ring-brand-primary-green"
+              required
+            />
+            <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
+              I agree to the{" "}
+              <span className="text-brand-primary-green hover:underline cursor-pointer">Terms & Conditions</span>
+            </Label>
+          </div>
+          <Button
+            type="submit"
+            className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300"
+          >
+            CREATE ACCOUNT
+          </Button>
+          <div className="text-center">
+            <p className="text-sm text-brand-smoke-gray">
+              Already have an account?{" "}
+              <span className="text-brand-primary-green hover:underline cursor-pointer font-semibold">Sign In</span>
+            </p>
+          </div>
+        </form>
+      </DialogContent>
+    </Dialog>
+  )
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
@@ -35,7 +127,7 @@ export default function HomePage() {
           </TabsList>
 
           <TabsContent value="home" className="mt-0">
-            <CasinoContent />
+            <CasinoContent setIsRegistrationOpen={setIsRegistrationOpen} />
           </TabsContent>
 
           <TabsContent value="casino" className="mt-0">
@@ -65,11 +157,12 @@ export default function HomePage() {
       </main>
 
       <Footer />
+      <RegistrationModal />
     </div>
   )
 }
 
-function CasinoContent() {
+function CasinoContent({ setIsRegistrationOpen }: { setIsRegistrationOpen: (open: boolean) => void }) {
   const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
 
   useEffect(() => {
@@ -133,7 +226,10 @@ function CasinoContent() {
 
               {/* Button integrated in text flow */}
               <div className="pt-1 sm:pt-2">
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 sm:hover:scale-110 border-2 sm:border-4 border-white/20 backdrop-blur-sm">
+                <Button
+                  onClick={() => setIsRegistrationOpen(true)}
+                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 sm:hover:scale-110 border-2 sm:border-4 border-white/20 backdrop-blur-sm"
+                >
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/30 to-brand-vibrant-green/30 rounded-full animate-pulse opacity-50"></div>
                 </Button>
@@ -206,7 +302,10 @@ function CasinoContent() {
                 <div className="text-sm sm:text-base font-semibold text-white leading-tight tracking-tight mb-2 sm:mb-3">
                   Bet Smarter, Win Bigger
                 </div>
-                <Button className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] sm:max-w-[160px]">
+                <Button
+                  onClick={() => setIsRegistrationOpen(true)}
+                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] sm:max-w-[160px]"
+                >
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
                 </Button>

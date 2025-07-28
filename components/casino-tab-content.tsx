@@ -7,6 +7,9 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Play,
   Search,
@@ -24,10 +27,16 @@ import {
   Share2,
 } from "lucide-react"
 
-export default function CasinoTabContent() {
+interface CasinoTabContentProps {
+  setIsRegistrationOpen?: (open: boolean) => void
+}
+
+export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabContentProps = {}) {
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const isRegistrationOpenState = useState(false)
+  const [isRegistrationOpen, setIsRegistrationOpenInternal] = isRegistrationOpenState
 
   const categories = [
     { id: "all", name: "All Games", count: 2847 },
@@ -385,7 +394,10 @@ export default function CasinoTabContent() {
 
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-          <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold mb-3 px-4 md:px-6 py-2">
+          <Button
+            onClick={() => setIsRegistrationOpenInternal(true)}
+            className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold mb-3 px-4 md:px-6 py-2"
+          >
             <Play className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
             Play Now
           </Button>
@@ -672,6 +684,74 @@ export default function CasinoTabContent() {
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Registration Modal */}
+      <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpenInternal}>
+        <DialogContent className="sm:max-w-md bg-brand-charcoal-black-secondary border border-brand-primary-green/30">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-brand-soft-white text-center">
+              Create Your Account
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-brand-soft-white">
+                Email
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-brand-soft-white">
+                Username
+              </Label>
+              <Input
+                id="username"
+                placeholder="Choose a username"
+                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-brand-soft-white">
+                Password
+              </Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Create a password"
+                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword" className="text-brand-soft-white">
+                Confirm Password
+              </Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm your password"
+                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="terms" className="border-brand-primary-green data-[state=checked]:bg-brand-primary-green" />
+              <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
+                I agree to the Terms & Conditions and Privacy Policy
+              </Label>
+            </div>
+            <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3">
+              Create Account
+            </Button>
+            <p className="text-center text-sm text-brand-smoke-gray">
+              Already have an account? <button className="text-brand-primary-green hover:underline">Sign In</button>
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
