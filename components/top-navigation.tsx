@@ -2,7 +2,9 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, User, Wallet, Bell } from "lucide-react"
+import { Menu, X, User, Wallet, Bell, Phone } from "lucide-react"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 
 interface TopNavigationProps {
   activeTab?: string
@@ -12,6 +14,8 @@ interface TopNavigationProps {
 
 export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = true }: TopNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false)
 
   const tabs = [
     { id: "home", label: "Home" },
@@ -64,20 +68,218 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                   <Wallet className="w-4 h-4 mr-2" />
                   $0.00
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 py-2 h-9 bg-transparent"
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Login
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2 h-9"
-                >
-                  Sign Up
-                </Button>
+                <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 py-2 h-9 bg-transparent"
+                    >
+                      <User className="w-4 h-4 mr-2" />
+                      Login
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md bg-gray-700 border-gray-600 p-0 gap-0">
+                    <div className="relative p-8">
+                      {/* Close Button */}
+                      <button
+                        onClick={() => setIsLoginOpen(false)}
+                        className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                      >
+                        <X className="w-6 h-6" />
+                      </button>
+
+                      {/* Login Title */}
+                      <div className="text-center mb-8">
+                        <h2 className="text-white text-2xl font-bold">LOGIN</h2>
+                      </div>
+
+                      {/* Login Form */}
+                      <div className="space-y-4">
+                        <Input
+                          type="text"
+                          placeholder="Enter your username or email"
+                          className="w-full h-12 px-4 bg-white border-0 rounded-lg text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-brand-primary-green focus:outline-none"
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Enter your password"
+                          className="w-full h-12 px-4 bg-white border-0 rounded-lg text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-brand-primary-green focus:outline-none"
+                        />
+
+                        <Button className="w-full h-12 bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold rounded-full text-lg mt-6 text-black">
+                          LOGIN
+                        </Button>
+                      </div>
+
+                      {/* Links */}
+                      <div className="text-center space-y-3 mt-6">
+                        <p className="text-white">
+                          Don't have an account?{" "}
+                          <button
+                            className="text-white hover:text-brand-primary-green underline font-medium"
+                            onClick={() => {
+                              setIsLoginOpen(false)
+                              setIsRegisterOpen(true)
+                            }}
+                          >
+                            Signup
+                          </button>
+                        </p>
+                        <p>
+                          <button className="text-white hover:text-brand-primary-green underline">
+                            Forgot your password?
+                          </button>
+                        </p>
+                      </div>
+
+                      {/* Phone Numbers */}
+                      <div className="grid grid-cols-2 gap-4 mt-8">
+                        <div className="bg-brand-primary-green rounded-lg p-4 text-center">
+                          <div className="flex items-center justify-center mb-2">
+                            <Phone className="w-4 h-4 mr-2 text-black" />
+                            <span className="font-bold text-lg text-black">1 888 203 1771</span>
+                          </div>
+                          <p className="text-sm font-medium text-black">Wagering</p>
+                        </div>
+                        <div className="bg-brand-primary-green rounded-lg p-4 text-center">
+                          <div className="flex items-center justify-center mb-2">
+                            <Phone className="w-4 h-4 mr-2 text-black" />
+                            <span className="font-bold text-lg text-black">1 888 210 3449</span>
+                          </div>
+                          <p className="text-sm font-medium text-black">Customer Service</p>
+                        </div>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+                <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="sm"
+                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2 h-9"
+                    >
+                      Sign Up
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-lg bg-gray-700 border-gray-600 p-0 gap-0">
+                    <div className="relative p-8">
+                      {/* Close Button */}
+                      <button
+                        onClick={() => setIsRegisterOpen(false)}
+                        className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                      >
+                        <X className="w-6 h-6" />
+                      </button>
+
+                      {/* Register Title */}
+                      <div className="text-center mb-8">
+                        <h2 className="text-white text-2xl font-bold">REGISTER</h2>
+                      </div>
+
+                      {/* Progress Steps */}
+                      <div className="flex items-center justify-center mb-8">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-brand-primary-green rounded-full flex items-center justify-center text-black font-bold text-sm">
+                            1
+                          </div>
+                          <div className="text-brand-primary-green text-sm font-medium ml-2">STEP 1</div>
+                        </div>
+                        <div className="flex-1 h-0.5 bg-gray-600 mx-4"></div>
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-gray-400 font-bold text-sm">
+                            2
+                          </div>
+                          <div className="text-gray-400 text-sm font-medium ml-2">STEP 2</div>
+                        </div>
+                      </div>
+
+                      {/* Registration Form */}
+                      <div className="space-y-4">
+                        <div className="relative">
+                          <Input
+                            type="text"
+                            placeholder="First Name"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            First Name
+                          </label>
+                        </div>
+
+                        <div className="relative">
+                          <Input
+                            type="text"
+                            placeholder="Last Name"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            Last Name
+                          </label>
+                        </div>
+
+                        <div className="relative">
+                          <Input
+                            type="email"
+                            placeholder="Email"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            Email
+                          </label>
+                        </div>
+
+                        <div className="relative">
+                          <Input
+                            type="email"
+                            placeholder="Email Confirmation"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            Email Confirmation
+                          </label>
+                        </div>
+
+                        <div className="relative">
+                          <Input
+                            type="password"
+                            placeholder="Password"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            Password
+                          </label>
+                        </div>
+
+                        <div className="relative">
+                          <Input
+                            type="password"
+                            placeholder="Password Confirmation"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            Password Confirmation
+                          </label>
+                        </div>
+
+                        <div className="relative">
+                          <Input
+                            type="text"
+                            placeholder="Promotional Code"
+                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                          />
+                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                            Promotional Code
+                          </label>
+                        </div>
+
+                        <Button className="w-full h-12 bg-purple-600 hover:bg-purple-700 font-bold rounded-full text-lg mt-6 text-white">
+                          Next
+                        </Button>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
 
               {/* Tablet Actions */}
@@ -88,36 +290,52 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                 <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white p-2">
                   <Wallet className="w-4 h-4" />
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
-                >
-                  Login
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-2 text-sm"
-                >
-                  Sign Up
-                </Button>
+                <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
+                    >
+                      Login
+                    </Button>
+                  </DialogTrigger>
+                </Dialog>
+                <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="sm"
+                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-2 text-sm"
+                    >
+                      Sign Up
+                    </Button>
+                  </DialogTrigger>
+                </Dialog>
               </div>
 
               {/* Mobile Actions and Menu Button */}
               <div className="flex md:hidden items-center space-x-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-1.5 bg-transparent text-xs"
-                >
-                  Login
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-1.5 text-xs animate-pulse shadow-sm"
-                >
-                  Join Now!
-                </Button>
+                <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-1.5 bg-transparent text-xs"
+                    >
+                      Login
+                    </Button>
+                  </DialogTrigger>
+                </Dialog>
+                <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="sm"
+                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-1.5 text-xs animate-pulse shadow-sm"
+                    >
+                      Join Now!
+                    </Button>
+                  </DialogTrigger>
+                </Dialog>
                 <Button
                   variant="ghost"
                   size="sm"
