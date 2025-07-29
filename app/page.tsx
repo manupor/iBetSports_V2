@@ -565,6 +565,31 @@ function CasinoContent({
               { name: "Chocolates", image: "/images/Chocolates.jpg" },
               { name: "Big Bad Bison", image: "/images/Big-Bad-Bison.jpg" },
               { name: "Mega Fortune", image: "/images/slot-mega-fortune.avif" },
+              {
+                name: "Cash Quest",
+                image:
+                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Cash-Quest.jpg-Lk8x3q2IrZHRZL211y8abwwa4EwLuV.jpeg",
+              },
+              {
+                name: "Coins 96%",
+                image:
+                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Coins-96.jpg-lO5WLNI80wTsQSsu9AAnGWsu2mInyi.jpeg",
+              },
+              {
+                name: "Coins 88%",
+                image:
+                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Coins-88.jpg-9WBe2GdbqsFFZbnCV6yK9ZzWhdcwW0.jpeg",
+              },
+              {
+                name: "Bouncy Bombs",
+                image:
+                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/BOUNCY-BOMBS.jpg-6ZqMTohGWOEH7uSkBVLyUpl8O05eYd.jpeg",
+              },
+              {
+                name: "Coins 98%",
+                image:
+                  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Coins-98.jpg-kqgwCuQbLWCnwFz4tD5YpGwaUGbZq4.jpeg",
+              },
             ]
 
             return (
@@ -580,7 +605,7 @@ function CasinoContent({
                         alt={game.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        priority={index < 10}
+                        priority={index < 15}
                       />
                     </div>
                     <div className="p-1.5 sm:p-2 md:p-3">
