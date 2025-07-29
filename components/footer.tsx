@@ -236,12 +236,7 @@ function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/self-exclusion"
-                    className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
-                  >
-                    Self Exclusion
-                  </a>
+                  
                 </li>
                 <li>
                   <a

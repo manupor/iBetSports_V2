@@ -128,7 +128,7 @@ export function PromotionsTabContent() {
       {/* Hero Section */}
       <section className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
+          src="/images/mma-fighters-promo.jpg"
           alt="Neon Football Player Promotions Hero"
           fill
           className="object-cover object-center"
@@ -138,7 +138,7 @@ export function PromotionsTabContent() {
         <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
           <div className="text-left space-y-4">
             <h1 className="text-4xl md:text-6xl font-black">PROMOTIONS</h1>
-            <p className="text-xl md:text-2xl text-brand-smoke-gray">Exclusive bonuses and rewards await</p>
+            <p className="text-xl md:text-2xl text-white">Exclusive bonuses and rewards await</p>
             <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg mt-6">
               Claim Bonus
             </Button>

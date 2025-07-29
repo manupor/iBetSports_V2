@@ -1,10 +1,14 @@
 "use client"
 
 import { Shield, Users, Trophy, Clock, Globe, Award, CheckCircle, Star, HeadphonesIcon, Zap } from "lucide-react"
+import { TopNavigation } from "@/components/top-navigation"
+import { Footer } from "@/components/footer"
 
 export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      <TopNavigation showTabs={false} />
+
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black-tertiary">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/10 to-transparent"></div>
@@ -323,6 +327,8 @@ export default function AboutUsPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

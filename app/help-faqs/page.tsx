@@ -1,222 +1,159 @@
 "use client"
 
-import { useState } from "react"
 import {
   Search,
+  ChevronDown,
+  ChevronUp,
   MessageCircle,
-  Mail,
   Phone,
+  Mail,
+  Clock,
   HelpCircle,
-  User,
-  CreditCard,
-  Gift,
-  Target,
-  Settings,
+  FileText,
   Shield,
+  CreditCard,
+  Users,
+  Gamepad2,
+  Trophy,
+  Star,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react"
+import { TopNavigation } from "@/components/top-navigation"
+import { Footer } from "@/components/footer"
 
 export default function HelpFAQsPage() {
   const [searchQuery, setSearchQuery] = useState("")
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState("all")
 
-  const faqCategories = [
+  const categories = [
+    { id: "all", label: "All Categories", icon: HelpCircle },
+    { id: "account", label: "Account & Registration", icon: Users },
+    { id: "deposits", label: "Deposits & Withdrawals", icon: CreditCard },
+    { id: "betting", label: "Sports Betting", icon: Trophy },
+    { id: "casino", label: "Casino Games", icon: Gamepad2 },
+    { id: "bonuses", label: "Bonuses & Promotions", icon: Star },
+    { id: "security", label: "Security & Privacy", icon: Shield },
+    { id: "technical", label: "Technical Support", icon: FileText },
+  ]
+
+  const faqs = [
     {
-      title: "Account & Registration",
-      icon: User,
-      color: "bg-blue-500",
-      faqs: [
-        {
-          question: "How do I create an account?",
-          answer:
-            "Click 'Sign Up' in the top right corner, fill out the registration form with your personal details, verify your email address, and complete the account verification process by uploading required documents.",
-        },
-        {
-          question: "What documents do I need for verification?",
-          answer:
-            "You'll need a government-issued photo ID (passport, driver's license), proof of address (utility bill, bank statement from last 3 months), and proof of payment method (bank statement, card photo).",
-        },
-        {
-          question: "How long does account verification take?",
-          answer:
-            "Account verification typically takes 24-72 hours. During peak times, it may take up to 5 business days. You'll receive an email confirmation once your account is verified.",
-        },
-        {
-          question: "Can I have multiple accounts?",
-          answer:
-            "No, only one account per person is allowed. Multiple accounts will result in account closure and forfeiture of funds. This policy helps us maintain fair gaming and prevent fraud.",
-        },
-        {
-          question: "How do I reset my password?",
-          answer:
-            "Click 'Forgot Password' on the login page, enter your email address, and follow the instructions in the reset email. Make sure to check your spam folder if you don't receive it within 10 minutes.",
-        },
-      ],
+      id: 1,
+      category: "account",
+      question: "How do I create an account?",
+      answer:
+        "To create an account, click the 'Sign Up' button in the top right corner of our website. Fill out the registration form with your personal information, verify your email address, and you'll be ready to start betting and playing.",
     },
     {
-      title: "Deposits & Withdrawals",
-      icon: CreditCard,
-      color: "bg-green-500",
-      faqs: [
-        {
-          question: "What payment methods do you accept?",
-          answer:
-            "We accept major credit/debit cards (Visa, Mastercard), cryptocurrencies (Bitcoin, Ethereum, Litecoin), bank transfers, and e-wallets (Skrill, Neteller, PayPal).",
-        },
-        {
-          question: "What are the minimum and maximum deposit amounts?",
-          answer:
-            "Minimum deposit is $10 for most methods ($20 for Bitcoin). Maximum deposits vary: $5,000 for cards, $10,000 for bank transfers, and $50,000 for cryptocurrencies per transaction.",
-        },
-        {
-          question: "How long do withdrawals take?",
-          answer:
-            "Cryptocurrency withdrawals: 1-2 hours. E-wallets: 24 hours. Credit/debit cards: 3-5 business days. Bank transfers: 5-7 business days. First withdrawals may take longer due to additional security checks.",
-        },
-        {
-          question: "Are there any withdrawal fees?",
-          answer:
-            "We don't charge withdrawal fees for most methods. However, your bank or payment provider may charge their own fees. Cryptocurrency withdrawals have network fees that vary based on network congestion.",
-        },
-        {
-          question: "Why was my withdrawal declined?",
-          answer:
-            "Common reasons include incomplete verification, using a different payment method than deposit, bonus wagering requirements not met, or insufficient funds. Contact support for specific details.",
-        },
-      ],
+      id: 2,
+      category: "account",
+      question: "What documents do I need for account verification?",
+      answer:
+        "For account verification, you'll need a government-issued photo ID (passport, driver's license, or national ID card) and a recent utility bill or bank statement showing your address. This helps us comply with regulatory requirements and keep your account secure.",
     },
     {
-      title: "Bonuses & Promotions",
-      icon: Gift,
-      color: "bg-purple-500",
-      faqs: [
-        {
-          question: "What welcome bonuses do you offer?",
-          answer:
-            "New players receive a 125% Sports Welcome Bonus up to $2,500 and a 200% Casino Welcome Bonus up to $1,000. Both bonuses have specific wagering requirements and terms.",
-        },
-        {
-          question: "What are wagering requirements?",
-          answer:
-            "Wagering requirements are the number of times you must bet your bonus amount before withdrawing. Sports bonuses typically have 5x wagering, while casino bonuses have 35x wagering requirements.",
-        },
-        {
-          question: "Can I withdraw my bonus immediately?",
-          answer:
-            "No, bonuses must meet wagering requirements first. Only the winnings from bonus play can be withdrawn after requirements are met. The original bonus amount is typically removed upon withdrawal.",
-        },
-        {
-          question: "Do you offer reload bonuses?",
-          answer:
-            "Yes, we offer regular reload bonuses for existing players, including weekend bonuses, monthly cashback offers, and special event promotions. Check the Promotions page for current offers.",
-        },
-        {
-          question: "How do I claim a bonus?",
-          answer:
-            "Most bonuses are automatically credited upon deposit. Some require a bonus code entered during deposit. Check the specific promotion terms and contact support if you don't receive your bonus.",
-        },
-      ],
+      id: 3,
+      category: "deposits",
+      question: "What payment methods do you accept?",
+      answer:
+        "We accept various payment methods including credit/debit cards (Visa, Mastercard), cryptocurrencies (Bitcoin, Ethereum, Litecoin), bank transfers, and e-wallets. All transactions are processed securely with industry-standard encryption.",
     },
     {
-      title: "Sports Betting",
-      icon: Target,
-      color: "bg-orange-500",
-      faqs: [
-        {
-          question: "What sports do you offer betting on?",
-          answer:
-            "We offer betting on football, basketball, baseball, hockey, soccer, tennis, golf, MMA, boxing, horse racing, and many other sports including esports and virtual sports.",
-        },
-        {
-          question: "What types of bets can I place?",
-          answer:
-            "You can place moneyline, point spread, totals (over/under), parlays, teasers, props, futures, and live in-game bets. Different bet types are available depending on the sport and event.",
-        },
-        {
-          question: "What are your betting limits?",
-          answer:
-            "Minimum bet is typically $1. Maximum limits vary by sport and bet type, ranging from $1,000 to $100,000. Higher limits may be available for VIP players upon request.",
-        },
-        {
-          question: "When are bets settled?",
-          answer:
-            "Most bets are settled immediately after the official result. Some bets may take longer if there are disputes or if we're waiting for official confirmation from the governing body.",
-        },
-        {
-          question: "Can I cash out my bet early?",
-          answer:
-            "Yes, we offer cash out on selected pre-game and live bets. The cash out value is calculated based on current odds and game situation. Not all bets are eligible for cash out.",
-        },
-      ],
+      id: 4,
+      category: "deposits",
+      question: "How long do withdrawals take?",
+      answer:
+        "Withdrawal processing times vary by method: Cryptocurrencies (1-24 hours), e-wallets (24-48 hours), credit/debit cards (3-5 business days), and bank transfers (5-7 business days). All withdrawals are subject to our verification process.",
     },
     {
-      title: "Technical Issues",
-      icon: Settings,
-      color: "bg-red-500",
-      faqs: [
-        {
-          question: "The website won't load properly",
-          answer:
-            "Try clearing your browser cache and cookies, disable browser extensions, or try a different browser. Make sure you have a stable internet connection and the latest browser version.",
-        },
-        {
-          question: "I can't place a bet",
-          answer:
-            "Check your account balance, ensure the event is still available for betting, and verify your bet amount meets minimum requirements. If the issue persists, contact live support immediately.",
-        },
-        {
-          question: "The mobile app keeps crashing",
-          answer:
-            "Update the app to the latest version, restart your device, ensure you have sufficient storage space, and check your internet connection. Uninstall and reinstall the app if problems continue.",
-        },
-        {
-          question: "I'm having trouble with live streaming",
-          answer:
-            "Ensure you have a funded account or recent betting activity, check your internet speed (minimum 1 Mbps recommended), disable VPN if active, and try refreshing the page or restarting the stream.",
-        },
-        {
-          question: "My account balance is incorrect",
-          answer:
-            "Check your transaction history for recent activity. Balances update in real-time, but some transactions may take a few minutes to reflect. Contact support with specific details if discrepancies persist.",
-        },
-      ],
+      id: 5,
+      category: "betting",
+      question: "What sports can I bet on?",
+      answer:
+        "We offer betting on a wide range of sports including football (NFL, college), basketball (NBA, NCAA), baseball (MLB), hockey (NHL), soccer, tennis, golf, MMA, boxing, and many more. We also offer live betting and futures markets.",
     },
     {
-      title: "Security & Responsible Gaming",
-      icon: Shield,
-      color: "bg-indigo-500",
-      faqs: [
-        {
-          question: "How do you protect my personal information?",
-          answer:
-            "We use 256-bit SSL encryption, store data on secure servers, comply with data protection regulations, and never share personal information with third parties without consent.",
-        },
-        {
-          question: "What responsible gaming tools do you offer?",
-          answer:
-            "We provide deposit limits, loss limits, session time limits, cooling-off periods, and self-exclusion options. You can access these tools in your account settings or contact support for assistance.",
-        },
-        {
-          question: "How can I set betting limits?",
-          answer:
-            "Go to Account Settings > Responsible Gaming to set daily, weekly, or monthly limits for deposits, losses, and session time. Limits take effect immediately and can only be decreased instantly.",
-        },
-        {
-          question: "What is self-exclusion?",
-          answer:
-            "Self-exclusion temporarily or permanently blocks access to your account. During this period, you cannot deposit, bet, or access promotional materials. Contact support to activate self-exclusion.",
-        },
-        {
-          question: "How do I report suspicious activity?",
-          answer:
-            "Contact our security team immediately at security@ibetsports.ag or through live chat. Provide as much detail as possible about the suspicious activity you've observed.",
-        },
-      ],
+      id: 6,
+      category: "betting",
+      question: "What are the minimum and maximum bet limits?",
+      answer:
+        "Minimum bets start at $1 for most markets. Maximum bet limits vary by sport and market type, ranging from $1,000 to $50,000 or more for major events. Limits may be adjusted based on your account status and betting history.",
+    },
+    {
+      id: 7,
+      category: "casino",
+      question: "Are your casino games fair?",
+      answer:
+        "Yes, all our casino games use certified Random Number Generators (RNG) and are regularly audited by independent testing agencies. We're licensed and regulated, ensuring fair play and transparent gaming for all players.",
+    },
+    {
+      id: 8,
+      category: "casino",
+      question: "Can I play casino games for free?",
+      answer:
+        "Many of our slot games and table games offer demo modes where you can play for free without wagering real money. This is a great way to learn the games and practice your strategies before playing with real money.",
+    },
+    {
+      id: 9,
+      category: "bonuses",
+      question: "What welcome bonuses do you offer?",
+      answer:
+        "New players can enjoy generous welcome bonuses including a 100% deposit match up to $1,000 for sports betting and a separate casino welcome package. Bonuses come with terms and conditions that must be met before withdrawal.",
+    },
+    {
+      id: 10,
+      category: "bonuses",
+      question: "How do I claim my bonus?",
+      answer:
+        "Most bonuses are automatically credited to your account when you meet the requirements. Some bonuses may require a promo code during deposit or registration. Check your account's bonus section or contact support if you need assistance.",
+    },
+    {
+      id: 11,
+      category: "security",
+      question: "How do you protect my personal information?",
+      answer:
+        "We use advanced SSL encryption to protect all data transmission and store your information on secure servers. We never share your personal information with third parties without your consent, except as required by law or regulation.",
+    },
+    {
+      id: 12,
+      category: "security",
+      question: "What should I do if I suspect unauthorized account access?",
+      answer:
+        "If you suspect unauthorized access to your account, immediately change your password, contact our support team, and review your account activity. We recommend using strong, unique passwords and enabling two-factor authentication when available.",
+    },
+    {
+      id: 13,
+      category: "technical",
+      question: "Why can't I access the website?",
+      answer:
+        "If you're having trouble accessing our website, try clearing your browser cache and cookies, disabling browser extensions, or trying a different browser. If the problem persists, contact our technical support team for assistance.",
+    },
+    {
+      id: 14,
+      category: "technical",
+      question: "Is there a mobile app available?",
+      answer:
+        "Our website is fully optimized for mobile devices and works seamlessly on smartphones and tablets. You can access all features including betting, casino games, deposits, and withdrawals through your mobile browser.",
     },
   ]
 
+  const filteredFAQs = faqs.filter((faq) => {
+    const matchesCategory = selectedCategory === "all" || faq.category === selectedCategory
+    const matchesSearch =
+      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesCategory && matchesSearch
+  })
+
+  const toggleFAQ = (id: number) => {
+    setExpandedFAQ(expandedFAQ === id ? null : id)
+  }
+
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      <TopNavigation showTabs={false} />
+
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black-tertiary py-16 sm:py-20 md:py-24">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/10 to-transparent"></div>
@@ -225,153 +162,206 @@ export default function HelpFAQsPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-brand-primary-green/20 rounded-full mb-6">
               <HelpCircle className="w-8 h-8 sm:w-10 sm:h-10 text-brand-primary-green" />
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Help & <span className="text-brand-primary-green">FAQs</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-primary-green to-brand-soft-white bg-clip-text text-transparent">
+              Help & FAQs
             </h1>
-            <p className="text-lg sm:text-xl text-brand-soft-white/80 mb-8 max-w-2xl mx-auto">
-              Find answers to common questions or get in touch with our support team for personalized assistance.
+            <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-8 leading-relaxed">
+              Find answers to common questions and get the help you need to make the most of your gaming experience.
             </p>
 
             {/* Search Bar */}
-            <div className="relative max-w-2xl mx-auto mb-8">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-soft-white/60" />
-              <Input
+            <div className="relative max-w-2xl mx-auto">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-brand-smoke-gray" />
+              </div>
+              <input
                 type="text"
                 placeholder="Search for help topics..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 pr-4 py-4 text-lg bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-soft-white/60 focus:border-brand-primary-green"
+                className="w-full pl-12 pr-4 py-4 bg-brand-charcoal-black-secondary border border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder-brand-smoke-gray focus:outline-none focus:ring-2 focus:ring-brand-primary-green focus:border-transparent"
               />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Contact Methods */}
-      <div className="py-12 sm:py-16 bg-brand-charcoal-black-secondary">
+      {/* Quick Contact Section */}
+      <div className="py-12 bg-brand-charcoal-black-secondary">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Need Immediate Help?</h2>
-            <p className="text-brand-soft-white/80">Our support team is available 24/7 to assist you</p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary-green">Need Immediate Help?</h2>
+            <p className="text-brand-smoke-gray">Our support team is available 24/7 to assist you</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Live Chat */}
-            <div className="bg-brand-charcoal-black-tertiary rounded-xl p-6 text-center hover:bg-brand-charcoal-black/50 transition-colors">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-primary-green/20 rounded-full mb-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 text-center hover:border-brand-primary-green/50 transition-colors">
+              <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="w-6 h-6 text-brand-primary-green" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Live Chat</h3>
-              <p className="text-brand-soft-white/80 mb-4">Get instant help from our support agents</p>
-              <p className="text-sm text-brand-primary-green mb-4">Available 24/7</p>
-              <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green/90">Start Chat</Button>
+              <h3 className="font-bold mb-2 text-brand-soft-white">Live Chat</h3>
+              <p className="text-sm text-brand-smoke-gray mb-4">Available 24/7</p>
+              <button className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                Start Chat
+              </button>
             </div>
 
-            {/* Email Support */}
-            <div className="bg-brand-charcoal-black-tertiary rounded-xl p-6 text-center hover:bg-brand-charcoal-black/50 transition-colors">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500/20 rounded-full mb-4">
-                <Mail className="w-6 h-6 text-blue-400" />
+            <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 text-center hover:border-brand-primary-green/50 transition-colors">
+              <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-6 h-6 text-brand-primary-green" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Email Support</h3>
-              <p className="text-brand-soft-white/80 mb-4">Send us a detailed message</p>
-              <p className="text-sm text-blue-400 mb-4">Response within 2 hours</p>
-              <Button
-                variant="outline"
-                className="w-full border-blue-400 text-blue-400 hover:bg-blue-400/10 bg-transparent"
-              >
-                Send Email
-              </Button>
-            </div>
-
-            {/* Phone Support */}
-            <div className="bg-brand-charcoal-black-tertiary rounded-xl p-6 text-center hover:bg-brand-charcoal-black/50 transition-colors">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-full mb-4">
-                <Phone className="w-6 h-6 text-orange-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Phone Support</h3>
-              <p className="text-brand-soft-white/80 mb-4">Speak directly with our team</p>
-              <p className="text-sm text-orange-400 mb-4">+1 (800) 123-4567</p>
-              <Button
-                variant="outline"
-                className="w-full border-orange-400 text-orange-400 hover:bg-orange-400/10 bg-transparent"
+              <h3 className="font-bold mb-2 text-brand-soft-white">Phone Support</h3>
+              <p className="text-sm text-brand-smoke-gray mb-4">1-888-203-1771</p>
+              <a
+                href="tel:+18882031771"
+                className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors text-sm inline-block"
               >
                 Call Now
-              </Button>
+              </a>
+            </div>
+
+            <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 text-center hover:border-brand-primary-green/50 transition-colors">
+              <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-brand-primary-green" />
+              </div>
+              <h3 className="font-bold mb-2 text-brand-soft-white">Email Support</h3>
+              <p className="text-sm text-brand-smoke-gray mb-4">support@ibetsports.ag</p>
+              <a
+                href="mailto:support@ibetsports.ag"
+                className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors text-sm inline-block"
+              >
+                Send Email
+              </a>
+            </div>
+
+            <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 text-center hover:border-brand-primary-green/50 transition-colors">
+              <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-6 h-6 text-brand-primary-green" />
+              </div>
+              <h3 className="font-bold mb-2 text-brand-soft-white">Response Time</h3>
+              <p className="text-sm text-brand-smoke-gray mb-4">Average: 2 minutes</p>
+              <div className="bg-brand-primary-green/20 text-brand-primary-green font-bold py-2 px-4 rounded-lg text-sm">
+                Fast Support
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* FAQ Categories */}
-      <div className="py-12 sm:py-16">
+      {/* FAQ Categories and Content */}
+      <div className="py-16">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-brand-soft-white/80">Browse our comprehensive FAQ sections to find quick answers</p>
-          </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-brand-smoke-gray">Browse by category or search for specific topics</p>
+            </div>
 
-          <div className="space-y-8">
-            {faqCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="bg-brand-charcoal-black-secondary rounded-xl p-6 sm:p-8">
-                <div className="flex items-center mb-6">
-                  <div
-                    className={`inline-flex items-center justify-center w-12 h-12 ${category.color} rounded-full mr-4`}
-                  >
-                    <category.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold">{category.title}</h3>
-                </div>
-
-                <div className="space-y-4">
-                  {category.faqs.map((faq, faqIndex) => (
-                    <details key={faqIndex} className="group bg-brand-charcoal-black-tertiary rounded-lg">
-                      <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-brand-charcoal-black/50 transition-colors rounded-lg">
-                        <span className="font-medium text-brand-soft-white">{faq.question}</span>
-                        <svg
-                          className="w-5 h-5 text-brand-primary-green transition-transform group-open:rotate-180"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </summary>
-                      <div className="px-4 pb-4">
-                        <p className="text-brand-soft-white/80 leading-relaxed">{faq.answer}</p>
-                      </div>
-                    </details>
-                  ))}
-                </div>
+            {/* Category Filter */}
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {categories.map((category) => {
+                  const IconComponent = category.icon
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.id)}
+                      className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors ${
+                        selectedCategory === category.id
+                          ? "bg-brand-primary-green text-brand-charcoal-black"
+                          : "bg-brand-charcoal-black-secondary text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black"
+                      }`}
+                    >
+                      <IconComponent className="w-4 h-4" />
+                      <span className="text-sm">{category.label}</span>
+                    </button>
+                  )
+                })}
               </div>
-            ))}
+            </div>
+
+            {/* FAQ List */}
+            <div className="space-y-4">
+              {filteredFAQs.length > 0 ? (
+                filteredFAQs.map((faq) => (
+                  <div
+                    key={faq.id}
+                    className="bg-brand-charcoal-black-secondary rounded-lg border border-brand-smoke-gray/20"
+                  >
+                    <button
+                      onClick={() => toggleFAQ(faq.id)}
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-brand-charcoal-black/50 transition-colors"
+                    >
+                      <span className="font-semibold text-brand-soft-white pr-4">{faq.question}</span>
+                      {expandedFAQ === faq.id ? (
+                        <ChevronUp className="w-5 h-5 text-brand-primary-green flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-brand-smoke-gray flex-shrink-0" />
+                      )}
+                    </button>
+                    {expandedFAQ === faq.id && (
+                      <div className="px-6 pb-4">
+                        <div className="border-t border-brand-smoke-gray/20 pt-4">
+                          <p className="text-brand-smoke-gray leading-relaxed">{faq.answer}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-12">
+                  <HelpCircle className="w-16 h-16 text-brand-smoke-gray mx-auto mb-4" />
+                  <h3 className="text-xl font-bold mb-2 text-brand-soft-white">No results found</h3>
+                  <p className="text-brand-smoke-gray">Try adjusting your search or selecting a different category.</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Additional Help Section */}
-      <div className="py-12 sm:py-16 bg-brand-charcoal-black-secondary">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Still Need Help?</h2>
-          <p className="text-brand-soft-white/80 mb-8 max-w-2xl mx-auto">
-            Can't find what you're looking for? Our support team is here to help you with any questions or issues you
-            may have.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-primary-green hover:bg-brand-primary-green/90">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Start Live Chat
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green/10 bg-transparent"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Send Email
-            </Button>
+      {/* Additional Resources */}
+      <div className="py-16 bg-brand-charcoal-black-secondary">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">Additional Resources</h2>
+            <p className="text-lg text-brand-smoke-gray mb-8">Explore more helpful information and tools</p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
+                <FileText className="w-8 h-8 text-brand-primary-green mx-auto mb-4" />
+                <h3 className="font-bold mb-2 text-brand-soft-white">Terms & Conditions</h3>
+                <p className="text-sm text-brand-smoke-gray mb-4">Read our complete terms of service</p>
+                <a href="/terms-conditions" className="text-brand-primary-green hover:underline text-sm font-medium">
+                  View Terms →
+                </a>
+              </div>
+
+              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
+                <Shield className="w-8 h-8 text-brand-primary-green mx-auto mb-4" />
+                <h3 className="font-bold mb-2 text-brand-soft-white">Responsible Gaming</h3>
+                <p className="text-sm text-brand-smoke-gray mb-4">Learn about safe gaming practices</p>
+                <a href="/responsible-gaming" className="text-brand-primary-green hover:underline text-sm font-medium">
+                  Learn More →
+                </a>
+              </div>
+
+              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
+                <Users className="w-8 h-8 text-brand-primary-green mx-auto mb-4" />
+                <h3 className="font-bold mb-2 text-brand-soft-white">About Us</h3>
+                <p className="text-sm text-brand-smoke-gray mb-4">Learn more about IBetSports</p>
+                <a href="/about-us" className="text-brand-primary-green hover:underline text-sm font-medium">
+                  Read More →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

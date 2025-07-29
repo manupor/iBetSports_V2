@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, User, Wallet, Bell, Phone } from "lucide-react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
+import Link from "next/link"
 
 interface TopNavigationProps {
   activeTab?: string
@@ -18,7 +19,6 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
   const [isRegisterOpen, setIsRegisterOpen] = useState(false)
 
   const tabs = [
-    { id: "home", label: "Home" },
     { id: "casino", label: "Casino" },
     { id: "sports", label: "Sports" },
     { id: "racebook", label: "Racebook" },
@@ -43,11 +43,11 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
             <div className="flex items-center justify-between h-16 sm:h-18">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <button onClick={() => handleTabChange("home")} className="cursor-pointer">
+                <Link href="/" className="cursor-pointer">
                   <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-lg sm:text-xl md:text-2xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
                     ibetsports.ag
                   </span>
-                </button>
+                </Link>
               </div>
 
               {/* Desktop Actions */}
