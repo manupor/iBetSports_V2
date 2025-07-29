@@ -1,6 +1,5 @@
 "use client"
 
-import { Shield, Users, Trophy, Clock, Globe, Award, CheckCircle, Star, HeadphonesIcon, Zap } from "lucide-react"
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
 
@@ -10,319 +9,258 @@ export default function AboutUsPage() {
       <TopNavigation showTabs={false} />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black-tertiary">
+      <div className="relative bg-gradient-to-br from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black-tertiary py-16 sm:py-20 md:py-24">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/10 to-transparent"></div>
-        <div className="relative container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-primary-green to-brand-soft-white bg-clip-text text-transparent">
-              About IBetSports
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-brand-primary-green/20 rounded-full mb-6">
+              <svg
+                className="w-8 h-8 sm:w-10 sm:h-10 text-brand-primary-green"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                About
+              </span>{" "}
+              ibetsports.ag
             </h1>
-            <p className="text-xl md:text-2xl text-brand-smoke-gray mb-8 leading-relaxed">
-              Your trusted gaming destination with over 25 years of excellence in online sports betting and casino
-              entertainment.
+            <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-8 leading-relaxed">
+              Your premier destination for online sports betting and casino gaming
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-3 px-8 rounded-lg transition-colors">
-                Join Now
-              </button>
-              <button className="border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black font-bold py-3 px-8 rounded-lg transition-colors">
-                Contact Us
-              </button>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Company Overview */}
-      <div className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">
-                Leading the Industry Since 1999
-              </h2>
-              <p className="text-lg text-brand-smoke-gray max-w-3xl mx-auto">
-                IBetSports has been at the forefront of online gaming innovation, providing players worldwide with a
-                secure, fair, and entertaining gaming experience. Licensed and regulated in Antigua and Barbuda, we
-                operate with the highest standards of integrity and player protection.
-              </p>
-            </div>
-
-            {/* Statistics Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-              <div className="text-center p-6 bg-brand-charcoal-black-secondary rounded-lg border border-brand-smoke-gray/20">
-                <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">25+</div>
-                <div className="text-brand-smoke-gray">Years Experience</div>
-              </div>
-              <div className="text-center p-6 bg-brand-charcoal-black-secondary rounded-lg border border-brand-smoke-gray/20">
-                <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">500K+</div>
-                <div className="text-brand-smoke-gray">Active Players</div>
-              </div>
-              <div className="text-center p-6 bg-brand-charcoal-black-secondary rounded-lg border border-brand-smoke-gray/20">
-                <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">99.9%</div>
-                <div className="text-brand-smoke-gray">Uptime</div>
-              </div>
-              <div className="text-center p-6 bg-brand-charcoal-black-secondary rounded-lg border border-brand-smoke-gray/20">
-                <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">24/7</div>
-                <div className="text-brand-smoke-gray">Support</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Gaming Platform */}
-      <div className="py-16 bg-brand-charcoal-black-secondary">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">
-                Comprehensive Gaming Platform
-              </h2>
-              <p className="text-lg text-brand-smoke-gray max-w-3xl mx-auto">
-                From sports betting to live casino games, we offer a complete entertainment experience with cutting-edge
-                technology and the best odds in the industry.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-colors">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mb-4">
-                  <Trophy className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Sportsbook</h3>
-                <p className="text-brand-smoke-gray">
-                  Comprehensive sports betting with competitive odds on all major sports and leagues worldwide.
-                </p>
-              </div>
-
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-colors">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mb-4">
-                  <Star className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Casino Games</h3>
-                <p className="text-brand-smoke-gray">
-                  Thousands of slot machines, table games, and progressive jackpots from top software providers.
-                </p>
-              </div>
-
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-colors">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Live Casino</h3>
-                <p className="text-brand-smoke-gray">
-                  Real-time gaming with professional dealers in blackjack, roulette, baccarat, and poker.
-                </p>
-              </div>
-
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-colors">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Horse Racing</h3>
-                <p className="text-brand-smoke-gray">
-                  Daily horse racing action from tracks around the world with live streaming and results.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Commitment */}
-      <div className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">
-                Our Commitment to Excellence
-              </h2>
-              <p className="text-lg text-brand-smoke-gray max-w-3xl mx-auto">
-                We are dedicated to providing a safe, secure, and enjoyable gaming environment with the highest
-                standards of customer service and responsible gaming practices.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
+      {/* Content Section */}
+      <div className="py-16 sm:py-20 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid gap-12 md:gap-16">
+              {/* Our Story */}
               <div className="text-center">
-                <div className="w-16 h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Security & Trust</h3>
-                <p className="text-brand-smoke-gray">
-                  Advanced SSL encryption, secure payment processing, and strict data protection protocols ensure your
-                  information is always safe.
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 text-brand-soft-white">Our Story</h2>
+                <p className="text-base sm:text-lg text-brand-smoke-gray leading-relaxed mb-6">
+                  Founded with a passion for providing the ultimate gaming experience, ibetsports.ag has established
+                  itself as a trusted leader in the online betting industry. We combine cutting-edge technology with
+                  exceptional customer service to deliver an unparalleled platform for sports betting and casino gaming.
+                </p>
+                <p className="text-base sm:text-lg text-brand-smoke-gray leading-relaxed">
+                  Our commitment to innovation, security, and responsible gaming has made us the preferred choice for
+                  players worldwide who demand excellence in their online gaming experience.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Fair Gaming</h3>
-                <p className="text-brand-smoke-gray">
-                  All our games use certified Random Number Generators (RNG) and are regularly audited by independent
-                  testing agencies.
+              {/* Our Mission */}
+              <div className="bg-brand-charcoal-black-secondary rounded-2xl p-8 sm:p-10 md:p-12 border border-brand-smoke-gray/20">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 text-center">
+                  <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                    Our Mission
+                  </span>
+                </h2>
+                <p className="text-base sm:text-lg text-brand-smoke-gray leading-relaxed text-center">
+                  To provide a safe, secure, and entertaining platform where players can enjoy the thrill of sports
+                  betting and casino gaming with complete confidence. We strive to exceed expectations through
+                  innovative features, competitive odds, and exceptional customer support.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-8 h-8 text-brand-primary-green" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-brand-soft-white">Global Reach</h3>
-                <p className="text-brand-smoke-gray">
-                  Serving players from around the world with multilingual support and multiple currency options for your
-                  convenience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              {/* Why Choose Us */}
+              <div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-8 text-center text-brand-soft-white">
+                  Why Choose ibetsports.ag?
+                </h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                  <div className="text-center p-6 rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/30 transition-colors">
+                    <div className="w-12 h-12 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-primary-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Secure & Licensed</h3>
+                    <p className="text-sm text-brand-smoke-gray">
+                      Fully licensed and regulated with state-of-the-art security measures
+                    </p>
+                  </div>
 
-      {/* Why Choose Us */}
-      <div className="py-16 bg-brand-charcoal-black-secondary">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">Why Choose IBetSports?</h2>
-            </div>
+                  <div className="text-center p-6 rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/30 transition-colors">
+                    <div className="w-12 h-12 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-primary-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Fast Payouts</h3>
+                    <p className="text-sm text-brand-smoke-gray">
+                      Quick and reliable withdrawal processing with multiple payment options
+                    </p>
+                  </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">Competitive Odds</h4>
-                    <p className="text-sm text-brand-smoke-gray">Best odds in the industry across all sports</p>
+                  <div className="text-center p-6 rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/30 transition-colors">
+                    <div className="w-12 h-12 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-primary-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.944a11.955 11.955 0 00-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">24/7 Support</h3>
+                    <p className="text-sm text-brand-smoke-gray">
+                      Round-the-clock customer support via live chat, email, and phone
+                    </p>
                   </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">Fast Payouts</h4>
-                    <p className="text-sm text-brand-smoke-gray">Quick and secure withdrawal processing</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">Mobile Optimized</h4>
-                    <p className="text-sm text-brand-smoke-gray">Seamless gaming on all devices</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">VIP Program</h4>
-                    <p className="text-sm text-brand-smoke-gray">Exclusive rewards for loyal players</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">Live Streaming</h4>
-                    <p className="text-sm text-brand-smoke-gray">Watch games live while you bet</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">Crypto Friendly</h4>
-                    <p className="text-sm text-brand-smoke-gray">Bitcoin and cryptocurrency support</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">Responsible Gaming</h4>
-                    <p className="text-sm text-brand-smoke-gray">Tools to help you play responsibly</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-brand-charcoal-black p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-brand-primary-green mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-bold text-brand-soft-white mb-1">24/7 Support</h4>
-                    <p className="text-sm text-brand-smoke-gray">Round-the-clock customer assistance</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Contact Section */}
-      <div className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-primary-green">Get in Touch</h2>
-            <p className="text-lg text-brand-smoke-gray mb-8">
-              Have questions? Our friendly support team is available 24/7 to assist you.
-            </p>
+                  <div className="text-center p-6 rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/30 transition-colors">
+                    <div className="w-12 h-12 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-primary-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Competitive Odds</h3>
+                    <p className="text-sm text-brand-smoke-gray">
+                      Industry-leading odds and betting lines across all major sports
+                    </p>
+                  </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-brand-charcoal-black-secondary p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <HeadphonesIcon className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="font-bold mb-2 text-brand-soft-white">Live Chat</h3>
-                <p className="text-brand-smoke-gray text-sm mb-4">Available 24/7 for instant support</p>
-                <button className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors text-sm">
-                  Start Chat
-                </button>
-              </div>
-              <div className="bg-brand-charcoal-black-secondary p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="font-bold mb-2 text-brand-soft-white">Email Support</h3>
-                <p className="text-brand-smoke-gray text-sm mb-4">support@ibetsports.ag</p>
-                <a
-                  href="mailto:support@ibetsports.ag"
-                  className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors text-sm inline-block"
-                >
-                  Send Email
-                </a>
-              </div>
-              <div className="bg-brand-charcoal-black-secondary p-6 rounded-lg border border-brand-smoke-gray/20">
-                <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-6 h-6 text-brand-primary-green" />
-                </div>
-                <h3 className="font-bold mb-2 text-brand-soft-white">Phone Support</h3>
-                <p className="text-brand-smoke-gray text-sm mb-4">+1-800-IBET-SPORTS</p>
-                <a
-                  href="tel:+18004238776"
-                  className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors text-sm inline-block"
-                >
-                  Call Now
-                </a>
-              </div>
-            </div>
+                  <div className="text-center p-6 rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/30 transition-colors">
+                    <div className="w-12 h-12 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-primary-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Mobile Optimized</h3>
+                    <p className="text-sm text-brand-smoke-gray">
+                      Seamless gaming experience across all devices and platforms
+                    </p>
+                  </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-3 px-8 rounded-lg transition-colors">
-                Start Live Chat
-              </button>
-              <button className="border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black font-bold py-3 px-8 rounded-lg transition-colors">
-                Contact Form
-              </button>
+                  <div className="text-center p-6 rounded-xl bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/30 transition-colors">
+                    <div className="w-12 h-12 bg-brand-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-primary-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Exclusive Bonuses</h3>
+                    <p className="text-sm text-brand-smoke-gray">
+                      Generous welcome bonuses and ongoing promotions for all players
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Information */}
+              <div className="bg-gradient-to-r from-brand-primary-green/10 to-brand-vibrant-green/10 rounded-2xl p-8 sm:p-10 md:p-12 border border-brand-primary-green/20">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 text-center text-brand-soft-white">
+                  Get in Touch
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-brand-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-charcoal-black"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Wagering Support</h3>
+                    <p className="text-brand-primary-green font-bold text-lg">1 888 203 1771</p>
+                  </div>
+
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-brand-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg
+                        className="w-6 h-6 text-brand-charcoal-black"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-brand-soft-white mb-2">Customer Service</h3>
+                    <p className="text-brand-primary-green font-bold text-lg">1 888 210 3449</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

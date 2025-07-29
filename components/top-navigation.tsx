@@ -353,7 +353,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
         {showTabs && (
           <div className="hidden md:block">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-center lg:justify-start">
+              <div className="flex items-center justify-center">
                 <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
                   {tabs.map((tab) => (
                     <button
