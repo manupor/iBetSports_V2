@@ -206,7 +206,7 @@ export function PromotionsTabContent() {
               >
                 <div className="relative">
                   <Image
-                    src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
+                    src={promo.image || "/placeholder.svg"}
                     alt={promo.title}
                     width={600}
                     height={300}
