@@ -128,7 +128,7 @@ export function PromotionsTabContent() {
       {/* Hero Section */}
       <section className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src="/images/mma-fighters-promo.jpg"
+          src="/images/hero1.png"
           alt="Neon Football Player Promotions Hero"
           fill
           className="object-cover object-center"
@@ -204,13 +204,13 @@ export function PromotionsTabContent() {
                 key={promo.id}
                 className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 overflow-hidden group hover:border-brand-primary-green/50 transition-all duration-300"
               >
-                <div className="relative">
+                <div className="relative pt-8">
                   <Image
                     src={promo.image || "/placeholder.svg"}
                     alt={promo.title}
                     width={600}
                     height={150}
-                    className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                   {promo.featured && (
                     <Badge className="absolute top-4 left-4 bg-brand-primary-green text-brand-charcoal-black">
