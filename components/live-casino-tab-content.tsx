@@ -414,39 +414,7 @@ export default function LiveCasinoTabContent() {
       </section>
 
       {/* Live Casino Games */}
-      <section className="max-w-7xl mx-auto px-4 md:px-6 py-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Live Casino Games</h2>
-          <p className="text-brand-smoke-gray text-lg">Experience the thrill of live dealers and real-time gaming</p>
-        </div>
-
-        <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-          {/* Category tabs */}
-          <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 bg-brand-charcoal-black-secondary mb-8">
-            {categories.map((c) => (
-              <TabsTrigger
-                key={c.id}
-                value={c.id}
-                className="data-[state=active]:bg-brand-primary-green data-[state=active]:text-brand-charcoal-black text-brand-soft-white"
-              >
-                <span className="flex flex-col items-center">
-                  <span className="text-sm font-bold">{c.name}</span>
-                  <span className="text-xs opacity-70">({c.count})</span>
-                </span>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {/* Games grid */}
-          <TabsContent value={selectedCategory}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredGames.map((g) => (
-                <LiveGameCard key={g.id} game={g} />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
-      </section>
+      
 
       {/* Content Sections */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12">

@@ -128,10 +128,10 @@ export function PromotionsTabContent() {
       {/* Hero Section */}
       <section className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src="/images/Hero1.jpg"
-          alt="Football Promotions Hero"
+          src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
+          alt="Neon Football Player Promotions Hero"
           fill
-          className="object-cover object-right scale-90"
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
@@ -206,7 +206,7 @@ export function PromotionsTabContent() {
               >
                 <div className="relative">
                   <Image
-                    src={promo.image || "/placeholder.svg"}
+                    src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
                     alt={promo.title}
                     width={600}
                     height={300}
