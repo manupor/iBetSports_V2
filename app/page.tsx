@@ -429,7 +429,7 @@ function CasinoContent({
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">BITCOIN & ETHEREUM</p>
                   </div>
                   <Button
-                    onClick={() => setIsRegistrationOpen(true)}
+                    onClick={() => setActiveTab("promotions")}
                     variant="link"
                     className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
@@ -476,7 +476,7 @@ function CasinoContent({
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
                   </div>
                   <Button
-                    onClick={() => setIsRegistrationOpen(true)}
+                    onClick={() => setActiveTab("promotions")}
                     variant="link"
                     className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
@@ -524,7 +524,7 @@ function CasinoContent({
                     <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">WEEKLY RELOAD BONUS</p>
                   </div>
                   <Button
-                    onClick={() => setIsRegistrationOpen(true)}
+                    onClick={() => setActiveTab("promotions")}
                     variant="link"
                     className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-xs md:text-sm"
                   >
@@ -555,46 +555,20 @@ function CasinoContent({
           {/* Updated Gaming Options Section - Responsive Grid */}
           {(() => {
             const games = [
-              {
-                name: "Fizzy Pennyslot",
-                image: "/images/Fizzy-Pennyslot.jpg",
-              },
-              {
-                name: "Golden Catch",
-                image: "/images/Golden-Catch.jpg",
-              },
-              {
-                name: "Max Megaways 2",
-                image: "/images/Max-Megaways-2.jpg",
-              },
-              {
-                name: "Gifts of Fortune",
-                image: "/images/Gifts-of-Fortune.jpg",
-              },
-              {
-                name: "Kingmaker Fully Loaded",
-                image: "/images/Kingmaker-Fully-Loaded.jpg",
-              },
-              {
-                name: "Castle of Terror",
-                image: "/images/Castle-of-Terror.jpg",
-              },
-              {
-                name: "Danger High Voltage",
-                image: "/images/Danger-High-Voltage.jpg",
-              },
-              {
-                name: "Chocolates",
-                image: "/images/Chocolates.jpg",
-              },
-              {
-                name: "Big Bad Bison",
-                image: "/images/Big-Bad-Bison.jpg",
-              },
+              { name: "Fizzy Pennyslot", image: "/images/Fizzy-Pennyslot.jpg" },
+              { name: "Golden Catch", image: "/images/Golden-Catch.jpg" },
+              { name: "Max Megaways 2", image: "/images/Max-Megaways-2.jpg" },
+              { name: "Gifts of Fortune", image: "/images/Gifts-of-Fortune.jpg" },
+              { name: "Kingmaker Fully Loaded", image: "/images/Kingmaker-Fully-Loaded.jpg" },
+              { name: "Castle of Terror", image: "/images/Castle-of-Terror.jpg" },
+              { name: "Danger High Voltage", image: "/images/Danger-High-Voltage.jpg" },
+              { name: "Chocolates", image: "/images/Chocolates.jpg" },
+              { name: "Big Bad Bison", image: "/images/Big-Bad-Bison.jpg" },
+              { name: "Mega Fortune", image: "/images/slot-mega-fortune.avif" },
             ]
 
             return (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                 {games.map((game, index) => (
                   <div
                     key={index}
@@ -606,7 +580,7 @@ function CasinoContent({
                         alt={game.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        priority={index < 6}
+                        priority={index < 10}
                       />
                     </div>
                     <div className="p-1.5 sm:p-2 md:p-3">
