@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Play, Users, Video, Crown, Star, Target } from "lucide-react"
+import { Play, Users, Crown, Star } from "lucide-react"
 
 /* ────────────────────────────
  DATA
@@ -142,14 +141,14 @@ const liveGames = [
     image: "/images/first-person-roulette.png",
     category: "roulette",
     players: "692",
-    dealer: "AI Dealer",
+    dealer: "Marie",
     language: "Multi-language",
     minBet: "$0.10",
     maxBet: "$1,000",
     isVip: false,
     isNew: false,
     rating: 4.5,
-    features: ["RNG Based", "Statistics", "Switch to Live"],
+    features: ["Classic European Rules", "Statistics", "HD Stream"],
   },
   {
     id: 9,
@@ -313,8 +312,14 @@ export default function LiveCasinoTabContent() {
   /* Helper: single game card */
   const LiveGameCard = ({ game }: { game: (typeof liveGames)[number] }) => (
     <Card className="group relative overflow-hidden rounded-xl bg-brand-charcoal-black-secondary border border-brand-primary-green/30 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-      <div className="aspect-[4/3] relative bg-black">
-        <Image src={game.image || "/placeholder.svg"} alt={game.name} fill className="object-contain p-1" />
+      <div className="relative bg-black overflow-hidden h-48 w-full">
+        <Image
+          src={game.image || "/placeholder.svg"}
+          alt={game.name}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          style={{ objectFit: "cover" }}
+        />
 
         {/* LIVE badge */}
         <div className="absolute top-2 left-2 z-10">
@@ -408,132 +413,13 @@ export default function LiveCasinoTabContent() {
         </div>
       </section>
 
-      {/* Promotional Banners */}
+      {/* Live Casino Games */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {promotions.map((promo) => (
-            <Card
-              key={promo.id}
-              className="group relative overflow-hidden bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green transition-all duration-300"
-            >
-              <div className="relative">
-                <Image
-                  src={promo.image || "/placeholder.svg"}
-                  alt={promo.title}
-                  width={640}
-                  height={350}
-                  className="w-full h-auto object-cover"
-                />
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="absolute bottom-4 left-4 bg-brand-primary-green/90 hover:bg-brand-primary-green text-brand-charcoal-black font-bold text-xs px-4 py-2">
-                      TERMS
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-brand-soft-white max-w-2xl max-h-[80vh] overflow-y-auto">
-                    <DialogHeader>
-                      <DialogTitle className="text-brand-primary-green text-lg font-bold">
-                        TERMS AND CONDITIONS
-                      </DialogTitle>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      <h3 className="font-bold text-brand-soft-white">{promo.title}</h3>
-                      <ol className="list-decimal list-inside space-y-2 text-sm">
-                        {promo.terms.map((term, index) => (
-                          <li key={index} className="text-brand-smoke-gray leading-relaxed">
-                            {term}
-                          </li>
-                        ))}
-                      </ol>
-                      <div className="mt-6 p-4 bg-brand-charcoal-black/50 rounded-lg">
-                        <p className="font-bold text-brand-soft-white mb-2">Important Disclaimer:</p>
-                        <p className="text-sm text-brand-smoke-gray">
-                          The user is warned that they should make their own inquiry into the legality of participating
-                          in any of these games and/or activities. IBETSPORTS assumes no responsibility for the actions
-                          by and makes no representation or endorsement of any of these games and/or activities if they
-                          are illegal in the jurisdiction of the reader or client of this site.
-                        </p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </Card>
-          ))}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Live Casino Games</h2>
+          <p className="text-brand-smoke-gray text-lg">Experience the thrill of live dealers and real-time gaming</p>
         </div>
-      </section>
 
-      {/* Hero */}
-      <section className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16">
-        <Image
-          src="/images/live-lobby.png"
-          alt="Live casino background"
-          fill
-          className="absolute inset-0 object-cover opacity-20"
-        />
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-black mb-4">LIVE CASINO</h1>
-          <p className="text-xl md:text-2xl text-brand-smoke-gray mb-8 max-w-3xl mx-auto">
-            Experience the thrill of real casino games with professional dealers streaming live in HD
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <div className="flex items-center gap-4 bg-brand-charcoal-black-secondary px-6 py-3 rounded-full">
-              <Video className="w-6 h-6 text-brand-primary-green" />
-              <span className="font-bold">HD Live Streaming</span>
-            </div>
-            <div className="flex items-center gap-4 bg-brand-charcoal-black-secondary px-6 py-3 rounded-full">
-              <Users className="w-6 h-6 text-brand-vibrant-green" />
-              <span className="font-bold">Professional Dealers</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-8 bg-brand-charcoal-black-secondary">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Live Tables",
-                value: "156",
-                Icon: Video,
-                color: "text-brand-primary-green",
-              },
-              {
-                title: "Active Players",
-                value: "12.4K",
-                Icon: Users,
-                color: "text-brand-vibrant-green",
-              },
-              {
-                title: "Professional Dealers",
-                value: "89",
-                Icon: Crown,
-                color: "text-yellow-500",
-              },
-              {
-                title: "Languages",
-                value: "12",
-                Icon: Target,
-                color: "text-blue-500",
-              },
-            ].map(({ title, value, Icon, color }) => (
-              <Card
-                key={title}
-                className="bg-brand-charcoal-black border border-brand-primary-green/30 p-6 text-center"
-              >
-                <Icon className={`w-8 h-8 mx-auto mb-3 ${color}`} />
-                <div className="text-3xl font-bold mb-1">{value}</div>
-                <div className="text-sm text-brand-smoke-gray">{title}</div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Main */}
-      <section className="max-w-7xl mx-auto px-4 md:px-6 py-8">
         <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
           {/* Category tabs */}
           <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 bg-brand-charcoal-black-secondary mb-8">
@@ -551,7 +437,7 @@ export default function LiveCasinoTabContent() {
             ))}
           </TabsList>
 
-          {/* Games grid (same value for each trigger, rendered once) */}
+          {/* Games grid */}
           <TabsContent value={selectedCategory}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredGames.map((g) => (
@@ -568,26 +454,23 @@ export default function LiveCasinoTabContent() {
           {/* Section 1 */}
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-              Play Your Favorite Games in Our Immersive Live Casino
+              Live Casino Games – Exciting and Thrilling
             </h2>
             <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
-              Enjoy real-time excitement with our Live Dealer Casino, where the action is streamed directly to you in
-              high-definition. With a range of classic games like Live Blackjack, Live Baccarat, Live Roulette, and Live
-              Craps, you can enjoy the thrill of a land-based casino from the comfort of your own space. Each game is
-              hosted by professional dealers, creating an authentic atmosphere where you can chat with both dealers and
-              other players, adding a social dimension to your experience.
+              Experience the thrill of live casino games with us. Our live dealers bring the excitement of the casino
+              floor to your screen, allowing you to play your favorite games in real-time. Whether you're a fan of
+              roulette, blackjack, or baccarat, we have got you covered. Join our live games now and enjoy the
+              adrenaline rush of live-action betting.
             </p>
           </div>
 
           {/* Section 2 */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-              Live Blackjack: Challenge the Dealer in Real Time
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Why Choose Our Live Casino?</h2>
             <p className="text-lg text-brand-smoke-gray leading-relaxed max-w-4xl mx-auto text-center">
-              In our Live Dealer Casino, classic table games come to life. With Live Blackjack, you can test your skills
-              against a live dealer and use strategy to get closer to 21. Watch every deal, react to every hand, and see
-              if you have what it takes to beat the house!
+              Our live casino offers a unique blend of excitement and convenience. With our live streaming technology,
+              you can enjoy the action from anywhere, at any time. Plus, our friendly dealers are always ready to assist
+              you with any questions you may have. Sign up now and start playing live casino games!
             </p>
           </div>
 
