@@ -16,7 +16,7 @@ export function PromotionsTabContent() {
       id: 1,
       title: "125% Sports Welcome Bonus",
       description: "Get up to $1,000 bonus on your first sports deposit",
-      image: "/images/125-sports-bonus.png",
+      image: "/images/jugador-de-futbol-americano-de-estilo-neon.jpg",
       category: "sports",
       bonus: "125%",
       maxBonus: "$1,000",
@@ -46,7 +46,7 @@ export function PromotionsTabContent() {
       id: 2,
       title: "200% Crypto Casino Bonus",
       description: "Double your crypto deposits with our exclusive casino bonus",
-      image: "/images/200-crypto-bonus.png",
+      image: "/images/retrato-de-personas-jugando-y-jugando-en-un-casino.jpg",
       category: "casino",
       bonus: "200%",
       maxBonus: "$2,000",
@@ -74,7 +74,7 @@ export function PromotionsTabContent() {
       id: 3,
       title: "150% Casino Reload Bonus",
       description: "Reload your account and get 150% extra to play with",
-      image: "/images/150-casino-reload.png",
+      image: "/images/crypto-bull-neon.jpg",
       category: "casino",
       bonus: "150%",
       maxBonus: "$1,000",
@@ -96,7 +96,7 @@ export function PromotionsTabContent() {
       id: 4,
       title: "200% Refer a Friend Bonus",
       description: "Earn bonuses for every friend you refer to our platform",
-      image: "/images/200-refer-bonus.png",
+      image: "/images/signup-bonus-celebration.jpg",
       category: "referral",
       bonus: "200%",
       maxBonus: "$200",
@@ -209,8 +209,8 @@ export function PromotionsTabContent() {
                     src={promo.image || "/placeholder.svg"}
                     alt={promo.title}
                     width={600}
-                    height={300}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    height={150}
+                    className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"
                   />
                   {promo.featured && (
                     <Badge className="absolute top-4 left-4 bg-brand-primary-green text-brand-charcoal-black">
