@@ -43,7 +43,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
             <div className="flex items-center justify-between h-16 sm:h-18">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <Link href="/" className="cursor-pointer">
+                <Link href="/" className="cursor-pointer" onClick={() => setActiveTab && setActiveTab("home")}>
                   <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-lg sm:text-xl md:text-2xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
                     ibetsports.ag
                   </span>
