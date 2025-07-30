@@ -236,7 +236,7 @@ const PromotionsTabContent = () => {
       </section>
 
       {/* Desktop Hero - Overlay Design */}
-      <section className="hidden md:block relative h-80 lg:h-96 xl:h-[28rem] 2xl:h-[32rem] w-full overflow-hidden rounded-lg mb-8">
+      <section className="hidden md:block relative h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
         <Image
           src="/images/football-hero-promotions.jpg"
           alt="Promotions Hero"
@@ -246,19 +246,19 @@ const PromotionsTabContent = () => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12 -mt-2.5">
-          <div className="text-left space-y-4">
-            <h1 className="text-4xl font-black md:text-5xl">
+        <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 md:px-8 lg:pl-12 xl:pl-24">
+          <div className="text-left space-y-2 sm:space-y-3 md:space-y-4 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-brand-soft-white leading-tight">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 GET MORE FROM EVERY BET.
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-brand-smoke-gray max-w-lg">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed">
               Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
             </p>
             <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
+                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 touch-manipulation">
                   <Play className="w-5 h-5 mr-2" />
                   CLAIM BONUS
                 </Button>
