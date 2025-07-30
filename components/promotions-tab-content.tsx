@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react"
 
 export function PromotionsTabContent() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState("all")
 
   const promotions = [
@@ -241,7 +242,10 @@ export function PromotionsTabContent() {
                   </div>
 
                   <div className="flex space-x-3">
-                    <Button className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold">
+                    <Button
+                      onClick={() => setIsLoginOpen(true)}
+                      className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold"
+                    >
                       Claim Bonus
                     </Button>
                     <Dialog>
@@ -305,6 +309,66 @@ export function PromotionsTabContent() {
           </p>
         </div>
       </section>
+      {/* Login Modal */}
+      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+        <DialogContent className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 text-brand-soft-white max-w-md mx-auto">
+          <DialogHeader>
+            <div className="flex items-center justify-between">
+              <DialogTitle className="text-center text-xl font-black text-brand-soft-white">
+                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                  LOGIN TO CLAIM
+                </span>
+              </DialogTitle>
+              <button
+                onClick={() => setIsLoginOpen(false)}
+                className="text-brand-smoke-gray hover:text-brand-soft-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </DialogHeader>
+          <form className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-brand-soft-white font-semibold">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="password" className="text-brand-soft-white font-semibold">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
+                required
+              />
+            </div>
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300"
+            >
+              LOGIN & CLAIM BONUS
+            </Button>
+            <div className="text-center">
+              <p className="text-sm text-brand-smoke-gray">
+                Don't have an account?{" "}
+                <span className="text-brand-primary-green hover:underline cursor-pointer font-semibold">Sign Up</span>
+              </p>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
