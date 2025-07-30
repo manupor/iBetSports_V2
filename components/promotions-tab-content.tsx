@@ -10,6 +10,7 @@ import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react"
 
 export function PromotionsTabContent() {
   const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [isSignupOpen, setIsSignupOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState("all")
 
   const promotions = [
@@ -294,7 +295,10 @@ export function PromotionsTabContent() {
           <p className="text-xl text-brand-smoke-gray mb-8 max-w-2xl mx-auto">
             Join our exclusive VIP program and unlock premium bonuses, personal account managers, and exclusive events.
           </p>
-          <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg">
+          <Button
+            onClick={() => setIsSignupOpen(true)}
+            className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg"
+          >
             Learn More About VIP
           </Button>
         </div>
@@ -364,6 +368,98 @@ export function PromotionsTabContent() {
               <p className="text-sm text-brand-smoke-gray">
                 Don't have an account?{" "}
                 <span className="text-brand-primary-green hover:underline cursor-pointer font-semibold">Sign Up</span>
+              </p>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
+      {/* Signup Modal */}
+      <Dialog open={isSignupOpen} onOpenChange={setIsSignupOpen}>
+        <DialogContent className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 text-brand-soft-white max-w-md mx-auto">
+          <DialogHeader>
+            <div className="flex items-center justify-between">
+              <DialogTitle className="text-center text-xl font-black text-brand-soft-white">
+                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                  JOIN VIP PROGRAM
+                </span>
+              </DialogTitle>
+              <button
+                onClick={() => setIsSignupOpen(false)}
+                className="text-brand-smoke-gray hover:text-brand-soft-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </DialogHeader>
+          <form className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="signup-email" className="text-brand-soft-white font-semibold">
+                Email Address
+              </label>
+              <input
+                id="signup-email"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="signup-username" className="text-brand-soft-white font-semibold">
+                Username
+              </label>
+              <input
+                id="signup-username"
+                type="text"
+                placeholder="Choose a username"
+                className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="signup-password" className="text-brand-soft-white font-semibold">
+                Password
+              </label>
+              <input
+                id="signup-password"
+                type="password"
+                placeholder="Create a password"
+                className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="confirm-password" className="text-brand-soft-white font-semibold">
+                Confirm Password
+              </label>
+              <input
+                id="confirm-password"
+                type="password"
+                placeholder="Confirm your password"
+                className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
+                required
+              />
+            </div>
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300"
+            >
+              JOIN VIP PROGRAM
+            </Button>
+            <div className="text-center">
+              <p className="text-sm text-brand-smoke-gray">
+                Already have an account?{" "}
+                <span
+                  onClick={() => {
+                    setIsSignupOpen(false)
+                    setIsLoginOpen(true)
+                  }}
+                  className="text-brand-primary-green hover:underline cursor-pointer font-semibold"
+                >
+                  Login
+                </span>
               </p>
             </div>
           </form>
