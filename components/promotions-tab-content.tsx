@@ -332,12 +332,12 @@ export function PromotionsTabContent() {
           <form className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="email" className="text-brand-soft-white font-semibold">
-                Email
+                Username
               </label>
               <input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your username"
                 className="w-full bg-brand-charcoal-black-tertiary border border-brand-smoke-gray/30 text-brand-soft-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green rounded-lg px-3 py-2"
                 required
               />
