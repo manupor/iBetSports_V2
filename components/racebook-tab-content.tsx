@@ -102,7 +102,7 @@ export default function RacebookTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
       {/* Hero Section */}
-      <section className="relative w-full h-64 md:h-80 overflow-hidden">
+      <section className="relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
         <Image
           src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
           alt="Horse racing track with neon lighting effects"

@@ -152,7 +152,7 @@ export default function BankingTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
       {/* Hero Section */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
+      <div className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
         <Image
           src="/images/banking-hero-money.jpg"
           alt="Banking Hero - Money and Casino"

@@ -447,12 +447,12 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
   return (
     <div className="min-h-screen bg-brand-charcoal-black">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-8 md:py-12 lg:py-16">
+      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
         <div className="absolute inset-0">
           <Image src="/images/casino-hero.jpg" alt="Casino background" fill className="object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-left">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-left flex flex-col justify-center h-full">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-soft-white mb-4">CASINO GAMES</h1>
           <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-3xl lg:text-xl text-white">
             Experience the thrill of over 2,800+ premium casino games

@@ -128,7 +128,7 @@ export function PromotionsTabContent() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black">
       {/* Hero Section */}
-      <section className="relative h-64 md:h-80 overflow-hidden">
+      <section className="relative h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
         <Image
           src="/images/football-hero-promotions.jpg"
           alt="Football Player Promotions Hero"
