@@ -446,8 +446,45 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
+      {/* Mobile Hero Section - Image First, Text Below */}
+      <div className="block md:hidden">
+        {/* Hero Image */}
+        <div className="relative h-48 sm:h-56">
+          <Image
+            src="/images/casino-hero.jpg"
+            alt="Casino background"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Text Content Below Image */}
+        <div className="bg-brand-charcoal-black py-6 sm:py-8">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h1 className="text-3xl sm:text-4xl font-black text-brand-soft-white mb-4">CASINO GAMES</h1>
+            <p className="text-lg mb-6 max-w-3xl mx-auto text-white">
+              Experience the thrill of over 2,800+ premium casino games
+              <br />
+              with the highest RTPs and biggest jackpots
+            </p>
+            <div className="flex flex-col items-center justify-center space-y-4">
+              <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-4 py-2 rounded-full">
+                <Crown className="w-5 h-5 text-brand-primary-green" />
+                <span className="text-brand-soft-white font-bold text-sm">VIP Rewards Available</span>
+              </div>
+              <div className="flex items-center space-x-4 bg-brand-charcoal-black-secondary px-4 py-2 rounded-full">
+                <Zap className="w-5 h-5 text-brand-vibrant-green" />
+                <span className="text-brand-soft-white font-bold text-sm">Instant Play</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Hero Section - Overlay Design */}
+      <div className="hidden md:block relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
         <div className="absolute inset-0">
           <Image src="/images/casino-hero.jpg" alt="Casino background" fill className="object-cover" />
         </div>

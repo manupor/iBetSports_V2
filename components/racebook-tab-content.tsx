@@ -102,30 +102,68 @@ export default function RacebookTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
       {/* Hero Section */}
-      <section className="relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
-        <Image
-          src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
-          alt="Horse racing track with neon lighting effects"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
-          <div className="text-left space-y-4">
-            <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">
-              RIDE THE ACTION.
-              <span className="block">BET ON EVERY RACE, EVERY TRACK.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white">
-              Stay ahead of the pack with live odds, fast results, and daily race coverage.
-            </p>
-            <Button
-              onClick={() => setIsRegistrationOpen(true)}
-              className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
-            >
-              START BETTING
-            </Button>
+      <section className="relative w-full">
+        {/* Mobile Hero Layout - Image first, then text below */}
+        <div className="block md:hidden">
+          {/* Mobile Hero Image */}
+          <div className="relative w-full h-48 sm:h-56 overflow-hidden">
+            <Image
+              src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+              alt="Horse racing track with neon lighting effects"
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="100vw"
+            />
+          </div>
+
+          {/* Mobile Hero Text Content */}
+          <div className="bg-brand-charcoal-black py-8 px-4 text-center">
+            <div className="space-y-4">
+              <h1 className="text-2xl sm:text-3xl font-black text-brand-soft-white">
+                RIDE THE ACTION.
+                <span className="block">BET ON EVERY RACE, EVERY TRACK.</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-white">
+                Stay ahead of the pack with live odds, fast results, and daily race coverage.
+              </p>
+              <Button
+                onClick={() => setIsRegistrationOpen(true)}
+                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
+              >
+                START BETTING
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Hero Layout - Overlay design */}
+        <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
+          <Image
+            src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+            alt="Horse racing track with neon lighting effects"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+          <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
+            <div className="text-left space-y-4">
+              <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">
+                RIDE THE ACTION.
+                <span className="block">BET ON EVERY RACE, EVERY TRACK.</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white">
+                Stay ahead of the pack with live odds, fast results, and daily race coverage.
+              </p>
+              <Button
+                onClick={() => setIsRegistrationOpen(true)}
+                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
+              >
+                START BETTING
+              </Button>
+            </div>
           </div>
         </div>
       </section>
