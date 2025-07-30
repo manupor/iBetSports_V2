@@ -152,29 +152,35 @@ export default function BankingTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
       {/* Hero Section */}
-      <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
-        <Image
-          src="/images/banking-hero-money.jpg"
-          alt="Banking Hero - Money and Casino"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
-        <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 md:px-8 lg:pl-12 xl:pl-24">
-          <div className="text-left space-y-2 sm:space-y-3 md:space-y-4 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-brand-soft-white leading-tight">
+
+      {/* Mobile Hero - Image First, Text Below */}
+      <div className="block md:hidden">
+        {/* Hero Image */}
+        <div className="relative w-full h-48 sm:h-56 overflow-hidden">
+          <Image
+            src="/images/banking-hero-money.jpg"
+            alt="Banking Hero - Money and Casino"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Hero Text Content */}
+        <div className="bg-brand-charcoal-black px-4 py-6 sm:px-6 sm:py-8">
+          <div className="text-center space-y-4">
+            <h1 className="text-2xl sm:text-3xl font-black text-brand-soft-white leading-tight">
               FAST. SAFE.
               <br />
               HASSLE-FREE PAYOUTS.
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed">
+            <p className="text-sm sm:text-base text-brand-smoke-gray leading-relaxed max-w-md mx-auto">
               Deposit and withdraw with confidence using crypto, cards, or P2P payments.
             </p>
             <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 touch-manipulation">
+                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 sm:px-8 py-3 text-sm sm:text-base rounded-lg transition-all duration-300 transform hover:scale-105 touch-manipulation">
                   Join Now
                 </Button>
               </DialogTrigger>
@@ -295,6 +301,38 @@ export default function BankingTabContent() {
                   </div>
                 </div>
               </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Hero - Overlay Design */}
+      <div className="hidden md:block relative h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
+        <Image
+          src="/images/banking-hero-money.jpg"
+          alt="Banking Hero - Money and Casino"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+        <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 md:px-8 lg:pl-12 xl:pl-24">
+          <div className="text-left space-y-2 sm:space-y-3 md:space-y-4 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-brand-soft-white leading-tight">
+              FAST. SAFE.
+              <br />
+              HASSLE-FREE PAYOUTS.
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed">
+              Deposit and withdraw with confidence using crypto, cards, or P2P payments.
+            </p>
+            <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+              <DialogTrigger asChild>
+                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 touch-manipulation">
+                  Join Now
+                </Button>
+              </DialogTrigger>
             </Dialog>
           </div>
         </div>

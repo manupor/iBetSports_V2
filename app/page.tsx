@@ -543,6 +543,7 @@ function CasinoContent({
               { name: "Coins 88%", image: "/images/coins-88.jpg" },
               { name: "Bouncy Bombs", image: "/images/bouncy-bombs.jpg" },
               { name: "Coins 98%", image: "/images/coins-98.jpg" },
+              { name: "Wild Mustang", image: "/images/wild-mustang.jpg" },
             ]
 
             return (
@@ -550,7 +551,7 @@ function CasinoContent({
                 {games.map((game, index) => (
                   <div
                     key={index}
-                    className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20 rounded-lg sm:rounded-xl overflow-hidden group flex flex-col"
+                    className={`bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20 rounded-lg sm:rounded-xl overflow-hidden group flex flex-col ${index === 15 ? "block sm:hidden" : ""}`}
                   >
                     <div className="relative w-full aspect-[3/4] overflow-hidden">
                       <Image
