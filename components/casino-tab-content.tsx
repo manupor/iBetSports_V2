@@ -564,7 +564,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
         <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
           {/* Category Tabs */}
-          <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 bg-brand-charcoal-black-secondary mb-6 md:mb-8">
+          <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 bg-brand-charcoal-black-secondary mb-6 md:mb-8 py-3.5">
             {categories.map((category) => (
               <TabsTrigger
                 key={category.id}
@@ -580,10 +580,10 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsList>
 
           {/* Featured Games */}
-          <TabsContent value="all" className="space-y-6 md:space-y-8">
+          <TabsContent value="all" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
+              <div className="flex items-center justify-between md:mb-6 mb-0.5 mt-0">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center mt-7">
                   <TrendingUp className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
                   Featured Games
                 </h2>
@@ -597,7 +597,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* All Games */}
-          <TabsContent value="all" className="space-y-6 md:space-y-8">
+          <TabsContent value="all" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white">
@@ -613,7 +613,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* Slots */}
-          <TabsContent value="slots" className="space-y-6 md:space-y-8">
+          <TabsContent value="slots" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
@@ -630,7 +630,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* Table Games */}
-          <TabsContent value="table" className="space-y-6 md:space-y-8">
+          <TabsContent value="table" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
@@ -647,7 +647,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* Live Casino */}
-          <TabsContent value="live" className="space-y-6 md:space-y-8">
+          <TabsContent value="live" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
@@ -664,7 +664,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* Jackpot Games */}
-          <TabsContent value="jackpot" className="space-y-6 md:space-y-8">
+          <TabsContent value="jackpot" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
@@ -683,7 +683,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* New Games */}
-          <TabsContent value="new" className="space-y-6 md:space-y-8">
+          <TabsContent value="new" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
@@ -702,7 +702,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
 
           {/* Popular Games */}
-          <TabsContent value="popular" className="space-y-6 md:space-y-8">
+          <TabsContent value="popular" className="space-y-6 md:space-y-8 mt-4 md:mt-6">
             <div>
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
