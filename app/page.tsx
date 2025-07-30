@@ -213,7 +213,7 @@ function CasinoContent({
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
-        <div className="hidden md:block relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] lg:h-[55vh] xl:h-[60vh] 2xl:h-[65vh] overflow-hidden bg-black">
+        <div className="hidden md:block relative w-full h-64 md:h-80 overflow-hidden bg-black">
           {/* Text Overlay - Left Side */}
           <div className="absolute inset-0 flex flex-col justify-center pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 2xl:pl-20 pr-4 sm:pr-6 md:pr-8 lg:pr-12 xl:pr-16 2xl:pr-20 z-20">
             <div className="text-left space-y-1 sm:space-y-2 md:space-y-3 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
@@ -294,7 +294,7 @@ function CasinoContent({
 
         {/* Mobile Hero */}
         <div className="md:hidden">
-          <div className="relative w-full h-[35vh] sm:h-[40vh] min-h-[280px] sm:min-h-[320px] overflow-hidden bg-black">
+          <div className="relative w-full h-64 md:h-80 overflow-hidden bg-black">
             {/* Text Overlay - Left Side */}
             <div className="absolute inset-0 flex items-center justify-start px-3 sm:px-4 z-20">
               <div className="text-left space-y-1 sm:space-y-2 max-w-[60%] sm:max-w-[65%]">
