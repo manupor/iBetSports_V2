@@ -139,8 +139,14 @@ export function PromotionsTabContent() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12 -mt-2.5">
           <div className="text-left space-y-4">
-            <h1 className="text-4xl md:text-6xl font-black">PROMOTIONS</h1>
-            <p className="text-xl md:text-2xl text-white">Exclusive bonuses and rewards await</p>
+            <h1 className="text-4xl font-black md:text-5xl">
+              GET MORE FROM EVERY BET.
+              <br />
+              EXCLUSIVE BONUSES AWAIT.
+            </h1>
+            <p className="text-xl md:text-2xl text-white">
+              Claim welcome offers, cashback rewards, and weekly boosts — only at Ibetsports.
+            </p>
             <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg mt-6">
               Claim Bonus
             </Button>

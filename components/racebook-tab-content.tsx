@@ -113,8 +113,13 @@ export default function RacebookTabContent() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
           <div className="text-left space-y-4">
-            <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">RACEBOOK</h1>
-            <p className="text-xl md:text-2xl text-white">Experience the thrill of horse racing</p>
+            <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">
+              RIDE THE ACTION.
+              <span className="block">BET ON EVERY RACE, EVERY TRACK.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white">
+              Stay ahead of the pack with live odds, fast results, and daily race coverage.
+            </p>
             <Button
               onClick={() => setIsRegistrationOpen(true)}
               className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
