@@ -1,23 +1,20 @@
 "use client"
 
-import { ArrowLeft, Scale, FileText, Clock, CheckCircle, AlertTriangle, Mail, MessageCircle, Phone } from "lucide-react"
+import { useState } from "react"
+import { TopNavigation } from "@/components/top-navigation"
+import { Scale, FileText, Clock, CheckCircle, AlertTriangle, Mail, MessageCircle, Phone } from "lucide-react"
 import Link from "next/link"
+import { Footer } from "@/components/footer"
 
 export default function DisputeResolutionPage() {
+  const [activeTab, setActiveTab] = useState("")
+
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
       {/* Header */}
       <div className="bg-brand-charcoal-black-secondary border-b border-brand-smoke-gray/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-brand-primary-green hover:text-brand-primary-green/80 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="text-sm font-medium">Back to Home</span>
-            </Link>
-          </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-soft-white mt-4">Dispute Resolution</h1>
           <p className="text-brand-smoke-gray mt-2 text-sm sm:text-base">
             Fair and transparent resolution process for all player concerns
@@ -315,6 +312,7 @@ export default function DisputeResolutionPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

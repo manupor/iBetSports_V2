@@ -1,13 +1,16 @@
 "use client"
 
 import { Shield, AlertTriangle, Users, Clock, DollarSign, Gamepad2, Ban, CheckCircle } from "lucide-react"
+import { TopNavigation } from "@/components/top-navigation"
+import { Footer } from "@/components/footer"
 
 export default function HouseRulesPage() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      <TopNavigation />
       {/* Header Section */}
       <div className="bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 md:py-16">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px:6">
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <div className="bg-brand-primary-green/20 p-4 rounded-full">
@@ -261,6 +264,7 @@ export default function HouseRulesPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

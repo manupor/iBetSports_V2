@@ -1,10 +1,13 @@
 "use client"
 
+import { TopNavigation } from "@/components/top-navigation"
 import { Shield, Clock, AlertTriangle, Trophy, FileText, Users, Phone, Mail, MessageCircle } from "lucide-react"
+import { Footer } from "@/components/footer"
 
 export default function SportsRulesPage() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      <TopNavigation />
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
@@ -294,6 +297,8 @@ export default function SportsRulesPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

@@ -18,10 +18,13 @@ import {
   Spade,
   Heart,
 } from "lucide-react"
+import { TopNavigation } from "@/components/top-navigation"
+import { Footer } from "@/components/footer"
 
 export default function CasinoRulesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black-tertiary">
+      <TopNavigation />
       {/* Header Section */}
       <div className="relative bg-gradient-to-r from-brand-primary-green/20 to-brand-secondary-blue/20 py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
@@ -364,6 +367,8 @@ export default function CasinoRulesPage() {
           </Card>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

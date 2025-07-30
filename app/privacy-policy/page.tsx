@@ -1,23 +1,16 @@
 "use client"
 
-import { ArrowLeft, Shield, Eye, Lock, Database, Users, FileText, Mail, Phone, MessageCircle } from "lucide-react"
-import Link from "next/link"
+import { Shield, Eye, Lock, Database, Users, FileText, Mail, Phone, MessageCircle } from "lucide-react"
+import { TopNavigation } from "@/components/top-navigation"
+import { Footer } from "@/components/footer"
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
+      <TopNavigation />
       {/* Header */}
       <div className="bg-brand-charcoal-black-secondary border-b border-brand-smoke-gray/20">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center gap-4 mb-4">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-brand-primary-green hover:text-brand-primary-green/80 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="text-sm font-medium">Back to Home</span>
-            </Link>
-          </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-brand-primary-green/20 rounded-lg flex items-center justify-center">
               <Shield className="w-6 h-6 text-brand-primary-green" />
@@ -310,6 +303,7 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

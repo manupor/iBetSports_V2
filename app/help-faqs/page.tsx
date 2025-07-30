@@ -137,7 +137,7 @@ export default function HelpFAQsPage() {
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black text-brand-soft-white">
-      <TopNavigation showTabs={false} />
+      <TopNavigation />
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black-tertiary py-16 sm:py-20 md:py-24">

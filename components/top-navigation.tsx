@@ -52,22 +52,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
 
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center space-x-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white px-3 py-2 h-9"
-                >
-                  <Bell className="w-4 h-4 mr-2" />
-                  Notifications
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white px-3 py-2 h-9"
-                >
-                  <Wallet className="w-4 h-4 mr-2" />
-                  $0.00
-                </Button>
+                
+                
                 <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
                   <DialogTrigger asChild>
                     <Button
