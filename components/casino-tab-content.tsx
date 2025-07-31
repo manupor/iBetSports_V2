@@ -7,9 +7,6 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
 import {
   Play,
   Search,
@@ -25,7 +22,6 @@ import {
   Eye,
   Heart,
   Share2,
-  X,
 } from "lucide-react"
 
 interface CasinoTabContentProps {
@@ -36,9 +32,6 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const isRegistrationOpenState = useState(false)
-  const [isRegistrationOpen, setIsRegistrationOpenInternal] = isRegistrationOpenState
-  const [isLoginOpen, setIsLoginOpen] = useState(false)
 
   const categories = [
     { id: "all", name: "All Games", count: 2847 },
@@ -397,7 +390,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
           <Button
-            onClick={() => setIsRegistrationOpenInternal(true)}
+            onClick={() => setIsRegistrationOpen && setIsRegistrationOpen(true)}
             className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold mb-3 px-4 md:px-6 py-2"
           >
             <Play className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
@@ -491,7 +484,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           <Image src="/images/casino-hero.jpg" alt="Casino background" fill className="object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"></div>
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-left flex flex-col justify-center h-full">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-left flex flex-col justify-center items-start h-full">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-soft-white mb-4">CASINO GAMES</h1>
           <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-3xl lg:text-xl text-white">
             Experience the thrill of over 2,800+ premium casino games
@@ -734,163 +727,6 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           </TabsContent>
         </Tabs>
       </div>
-
-      {/* Registration Modal */}
-      <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpenInternal}>
-        <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
-          <div className="relative p-8">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsRegistrationOpenInternal(false)}
-              className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-brand-soft-white text-center mb-4">
-                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-                  CREATE YOUR ACCOUNT
-                </span>
-              </DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-brand-soft-white">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="username" className="text-brand-soft-white">
-                  Username
-                </Label>
-                <Input
-                  id="username"
-                  placeholder="Choose a username"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-brand-soft-white">
-                  Password
-                </Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Create a password"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="confirmPassword" className="text-brand-soft-white">
-                  Confirm Password
-                </Label>
-                <Input
-                  id="confirmPassword"
-                  type="password"
-                  placeholder="Confirm your password"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
-                />
-              </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="terms"
-                  className="border-brand-primary-green data-[state=checked]:bg-brand-primary-green"
-                />
-                <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
-                  I agree to the Terms & Conditions and Privacy Policy
-                </Label>
-              </div>
-              <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 h-12 rounded-lg">
-                Create Account
-              </Button>
-              <div className="text-center">
-                <p className="text-sm text-brand-smoke-gray">
-                  Already have an account?{" "}
-                  <button
-                    className="text-brand-primary-green hover:underline"
-                    onClick={() => {
-                      setIsRegistrationOpenInternal(false)
-                      setIsLoginOpen(true)
-                    }}
-                  >
-                    Sign In
-                  </button>
-                </p>
-              </div>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Login Modal */}
-      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
-        <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
-          <div className="relative p-8">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsLoginOpen(false)}
-              className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Login Title */}
-            <div className="text-center mb-8">
-              <h2 className="text-brand-soft-white text-2xl font-black">
-                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-                  LOGIN
-                </span>
-              </h2>
-            </div>
-
-            {/* Login Form */}
-            <div className="space-y-4">
-              <Input
-                type="text"
-                placeholder="Enter your username or email"
-                className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-              />
-              <Input
-                type="password"
-                placeholder="Enter your password"
-                className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-              />
-
-              <Button className="w-full h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-lg mt-6">
-                LOGIN
-              </Button>
-            </div>
-
-            {/* Links */}
-            <div className="text-center space-y-3 mt-6">
-              <p className="text-brand-soft-white">
-                Don't have an account?{" "}
-                <button
-                  className="text-brand-primary-green hover:text-brand-vibrant-green underline font-medium"
-                  onClick={() => {
-                    setIsLoginOpen(false)
-                    setIsRegistrationOpenInternal(true)
-                  }}
-                >
-                  Signup
-                </button>
-              </p>
-              <p>
-                <button className="text-brand-primary-green hover:text-brand-vibrant-green underline">
-                  Forgot your password?
-                </button>
-              </p>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   )
 }

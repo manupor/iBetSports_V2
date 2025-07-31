@@ -185,120 +185,137 @@ export default function BankingTabContent() {
                   Join Now
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-lg bg-gray-700 border-gray-600 p-0 gap-0 mx-4 max-h-[90vh] overflow-y-auto">
+              <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 p-0 gap-0 mx-4 max-h-[90vh] overflow-y-auto">
                 <div className="relative p-4 sm:p-6 md:p-8">
                   {/* Close Button */}
                   <button
                     onClick={() => setIsRegisterOpen(false)}
-                    className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-gray-300 transition-colors z-10"
+                    className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
                   >
                     <X className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
 
                   {/* Register Title */}
                   <div className="text-center mb-6 sm:mb-8">
-                    <h2 className="text-white text-xl sm:text-2xl font-bold">REGISTER</h2>
-                  </div>
-
-                  {/* Progress Steps */}
-                  <div className="flex items-center justify-center mb-6 sm:mb-8">
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-brand-primary-green rounded-full flex items-center justify-center text-black font-bold text-xs sm:text-sm">
-                        1
-                      </div>
-                      <div className="text-brand-primary-green text-xs sm:text-sm font-medium ml-2">STEP 1</div>
-                    </div>
-                    <div className="flex-1 h-0.5 bg-gray-600 mx-3 sm:mx-4"></div>
-                    <div className="flex items-center">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-600 rounded-full flex items-center justify-center text-gray-400 font-bold text-xs sm:text-sm">
-                        2
-                      </div>
-                      <div className="text-gray-400 text-xs sm:text-sm font-medium ml-2">STEP 2</div>
-                    </div>
+                    <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
+                      <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                        CREATE YOUR ACCOUNT
+                      </span>
+                    </h2>
                   </div>
 
                   {/* Registration Form */}
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="relative">
-                      <Input
-                        type="text"
-                        placeholder="First Name"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                      />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName" className="text-brand-soft-white font-semibold">
                         First Name
-                      </label>
+                      </Label>
+                      <Input
+                        id="firstName"
+                        type="text"
+                        placeholder="Enter your first name"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                      />
                     </div>
 
-                    <div className="relative">
-                      <Input
-                        type="text"
-                        placeholder="Last Name"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                      />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName" className="text-brand-soft-white font-semibold">
                         Last Name
-                      </label>
-                    </div>
-
-                    <div className="relative">
+                      </Label>
                       <Input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                      />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                        Email
-                      </label>
-                    </div>
-
-                    <div className="relative">
-                      <Input
-                        type="email"
-                        placeholder="Email Confirmation"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                      />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                        Email Confirmation
-                      </label>
-                    </div>
-
-                    <div className="relative">
-                      <Input
-                        type="password"
-                        placeholder="Password"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                      />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                        Password
-                      </label>
-                    </div>
-
-                    <div className="relative">
-                      <Input
-                        type="password"
-                        placeholder="Password Confirmation"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                      />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                        Password Confirmation
-                      </label>
-                    </div>
-
-                    <div className="relative">
-                      <Input
+                        id="lastName"
                         type="text"
-                        placeholder="Promotional Code"
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                        placeholder="Enter your last name"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
                       />
-                      <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                        Promotional Code
-                      </label>
                     </div>
 
-                    <Button className="w-full h-10 sm:h-12 bg-purple-600 hover:bg-purple-700 font-bold rounded-full text-base sm:text-lg mt-4 sm:mt-6 text-white">
-                      Next
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-brand-soft-white font-semibold">
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="emailConfirm" className="text-brand-soft-white font-semibold">
+                        Confirm Email
+                      </Label>
+                      <Input
+                        id="emailConfirm"
+                        type="email"
+                        placeholder="Confirm your email"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="password" className="text-brand-soft-white font-semibold">
+                        Password
+                      </Label>
+                      <Input
+                        id="password"
+                        type="password"
+                        placeholder="Create a password"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="passwordConfirm" className="text-brand-soft-white font-semibold">
+                        Confirm Password
+                      </Label>
+                      <Input
+                        id="passwordConfirm"
+                        type="password"
+                        placeholder="Confirm your password"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="promoCode" className="text-brand-soft-white font-semibold">
+                        Promotional Code (Optional)
+                      </Label>
+                      <Input
+                        id="promoCode"
+                        type="text"
+                        placeholder="Enter promotional code"
+                        className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                      />
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        id="terms"
+                        className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded focus:ring-brand-primary-green"
+                      />
+                      <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
+                        I agree to the{" "}
+                        <span className="text-brand-primary-green hover:underline cursor-pointer">
+                          Terms & Conditions
+                        </span>
+                      </Label>
+                    </div>
+
+                    <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300 h-12">
+                      CREATE ACCOUNT
                     </Button>
+
+                    <div className="text-center">
+                      <p className="text-sm text-brand-smoke-gray">
+                        Already have an account?{" "}
+                        <button className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold">
+                          Sign In
+                        </button>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </DialogContent>
@@ -717,120 +734,135 @@ export default function BankingTabContent() {
       </div>
       {/* Signup Dialog */}
       <Dialog open={isSignupOpen} onOpenChange={setIsSignupOpen}>
-        <DialogContent className="sm:max-w-lg bg-gray-700 border-gray-600 p-0 gap-0 mx-4 max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 p-0 gap-0 mx-4 max-h-[90vh] overflow-y-auto">
           <div className="relative p-4 sm:p-6 md:p-8">
             {/* Close Button */}
             <button
               onClick={() => setIsSignupOpen(false)}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-gray-300 transition-colors z-10"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Register Title */}
             <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-white text-xl sm:text-2xl font-bold">REGISTER</h2>
-            </div>
-
-            {/* Progress Steps */}
-            <div className="flex items-center justify-center mb-6 sm:mb-8">
-              <div className="flex items-center">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-brand-primary-green rounded-full flex items-center justify-center text-black font-bold text-xs sm:text-sm">
-                  1
-                </div>
-                <div className="text-brand-primary-green text-xs sm:text-sm font-medium ml-2">STEP 1</div>
-              </div>
-              <div className="flex-1 h-0.5 bg-gray-600 mx-3 sm:mx-4"></div>
-              <div className="flex items-center">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-600 rounded-full flex items-center justify-center text-gray-400 font-bold text-xs sm:text-sm">
-                  2
-                </div>
-                <div className="text-gray-400 text-xs sm:text-sm font-medium ml-2">STEP 2</div>
-              </div>
+              <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
+                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                  CREATE YOUR ACCOUNT
+                </span>
+              </h2>
             </div>
 
             {/* Registration Form */}
-            <div className="space-y-3 sm:space-y-4">
-              <div className="relative">
-                <Input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="signupFirstName" className="text-brand-soft-white font-semibold">
                   First Name
-                </label>
+                </Label>
+                <Input
+                  id="signupFirstName"
+                  type="text"
+                  placeholder="Enter your first name"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
               </div>
 
-              <div className="relative">
-                <Input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+              <div className="space-y-2">
+                <Label htmlFor="signupLastName" className="text-brand-soft-white font-semibold">
                   Last Name
-                </label>
-              </div>
-
-              <div className="relative">
+                </Label>
                 <Input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                  Email
-                </label>
-              </div>
-
-              <div className="relative">
-                <Input
-                  type="email"
-                  placeholder="Email Confirmation"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                  Email Confirmation
-                </label>
-              </div>
-
-              <div className="relative">
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                  Password
-                </label>
-              </div>
-
-              <div className="relative">
-                <Input
-                  type="password"
-                  placeholder="Password Confirmation"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
-                />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                  Password Confirmation
-                </label>
-              </div>
-
-              <div className="relative">
-                <Input
+                  id="signupLastName"
                   type="text"
-                  placeholder="Promotional Code"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                  placeholder="Enter your last name"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
                 />
-                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
-                  Promotional Code
-                </label>
               </div>
 
-              <Button className="w-full h-10 sm:h-12 bg-purple-600 hover:bg-purple-700 font-bold rounded-full text-base sm:text-lg mt-4 sm:mt-6 text-white">
-                Next
+              <div className="space-y-2">
+                <Label htmlFor="signupEmail" className="text-brand-soft-white font-semibold">
+                  Email
+                </Label>
+                <Input
+                  id="signupEmail"
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="signupEmailConfirm" className="text-brand-soft-white font-semibold">
+                  Confirm Email
+                </Label>
+                <Input
+                  id="signupEmailConfirm"
+                  type="email"
+                  placeholder="Confirm your email"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="signupPassword" className="text-brand-soft-white font-semibold">
+                  Password
+                </Label>
+                <Input
+                  id="signupPassword"
+                  type="password"
+                  placeholder="Create a password"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="signupPasswordConfirm" className="text-brand-soft-white font-semibold">
+                  Confirm Password
+                </Label>
+                <Input
+                  id="signupPasswordConfirm"
+                  type="password"
+                  placeholder="Confirm your password"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="signupPromoCode" className="text-brand-soft-white font-semibold">
+                  Promotional Code (Optional)
+                </Label>
+                <Input
+                  id="signupPromoCode"
+                  type="text"
+                  placeholder="Enter promotional code"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="signupTerms"
+                  className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded focus:ring-brand-primary-green"
+                />
+                <Label htmlFor="signupTerms" className="text-sm text-brand-smoke-gray">
+                  I agree to the{" "}
+                  <span className="text-brand-primary-green hover:underline cursor-pointer">Terms & Conditions</span>
+                </Label>
+              </div>
+
+              <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300 h-12">
+                CREATE ACCOUNT
               </Button>
+
+              <div className="text-center">
+                <p className="text-sm text-brand-smoke-gray">
+                  Already have an account?{" "}
+                  <button className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold">
+                    Sign In
+                  </button>
+                </p>
+              </div>
             </div>
           </div>
         </DialogContent>

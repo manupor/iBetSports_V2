@@ -2,20 +2,19 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Play, X } from "lucide-react"
+import { Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react"
 
-const PromotionsTabContent = () => {
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
+interface PromotionsTabContentProps {
+  setIsRegistrationOpen?: (open: boolean) => void
+}
+
+const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentProps = {}) => {
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [isLoginOpen, setIsLoginOpen] = useState(false)
-  const [isSignupOpen, setIsSignupOpen] = useState(false)
 
   const promotions = [
     {
@@ -29,24 +28,24 @@ const PromotionsTabContent = () => {
       code: "IBS125CS",
       featured: true,
       terms: `
-      <h3>125% SP WELCOME BONUS</h3>
-      <ol>
-        <li>You will receive a 125% bonus on your qualifying initial deposit only.</li>
-        <li>A minimum deposit of $100 USD is required to qualify for the bonus.</li>
-        <li>The maximum bonus per deposit is $1000 USD</li>
-        <li>Bonus awarded as Free Play money.</li>
-        <li>There is a 15X rollover requirement associated with this promotion.</li>
-        <li>There is a Max cashout of $10,000.00 USD and the bonus expires in 14 days.</li>
-        <li>Rollover (w) is calculated based on your deposit (d) plus bonus, (b) multiplied by the rollover requirement of your bonus (r). Rollover Formula w = (d+b)* r</li>
-        <li>Please note that only the lowest amount between the risk and the win counts towards your rollover requirement. Horses, Casino, and Poker will not contribute action towards the rollover.</li>
-        <li>To receive the bonus, you must use Promo Code <strong>IBS125CS</strong></li>
-        <li>To redeem the bonus, you must contact us through our NEED HELP section on the upper right hand corner of the page.</li>
-        <li>This promotion is non-transferable.</li>
-        <li>The free plays can only be used on straight bets up to +250. They cannot be used in the Racebook, Casino, and Poker</li>
-        <li>IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.</li>
-        <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
-      </ol>
-    `,
+     <h3>125% SP WELCOME BONUS</h3>
+     <ol>
+       <li>You will receive a 125% bonus on your qualifying initial deposit only.</li>
+       <li>A minimum deposit of $100 USD is required to qualify for the bonus.</li>
+       <li>The maximum bonus per deposit is $1000 USD</li>
+       <li>Bonus awarded as Free Play money.</li>
+       <li>There is a 15X rollover requirement associated with this promotion.</li>
+       <li>There is a Max cashout of $10,000.00 USD and the bonus expires in 14 days.</li>
+       <li>Rollover (w) is calculated based on your deposit (d) plus bonus, (b) multiplied by the rollover requirement of your bonus (r). Rollover Formula w = (d+b)* r</li>
+       <li>Please note that only the lowest amount between the risk and the win counts towards your rollover requirement. Horses, Casino, and Poker will not contribute action towards the rollover.</li>
+       <li>To receive the bonus, you must use Promo Code <strong>IBS125CS</strong></li>
+       <li>To redeem the bonus, you must contact us through our NEED HELP section on the upper right hand corner of the page.</li>
+       <li>This promotion is non-transferable.</li>
+       <li>The free plays can only be used on straight bets up to +250. They cannot be used in the Racebook, Casino, and Poker</li>
+       <li>IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.</li>
+       <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
+     </ol>
+   `,
     },
     {
       id: 2,
@@ -57,24 +56,25 @@ const PromotionsTabContent = () => {
       bonus: "200%",
       maxBonus: "$2,000",
       code: "IBS200CP",
-      featured: true,
+      featured: false,
+      hot: true,
       terms: `
-      <h3>200% CRYPTO CASINO WELCOME BONUS</h3>
-      <ol>
-        <li>You will receive a <strong>200%</strong> bonus on your qualifying INITIAL deposit only.</li>
-        <li>A minimum deposit of <strong>$50</strong> is required to qualify for the bonus.</li>
-        <li>The maximum amount awarded for this bonus is <strong>$2000.00</strong> USD</li>
-        <li>The maximum cash out for this bonus is <strong>$10,000</strong> and expires in 7 days.</li>
-        <li>There is a <strong>40X</strong> rollover requirement associated with this promotion.</li>
-        <li>Deposits made via CRYPTO only are eligible for this bonus.</li>
-        <li>The Bonus applies ONLY for online casino.</li>
-        <li>Bonuses are for USA Players, bonuses for other players are at the discretion of management.</li>
-        <li>To receive the bonus, you must use Promo Code <strong>IBS200CP</strong></li>
-        <li>To redeem the bonus, you may do so through our CASHIER/ PROMO CODE FIELD</li>
-        <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
-        <li>IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.</li>
-      </ol>
-    `,
+     <h3>200% CRYPTO CASINO WELCOME BONUS</h3>
+     <ol>
+       <li>You will receive a <strong>200%</strong> bonus on your qualifying INITIAL deposit only.</li>
+       <li>A minimum deposit of <strong>$50</strong> is required to qualify for the bonus.</li>
+       <li>The maximum amount awarded for this bonus is <strong>$2000.00</strong> USD</li>
+       <li>The maximum cash out for this bonus is <strong>$10,000</strong> and expires in 7 days.</li>
+       <li>There is a <strong>40X</strong> rollover requirement associated with this promotion.</li>
+       <li>Deposits made via CRYPTO only are eligible for this bonus.</li>
+       <li>The Bonus applies ONLY for online casino.</li>
+       <li>Bonuses are for USA Players, bonuses for other players are at the discretion of management.</li>
+       <li>To receive the bonus, you must use Promo Code <strong>IBS200CP</strong></li>
+       <li>To redeem the bonus, you may do so through our CASHIER/ PROMO CODE FIELD</li>
+       <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
+       <li>IBETSPORTS reserves the right to alter or amend the Terms and Conditions of this promotion at any time without notice.</li>
+     </ol>
+   `,
     },
     {
       id: 3,
@@ -87,16 +87,16 @@ const PromotionsTabContent = () => {
       code: "IBS150CS",
       featured: false,
       terms: `
-      <h3>150% CASINO RELOAD BONUS</h3>
-      <ol>
-        <li>First Time Deposit Crypto Casino 250% min 100$ max 2k 40x rollover max cash 10k 7 day expiration</li>
-        <li>First Time Deposit Other Deposit Type other 200% min 50$ max 1k 30x rollover max cash out 5k 7 days expiration</li>
-        <li>Reload crypto 150% 100 min 1k max 40x rollover max cash 10k 7 day expiration</li>
-        <li>Reload Other Deposit Type 100% 100 min 1k max 40x rollover max cash 5k 7 day expiration</li>
-        <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
-        <li>All bonuses come with a rollover requirement , please make sure you understand the requirements prior to agreeing. You may decline the bonus but every deposit has a one time rollover requirement.</li>
-      </ol>
-    `,
+     <h3>150% CASINO RELOAD BONUS</h3>
+     <ol>
+       <li>First Time Deposit Crypto Casino 250% min 100$ max 2k 40x rollover max cash 10k 7 day expiration</li>
+       <li>First Time Deposit Other Deposit Type other 200% min 50$ max 1k 30x rollover max cash out 5k 7 days expiration</li>
+       <li>Reload crypto 150% 100 min 1k max 40x rollover max cash 10k 7 day expiration</li>
+       <li>Reload Other Deposit Type 100% 100 min 1k max 40x rollover max cash 5k 7 day expiration</li>
+       <li>Promotions and bonuses are restricted to one per: deposit, person, account, household, email, and phone number.</li>
+       <li>All bonuses come with a rollover requirement , please make sure you understand the requirements prior to agreeing. You may decline the bonus but every deposit has a one time rollover requirement.</li>
+     </ol>
+   `,
     },
     {
       id: 4,
@@ -109,13 +109,13 @@ const PromotionsTabContent = () => {
       code: "IBS200CPR",
       featured: false,
       terms: `
-      <h3>200% REFER A FRIEND BONUS</h3>
-      <p>Friends have more fun together.</p>
-      <p>Share your invite link with your friends via email, social media, or SMS and ask them to sign up, we'll give you a 200% bonus up to $200 when they make their first deposit (min: $50).</p>
-      <p><strong>Unlimited Referrals, Unlimited Bonuses!</strong></p>
-      <p>Repeat & Repeat</p>
-      <p>Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!</p>
-    `,
+     <h3>200% REFER A FRIEND BONUS</h3>
+     <p>Friends have more fun together.</p>
+     <p>Share your invite link with your friends via email, social media, or SMS and ask them to sign up, we'll give you a 200% bonus up to $200 when they make their first deposit (min: $50).</p>
+     <p><strong>Unlimited Referrals, Unlimited Bonuses!</strong></p>
+     <p>Repeat & Repeat</p>
+     <p>Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!</p>
+   `,
     },
   ]
 
@@ -153,84 +153,13 @@ const PromotionsTabContent = () => {
             <p className="text-base sm:text-lg text-brand-smoke-gray max-w-md mx-auto">
               Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
             </p>
-            <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 py-3 text-base">
-                  <Play className="w-4 h-4 mr-2" />
-                  CLAIM BONUS
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
-                <DialogHeader>
-                  <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
-                    CREATE YOUR ACCOUNT
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 p-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white">
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="username" className="text-white">
-                      Username
-                    </Label>
-                    <Input
-                      id="username"
-                      type="text"
-                      placeholder="Choose a username"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="password" className="text-white">
-                      Password
-                    </Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      placeholder="Create a password"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirmPassword" className="text-white">
-                      Confirm Password
-                    </Label>
-                    <Input
-                      id="confirmPassword"
-                      type="password"
-                      placeholder="Confirm your password"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      id="terms"
-                      className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
-                    />
-                    <Label htmlFor="terms" className="text-sm text-white">
-                      I agree to the Terms & Conditions and Privacy Policy
-                    </Label>
-                  </div>
-                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-2">
-                    CREATE ACCOUNT
-                  </Button>
-                  <p className="text-center text-sm text-white">
-                    Already have an account?{" "}
-                    <button className="text-brand-primary-green hover:underline">Sign In</button>
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Button
+              onClick={() => setIsRegistrationOpen && setIsRegistrationOpen(true)}
+              className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 py-3 text-base"
+            >
+              <Play className="w-4 h-4 mr-2" />
+              CLAIM BONUS
+            </Button>
           </div>
         </div>
       </section>
@@ -246,8 +175,8 @@ const PromotionsTabContent = () => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6 md:px-8 lg:pl-12 xl:pl-24">
-          <div className="text-left space-y-2 sm:space-y-3 md:space-y-4 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+        <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:pl-12 xl:pl-24">
+          <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-brand-soft-white leading-tight">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 GET MORE FROM EVERY BET.
@@ -256,84 +185,13 @@ const PromotionsTabContent = () => {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed">
               Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
             </p>
-            <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 touch-manipulation">
-                  <Play className="w-5 h-5 mr-2" />
-                  CLAIM BONUS
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
-                <DialogHeader>
-                  <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
-                    CREATE YOUR ACCOUNT
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 p-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white">
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="username" className="text-white">
-                      Username
-                    </Label>
-                    <Input
-                      id="username"
-                      type="text"
-                      placeholder="Choose a username"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="password" className="text-white">
-                      Password
-                    </Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      placeholder="Create a password"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirmPassword" className="text-white">
-                      Confirm Password
-                    </Label>
-                    <Input
-                      id="confirmPassword"
-                      type="password"
-                      placeholder="Confirm your password"
-                      className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray"
-                    />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      id="terms"
-                      className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
-                    />
-                    <Label htmlFor="terms" className="text-sm text-white">
-                      I agree to the Terms & Conditions and Privacy Policy
-                    </Label>
-                  </div>
-                  <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold py-2">
-                    CREATE ACCOUNT
-                  </Button>
-                  <p className="text-center text-sm text-white">
-                    Already have an account?{" "}
-                    <button className="text-brand-primary-green hover:underline">Sign In</button>
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Button
+              onClick={() => setIsRegistrationOpen && setIsRegistrationOpen(true)}
+              className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 touch-manipulation"
+            >
+              <Play className="w-5 h-5 mr-2" />
+              CLAIM BONUS
+            </Button>
           </div>
         </div>
       </section>
@@ -409,6 +267,7 @@ const PromotionsTabContent = () => {
                         Featured
                       </Badge>
                     )}
+                    {promo.hot && <Badge className="absolute top-4 left-4 bg-red-500 text-white">Hot</Badge>}
                     <div className="absolute top-4 right-4 bg-brand-primary-green text-brand-charcoal-black px-3 py-1 rounded-full font-bold">
                       {promo.bonus}
                     </div>
@@ -433,7 +292,7 @@ const PromotionsTabContent = () => {
 
                   <div className="flex space-x-3">
                     <Button
-                      onClick={() => setIsSignupOpen(true)}
+                      onClick={() => setIsRegistrationOpen && setIsRegistrationOpen(true)}
                       className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold"
                     >
                       Claim Bonus
@@ -442,7 +301,7 @@ const PromotionsTabContent = () => {
                       <DialogTrigger asChild>
                         <Button
                           variant="outline"
-                          className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
+                          className="border-brand-smoke-gray text-brand-smoke-gray hover:bg-brand-smoke-gray hover:text-brand-charcoal-black bg-transparent"
                         >
                           Terms
                         </Button>
@@ -474,167 +333,6 @@ const PromotionsTabContent = () => {
         </div>
       </section>
 
-      {/* Login Dialog */}
-      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
-        <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
-          <button
-            onClick={() => setIsLoginOpen(false)}
-            className="absolute top-4 right-4 text-brand-smoke-gray hover:text-white transition-colors"
-          >
-            <X className="h-5 w-5" />
-          </button>
-          <DialogHeader>
-            <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
-              SIGN IN TO YOUR ACCOUNT
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 p-4">
-            <div className="space-y-2">
-              <Label htmlFor="loginEmail" className="text-white">
-                Email or Username
-              </Label>
-              <Input
-                id="loginEmail"
-                type="text"
-                placeholder="Enter your email or username"
-                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="loginPassword" className="text-white">
-                Password
-              </Label>
-              <Input
-                id="loginPassword"
-                type="password"
-                placeholder="Enter your password"
-                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
-              />
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="rememberMe"
-                  className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
-                />
-                <Label htmlFor="rememberMe" className="text-sm text-white">
-                  Remember me
-                </Label>
-              </div>
-              <button className="text-sm text-brand-primary-green hover:underline">Forgot password?</button>
-            </div>
-            <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-primary-green-dark hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3 text-lg rounded-lg transition-all duration-300">
-              SIGN IN
-            </Button>
-            <div className="text-center">
-              <p className="text-sm text-white">
-                Don't have an account?{" "}
-                <button
-                  onClick={() => {
-                    setIsLoginOpen(false)
-                    setIsSignupOpen(true)
-                  }}
-                  className="text-brand-primary-green hover:underline font-medium"
-                >
-                  Sign Up
-                </button>
-              </p>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Signup Dialog */}
-      <Dialog open={isSignupOpen} onOpenChange={setIsSignupOpen}>
-        <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
-          <button
-            onClick={() => setIsSignupOpen(false)}
-            className="absolute top-4 right-4 text-brand-smoke-gray hover:text-white transition-colors"
-          >
-            <X className="h-5 w-5" />
-          </button>
-          <DialogHeader>
-            <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
-              CREATE YOUR ACCOUNT
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 p-4">
-            <div className="space-y-2">
-              <Label htmlFor="signupEmail" className="text-white">
-                Email
-              </Label>
-              <Input
-                id="signupEmail"
-                type="email"
-                placeholder="Enter your email"
-                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="signupUsername" className="text-white">
-                Username
-              </Label>
-              <Input
-                id="signupUsername"
-                type="text"
-                placeholder="Choose a username"
-                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="signupPassword" className="text-white">
-                Password
-              </Label>
-              <Input
-                id="signupPassword"
-                type="password"
-                placeholder="Create a password"
-                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="confirmSignupPassword" className="text-white">
-                Confirm Password
-              </Label>
-              <Input
-                id="confirmSignupPassword"
-                type="password"
-                placeholder="Confirm your password"
-                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
-              />
-            </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="signupTerms"
-                className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
-              />
-              <Label htmlFor="signupTerms" className="text-sm text-white">
-                I agree to the Terms & Conditions and Privacy Policy
-              </Label>
-            </div>
-            <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-primary-green-dark hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3 text-lg rounded-lg transition-all duration-300">
-              CREATE ACCOUNT
-            </Button>
-            <div className="text-center">
-              <p className="text-sm text-white">
-                Already have an account?{" "}
-                <button
-                  onClick={() => {
-                    setIsSignupOpen(false)
-                    setIsLoginOpen(true)
-                  }}
-                  className="text-brand-primary-green hover:underline font-medium"
-                >
-                  Sign In
-                </button>
-              </p>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
       {/* VIP Program Teaser */}
       <section className="py-16 px-4 bg-gradient-to-r from-brand-primary-green/10 to-transparent">
         <div className="max-w-4xl mx-auto text-center">
@@ -646,7 +344,7 @@ const PromotionsTabContent = () => {
             Join our exclusive VIP program and unlock premium bonuses, personal account managers, and exclusive events.
           </p>
           <Button
-            onClick={() => setIsSignupOpen(true)}
+            onClick={() => setIsRegistrationOpen && setIsRegistrationOpen(true)}
             className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg"
           >
             Learn More About VIP

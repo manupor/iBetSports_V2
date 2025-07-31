@@ -1,12 +1,11 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, User, Wallet, Bell, Phone } from "lucide-react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import Link from "next/link"
 
 interface TopNavigationProps {
@@ -36,9 +35,14 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
     setIsMobileMenuOpen(false)
   }
 
-  const handleTabClick = (e: React.MouseEvent, tabId: string) => {
-    e.preventDefault()
-    handleTabChange(tabId)
+  const switchToRegister = () => {
+    setIsLoginOpen(false)
+    setTimeout(() => setIsRegisterOpen(true), 100)
+  }
+
+  const switchToLogin = () => {
+    setIsRegisterOpen(false)
+    setTimeout(() => setIsLoginOpen(true), 100)
   }
 
   return (
@@ -70,19 +74,19 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       Login
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
-                    <div className="relative p-8">
+                  <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 max-w-[95vw] max-h-[95vh] overflow-y-auto">
+                    <div className="relative p-4 sm:p-6 md:p-8">
                       {/* Close Button */}
                       <button
                         onClick={() => setIsLoginOpen(false)}
-                        className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+                        className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
                       >
-                        <X className="w-6 h-6" />
+                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
                       </button>
 
                       {/* Login Title */}
-                      <div className="text-center mb-8">
-                        <h2 className="text-brand-soft-white text-2xl font-black">
+                      <div className="text-center mb-6 sm:mb-8">
+                        <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
                           <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                             LOGIN
                           </span>
@@ -90,59 +94,77 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       </div>
 
                       {/* Login Form */}
-                      <div className="space-y-4">
-                        <Input
-                          type="text"
-                          placeholder="Enter your username or email"
-                          className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                        />
-                        <Input
-                          type="password"
-                          placeholder="Enter your password"
-                          className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                        />
+                      <form className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="loginUsername" className="text-brand-soft-white font-semibold">
+                            Username or Email
+                          </Label>
+                          <Input
+                            id="loginUsername"
+                            type="text"
+                            placeholder="Enter your username or email"
+                            className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="loginPassword" className="text-brand-soft-white font-semibold">
+                            Password
+                          </Label>
+                          <Input
+                            id="loginPassword"
+                            type="password"
+                            placeholder="Enter your password"
+                            className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                            required
+                          />
+                        </div>
 
-                        <Button className="w-full h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-lg mt-6">
+                        <Button
+                          type="submit"
+                          className="w-full h-10 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
+                        >
                           LOGIN
                         </Button>
-                      </div>
+                      </form>
 
                       {/* Links */}
-                      <div className="text-center space-y-3 mt-6">
-                        <p className="text-brand-soft-white">
+                      <div className="text-center space-y-3 mt-4 sm:mt-6">
+                        <p className="text-brand-soft-white text-sm sm:text-base">
                           Don't have an account?{" "}
                           <button
-                            className="text-brand-primary-green hover:text-brand-vibrant-green underline font-medium"
-                            onClick={() => {
-                              setIsLoginOpen(false)
-                              setIsRegisterOpen(true)
-                            }}
+                            type="button"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green underline font-medium cursor-pointer"
+                            onClick={switchToRegister}
                           >
-                            Signup
+                            Sign Up
                           </button>
                         </p>
                         <p>
-                          <button className="text-brand-primary-green hover:text-brand-vibrant-green underline">
+                          <button
+                            type="button"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green underline text-sm sm:text-base cursor-pointer"
+                          >
                             Forgot your password?
                           </button>
                         </p>
                       </div>
 
                       {/* Phone Numbers */}
-                      <div className="grid grid-cols-2 gap-4 mt-8">
-                        <div className="bg-brand-primary-green rounded-lg p-4 text-center">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
+                        <div className="bg-brand-primary-green rounded-lg p-3 sm:p-4 text-center">
                           <div className="flex items-center justify-center mb-2">
-                            <Phone className="w-4 h-4 mr-2 text-black" />
-                            <span className="font-bold text-lg text-black">1 888 203 1771</span>
+                            <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-black" />
+                            <span className="font-bold text-sm sm:text-base lg:text-lg text-black">1 888 203 1771</span>
                           </div>
-                          <p className="text-sm font-medium text-black">Wagering</p>
+                          <p className="text-xs sm:text-sm font-medium text-black">Wagering</p>
                         </div>
-                        <div className="bg-brand-primary-green rounded-lg p-4 text-center">
+                        <div className="bg-brand-primary-green rounded-lg p-3 sm:p-4 text-center">
                           <div className="flex items-center justify-center mb-2">
-                            <Phone className="w-4 h-4 mr-2 text-black" />
-                            <span className="font-bold text-lg text-black">1 888 210 3449</span>
+                            <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-black" />
+                            <span className="font-bold text-sm sm:text-base lg:text-lg text-black">1 888 210 3449</span>
                           </div>
-                          <p className="text-sm font-medium text-black">Customer Service</p>
+                          <p className="text-xs sm:text-sm font-medium text-black">Customer Service</p>
                         </div>
                       </div>
                     </div>
@@ -157,134 +179,146 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       Sign Up
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
-                    <div className="relative p-8">
+                  <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 max-w-[95vw] max-h-[95vh] overflow-y-auto">
+                    <div className="relative p-4 sm:p-6 md:p-8">
                       {/* Close Button */}
                       <button
                         onClick={() => setIsRegisterOpen(false)}
-                        className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+                        className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
                       >
-                        <X className="w-6 h-6" />
+                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
                       </button>
 
                       {/* Register Title */}
-                      <div className="text-center mb-8">
-                        <h2 className="text-brand-soft-white text-2xl font-black">
+                      <div className="text-center mb-6 sm:mb-8">
+                        <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
                           <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-                            REGISTER
+                            CREATE YOUR ACCOUNT
                           </span>
                         </h2>
                       </div>
 
-                      {/* Progress Steps */}
-                      <div className="flex items-center justify-center mb-8">
-                        <div className="flex items-center">
-                          <div className="w-8 h-8 bg-brand-primary-green rounded-full flex items-center justify-center text-black font-bold text-sm">
-                            1
-                          </div>
-                          <div className="text-brand-primary-green text-sm font-medium ml-2">STEP 1</div>
-                        </div>
-                        <div className="flex-1 h-0.5 bg-gray-600 mx-4"></div>
-                        <div className="flex items-center">
-                          <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-gray-400 font-bold text-sm">
-                            2
-                          </div>
-                          <div className="text-gray-400 text-sm font-medium ml-2">STEP 2</div>
-                        </div>
-                      </div>
-
                       {/* Registration Form */}
-                      <div className="space-y-4">
-                        <div className="relative">
-                          <Input
-                            type="text"
-                            placeholder="First Name"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                          />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
+                      <form className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="firstName" className="text-brand-soft-white font-semibold">
                             First Name
-                          </label>
+                          </Label>
+                          <Input
+                            id="firstName"
+                            type="text"
+                            placeholder="Enter your first name"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                            required
+                          />
                         </div>
 
-                        <div className="relative">
-                          <Input
-                            type="text"
-                            placeholder="Last Name"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                          />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
+                        <div className="space-y-2">
+                          <Label htmlFor="lastName" className="text-brand-soft-white font-semibold">
                             Last Name
-                          </label>
-                        </div>
-
-                        <div className="relative">
+                          </Label>
                           <Input
-                            type="email"
-                            placeholder="Email"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                          />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
-                            Email
-                          </label>
-                        </div>
-
-                        <div className="relative">
-                          <Input
-                            type="email"
-                            placeholder="Email Confirmation"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                          />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
-                            Email Confirmation
-                          </label>
-                        </div>
-
-                        <div className="relative">
-                          <Input
-                            type="password"
-                            placeholder="Password"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                          />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
-                            Password
-                          </label>
-                        </div>
-
-                        <div className="relative">
-                          <Input
-                            type="password"
-                            placeholder="Password Confirmation"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
-                          />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
-                            Password Confirmation
-                          </label>
-                        </div>
-
-                        <div className="relative">
-                          <Input
+                            id="lastName"
                             type="text"
-                            placeholder="Promotional Code"
-                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            placeholder="Enter your last name"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                            required
                           />
-                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
-                            Password Confirmation
-                          </label>
                         </div>
 
-                        <Button className="w-full h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-lg mt-6">
-                          Next
+                        <div className="space-y-2">
+                          <Label htmlFor="email" className="text-brand-soft-white font-semibold">
+                            Email
+                          </Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                            required
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="emailConfirmation" className="text-brand-soft-white font-semibold">
+                            Confirm Email
+                          </Label>
+                          <Input
+                            id="emailConfirmation"
+                            type="email"
+                            placeholder="Confirm your email"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                            required
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="password" className="text-brand-soft-white font-semibold">
+                            Password
+                          </Label>
+                          <Input
+                            id="password"
+                            type="password"
+                            placeholder="Create a password"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                            required
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="passwordConfirmation" className="text-brand-soft-white font-semibold">
+                            Confirm Password
+                          </Label>
+                          <Input
+                            id="passwordConfirmation"
+                            type="password"
+                            placeholder="Confirm your password"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                            required
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="promotionalCode" className="text-brand-soft-white font-semibold">
+                            Promotional Code (Optional)
+                          </Label>
+                          <Input
+                            id="promotionalCode"
+                            type="text"
+                            placeholder="Enter promotional code"
+                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                          />
+                        </div>
+
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            id="terms"
+                            className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded focus:ring-brand-primary-green"
+                            required
+                          />
+                          <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
+                            I agree to the{" "}
+                            <span className="text-brand-primary-green hover:underline cursor-pointer">
+                              Terms & Conditions
+                            </span>
+                          </Label>
+                        </div>
+
+                        <Button
+                          type="submit"
+                          className="w-full h-10 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
+                        >
+                          CREATE ACCOUNT
                         </Button>
-                      </div>
-                      <div className="text-center">
+                      </form>
+                      <div className="text-center mt-4 sm:mt-6">
                         <p className="text-sm text-brand-smoke-gray">
                           Already have an account?{" "}
                           <button
+                            type="button"
                             className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold"
-                            onClick={() => {
-                              setIsRegisterOpen(false)
-                              setIsLoginOpen(true)
-                            }}
+                            onClick={switchToLogin}
                           >
                             Sign In
                           </button>
@@ -297,8 +331,6 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
 
               {/* Tablet Actions */}
               <div className="hidden md:flex lg:hidden items-center space-x-3">
-                
-                
                 <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
                   <DialogTrigger asChild>
                     <Button
