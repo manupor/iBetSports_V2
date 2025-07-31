@@ -252,7 +252,7 @@ export default function RacebookTabContent() {
         {/* Betting Types */}
         <section>
           <h2 className="text-3xl font-black text-brand-soft-white mb-6 text-center">
-            <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent text-center">
+            <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
               BET TYPES
             </span>
           </h2>

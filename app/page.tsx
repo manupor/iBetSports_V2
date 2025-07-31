@@ -305,12 +305,12 @@ function CasinoContent({
                 <div className="text-base sm:text-lg font-bold text-white leading-tight tracking-tight">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-sm sm:text-base font-semibold text-white leading-tight tracking-tight mb-6 sm:mb-8">
+                <div className="text-sm sm:text-base font-semibold text-white leading-tight tracking-tight mb-4 sm:mb-6">
                   Bet Smarter, Win Bigger
                 </div>
                 <Button
                   onClick={() => setIsRegistrationOpen(true)}
-                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] sm:max-w-[160px] mt-4 sm:mt-5"
+                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] sm:max-w-[160px] mt-2 sm:mt-3"
                 >
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
