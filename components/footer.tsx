@@ -1,6 +1,6 @@
 "use client"
 
-import { Facebook, Instagram, Twitter, ChevronDown, ChevronUp } from "lucide-react"
+import { Instagram, ChevronDown, ChevronUp } from "lucide-react"
 import { useState } from "react"
 
 function Footer() {
@@ -17,28 +17,12 @@ function Footer() {
         <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex justify-center space-x-3 sm:space-x-4">
             <a
-              href="https://x.com/I_BetSports"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-smoke-gray/20 rounded-lg flex items-center justify-center hover:bg-brand-primary-green/20 transition-colors"
-            >
-              <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-brand-soft-white" />
-            </a>
-            <a
               href="https://www.instagram.com/i_betsports/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-smoke-gray/20 rounded-lg flex items-center justify-center hover:bg-brand-primary-green/20 transition-colors"
             >
               <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-brand-soft-white" />
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61575245489301"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-smoke-gray/20 rounded-lg flex items-center justify-center hover:bg-brand-primary-green/20 transition-colors"
-            >
-              <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-brand-soft-white" />
             </a>
             <a
               href="https://www.reddit.com/user/IBetSports-ag/"
@@ -247,7 +231,14 @@ function Footer() {
                     Terms and Conditions
                   </a>
                 </li>
-                <li></li>
+                <li>
+                  <a
+                    href="/self-exclusion"
+                    className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
+                  >
+                    Self Exclusion
+                  </a>
+                </li>
                 <li>
                   <a
                     href="/dispute-resolution"
@@ -373,7 +364,6 @@ function Footer() {
                     Affiliate Program
                   </a>
                 </li>
-                <li></li>
               </ul>
             </div>
           </div>

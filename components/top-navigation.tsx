@@ -52,8 +52,6 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
 
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center space-x-4">
-                
-                
                 <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
                   <DialogTrigger asChild>
                     <Button

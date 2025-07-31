@@ -172,7 +172,7 @@ export default function RacebookTabContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Track Selection */}
         <section className="mb-12">
-          <h2 className="text-3xl font-black text-brand-soft-white mb-6 text-center">
+          <h2 className="text-3xl font-black text-brand-soft-white mb-6">
             <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
               TODAY'S RACES
             </span>
@@ -212,7 +212,7 @@ export default function RacebookTabContent() {
 
         {/* Featured Race */}
         <section className="mb-12">
-          <h2 className="text-3xl font-black text-brand-soft-white mb-6 text-center">
+          <h2 className="text-3xl font-black text-brand-soft-white mb-6">
             <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
               FEATURED RACE
             </span>
@@ -251,7 +251,7 @@ export default function RacebookTabContent() {
 
         {/* Betting Types */}
         <section>
-          <h2 className="text-3xl font-black text-brand-soft-white mb-6 text-center">
+          <h2 className="text-3xl font-black text-brand-soft-white mb-6">
             <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
               BET TYPES
             </span>
