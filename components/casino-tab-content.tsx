@@ -25,6 +25,7 @@ import {
   Eye,
   Heart,
   Share2,
+  X,
 } from "lucide-react"
 
 interface CasinoTabContentProps {
@@ -37,6 +38,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
   const [selectedCategory, setSelectedCategory] = useState("all")
   const isRegistrationOpenState = useState(false)
   const [isRegistrationOpen, setIsRegistrationOpenInternal] = isRegistrationOpenState
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
 
   const categories = [
     { id: "all", name: "All Games", count: 2847 },
@@ -735,68 +737,155 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
 
       {/* Registration Modal */}
       <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpenInternal}>
-        <DialogContent className="sm:max-w-md bg-brand-charcoal-black-secondary border border-brand-primary-green/30">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-brand-soft-white text-center">
-              Create Your Account
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 py-4">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-brand-soft-white">
-                Email
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
-              />
+        <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
+          <div className="relative p-8">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsRegistrationOpenInternal(false)}
+              className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-brand-soft-white text-center mb-4">
+                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                  CREATE YOUR ACCOUNT
+                </span>
+              </DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-brand-soft-white">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="username" className="text-brand-soft-white">
+                  Username
+                </Label>
+                <Input
+                  id="username"
+                  placeholder="Choose a username"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password" className="text-brand-soft-white">
+                  Password
+                </Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Create a password"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="confirmPassword" className="text-brand-soft-white">
+                  Confirm Password
+                </Label>
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="Confirm your password"
+                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-12 px-4"
+                />
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="terms"
+                  className="border-brand-primary-green data-[state=checked]:bg-brand-primary-green"
+                />
+                <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
+                  I agree to the Terms & Conditions and Privacy Policy
+                </Label>
+              </div>
+              <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 h-12 rounded-lg">
+                Create Account
+              </Button>
+              <p className="text-center text-sm text-brand-smoke-gray">
+                Already have an account?{" "}
+                <button
+                  className="text-brand-primary-green hover:underline"
+                  onClick={() => {
+                    setIsRegistrationOpenInternal(false)
+                    setIsLoginOpen(true)
+                  }}
+                >
+                  Sign In
+                </button>
+              </p>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="username" className="text-brand-soft-white">
-                Username
-              </Label>
-              <Input
-                id="username"
-                placeholder="Choose a username"
-                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
-              />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Login Modal */}
+      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+        <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
+          <div className="relative p-8">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsLoginOpen(false)}
+              className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Login Title */}
+            <div className="text-center mb-8">
+              <h2 className="text-brand-soft-white text-2xl font-black">
+                <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                  LOGIN
+                </span>
+              </h2>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-brand-soft-white">
-                Password
-              </Label>
+
+            {/* Login Form */}
+            <div className="space-y-4">
               <Input
-                id="password"
+                type="text"
+                placeholder="Enter your username or email"
+                className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+              />
+              <Input
                 type="password"
-                placeholder="Create a password"
-                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
+                placeholder="Enter your password"
+                className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
               />
+
+              <Button className="w-full h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-lg mt-6">
+                LOGIN
+              </Button>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-brand-soft-white">
-                Confirm Password
-              </Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                placeholder="Confirm your password"
-                className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray"
-              />
+
+            {/* Links */}
+            <div className="text-center space-y-3 mt-6">
+              <p className="text-brand-soft-white">
+                Don't have an account?{" "}
+                <button
+                  className="text-brand-primary-green hover:text-brand-vibrant-green underline font-medium"
+                  onClick={() => {
+                    setIsLoginOpen(false)
+                    setIsRegistrationOpenInternal(true)
+                  }}
+                >
+                  Signup
+                </button>
+              </p>
+              <p>
+                <button className="text-brand-primary-green hover:text-brand-vibrant-green underline">
+                  Forgot your password?
+                </button>
+              </p>
             </div>
-            <div className="flex items-center space-x-2">
-              <Checkbox id="terms" className="border-brand-primary-green data-[state=checked]:bg-brand-primary-green" />
-              <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
-                I agree to the Terms & Conditions and Privacy Policy
-              </Label>
-            </div>
-            <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3">
-              Create Account
-            </Button>
-            <p className="text-center text-sm text-brand-smoke-gray">
-              Already have an account? <button className="text-brand-primary-green hover:underline">Sign In</button>
-            </p>
           </div>
         </DialogContent>
       </Dialog>

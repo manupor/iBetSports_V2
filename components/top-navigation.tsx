@@ -63,19 +63,23 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       Login
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-md bg-gray-700 border-gray-600 p-0 gap-0">
+                  <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
                     <div className="relative p-8">
                       {/* Close Button */}
                       <button
                         onClick={() => setIsLoginOpen(false)}
-                        className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                        className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
                       >
                         <X className="w-6 h-6" />
                       </button>
 
                       {/* Login Title */}
                       <div className="text-center mb-8">
-                        <h2 className="text-white text-2xl font-bold">LOGIN</h2>
+                        <h2 className="text-brand-soft-white text-2xl font-black">
+                          <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                            LOGIN
+                          </span>
+                        </h2>
                       </div>
 
                       {/* Login Form */}
@@ -83,25 +87,25 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                         <Input
                           type="text"
                           placeholder="Enter your username or email"
-                          className="w-full h-12 px-4 bg-white border-0 rounded-lg text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-brand-primary-green focus:outline-none"
+                          className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                         />
                         <Input
                           type="password"
                           placeholder="Enter your password"
-                          className="w-full h-12 px-4 bg-white border-0 rounded-lg text-gray-800 placeholder:text-gray-500 focus:ring-2 focus:ring-brand-primary-green focus:outline-none"
+                          className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                         />
 
-                        <Button className="w-full h-12 bg-brand-primary-green hover:bg-brand-primary-green-dark font-bold rounded-full text-lg mt-6 text-black">
+                        <Button className="w-full h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-lg mt-6">
                           LOGIN
                         </Button>
                       </div>
 
                       {/* Links */}
                       <div className="text-center space-y-3 mt-6">
-                        <p className="text-white">
+                        <p className="text-brand-soft-white">
                           Don't have an account?{" "}
                           <button
-                            className="text-white hover:text-brand-primary-green underline font-medium"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green underline font-medium"
                             onClick={() => {
                               setIsLoginOpen(false)
                               setIsRegisterOpen(true)
@@ -111,7 +115,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           </button>
                         </p>
                         <p>
-                          <button className="text-white hover:text-brand-primary-green underline">
+                          <button className="text-brand-primary-green hover:text-brand-vibrant-green underline">
                             Forgot your password?
                           </button>
                         </p>
@@ -146,19 +150,23 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       Sign Up
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-lg bg-gray-700 border-gray-600 p-0 gap-0">
+                  <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0">
                     <div className="relative p-8">
                       {/* Close Button */}
                       <button
                         onClick={() => setIsRegisterOpen(false)}
-                        className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                        className="absolute top-4 right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
                       >
                         <X className="w-6 h-6" />
                       </button>
 
                       {/* Register Title */}
                       <div className="text-center mb-8">
-                        <h2 className="text-white text-2xl font-bold">REGISTER</h2>
+                        <h2 className="text-brand-soft-white text-2xl font-black">
+                          <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
+                            REGISTER
+                          </span>
+                        </h2>
                       </div>
 
                       {/* Progress Steps */}
@@ -184,9 +192,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="text"
                             placeholder="First Name"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             First Name
                           </label>
                         </div>
@@ -195,9 +203,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="text"
                             placeholder="Last Name"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             Last Name
                           </label>
                         </div>
@@ -206,9 +214,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="email"
                             placeholder="Email"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             Email
                           </label>
                         </div>
@@ -217,9 +225,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="email"
                             placeholder="Email Confirmation"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             Email Confirmation
                           </label>
                         </div>
@@ -228,9 +236,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="password"
                             placeholder="Password"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             Password
                           </label>
                         </div>
@@ -239,9 +247,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="password"
                             placeholder="Password Confirmation"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             Password Confirmation
                           </label>
                         </div>
@@ -250,17 +258,31 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           <Input
                             type="text"
                             placeholder="Promotional Code"
-                            className="w-full h-12 px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
+                            className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
-                          <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                          <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
                             Promotional Code
                           </label>
                         </div>
 
-                        <Button className="w-full h-12 bg-purple-600 hover:bg-purple-700 font-bold rounded-full text-lg mt-6 text-white">
+                        <Button className="w-full h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-lg mt-6">
                           Next
                         </Button>
                       </div>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm text-brand-smoke-gray">
+                        Already have an account?{" "}
+                        <button
+                          className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold"
+                          onClick={() => {
+                            setIsRegisterOpen(false)
+                            setIsLoginOpen(true)
+                          }}
+                        >
+                          Sign In
+                        </button>
+                      </p>
                     </div>
                   </DialogContent>
                 </Dialog>
