@@ -101,12 +101,6 @@ function Footer() {
               {expandedSection === "legal" && (
                 <div className="grid grid-cols-1 gap-1 mt-2">
                   <a
-                    href="/self-exclusion"
-                    className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
-                  >
-                    Self Exclusion
-                  </a>
-                  <a
                     href="/dispute-resolution"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
@@ -268,14 +262,6 @@ function Footer() {
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Terms and Conditions
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/self-exclusion"
-                    className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
-                  >
-                    Self Exclusion
                   </a>
                 </li>
                 <li>

@@ -394,7 +394,7 @@ function CasinoContent({
                 alt="Football stadium background"
                 width={400}
                 height={300}
-                className="w-full h-full object-cover opacity-30"
+                className="w-full h-full object-cover"
               />
             </div>
             {/* Green Effects */}
