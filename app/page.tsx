@@ -162,8 +162,8 @@ function CasinoContent({
 
             {/* Crypto Bonus Section - Right Side */}
             <div className="text-right space-y-3 max-w-[45%] sm:max-w-[40%] flex flex-col items-end">
-              <div className="text-center space-y-3">
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-none tracking-tight text-white">
+              <div className="bg-black/40 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl p-4 text-center space-y-3">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black leading-none tracking-tight text-white">
                   CRYPTO BONUS
                 </div>
                 <div
@@ -172,9 +172,9 @@ function CasinoContent({
                 >
                   BOOST!
                 </div>
-                <div className="flex justify-center mt-4">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black flex items-center justify-center">
+                <div className="flex justify-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50 border-2 border-white/20">
+                    <span className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-black flex items-center justify-center">
                       ₿
                     </span>
                   </div>
@@ -278,6 +278,21 @@ function CasinoContent({
               <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
               <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
             </Button>
+            {/* Mobile Crypto Bonus Section */}
+            <div className="mt-6 bg-black/60 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl p-4 text-center space-y-3 max-w-[280px] mx-auto">
+              <div className="text-lg font-black leading-none tracking-tight text-white">CRYPTO BONUS</div>
+              <div
+                className="text-xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
+              >
+                BOOST!
+              </div>
+              <div className="flex justify-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50 border-2 border-white/20">
+                  <span className="font-bold text-lg text-black flex items-center justify-center">₿</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
