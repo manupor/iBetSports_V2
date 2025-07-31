@@ -23,7 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        {children}
+        <script src="https://images.betimages.com/Betslip/js/quickmail.login.js" defer></script>
+      </body>
     </html>
   )
 }

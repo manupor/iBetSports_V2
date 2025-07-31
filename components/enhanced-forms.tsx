@@ -8,6 +8,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X, Phone, ArrowLeft, ArrowRight } from "lucide-react"
 
+// Declare BackEndLogin function
+declare const BackEndLogin: any
+
 interface EnhancedFormsProps {
   isLoginOpen: boolean
   setIsLoginOpen: (open: boolean) => void
@@ -72,6 +75,15 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
     handleSignupClose()
   }
 
+  const handleLoginSubmit = (form: HTMLFormElement) => {
+    if (typeof BackEndLogin === "function") {
+      BackEndLogin(form)
+    } else {
+      console.error("BackEndLogin function not available")
+    }
+    return false
+  }
+
   return (
     <>
       {/* Login Dialog */}
@@ -96,15 +108,25 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
               </h2>
             </div>
 
-            <form className="space-y-4">
+            <form
+              name="LoginForm"
+              action="javascript:void(0)"
+              onSubmit={(e) => {
+                e.preventDefault()
+                handleLoginSubmit(e.target as HTMLFormElement)
+                return false
+              }}
+              className="space-y-4"
+            >
               <div className="space-y-2">
                 <Label htmlFor="loginUsername" className="text-brand-soft-white font-semibold">
                   Username or Email
                 </Label>
-                <Input
-                  id="loginUsername"
+                <input
                   type="text"
-                  placeholder="Enter your username or email"
+                  name="username"
+                  id="loginUsername"
+                  placeholder="Username or Email"
                   className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
@@ -113,21 +135,28 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                 <Label htmlFor="loginPassword" className="text-brand-soft-white font-semibold">
                   Password
                 </Label>
-                <Input
-                  id="loginPassword"
+                <input
                   type="password"
-                  placeholder="Enter your password"
+                  name="password"
+                  id="loginPassword"
+                  placeholder="Password"
                   className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
 
-              <Button
+              <small name="msj_error_lg" className="text-red-500 block"></small>
+
+              <input type="hidden" name="BackEndUrl" value="https://betslip.ibetsports.ag/" />
+              <input type="hidden" name="idsite" value="901" />
+
+              <button
                 type="submit"
+                name="btn-login"
                 className="w-full h-11 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
               >
                 LOGIN
-              </Button>
+              </button>
             </form>
 
             <div className="text-center space-y-3 mt-4 sm:mt-6">
@@ -142,12 +171,12 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                 </button>
               </p>
               <p>
-                <button
-                  type="button"
+                <a
+                  href="/reset-password"
                   className="text-brand-primary-green hover:text-brand-vibrant-green underline text-sm sm:text-base cursor-pointer"
                 >
                   Forgot your password?
-                </button>
+                </a>
               </p>
             </div>
 

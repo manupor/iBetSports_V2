@@ -253,48 +253,42 @@ function CasinoContent({
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Football Player - Sticked to Bottom Edge */}
-            <div className="absolute bottom-0 right-0 z-10 w-1/2 h-3/4">
+            {/* Football Player Overlay */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-full h-full flex items-end justify-center">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
                 width={300}
                 height={400}
-                className="w-full h-full object-contain object-bottom"
+                className="h-full object-contain object-bottom"
                 priority
               />
             </div>
-
-            {/* Mobile Hero Text - Over Image */}
-            <div className="absolute inset-0 flex flex-col items-start justify-center px-4 text-left space-y-4 z-20">
-              <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-6 space-y-4 max-w-[60%]">
-                <div className="flex items-center justify-center space-x-2 border-white border-2 rounded-xl mx-auto px-3 py-2 max-w-fit">
-                  <span className="text-3xl font-black text-white leading-none tracking-tight">125%</span>
-                  <span className="text-lg font-black text-brand-golden-yellow leading-none tracking-tight">
-                    SIGN UP BONUS
-                  </span>
-                </div>
-                <div className="text-xl font-bold text-white leading-tight tracking-tight text-center">
-                  QUICK PAYOUTS
-                </div>
-                <div className="text-lg font-semibold text-white leading-tight tracking-tight mb-4 text-center">
-                  Bet Smarter, Win Bigger
-                </div>
-                <Button
-                  onClick={() => setIsRegistrationOpen(true)}
-                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[200px] mx-auto"
-                >
-                  <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
-                </Button>
-              </div>
-            </div>
-
             {/* Green Effects */}
             <div className="absolute bottom-0 right-0 w-full h-full z-5 pointer-events-none">
               <div className="absolute bottom-1/4 right-1/4 w-full h-full bg-gradient-radial from-brand-primary-green/20 via-brand-primary-green/10 to-transparent rounded-full blur-xl animate-pulse"></div>
             </div>
+          </div>
+
+          {/* Mobile Hero Text - Below Image */}
+          <div className="px-4 py-6 text-center space-y-4 bg-black">
+            <div className="flex items-center justify-center space-x-2 border-white border-2 rounded-xl mx-auto px-3 py-2 max-w-fit">
+              <span className="text-3xl font-black text-white leading-none tracking-tight">125%</span>
+              <span className="text-lg font-black text-brand-golden-yellow leading-none tracking-tight">
+                SIGN UP BONUS
+              </span>
+            </div>
+            <div className="text-xl font-bold text-white leading-tight tracking-tight">QUICK PAYOUTS</div>
+            <div className="text-lg font-semibold text-white leading-tight tracking-tight mb-4">
+              Bet Smarter, Win Bigger
+            </div>
+            <Button
+              onClick={() => setIsRegistrationOpen(true)}
+              className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[200px] mx-auto"
+            >
+              <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
+            </Button>
           </div>
 
           {/* Mobile Crypto Bonus Section - Moving Banner */}
