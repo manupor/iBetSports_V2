@@ -30,14 +30,14 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
         <DialogTrigger asChild>
           <Button className="hidden">Login</Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 max-w-[95vw] max-h-[95vh] overflow-y-auto">
-          <div className="relative p-4 sm:p-6 md:p-8">
+        <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 w-[90vw] max-w-[400px] max-h-[90vh] overflow-y-auto">
+          <div className="relative p-3 sm:p-6 md:p-8">
             {/* Close Button */}
             <button
               onClick={() => setIsLoginOpen(false)}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-brand-charcoal-black-secondary/80 hover:bg-brand-primary-green/20 border border-brand-primary-green/30 rounded-full flex items-center justify-center text-brand-soft-white hover:text-brand-primary-green transition-all duration-200 z-10"
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Login Title */}
@@ -59,7 +59,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="loginUsername"
                   type="text"
                   placeholder="Enter your username or email"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -71,14 +71,14 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="loginPassword"
                   type="password"
                   placeholder="Enter your password"
-                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full h-10 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
+                className="w-full h-11 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
               >
                 LOGIN
               </Button>
@@ -107,16 +107,16 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
             </div>
 
             {/* Phone Numbers */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
+            <div className="grid grid-cols-1 gap-3 mt-6 sm:grid-cols-2 sm:gap-4 sm:mt-8">
               <div className="bg-brand-primary-green rounded-lg p-3 sm:p-4 text-center">
-                <div className="flex items-center justify-center mb-2">
+                <div className="flex items-center justify-center mb-1 sm:mb-2">
                   <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-black" />
                   <span className="font-bold text-sm sm:text-base lg:text-lg text-black">1 888 203 1771</span>
                 </div>
                 <p className="text-xs sm:text-sm font-medium text-black">Wagering</p>
               </div>
               <div className="bg-brand-primary-green rounded-lg p-3 sm:p-4 text-center">
-                <div className="flex items-center justify-center mb-2">
+                <div className="flex items-center justify-center mb-1 sm:mb-2">
                   <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-black" />
                   <span className="font-bold text-sm sm:text-base lg:text-lg text-black">1 888 210 3449</span>
                 </div>
@@ -131,18 +131,18 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
         <DialogTrigger asChild>
           <Button className="hidden">Sign Up</Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 max-w-[95vw] max-h-[95vh] overflow-y-auto">
-          <div className="relative p-4 sm:p-6 md:p-8">
+        <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 w-[90vw] max-w-[450px] max-h-[85vh] overflow-y-auto">
+          <div className="relative p-2 sm:p-4 md:p-6">
             {/* Close Button */}
             <button
               onClick={() => setIsSignupOpen(false)}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 bg-brand-charcoal-black-secondary hover:bg-brand-primary-green/20 border border-brand-primary-green/30 rounded-full flex items-center justify-center text-brand-soft-white hover:text-brand-primary-green transition-all duration-200 z-10"
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Register Title */}
-            <div className="text-center mb-6 sm:mb-8">
+            <div className="text-center mb-4 sm:mb-6">
               <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
                 <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                   CREATE YOUR ACCOUNT
@@ -151,7 +151,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
             </div>
 
             {/* Registration Form */}
-            <form className="space-y-4">
+            <form className="space-y-3">
               <div className="space-y-2">
                 <Label htmlFor="firstName" className="text-brand-soft-white font-semibold">
                   First Name
@@ -160,7 +160,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="firstName"
                   type="text"
                   placeholder="Enter your first name"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -173,7 +173,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="lastName"
                   type="text"
                   placeholder="Enter your last name"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -186,7 +186,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="email"
                   type="email"
                   placeholder="Enter your email"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -199,7 +199,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="emailConfirmation"
                   type="email"
                   placeholder="Confirm your email"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -212,7 +212,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="password"
                   type="password"
                   placeholder="Create a password"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -225,7 +225,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="passwordConfirmation"
                   type="password"
                   placeholder="Confirm your password"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
               </div>
@@ -238,7 +238,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   id="promotionalCode"
                   type="text"
                   placeholder="Enter promotional code"
-                  className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                 />
               </div>
 
@@ -257,12 +257,12 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
 
               <Button
                 type="submit"
-                className="w-full h-10 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
+                className="w-full h-11 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
               >
                 CREATE ACCOUNT
               </Button>
             </form>
-            <div className="text-center mt-4 sm:mt-6">
+            <div className="text-center mt-3 sm:mt-4">
               <p className="text-sm text-brand-smoke-gray">
                 Already have an account?{" "}
                 <button
