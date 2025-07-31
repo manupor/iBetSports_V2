@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Play } from "lucide-react"
+import { Play, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
@@ -433,7 +433,7 @@ const PromotionsTabContent = () => {
 
                   <div className="flex space-x-3">
                     <Button
-                      onClick={() => setIsLoginOpen(true)}
+                      onClick={() => setIsSignupOpen(true)}
                       className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold"
                     >
                       Claim Bonus
@@ -473,6 +473,167 @@ const PromotionsTabContent = () => {
           </div>
         </div>
       </section>
+
+      {/* Login Dialog */}
+      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+        <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+          <button
+            onClick={() => setIsLoginOpen(false)}
+            className="absolute top-4 right-4 text-brand-smoke-gray hover:text-white transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <DialogHeader>
+            <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
+              SIGN IN TO YOUR ACCOUNT
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 p-4">
+            <div className="space-y-2">
+              <Label htmlFor="loginEmail" className="text-white">
+                Email or Username
+              </Label>
+              <Input
+                id="loginEmail"
+                type="text"
+                placeholder="Enter your email or username"
+                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="loginPassword" className="text-white">
+                Password
+              </Label>
+              <Input
+                id="loginPassword"
+                type="password"
+                placeholder="Enter your password"
+                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
+              />
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
+                />
+                <Label htmlFor="rememberMe" className="text-sm text-white">
+                  Remember me
+                </Label>
+              </div>
+              <button className="text-sm text-brand-primary-green hover:underline">Forgot password?</button>
+            </div>
+            <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-primary-green-dark hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3 text-lg rounded-lg transition-all duration-300">
+              SIGN IN
+            </Button>
+            <div className="text-center">
+              <p className="text-sm text-white">
+                Don't have an account?{" "}
+                <button
+                  onClick={() => {
+                    setIsLoginOpen(false)
+                    setIsSignupOpen(true)
+                  }}
+                  className="text-brand-primary-green hover:underline font-medium"
+                >
+                  Sign Up
+                </button>
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Signup Dialog */}
+      <Dialog open={isSignupOpen} onOpenChange={setIsSignupOpen}>
+        <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+          <button
+            onClick={() => setIsSignupOpen(false)}
+            className="absolute top-4 right-4 text-brand-smoke-gray hover:text-white transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <DialogHeader>
+            <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
+              CREATE YOUR ACCOUNT
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 p-4">
+            <div className="space-y-2">
+              <Label htmlFor="signupEmail" className="text-white">
+                Email
+              </Label>
+              <Input
+                id="signupEmail"
+                type="email"
+                placeholder="Enter your email"
+                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="signupUsername" className="text-white">
+                Username
+              </Label>
+              <Input
+                id="signupUsername"
+                type="text"
+                placeholder="Choose a username"
+                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="signupPassword" className="text-white">
+                Password
+              </Label>
+              <Input
+                id="signupPassword"
+                type="password"
+                placeholder="Create a password"
+                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmSignupPassword" className="text-white">
+                Confirm Password
+              </Label>
+              <Input
+                id="confirmSignupPassword"
+                type="password"
+                placeholder="Confirm your password"
+                className="bg-brand-charcoal-black border-brand-smoke-gray text-white placeholder:text-brand-smoke-gray focus:border-brand-primary-green focus:ring-brand-primary-green"
+              />
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="signupTerms"
+                className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black border-brand-smoke-gray rounded focus:ring-brand-primary-green"
+              />
+              <Label htmlFor="signupTerms" className="text-sm text-white">
+                I agree to the Terms & Conditions and Privacy Policy
+              </Label>
+            </div>
+            <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-primary-green-dark hover:to-brand-primary-green text-brand-charcoal-black font-bold py-3 text-lg rounded-lg transition-all duration-300">
+              CREATE ACCOUNT
+            </Button>
+            <div className="text-center">
+              <p className="text-sm text-white">
+                Already have an account?{" "}
+                <button
+                  onClick={() => {
+                    setIsSignupOpen(false)
+                    setIsLoginOpen(true)
+                  }}
+                  className="text-brand-primary-green hover:underline font-medium"
+                >
+                  Sign In
+                </button>
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* VIP Program Teaser */}
       <section className="py-16 px-4 bg-gradient-to-r from-brand-primary-green/10 to-transparent">

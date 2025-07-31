@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, User, Wallet, Bell, Phone } from "lucide-react"
@@ -32,6 +34,11 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
       setActiveTab(tabId)
     }
     setIsMobileMenuOpen(false)
+  }
+
+  const handleTabClick = (e: React.MouseEvent, tabId: string) => {
+    e.preventDefault()
+    handleTabChange(tabId)
   }
 
   return (
@@ -261,7 +268,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                             className="w-full h-12 px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green"
                           />
                           <label className="absolute -top-2 left-3 bg-brand-charcoal-black px-1 text-brand-primary-green text-xs">
-                            Promotional Code
+                            Password Confirmation
                           </label>
                         </div>
 
@@ -269,20 +276,20 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           Next
                         </Button>
                       </div>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-sm text-brand-smoke-gray">
-                        Already have an account?{" "}
-                        <button
-                          className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold"
-                          onClick={() => {
-                            setIsRegisterOpen(false)
-                            setIsLoginOpen(true)
-                          }}
-                        >
-                          Sign In
-                        </button>
-                      </p>
+                      <div className="text-center">
+                        <p className="text-sm text-brand-smoke-gray">
+                          Already have an account?{" "}
+                          <button
+                            className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold"
+                            onClick={() => {
+                              setIsRegisterOpen(false)
+                              setIsLoginOpen(true)
+                            }}
+                          >
+                            Sign In
+                          </button>
+                        </p>
+                      </div>
                     </div>
                   </DialogContent>
                 </Dialog>
@@ -290,12 +297,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
 
               {/* Tablet Actions */}
               <div className="hidden md:flex lg:hidden items-center space-x-3">
-                <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white p-2">
-                  <Bell className="w-4 h-4" />
-                </Button>
-                <Button variant="ghost" size="sm" className="text-brand-smoke-gray hover:text-brand-soft-white p-2">
-                  <Wallet className="w-4 h-4" />
-                </Button>
+                
+                
                 <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
                   <DialogTrigger asChild>
                     <Button
@@ -362,8 +365,9 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               <div className="flex items-center justify-center">
                 <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
                   {tabs.map((tab) => (
-                    <button
+                    <Link
                       key={tab.id}
+                      href={setActiveTab ? "#" : `/?tab=${tab.id}`}
                       onClick={() => handleTabChange(tab.id)}
                       className={`px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
                         activeTab === tab.id
@@ -372,7 +376,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       }`}
                     >
                       {tab.label}
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -390,17 +394,18 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               <div className="flex-1 px-4 py-6 overflow-y-auto">
                 <div className="space-y-2">
                   {tabs.map((tab) => (
-                    <button
+                    <Link
                       key={tab.id}
+                      href={setActiveTab ? "#" : `/?tab=${tab.id}`}
                       onClick={() => handleTabChange(tab.id)}
-                      className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                      className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 block ${
                         activeTab === tab.id
                           ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
                           : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
                       }`}
                     >
                       {tab.label}
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>

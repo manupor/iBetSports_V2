@@ -810,18 +810,20 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
               <Button className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 h-12 rounded-lg">
                 Create Account
               </Button>
-              <p className="text-center text-sm text-brand-smoke-gray">
-                Already have an account?{" "}
-                <button
-                  className="text-brand-primary-green hover:underline"
-                  onClick={() => {
-                    setIsRegistrationOpenInternal(false)
-                    setIsLoginOpen(true)
-                  }}
-                >
-                  Sign In
-                </button>
-              </p>
+              <div className="text-center">
+                <p className="text-sm text-brand-smoke-gray">
+                  Already have an account?{" "}
+                  <button
+                    className="text-brand-primary-green hover:underline"
+                    onClick={() => {
+                      setIsRegistrationOpenInternal(false)
+                      setIsLoginOpen(true)
+                    }}
+                  >
+                    Sign In
+                  </button>
+                </p>
+              </div>
             </div>
           </div>
         </DialogContent>

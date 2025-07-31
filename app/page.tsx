@@ -492,7 +492,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:w-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <span className="text-brand-vibrant-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       %
                     </span>
