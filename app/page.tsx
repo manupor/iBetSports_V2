@@ -5,7 +5,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
 import { TopNavigation } from "@/components/top-navigation"
 import { Footer } from "@/components/footer"
 import CasinoTabContent from "@/components/casino-tab-content"
@@ -14,21 +13,14 @@ import RacebookTabContent from "@/components/racebook-tab-content"
 import LiveCasinoTabContent from "@/components/live-casino-content"
 import BankingTabContent from "@/components/banking-tab-content"
 import PromotionsTabContent from "@/components/promotions-tab-content"
-import { EnhancedForms } from "@/components/enhanced-forms"
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home")
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
-  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const signupUrl = "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
 
-  const RegistrationModal = () => (
-    <EnhancedForms
-      isLoginOpen={isLoginOpen}
-      setIsLoginOpen={setIsLoginOpen}
-      isSignupOpen={isRegistrationOpen}
-      setIsSignupOpen={setIsRegistrationOpen}
-    />
-  )
+  const openSignupPage = () => {
+    window.open(signupUrl, "_blank", "noopener,noreferrer")
+  }
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
@@ -47,47 +39,46 @@ export default function HomePage() {
           </TabsList>
 
           <TabsContent value="home" className="mt-0">
-            <CasinoContent setIsRegistrationOpen={setIsRegistrationOpen} setActiveTab={setActiveTab} />
+            <CasinoContent setActiveTab={setActiveTab} signupUrl={signupUrl} />
           </TabsContent>
 
           <TabsContent value="casino" className="mt-0">
-            <CasinoTabContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <CasinoTabContent setIsRegistrationOpen={openSignupPage} />
           </TabsContent>
 
           <TabsContent value="sports" className="mt-0">
-            <SportsbookTabContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <SportsbookTabContent setIsRegistrationOpen={openSignupPage} />
           </TabsContent>
 
           <TabsContent value="racebook" className="mt-0">
-            <RacebookTabContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <RacebookTabContent setIsRegistrationOpen={openSignupPage} />
           </TabsContent>
 
           <TabsContent value="live-casino" className="mt-0">
-            <LiveCasinoTabContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <LiveCasinoTabContent setIsRegistrationOpen={openSignupPage} />
           </TabsContent>
 
           <TabsContent value="banking" className="mt-0">
-            <BankingTabContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <BankingTabContent setIsRegistrationOpen={openSignupPage} />
           </TabsContent>
 
           <TabsContent value="promotions" className="mt-0">
-            <PromotionsTabContent setIsRegistrationOpen={setIsRegistrationOpen} />
+            <PromotionsTabContent setIsRegistrationOpen={openSignupPage} />
           </TabsContent>
         </Tabs>
       </main>
 
       <Footer />
-      <RegistrationModal />
     </div>
   )
 }
 
 function CasinoContent({
-  setIsRegistrationOpen,
   setActiveTab,
+  signupUrl,
 }: {
-  setIsRegistrationOpen: (open: boolean) => void
   setActiveTab: (tab: string) => void
+  signupUrl: string
 }) {
   const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
 
@@ -151,13 +142,15 @@ function CasinoContent({
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white leading-tight tracking-tight mb-3 sm:mb-4">
                 Bet Smarter, Win Bigger
               </div>
-              <Button
-                onClick={() => setIsRegistrationOpen(true)}
-                className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[180px] sm:max-w-[220px] md:max-w-[260px] mb-4"
+              <a
+                href={signupUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[180px] sm:max-w-[220px] md:max-w-[260px] mb-4 inline-flex items-center justify-center"
               >
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
-              </Button>
+              </a>
             </div>
 
             {/* Crypto Bonus Section - Right Side */}
@@ -281,13 +274,15 @@ function CasinoContent({
                 <div className="text-lg font-semibold text-white leading-tight tracking-tight mb-4 text-center">
                   Bet Smarter, Win Bigger
                 </div>
-                <Button
-                  onClick={() => setIsRegistrationOpen(true)}
-                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[200px] mx-auto"
+                <a
+                  href={signupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[200px] mx-auto inline-flex items-center justify-center"
                 >
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
-                </Button>
+                </a>
               </div>
             </div>
 
@@ -508,12 +503,14 @@ function CasinoContent({
                       />
                     </div>
                     <div className="p-1.5 sm:p-2 md:p-3">
-                      <Button
-                        onClick={() => setIsRegistrationOpen(true)}
-                        className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-1.5 sm:py-2 md:py-2.5 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base lg:text-lg rounded-md sm:rounded-lg transition-colors duration-300"
+                      <a
+                        href={signupUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-1.5 sm:py-2 md:py-2.5 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base lg:text-lg rounded-md sm:rounded-lg transition-colors duration-300 inline-flex items-center justify-center"
                       >
                         PLAY NOW
-                      </Button>
+                      </a>
                     </div>
                   </div>
                 ))}

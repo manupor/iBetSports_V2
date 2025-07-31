@@ -1,12 +1,21 @@
 "use client"
 
+import type React from "react"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Menu, X, User, Wallet, Bell, Phone } from "lucide-react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
+
+// To inform TypeScript about the global function from the external script
+declare global {
+  interface Window {
+    BackEndLogin: (form: HTMLFormElement) => void
+  }
+}
 
 interface TopNavigationProps {
   activeTab?: string
@@ -17,7 +26,6 @@ interface TopNavigationProps {
 export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = true }: TopNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false)
 
   const tabs = [
     { id: "casino", label: "Casino" },
@@ -35,15 +43,28 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
     setIsMobileMenuOpen(false)
   }
 
-  const switchToRegister = () => {
-    setIsLoginOpen(false)
-    setTimeout(() => setIsRegisterOpen(true), 100)
+  const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (typeof window.BackEndLogin === "function") {
+      try {
+        window.BackEndLogin(e.currentTarget)
+      } catch (error) {
+        console.error("Error executing BackEndLogin:", error)
+        const errorElement = e.currentTarget.querySelector('[name="msj_error_lg"]')
+        if (errorElement) {
+          errorElement.textContent = "An unexpected error occurred."
+        }
+      }
+    } else {
+      console.error("BackEndLogin function not found.")
+      const errorElement = e.currentTarget.querySelector('[name="msj_error_lg"]')
+      if (errorElement) {
+        errorElement.textContent = "Login service is unavailable. Please try again later."
+      }
+    }
   }
 
-  const switchToLogin = () => {
-    setIsRegisterOpen(false)
-    setTimeout(() => setIsLoginOpen(true), 100)
-  }
+  const signupUrl = "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
 
   return (
     <>
@@ -74,17 +95,15 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       Login
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 max-w-[95vw] max-h-[95vh] overflow-y-auto">
-                    <div className="relative p-4 sm:p-6 md:p-8">
-                      {/* Close Button */}
+                  <DialogContent className="sm:max-w-md bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 w-[90vw] max-w-[400px] max-h-[90vh] overflow-y-auto">
+                    <div className="relative p-3 sm:p-6 md:p-8">
                       <button
                         onClick={() => setIsLoginOpen(false)}
-                        className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
+                        className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-brand-charcoal-black-secondary/80 hover:bg-brand-primary-green/20 border border-brand-primary-green/30 rounded-full flex items-center justify-center text-brand-soft-white hover:text-brand-primary-green transition-all duration-200 z-10"
                       >
-                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <X className="w-4 h-4 sm:w-5 sm:h-5" />
                       </button>
 
-                      {/* Login Title */}
                       <div className="text-center mb-6 sm:mb-8">
                         <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
                           <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
@@ -93,17 +112,22 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                         </h2>
                       </div>
 
-                      {/* Login Form */}
-                      <form className="space-y-4">
+                      <form
+                        name="LoginForm"
+                        action="javascript:void(0)"
+                        onSubmit={handleLoginSubmit}
+                        className="space-y-4"
+                      >
                         <div className="space-y-2">
                           <Label htmlFor="loginUsername" className="text-brand-soft-white font-semibold">
                             Username or Email
                           </Label>
                           <Input
                             id="loginUsername"
+                            name="username"
                             type="text"
                             placeholder="Enter your username or email"
-                            className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                            className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                             required
                           />
                         </div>
@@ -113,32 +137,38 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                           </Label>
                           <Input
                             id="loginPassword"
+                            name="password"
                             type="password"
                             placeholder="Enter your password"
-                            className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                            className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                             required
                           />
                         </div>
 
+                        <small name="msj_error_lg" className="text-red-500 block min-h-[1rem]"></small>
+                        <input type="hidden" name="BackEndUrl" value="https://betslip.ibetsports.ag/" />
+                        <input type="hidden" name="idsite" value="901" />
+
                         <Button
                           type="submit"
-                          className="w-full h-10 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
+                          name="btn-login"
+                          className="w-full h-11 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
                         >
                           LOGIN
                         </Button>
                       </form>
 
-                      {/* Links */}
                       <div className="text-center space-y-3 mt-4 sm:mt-6">
                         <p className="text-brand-soft-white text-sm sm:text-base">
                           Don't have an account?{" "}
-                          <button
-                            type="button"
+                          <a
+                            href={signupUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-brand-primary-green hover:text-brand-vibrant-green underline font-medium cursor-pointer"
-                            onClick={switchToRegister}
                           >
                             Sign Up
-                          </button>
+                          </a>
                         </p>
                         <p>
                           <button
@@ -150,17 +180,16 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                         </p>
                       </div>
 
-                      {/* Phone Numbers */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
+                      <div className="grid grid-cols-1 gap-3 mt-6 sm:grid-cols-2 sm:gap-4 sm:mt-8">
                         <div className="bg-brand-primary-green rounded-lg p-3 sm:p-4 text-center">
-                          <div className="flex items-center justify-center mb-2">
+                          <div className="flex items-center justify-center mb-1 sm:mb-2">
                             <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-black" />
                             <span className="font-bold text-sm sm:text-base lg:text-lg text-black">1 888 203 1771</span>
                           </div>
                           <p className="text-xs sm:text-sm font-medium text-black">Wagering</p>
                         </div>
                         <div className="bg-brand-primary-green rounded-lg p-3 sm:p-4 text-center">
-                          <div className="flex items-center justify-center mb-2">
+                          <div className="flex items-center justify-center mb-1 sm:mb-2">
                             <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-black" />
                             <span className="font-bold text-sm sm:text-base lg:text-lg text-black">1 888 210 3449</span>
                           </div>
@@ -170,213 +199,63 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                     </div>
                   </DialogContent>
                 </Dialog>
-                <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      size="default"
-                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 py-3 h-12"
-                    >
-                      Sign Up
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-lg bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white p-0 gap-0 max-w-[95vw] max-h-[95vh] overflow-y-auto">
-                    <div className="relative p-4 sm:p-6 md:p-8">
-                      {/* Close Button */}
-                      <button
-                        onClick={() => setIsRegisterOpen(false)}
-                        className="absolute top-2 right-2 sm:top-4 sm:right-4 text-brand-soft-white hover:text-brand-primary-green transition-colors z-10"
-                      >
-                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
-                      </button>
-
-                      {/* Register Title */}
-                      <div className="text-center mb-6 sm:mb-8">
-                        <h2 className="text-brand-soft-white text-xl sm:text-2xl font-black">
-                          <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-                            CREATE YOUR ACCOUNT
-                          </span>
-                        </h2>
-                      </div>
-
-                      {/* Registration Form */}
-                      <form className="space-y-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="firstName" className="text-brand-soft-white font-semibold">
-                            First Name
-                          </Label>
-                          <Input
-                            id="firstName"
-                            type="text"
-                            placeholder="Enter your first name"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                            required
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="lastName" className="text-brand-soft-white font-semibold">
-                            Last Name
-                          </Label>
-                          <Input
-                            id="lastName"
-                            type="text"
-                            placeholder="Enter your last name"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                            required
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="email" className="text-brand-soft-white font-semibold">
-                            Email
-                          </Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            placeholder="Enter your email"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                            required
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="emailConfirmation" className="text-brand-soft-white font-semibold">
-                            Confirm Email
-                          </Label>
-                          <Input
-                            id="emailConfirmation"
-                            type="email"
-                            placeholder="Confirm your email"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                            required
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="password" className="text-brand-soft-white font-semibold">
-                            Password
-                          </Label>
-                          <Input
-                            id="password"
-                            type="password"
-                            placeholder="Create a password"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                            required
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="passwordConfirmation" className="text-brand-soft-white font-semibold">
-                            Confirm Password
-                          </Label>
-                          <Input
-                            id="passwordConfirmation"
-                            type="password"
-                            placeholder="Confirm your password"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                            required
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="promotionalCode" className="text-brand-soft-white font-semibold">
-                            Promotional Code (Optional)
-                          </Label>
-                          <Input
-                            id="promotionalCode"
-                            type="text"
-                            placeholder="Enter promotional code"
-                            className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 text-brand-soft-white placeholder-brand-smoke-gray focus:border-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none rounded-lg h-10 sm:h-12 px-3 sm:px-4 text-sm sm:text-base"
-                          />
-                        </div>
-
-                        <div className="flex items-center space-x-2">
-                          <input
-                            type="checkbox"
-                            id="terms"
-                            className="w-4 h-4 text-brand-primary-green bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded focus:ring-brand-primary-green"
-                            required
-                          />
-                          <Label htmlFor="terms" className="text-sm text-brand-smoke-gray">
-                            I agree to the{" "}
-                            <span className="text-brand-primary-green hover:underline cursor-pointer">
-                              Terms & Conditions
-                            </span>
-                          </Label>
-                        </div>
-
-                        <Button
-                          type="submit"
-                          className="w-full h-10 sm:h-12 bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black rounded-lg text-base sm:text-lg mt-4 sm:mt-6"
-                        >
-                          CREATE ACCOUNT
-                        </Button>
-                      </form>
-                      <div className="text-center mt-4 sm:mt-6">
-                        <p className="text-sm text-brand-smoke-gray">
-                          Already have an account?{" "}
-                          <button
-                            type="button"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green underline cursor-pointer font-semibold"
-                            onClick={switchToLogin}
-                          >
-                            Sign In
-                          </button>
-                        </p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <a
+                  href={signupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ size: "default" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 py-3 h-12",
+                  )}
+                >
+                  Sign Up
+                </a>
               </div>
 
               {/* Tablet Actions */}
               <div className="hidden md:flex lg:hidden items-center space-x-3">
-                <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
-                    >
-                      Login
-                    </Button>
-                  </DialogTrigger>
-                </Dialog>
-                <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      size="sm"
-                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-2 text-sm"
-                    >
-                      Sign Up
-                    </Button>
-                  </DialogTrigger>
-                </Dialog>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsLoginOpen(true)}
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
+                >
+                  Login
+                </Button>
+                <a
+                  href={signupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ size: "sm" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-2 text-sm",
+                  )}
+                >
+                  Sign Up
+                </a>
               </div>
 
               {/* Mobile Actions and Menu Button */}
               <div className="flex md:hidden items-center space-x-2">
-                <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-1.5 bg-transparent text-xs"
-                    >
-                      Login
-                    </Button>
-                  </DialogTrigger>
-                </Dialog>
-                <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      size="sm"
-                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-1.5 text-xs animate-pulse shadow-sm"
-                    >
-                      Join Now!
-                    </Button>
-                  </DialogTrigger>
-                </Dialog>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsLoginOpen(true)}
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-1.5 bg-transparent text-xs"
+                >
+                  Login
+                </Button>
+                <a
+                  href={signupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ size: "sm" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-1.5 text-xs animate-pulse shadow-sm",
+                  )}
+                >
+                  Join Now!
+                </a>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -397,9 +276,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               <div className="flex items-center justify-center">
                 <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
                   {tabs.map((tab) => (
-                    <Link
+                    <button
                       key={tab.id}
-                      href={setActiveTab ? "#" : `/?tab=${tab.id}`}
                       onClick={() => handleTabChange(tab.id)}
                       className={`px-4 lg:px-6 py-3 lg:py-4 text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
                         activeTab === tab.id
@@ -408,7 +286,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       }`}
                     >
                       {tab.label}
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -426,9 +304,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               <div className="flex-1 px-4 py-6 overflow-y-auto">
                 <div className="space-y-2">
                   {tabs.map((tab) => (
-                    <Link
+                    <button
                       key={tab.id}
-                      href={setActiveTab ? "#" : `/?tab=${tab.id}`}
                       onClick={() => handleTabChange(tab.id)}
                       className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 block ${
                         activeTab === tab.id
@@ -437,7 +314,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                       }`}
                     >
                       {tab.label}
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
