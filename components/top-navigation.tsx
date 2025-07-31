@@ -335,8 +335,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      size="default"
-                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 py-2 bg-transparent text-base"
+                      size="sm"
+                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
                     >
                       Login
                     </Button>
@@ -345,8 +345,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                 <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
                   <DialogTrigger asChild>
                     <Button
-                      size="default"
-                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2 text-base"
+                      size="sm"
+                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-3 py-2 text-sm"
                     >
                       Sign Up
                     </Button>
