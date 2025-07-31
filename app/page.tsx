@@ -11,7 +11,7 @@ import { Footer } from "@/components/footer"
 import CasinoTabContent from "@/components/casino-tab-content"
 import SportsbookTabContent from "@/components/sportsbook-tab-content"
 import RacebookTabContent from "@/components/racebook-tab-content"
-import LiveCasinoTabContent from "@/components/live-casino-tab-content"
+import LiveCasinoTabContent from "@/components/live-casino-content"
 import BankingTabContent from "@/components/banking-tab-content"
 import PromotionsTabContent from "@/components/promotions-tab-content"
 import { EnhancedForms } from "@/components/enhanced-forms"
@@ -135,8 +135,8 @@ function CasinoContent({
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden bg-black">
           {/* Text Overlay - Left Side */}
-          <div className="absolute inset-0 flex items-center justify-start px-3 sm:px-4 z-20">
-            <div className="text-left space-y-2 sm:space-y-3 max-w-[70%] sm:max-w-[75%]">
+          <div className="absolute inset-0 flex items-center justify-between px-3 sm:px-4 z-20">
+            <div className="text-left space-y-2 sm:space-y-3 max-w-[45%] sm:max-w-[50%]">
               <div className="flex items-center space-x-2 sm:space-x-3 border-white border-2 rounded-xl mx-0 px-2">
                 <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight my-0 mt-1.5">
                   125%
@@ -156,8 +156,30 @@ function CasinoContent({
                 className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[180px] sm:max-w-[220px] md:max-w-[260px] mb-4"
               >
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
               </Button>
+            </div>
+
+            {/* Crypto Bonus Section - Right Side */}
+            <div className="text-right space-y-3 max-w-[45%] sm:max-w-[40%] flex flex-col items-end">
+              <div className="text-center space-y-3">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-none tracking-tight text-white">
+                  CRYPTO BONUS
+                </div>
+                <div
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
+                >
+                  BOOST!
+                </div>
+                <div className="flex justify-center mt-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
+                    <span className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black flex items-center justify-center">
+                      ₿
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -175,7 +197,7 @@ function CasinoContent({
           </div>
 
           {/* Hero Image - NFL Player on Right Side */}
-          <div className="absolute bottom-0 right-0 w-[70%] sm:w-[75%] h-[90%] sm:h-[95%] z-15">
+          <div className="absolute bottom-0 right-[15%] w-[50%] sm:w-[55%] h-[90%] sm:h-[95%] z-15">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
               alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -254,7 +276,7 @@ function CasinoContent({
               className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[200px] mx-auto"
             >
               <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
             </Button>
           </div>
         </div>
@@ -290,7 +312,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <span className="text-brand-primary-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       ₿
                     </span>

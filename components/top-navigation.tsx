@@ -55,7 +55,7 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
               {/* Logo */}
               <div className="flex-shrink-0">
                 <Link href="/" className="cursor-pointer" onClick={() => setActiveTab && setActiveTab("home")}>
-                  <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-lg sm:text-xl md:text-2xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
+                  <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
                     ibetsports.ag
                   </span>
                 </Link>
@@ -67,8 +67,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      size="sm"
-                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 py-2 h-9 bg-transparent"
+                      size="default"
+                      className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-6 py-3 h-12 bg-transparent"
                     >
                       <User className="w-4 h-4 mr-2" />
                       Login
@@ -173,8 +173,8 @@ export function TopNavigation({ activeTab = "home", setActiveTab, showTabs = tru
                 <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
                   <DialogTrigger asChild>
                     <Button
-                      size="sm"
-                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 py-2 h-9"
+                      size="default"
+                      className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 py-3 h-12"
                     >
                       Sign Up
                     </Button>
