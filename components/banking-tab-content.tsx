@@ -16,6 +16,7 @@ import { X } from "lucide-react"
 export default function BankingTabContent() {
   const [activeTab, setActiveTab] = useState("deposit")
   const [isRegisterOpen, setIsRegisterOpen] = useState(false)
+  const [isSignupOpen, setIsSignupOpen] = useState(false)
 
   const paymentMethods = [
     {
@@ -458,7 +459,10 @@ export default function BankingTabContent() {
                           className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/50 h-10 sm:h-12 text-sm sm:text-base"
                         />
                       </div>
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold h-10 sm:h-12 text-sm sm:text-base">
+                      <Button
+                        onClick={() => setIsSignupOpen(true)}
+                        className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold h-10 sm:h-12 text-sm sm:text-base"
+                      >
                         Deposit Now
                       </Button>
                     </div>
@@ -562,7 +566,10 @@ export default function BankingTabContent() {
                           className="bg-brand-charcoal-black-tertiary border-brand-smoke-gray/50 text-white h-10 sm:h-12 text-sm sm:text-base"
                         />
                       </div>
-                      <Button className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold h-10 sm:h-12 text-sm sm:text-base">
+                      <Button
+                        onClick={() => setIsSignupOpen(true)}
+                        className="w-full bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold h-10 sm:h-12 text-sm sm:text-base"
+                      >
                         Request Withdrawal
                       </Button>
                     </div>
@@ -708,6 +715,126 @@ export default function BankingTabContent() {
           </Card>
         </div>
       </div>
+      {/* Signup Dialog */}
+      <Dialog open={isSignupOpen} onOpenChange={setIsSignupOpen}>
+        <DialogContent className="sm:max-w-lg bg-gray-700 border-gray-600 p-0 gap-0 mx-4 max-h-[90vh] overflow-y-auto">
+          <div className="relative p-4 sm:p-6 md:p-8">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsSignupOpen(false)}
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-gray-300 transition-colors z-10"
+            >
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+
+            {/* Register Title */}
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-white text-xl sm:text-2xl font-bold">REGISTER</h2>
+            </div>
+
+            {/* Progress Steps */}
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <div className="flex items-center">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-brand-primary-green rounded-full flex items-center justify-center text-black font-bold text-xs sm:text-sm">
+                  1
+                </div>
+                <div className="text-brand-primary-green text-xs sm:text-sm font-medium ml-2">STEP 1</div>
+              </div>
+              <div className="flex-1 h-0.5 bg-gray-600 mx-3 sm:mx-4"></div>
+              <div className="flex items-center">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-600 rounded-full flex items-center justify-center text-gray-400 font-bold text-xs sm:text-sm">
+                  2
+                </div>
+                <div className="text-gray-400 text-xs sm:text-sm font-medium ml-2">STEP 2</div>
+              </div>
+            </div>
+
+            {/* Registration Form */}
+            <div className="space-y-3 sm:space-y-4">
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="First Name"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  First Name
+                </label>
+              </div>
+
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Last Name"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  Last Name
+                </label>
+              </div>
+
+              <div className="relative">
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  Email
+                </label>
+              </div>
+
+              <div className="relative">
+                <Input
+                  type="email"
+                  placeholder="Email Confirmation"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  Email Confirmation
+                </label>
+              </div>
+
+              <div className="relative">
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  Password
+                </label>
+              </div>
+
+              <div className="relative">
+                <Input
+                  type="password"
+                  placeholder="Password Confirmation"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  Password Confirmation
+                </label>
+              </div>
+
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Promotional Code"
+                  className="w-full h-10 sm:h-12 px-3 sm:px-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder:text-brand-primary-green focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
+                />
+                <label className="absolute -top-2 left-3 bg-gray-700 px-1 text-brand-primary-green text-xs">
+                  Promotional Code
+                </label>
+              </div>
+
+              <Button className="w-full h-10 sm:h-12 bg-purple-600 hover:bg-purple-700 font-bold rounded-full text-base sm:text-lg mt-4 sm:mt-6 text-white">
+                Next
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
