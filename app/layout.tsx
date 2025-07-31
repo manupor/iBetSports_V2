@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import "./globals.css"
+import Script from "next/script"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,7 +26,13 @@ export default function RootLayout({
     <html lang="en" className={poppins.variable}>
       <body className={poppins.className}>
         {children}
-        <script src="https://images.betimages.com/Betslip/js/quickmail.login.js" defer></script>
+        <Script src="https://images.betimages.com/Betslip/js/quickmail.login.js" strategy="beforeInteractive" />
+        <Script id="login-config" strategy="beforeInteractive">
+          {`
+            window.BackEndUrl = "https://betslip.ibetsports.ag/";
+            window.idsite = "901";
+          `}
+        </Script>
       </body>
     </html>
   )

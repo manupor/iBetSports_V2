@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X, Phone, ArrowLeft, ArrowRight } from "lucide-react"
 
-// Declare BackEndLogin function
+// Declare BackEndLogin variable
 declare const BackEndLogin: any
 
 interface EnhancedFormsProps {
@@ -75,12 +75,18 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
     handleSignupClose()
   }
 
-  const handleLoginSubmit = (form: HTMLFormElement) => {
+  const handleLoginSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const form = e.target as HTMLFormElement
+
+    // Use the external authentication function
     if (typeof BackEndLogin === "function") {
       BackEndLogin(form)
     } else {
       console.error("BackEndLogin function not available")
+      // Fallback - you could redirect to external login here
     }
+
     return false
   }
 
@@ -108,16 +114,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
               </h2>
             </div>
 
-            <form
-              name="LoginForm"
-              action="javascript:void(0)"
-              onSubmit={(e) => {
-                e.preventDefault()
-                handleLoginSubmit(e.target as HTMLFormElement)
-                return false
-              }}
-              className="space-y-4"
-            >
+            <form name="LoginForm" action="javascript:void(0)" onSubmit={handleLoginSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="loginUsername" className="text-brand-soft-white font-semibold">
                   Username or Email
@@ -126,7 +123,7 @@ export function EnhancedForms({ isLoginOpen, setIsLoginOpen, isSignupOpen, setIs
                   type="text"
                   name="username"
                   id="loginUsername"
-                  placeholder="Username or Email"
+                  placeholder="Username or email"
                   className="w-full h-11 sm:h-12 px-3 sm:px-4 bg-brand-charcoal-black-secondary border-brand-smoke-gray/30 rounded-lg text-brand-soft-white placeholder:text-brand-smoke-gray focus:ring-2 focus:ring-brand-primary-green focus:outline-none focus:border-brand-primary-green text-sm sm:text-base"
                   required
                 />
