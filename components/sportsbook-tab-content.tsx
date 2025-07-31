@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { TrendingUp, Users, Clock, Trophy, Target, Zap, Star, Play, DollarSign } from "lucide-react"
+import { TrendingUp, Users, Clock, Trophy, Target, Zap, Star, Play, DollarSign, X } from "lucide-react"
 
 export default function SportsbookTabContent() {
   const [selectedSport, setSelectedSport] = useState("featured")
@@ -221,7 +221,13 @@ export default function SportsbookTabContent() {
                     SIGN UP NOW
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+                <DialogContent className="relative bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+                  <button
+                    onClick={() => setIsRegistrationOpen(false)}
+                    className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
                   <DialogHeader>
                     <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
                       CREATE YOUR ACCOUNT

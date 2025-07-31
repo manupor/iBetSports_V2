@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Play } from "lucide-react"
+import { Play, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
@@ -160,7 +160,13 @@ const PromotionsTabContent = () => {
                   CLAIM BONUS
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+              <DialogContent className="relative bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+                <button
+                  onClick={() => setIsRegistrationOpen(false)}
+                  className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
                 <DialogHeader>
                   <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
                     CREATE YOUR ACCOUNT
@@ -263,7 +269,13 @@ const PromotionsTabContent = () => {
                   CLAIM BONUS
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+              <DialogContent className="relative bg-brand-charcoal-black-secondary border border-brand-primary-green/30 text-white max-w-md">
+                <button
+                  onClick={() => setIsRegistrationOpen(false)}
+                  className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
                 <DialogHeader>
                   <DialogTitle className="text-brand-primary-green text-xl font-bold text-center">
                     CREATE YOUR ACCOUNT

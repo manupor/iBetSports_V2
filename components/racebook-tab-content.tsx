@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { X } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
@@ -13,7 +14,13 @@ export default function RacebookTabContent() {
 
   const RegistrationModal = () => (
     <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpen}>
-      <DialogContent className="bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white max-w-md mx-auto">
+      <DialogContent className="relative bg-brand-charcoal-black border border-brand-primary-green/30 text-brand-soft-white max-w-md mx-auto">
+        <button
+          onClick={() => setIsRegistrationOpen(false)}
+          className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+        >
+          <X className="w-6 h-6" />
+        </button>
         <DialogHeader>
           <DialogTitle className="text-center text-xl font-black text-brand-soft-white mb-4">
             <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">

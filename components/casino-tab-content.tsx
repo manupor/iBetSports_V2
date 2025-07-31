@@ -25,6 +25,7 @@ import {
   Eye,
   Heart,
   Share2,
+  X,
 } from "lucide-react"
 
 interface CasinoTabContentProps {
@@ -735,7 +736,13 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
 
       {/* Registration Modal */}
       <Dialog open={isRegistrationOpen} onOpenChange={setIsRegistrationOpenInternal}>
-        <DialogContent className="sm:max-w-md bg-brand-charcoal-black-secondary border border-brand-primary-green/30">
+        <DialogContent className="relative sm:max-w-md bg-brand-charcoal-black-secondary border border-brand-primary-green/30">
+          <button
+            onClick={() => setIsRegistrationOpenInternal(false)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-brand-soft-white text-center">
               Create Your Account
