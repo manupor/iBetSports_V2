@@ -4,9 +4,11 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
-export default function RacebookTabContent() {
-  const registrationUrl = "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
+interface RacebookTabContentProps {
+  setIsRegistrationOpen?: () => void
+}
 
+export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTabContentProps) {
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
       {/* Hero Section */}
@@ -36,12 +38,10 @@ export default function RacebookTabContent() {
                 Stay ahead of the pack with live odds, fast results, and daily race coverage.
               </p>
               <Button
-                asChild
+                onClick={setIsRegistrationOpen}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                  START BETTING
-                </a>
+                START BETTING
               </Button>
             </div>
           </div>
@@ -68,12 +68,10 @@ export default function RacebookTabContent() {
                 Stay ahead of the pack with live odds, fast results, and daily race coverage.
               </p>
               <Button
-                asChild
+                onClick={setIsRegistrationOpen}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                  START BETTING
-                </a>
+                START BETTING
               </Button>
             </div>
           </div>
@@ -111,12 +109,10 @@ export default function RacebookTabContent() {
                     <p className="text-brand-primary-green font-semibold">Next: {track.nextRace}</p>
                   </div>
                   <Button
-                    asChild
+                    onClick={setIsRegistrationOpen}
                     className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300"
                   >
-                    <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                      VIEW RACES
-                    </a>
+                    VIEW RACES
                   </Button>
                 </div>
               </Card>
@@ -153,12 +149,10 @@ export default function RacebookTabContent() {
               </div>
               <div className="flex items-center justify-center">
                 <Button
-                  asChild
+                  onClick={setIsRegistrationOpen}
                   className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-12 py-4 text-xl rounded-lg transition-all duration-300"
                 >
-                  <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                    BET NOW
-                  </a>
+                  BET NOW
                 </Button>
               </div>
             </div>

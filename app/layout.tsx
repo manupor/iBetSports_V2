@@ -26,9 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
-      <body className={cn("min-h-screen bg-background font-poppins antialiased")}>
+      <body className={cn("min-h-screen bg-background font-poppins antialiased w-full")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
+          <div className="w-full">{children}</div>
           <Toaster />
         </ThemeProvider>
         <script src="https://images.betimages.com/Betslip/js/quickmail.login.js" defer></script>

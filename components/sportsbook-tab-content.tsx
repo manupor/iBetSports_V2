@@ -4,9 +4,11 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
-export default function SportsbookTabContent() {
-  const registrationUrl = "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
+interface SportsbookTabContentProps {
+  setIsRegistrationOpen?: () => void
+}
 
+export default function SportsbookTabContent({ setIsRegistrationOpen }: SportsbookTabContentProps) {
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
       {/* Hero Section */}
@@ -36,12 +38,10 @@ export default function SportsbookTabContent() {
                 From NFL to NBA, MLB to NHL—every game, every bet, every win starts here.
               </p>
               <Button
-                asChild
+                onClick={setIsRegistrationOpen}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                  START BETTING
-                </a>
+                START BETTING
               </Button>
             </div>
           </div>
@@ -68,12 +68,10 @@ export default function SportsbookTabContent() {
                 From NFL to NBA, MLB to NHL—every game, every bet, every win starts here.
               </p>
               <Button
-                asChild
+                onClick={setIsRegistrationOpen}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
-                <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                  START BETTING
-                </a>
+                START BETTING
               </Button>
             </div>
           </div>
@@ -109,12 +107,10 @@ export default function SportsbookTabContent() {
                   <h3 className="text-lg font-bold text-brand-soft-white">{sport.name}</h3>
                   <p className="text-sm text-brand-smoke-gray">{sport.games}</p>
                   <Button
-                    asChild
+                    onClick={setIsRegistrationOpen}
                     className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300"
                   >
-                    <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                      BET NOW
-                    </a>
+                    BET NOW
                   </Button>
                 </div>
               </Card>
@@ -164,12 +160,10 @@ export default function SportsbookTabContent() {
                     </span>
                   </div>
                   <Button
-                    asChild
+                    onClick={setIsRegistrationOpen}
                     className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300"
                   >
-                    <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                      PLACE BET
-                    </a>
+                    PLACE BET
                   </Button>
                 </div>
               </Card>
@@ -186,20 +180,16 @@ export default function SportsbookTabContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              asChild
+              onClick={setIsRegistrationOpen}
               className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg"
             >
-              <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                Join Now
-              </a>
+              Join Now
             </Button>
             <Button
-              asChild
+              onClick={setIsRegistrationOpen}
               className="bg-transparent border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black font-bold px-8 py-3 text-lg"
             >
-              <a href={registrationUrl} target="_blank" rel="noopener noreferrer">
-                Sign Up & Bet
-              </a>
+              Sign Up & Bet
             </Button>
           </div>
         </section>

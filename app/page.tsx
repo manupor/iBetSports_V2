@@ -13,20 +13,17 @@ import RacebookTabContent from "@/components/racebook-tab-content"
 import LiveCasinoTabContent from "@/components/live-casino-content"
 import BankingTabContent from "@/components/banking-tab-content"
 import PromotionsTabContent from "@/components/promotions-tab-content"
+import { X } from "lucide-react"
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home")
-  const signupUrl = "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
-
-  const openSignupPage = () => {
-    window.open(signupUrl, "_blank", "noopener,noreferrer")
-  }
+  const [showSignup, setShowSignup] = useState(false)
 
   return (
-    <div className="min-h-screen bg-brand-charcoal-black font-poppins">
-      <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+    <div className="min-h-screen bg-brand-charcoal-black font-poppins w-full">
+      <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} onSignUpClick={() => setShowSignup(true)} />
 
-      <main className="flex-1 transition-all duration-300">
+      <main className="flex-1 transition-all duration-300 w-full">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="hidden">
             <TabsTrigger value="home">Home</TabsTrigger>
@@ -39,46 +36,65 @@ export default function HomePage() {
           </TabsList>
 
           <TabsContent value="home" className="mt-0">
-            <CasinoContent setActiveTab={setActiveTab} signupUrl={signupUrl} />
+            <CasinoContent setActiveTab={setActiveTab} onSignUpClick={() => setShowSignup(true)} />
           </TabsContent>
 
           <TabsContent value="casino" className="mt-0">
-            <CasinoTabContent setIsRegistrationOpen={openSignupPage} />
+            <CasinoTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
           </TabsContent>
 
           <TabsContent value="sports" className="mt-0">
-            <SportsbookTabContent setIsRegistrationOpen={openSignupPage} />
+            <SportsbookTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
           </TabsContent>
 
           <TabsContent value="racebook" className="mt-0">
-            <RacebookTabContent setIsRegistrationOpen={openSignupPage} />
+            <RacebookTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
           </TabsContent>
 
           <TabsContent value="live-casino" className="mt-0">
-            <LiveCasinoTabContent setIsRegistrationOpen={openSignupPage} />
+            <LiveCasinoTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
           </TabsContent>
 
           <TabsContent value="banking" className="mt-0">
-            <BankingTabContent setIsRegistrationOpen={openSignupPage} />
+            <BankingTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
           </TabsContent>
 
           <TabsContent value="promotions" className="mt-0">
-            <PromotionsTabContent setIsRegistrationOpen={openSignupPage} />
+            <PromotionsTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
           </TabsContent>
         </Tabs>
       </main>
 
       <Footer />
+
+      {/* Sign Up Iframe Modal */}
+      {showSignup && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-6xl h-[80vh] bg-white rounded-lg overflow-hidden">
+            <button
+              onClick={() => setShowSignup(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors duration-200"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <iframe
+              src="https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
+              className="w-full h-full border-0"
+              title="Sign Up"
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
 function CasinoContent({
   setActiveTab,
-  signupUrl,
+  onSignUpClick,
 }: {
   setActiveTab: (tab: string) => void
-  signupUrl: string
+  onSignUpClick: () => void
 }) {
   const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
 
@@ -120,37 +136,35 @@ function CasinoContent({
   ]
 
   return (
-    <div className="font-poppins bg-black">
+    <div className="font-poppins bg-black w-full">
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden bg-black">
           {/* Text Overlay - Left Side */}
           <div className="absolute inset-0 flex items-center justify-between px-3 sm:px-4 z-20">
-            <div className="text-left space-y-2 sm:space-y-3 max-w-[45%] sm:max-w-[50%]">
+            <div className="text-left space-y-4 max-w-[45%] sm:max-w-[50%]">
               <div className="flex items-center space-x-2 sm:space-x-3 border-white border-2 rounded-xl mx-0 px-2">
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight my-0 mt-1.5">
+                <span className="text-5xl md:text-7xl font-black text-white leading-none tracking-tight my-0 mt-1.5">
                   125%
                 </span>
-                <span className="text-xl sm:text-2xl md:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight lg:text-4xl">
+                <span className="text-2xl md:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
                   SIGN UP BONUS
                 </span>
               </div>
-              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight tracking-tight">
+              <div className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight">
                 QUICK PAYOUTS
               </div>
-              <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white leading-tight tracking-tight mb-3 sm:mb-4">
+              <div className="text-2xl md:text-3xl font-semibold text-white leading-tight tracking-tight mb-3 sm:mb-4">
                 Bet Smarter, Win Bigger
               </div>
-              <a
-                href={signupUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={onSignUpClick}
                 className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[180px] sm:max-w-[220px] md:max-w-[260px] mb-4 inline-flex items-center justify-center"
               >
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
-              </a>
+              </button>
             </div>
 
             {/* Crypto Bonus Section - Right Side */}
@@ -263,26 +277,24 @@ function CasinoContent({
             <div className="absolute inset-0 flex flex-col items-start justify-center px-4 text-left space-y-4 z-20">
               <div className="bg-black/60 backdrop-blur-sm rounded-2xl p-6 space-y-4 max-w-[60%]">
                 <div className="flex items-center justify-center space-x-2 border-white border-2 rounded-xl mx-auto px-3 py-2 max-w-fit">
-                  <span className="text-3xl font-black text-white leading-none tracking-tight">125%</span>
-                  <span className="text-lg font-black text-brand-golden-yellow leading-none tracking-tight">
+                  <span className="text-5xl md:text-7xl font-black text-white leading-none tracking-tight">125%</span>
+                  <span className="text-2xl md:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
                     SIGN UP BONUS
                   </span>
                 </div>
-                <div className="text-xl font-bold text-white leading-tight tracking-tight text-center">
+                <div className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight text-center">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-lg font-semibold text-white leading-tight tracking-tight mb-4 text-center">
+                <div className="text-2xl md:text-3xl font-semibold text-white leading-tight tracking-tight mb-4 text-center">
                   Bet Smarter, Win Bigger
                 </div>
-                <a
-                  href={signupUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={onSignUpClick}
                   className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-4 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[200px] mx-auto inline-flex items-center justify-center"
                 >
                   <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
-                </a>
+                </button>
               </div>
             </div>
 
@@ -315,8 +327,8 @@ function CasinoContent({
       </section>
 
       {/* Promotions Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10 w-full">
+        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
           {/* Header */}
           <div className="text-center mb-4 sm:mb-6 md:mb-8 mt-2 sm:mt-4">
             <h2 className="font-black text-brand-soft-white mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
@@ -451,8 +463,8 @@ function CasinoContent({
       </section>
 
       {/* Gaming Options Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10 w-full">
+        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
@@ -466,63 +478,21 @@ function CasinoContent({
           </div>
 
           {/* Updated Gaming Options Section - Responsive Grid */}
-          {(() => {
-            const games = [
-              { name: "Fizzy Pennyslot", image: "/images/Fizzy-Pennyslot.jpg" },
-              { name: "Golden Catch", image: "/images/Golden-Catch.jpg" },
-              { name: "Max Megaways 2", image: "/images/Max-Megaways-2.jpg" },
-              { name: "Gifts of Fortune", image: "/images/Gifts-of-Fortune.jpg" },
-              { name: "Kingmaker Fully Loaded", image: "/images/Kingmaker-Fully-Loaded.jpg" },
-              { name: "Castle of Terror", image: "/images/Castle-of-Terror.jpg" },
-              { name: "Danger High Voltage", image: "/images/Danger-High-Voltage.jpg" },
-              { name: "Chocolates", image: "/images/Chocolates.jpg" },
-              { name: "Big Bad Bison", image: "/images/Big-Bad-Bison.jpg" },
-              { name: "Mega Fortune", image: "/images/slot-mega-fortune.avif" },
-              { name: "Cash Quest", image: "/images/cash-quest.jpg" },
-              { name: "Coins 96%", image: "/images/coins-96.jpg" },
-              { name: "Coins 88%", image: "/images/coins-88.jpg" },
-              { name: "Bouncy Bombs", image: "/images/bouncy-bombs.jpg" },
-              { name: "Coins 98%", image: "/images/coins-98.jpg" },
-              { name: "Wild Mustang", image: "/images/wild-mustang.jpg" },
-            ]
-
-            return (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
-                {games.map((game, index) => (
-                  <div
-                    key={index}
-                    className={`bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary-green/20 rounded-lg sm:rounded-xl overflow-hidden group flex flex-col ${index === 15 ? "block sm:hidden" : ""}`}
-                  >
-                    <div className="relative w-full aspect-[3/4] overflow-hidden">
-                      <Image
-                        src={game.image || "/placeholder.svg"}
-                        alt={game.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        priority={index < 15}
-                      />
-                    </div>
-                    <div className="p-1.5 sm:p-2 md:p-3">
-                      <a
-                        href={signupUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-1.5 sm:py-2 md:py-2.5 px-1 sm:px-2 md:px-3 text-xs sm:text-sm md:text-base lg:text-lg rounded-md sm:rounded-lg transition-colors duration-300 inline-flex items-center justify-center"
-                      >
-                        PLAY NOW
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )
-          })()}
+          <div className="w-full max-w-6xl mx-auto">
+            <div className="relative w-full h-[80vh] bg-white rounded-lg overflow-hidden shadow-2xl">
+              <iframe
+                src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_COM"
+                className="w-full h-full border-0"
+                title="Casino Games"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Recent Bets Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10 w-full">
+        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">

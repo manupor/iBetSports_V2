@@ -6,23 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  Play,
-  Search,
-  Filter,
-  LayoutGrid,
-  List,
-  Star,
-  TrendingUp,
-  Clock,
-  Zap,
-  Crown,
-  Gem,
-  Eye,
-  Heart,
-  Share2,
-} from "lucide-react"
+import { Play, Search, Filter, LayoutGrid, List, Star, Zap, Crown, Eye, Heart, Share2 } from "lucide-react"
 
 interface CasinoTabContentProps {
   setIsRegistrationOpen?: (open: boolean) => void
@@ -557,175 +541,15 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
-        <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-          {/* Category Tabs */}
-          <div className="overflow-x-auto pb-2 -mx-4 px-4">
-            <TabsList className="grid min-w-[640px] w-full grid-cols-7 bg-brand-charcoal-black-secondary mb-4 md:mb-8 py-3 md:py-3.5">
-              {categories.map((category) => (
-                <TabsTrigger
-                  key={category.id}
-                  value={category.id}
-                  className="data-[state=active]:bg-brand-primary-green data-[state=active]:text-brand-charcoal-black text-brand-soft-white text-xs md:text-sm whitespace-nowrap"
-                >
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold">{category.name}</span>
-                    <span className="text-xs opacity-70">({category.count})</span>
-                  </div>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+        <div className="w-full max-w-6xl mx-auto">
+          <div className="relative w-full h-[80vh] bg-white rounded-lg overflow-hidden shadow-2xl">
+            <iframe
+              src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_COM"
+              className="w-full h-full border-0"
+              title="Casino Games"
+            />
           </div>
-
-          {/* Featured Games */}
-          <TabsContent value="all" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 md:mb-6 mt-2 sm:mt-4">
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  Featured Games
-                </h2>
-                <div className="mt-2 sm:mt-0">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="text-xs sm:text-sm border-brand-primary-green/50 text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
-                  >
-                    View All
-                  </Button>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {featuredGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* All Games */}
-          <TabsContent value="all" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white">
-                  All Games ({filteredGames.length})
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {filteredGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Slots */}
-          <TabsContent value="slots" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 md:mb-6 mt-2 sm:mt-4">
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Gem className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  Slot Games
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {slotGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Table Games */}
-          <TabsContent value="table" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Crown className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  Table Games
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {tableGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Live Casino */}
-          <TabsContent value="live" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Zap className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  Live Casino
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {liveGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Jackpot Games */}
-          <TabsContent value="jackpot" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Crown className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  Jackpot Games
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {featuredGames
-                  .filter((game) => game.jackpot)
-                  .map((game) => (
-                    <GameCard key={game.id} game={game} />
-                  ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* New Games */}
-          <TabsContent value="new" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <Clock className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  New Games
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {allGames
-                  .filter((game) => game.isNew)
-                  .map((game) => (
-                    <GameCard key={game.id} game={game} />
-                  ))}
-              </div>
-            </div>
-          </TabsContent>
-
-          {/* Popular Games */}
-          <TabsContent value="popular" className="space-y-4 sm:space-y-6 md:space-y-8 mt-2 sm:mt-4 md:mt-6">
-            <div>
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-soft-white flex items-center">
-                  <TrendingUp className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-brand-primary-green" />
-                  Popular Games
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                {allGames
-                  .filter((game) => game.isHot)
-                  .map((game) => (
-                    <GameCard key={game.id} game={game} />
-                  ))}
-              </div>
-            </div>
-          </TabsContent>
-        </Tabs>
+        </div>
       </div>
     </div>
   )
