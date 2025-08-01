@@ -304,7 +304,7 @@ function CasinoContent({
             {/* Mobile Hero Text - Over Image */}
             <div className="absolute inset-0 flex flex-col items-start justify-center px-3 xs:px-4 sm:px-6 text-left space-y-3 xs:space-y-4 z-30">
               <div className="bg-black/70 backdrop-blur-sm rounded-xl xs:rounded-2xl p-3 xs:p-4 sm:p-6 space-y-3 xs:space-y-4 max-w-[55%] xs:max-w-[60%] sm:max-w-[65%]">
-                <div className="flex items-center justify-center space-x-1 xs:space-x-2 border-white border-2 rounded-lg xs:rounded-xl mx-auto px-2 xs:px-3 py-1 xs:py-2 max-w-fit">
+                <div className="flex items-center justify-start space-x-1 xs:space-x-2 border-white border-2 rounded-lg xs:rounded-xl px-2 xs:px-3 py-1 xs:py-2 max-w-fit">
                   <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-white leading-none tracking-tight">
                     125%
                   </span>
@@ -312,19 +312,21 @@ function CasinoContent({
                     SIGN UP BONUS
                   </span>
                 </div>
-                <div className="text-sm xs:text-base sm:text-lg font-bold text-white leading-tight tracking-tight text-center">
+                <div className="text-sm xs:text-base sm:text-lg font-bold text-white leading-tight tracking-tight text-left">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-sm xs:text-base sm:text-lg font-semibold text-white leading-tight tracking-tight mb-3 xs:mb-4 text-center">
+                <div className="text-sm xs:text-base sm:text-lg font-semibold text-white leading-tight tracking-tight mb-3 xs:mb-4 text-left">
                   Bet Smarter, Win Bigger
                 </div>
-                <button
-                  onClick={onSignUpClick}
-                  className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 xs:px-6 sm:px-8 py-2 xs:py-3 sm:py-4 text-sm xs:text-base sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] xs:max-w-[160px] sm:max-w-[200px] mx-auto inline-flex items-center justify-center"
-                >
-                  <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
-                </button>
+                <div className="flex justify-start w-full">
+                  <button
+                    onClick={onSignUpClick}
+                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 xs:px-6 sm:px-8 py-2 xs:py-3 sm:py-4 text-sm xs:text-base sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] xs:max-w-[160px] sm:max-w-[200px] inline-flex items-center justify-center"
+                  >
+                    <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
+                  </button>
+                </div>
               </div>
             </div>
 
