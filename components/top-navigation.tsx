@@ -10,6 +10,7 @@ interface TopNavigationProps {
   setActiveTab?: (tab: string) => void
   showTabs?: boolean
   onSignUpClick?: () => void
+  onLoginClick?: () => void
 }
 
 export function TopNavigation({
@@ -17,9 +18,9 @@ export function TopNavigation({
   setActiveTab,
   showTabs = true,
   onSignUpClick,
+  onLoginClick,
 }: TopNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [showLoginIframe, setShowLoginIframe] = useState(false)
 
   const tabs = [
     { id: "casino", label: "Casino" },
@@ -59,7 +60,7 @@ export function TopNavigation({
                   variant="outline"
                   size="default"
                   className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-6 py-3 h-12 bg-transparent"
-                  onClick={() => setShowLoginIframe(true)}
+                  onClick={onLoginClick}
                 >
                   <User className="w-4 h-4 mr-2" />
                   Login
@@ -80,7 +81,7 @@ export function TopNavigation({
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setShowLoginIframe(true)}
+                  onClick={onLoginClick}
                   className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-2 bg-transparent text-sm"
                 >
                   Login
@@ -101,7 +102,7 @@ export function TopNavigation({
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setShowLoginIframe(true)}
+                  onClick={onLoginClick}
                   className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-3 py-1.5 bg-transparent text-xs"
                 >
                   Login
@@ -203,24 +204,6 @@ export function TopNavigation({
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      )}
-      {/* Login Iframe Modal */}
-      {showLoginIframe && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-          <div className="relative w-full max-w-6xl h-[80vh] bg-white rounded-lg overflow-hidden">
-            <button
-              onClick={() => setShowLoginIframe(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors duration-200"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <iframe
-              src="https://login.gamemecanica.net/?casinoClient=I_BET_SPORTS_COM"
-              className="w-full h-full border-0"
-              title="Login"
-            />
           </div>
         </div>
       )}

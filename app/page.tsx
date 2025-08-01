@@ -18,10 +18,16 @@ import { X } from "lucide-react"
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("home")
   const [showSignup, setShowSignup] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins w-full">
-      <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} onSignUpClick={() => setShowSignup(true)} />
+      <TopNavigation
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        onSignUpClick={() => setShowSignup(true)}
+        onLoginClick={() => setShowLogin(true)}
+      />
 
       <main className="flex-1 transition-all duration-300 w-full">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -82,6 +88,21 @@ export default function HomePage() {
               className="w-full h-full border-0"
               title="Sign Up"
             />
+          </div>
+        </div>
+      )}
+
+      {/* Login Iframe Modal */}
+      {showLogin && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-6xl h-[80vh] bg-white rounded-lg overflow-hidden">
+            <button
+              onClick={() => setShowLogin(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors duration-200"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <iframe src="https://betslip.ibetsports.ag/login" className="w-full h-full border-0" title="Login" />
           </div>
         </div>
       )}
