@@ -163,7 +163,7 @@ function CasinoContent({
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-[45vh] md:h-[50vh] lg:h-[55vh] xl:h-[60vh] 2xl:h-[65vh] 3xl:h-[70vh] overflow-hidden bg-black">
           {/* Text Overlay - Horizontal Layout */}
-          <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 3xl:px-20 z-20 pt-16 md:pt-18 lg:pt-20 xl:pt-22 2xl:pt-24 3xl:pt-26">
+          <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 3xl:px-20 z-20">
             {/* Left Side - Main Content */}
             <div className="flex flex-col items-start text-left space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7 2xl:space-y-8 3xl:space-y-10 max-w-[45%] md:max-w-[48%] lg:max-w-[50%] xl:max-w-[52%] 2xl:max-w-[55%]">
               {/* Main Sign Up Bonus */}
@@ -198,12 +198,16 @@ function CasinoContent({
 
             {/* Right Side - Crypto Bonus */}
             <div className="flex flex-col items-end text-right space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7 2xl:space-y-8 max-w-[35%] md:max-w-[32%] lg:max-w-[30%] xl:max-w-[28%] 2xl:max-w-[25%] z-25">
-              <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 3xl:p-12 text-center space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 2xl:space-y-7 shadow-2xl">
+              <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-xl md:rounded-2xl lg:rounded-3xl p-3 md:p-4 lg:p-4 xl:p-5 2xl:p-6 3xl:p-7 text-center space-y-2 md:space-y-2 lg:space-y-3 xl:space-y-3 2xl:space-y-4 shadow-2xl">
                 <div className="flex items-center justify-center space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 2xl:space-x-7">
-                  <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 2xl:w-20 2xl:h-20 3xl:w-24 3xl:h-24 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-black">
-                      ₿
-                    </span>
+                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 3xl:w-48 3xl:h-48 flex items-center justify-center shadow-lg shadow-black/50">
+                    <Image
+                      src="/images/bitcoin.png"
+                      alt="Bitcoin"
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div className="text-center">
                     <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-black leading-none tracking-tight text-white">
@@ -236,7 +240,7 @@ function CasinoContent({
           </div>
 
           {/* Hero Image - NFL Player on Right Side */}
-          <div className="absolute bottom-0 right-[8%] md:right-[10%] lg:right-[12%] xl:right-[15%] 2xl:right-[18%] 3xl:right-[20%] w-[45%] md:w-[48%] lg:w-[50%] xl:w-[52%] 2xl:w-[55%] 3xl:w-[58%] h-[85%] md:h-[88%] lg:h-[90%] xl:h-[92%] 2xl:h-[95%] 3xl:h-[98%] z-15">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[45%] md:w-[48%] lg:w-[50%] xl:w-[52%] 2xl:w-[55%] 3xl:w-[58%] h-[85%] md:h-[88%] lg:h-[90%] xl:h-[92%] 2xl:h-[95%] 3xl:h-[98%] z-15">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
               alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -364,8 +368,14 @@ function CasinoContent({
             <div className="relative w-fit mx-auto h-14 xs:h-16 sm:h-18 bg-black/60 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl xs:rounded-2xl shadow-2xl overflow-hidden">
               <div className="flex items-center h-full px-4 xs:px-6 sm:px-8">
                 <div className="flex items-center space-x-2 xs:space-x-3">
-                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-sm xs:text-base sm:text-lg text-black">₿</span>
+                  <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 flex items-center justify-center shadow-lg shadow-black/50">
+                    <Image
+                      src="/images/bitcoin.png"
+                      alt="Bitcoin"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <span className="text-base xs:text-lg sm:text-xl font-black leading-none tracking-tight text-white">
                     CRYPTO BONUS
@@ -449,7 +459,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:w-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <span className="text-brand-vibrant-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       %
                     </span>

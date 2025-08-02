@@ -1,7 +1,19 @@
 "use client"
 import { useState } from "react"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { Menu, X, User, Wallet, Bell } from "lucide-react"
+import {
+  MenuIcon,
+  DoorClosedIcon as CloseIcon,
+  UserIcon,
+  WalletIcon,
+  BellIcon,
+  Dice6,
+  Trophy,
+  DogIcon as Horse,
+  Video,
+  CreditCard,
+  Gift,
+} from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
@@ -23,12 +35,12 @@ export function TopNavigation({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const tabs = [
-    { id: "casino", label: "Casino" },
-    { id: "sports", label: "Sports" },
-    { id: "racebook", label: "Racebook" },
-    { id: "live-casino", label: "Live Casino" },
-    { id: "banking", label: "Banking" },
-    { id: "promotions", label: "Promotions" },
+    { id: "casino", label: "Casino", icon: Dice6 },
+    { id: "sports", label: "Sports", icon: Trophy },
+    { id: "racebook", label: "Racebook", icon: Horse },
+    { id: "live-casino", label: "Live Casino", icon: Video },
+    { id: "banking", label: "Banking", icon: CreditCard },
+    { id: "promotions", label: "Promotions", icon: Gift },
   ]
 
   const handleTabChange = (tabId: string) => {
@@ -62,14 +74,14 @@ export function TopNavigation({
                   className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 bg-transparent text-sm xl:text-base"
                   onClick={onLoginClick}
                 >
-                  <User className="w-3 h-3 xl:w-4 xl:h-4 mr-1 xl:mr-2" />
+                  <UserIcon className="w-3 h-3 xl:w-4 xl:h-4 mr-1 xl:mr-2" />
                   Login
                 </Button>
                 <Button
                   onClick={onSignUpClick}
                   className={cn(
                     buttonVariants({ size: "default" }),
-                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 text-sm xl:text-base",
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 text-sm xl:text-base animate-pulse",
                   )}
                 >
                   Sign Up
@@ -80,17 +92,17 @@ export function TopNavigation({
               <div className="hidden md:flex lg:hidden items-center space-x-2 xl:space-x-3">
                 <Button
                   variant="outline"
-                  size="sm"
+                  size="default"
                   onClick={onLoginClick}
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-2 xl:px-3 py-1.5 xl:py-2 bg-transparent text-xs xl:text-sm"
+                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 xl:px-6 py-2 xl:py-3 bg-transparent text-sm xl:text-base"
                 >
                   Login
                 </Button>
                 <Button
                   onClick={onSignUpClick}
                   className={cn(
-                    buttonVariants({ size: "sm" }),
-                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 xl:px-3 py-1.5 xl:py-2 text-xs xl:text-sm",
+                    buttonVariants({ size: "default" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base",
                   )}
                 >
                   Sign Up
@@ -123,9 +135,9 @@ export function TopNavigation({
                   className="text-brand-soft-white hover:text-brand-primary-green p-1.5 xs:p-2 ml-1 xs:ml-2"
                 >
                   {isMobileMenuOpen ? (
-                    <X className="w-4 h-4 xs:w-5 xs:h-5" />
+                    <CloseIcon className="w-4 h-4 xs:w-5 xs:h-5" />
                   ) : (
-                    <Menu className="w-4 h-4 xs:w-5 xs:h-5" />
+                    <MenuIcon className="w-4 h-4 xs:w-5 xs:h-5" />
                   )}
                 </Button>
               </div>
@@ -139,19 +151,23 @@ export function TopNavigation({
             <div className="w-full px-3 xs:px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-center">
                 <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => handleTabChange(tab.id)}
-                      className={`px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
-                        activeTab === tab.id
-                          ? "text-brand-primary-green border-brand-primary-green"
-                          : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
+                  {tabs.map((tab) => {
+                    const IconComponent = tab.icon
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => handleTabChange(tab.id)}
+                        className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 ${
+                          activeTab === tab.id
+                            ? "text-brand-primary-green border-brand-primary-green"
+                            : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
+                        }`}
+                      >
+                        <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                        <span>{tab.label}</span>
+                      </button>
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -191,14 +207,14 @@ export function TopNavigation({
                   variant="ghost"
                   className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
                 >
-                  <Bell className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
+                  <BellIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
                   Notifications
                 </Button>
                 <Button
                   variant="ghost"
                   className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
                 >
-                  <Wallet className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
+                  <WalletIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
                   Balance: $0.00
                 </Button>
               </div>
