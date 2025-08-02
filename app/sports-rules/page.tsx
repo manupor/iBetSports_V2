@@ -1,7 +1,7 @@
 "use client"
 
 import { TopNavigation } from "@/components/top-navigation"
-import { Shield, Clock, AlertTriangle, Trophy, FileText, Users } from "lucide-react"
+import { Shield, Clock, AlertTriangle, Trophy, FileText, Users, Phone, Mail, MessageCircle } from "lucide-react"
 import { Footer } from "@/components/footer"
 
 export default function SportsRulesPage() {
@@ -261,6 +261,38 @@ export default function SportsRulesPage() {
                   <span>Voided if player doesn't participate</span>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Contact Support */}
+          <div className="bg-gradient-to-r from-brand-primary-green/10 to-brand-accent-orange/10 rounded-lg p-6 sm:p-8 border border-brand-primary-green/20">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-brand-soft-white mb-2">
+                Need Clarification on Sports Rules?
+              </h2>
+              <p className="text-brand-smoke-gray">
+                Our support team is available 24/7 to help with any questions about sports betting rules
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-4">
+              <div className="bg-brand-charcoal-black-secondary rounded-lg p-4 text-center border border-brand-smoke-gray/20">
+                <MessageCircle className="w-8 h-8 text-brand-primary-green mx-auto mb-2" />
+                <h3 className="font-bold text-brand-soft-white mb-1">Live Chat</h3>
+                <p className="text-sm text-brand-smoke-gray">Available 24/7</p>
+              </div>
+
+              <div className="bg-brand-charcoal-black-secondary rounded-lg p-4 text-center border border-brand-smoke-gray/20">
+                <Mail className="w-8 h-8 text-brand-accent-orange mx-auto mb-2" />
+                <h3 className="font-bold text-brand-soft-white mb-1">Email Support</h3>
+                <p className="text-sm text-brand-smoke-gray">support@ibetsports.ag</p>
+              </div>
+
+              <div className="bg-brand-charcoal-black-secondary rounded-lg p-4 text-center border border-brand-smoke-gray/20">
+                <Phone className="w-8 h-8 text-brand-primary-green mx-auto mb-2" />
+                <h3 className="font-bold text-brand-soft-white mb-1">Phone Support</h3>
+                <p className="text-sm text-brand-smoke-gray">1-800-IBET-SPORTS</p>
+              </div>
             </div>
           </div>
         </div>

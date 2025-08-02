@@ -163,25 +163,25 @@ function CasinoContent({
         {/* Desktop Hero */}
         <div className="hidden md:block relative w-full h-[45vh] md:h-[50vh] lg:h-[55vh] xl:h-[60vh] 2xl:h-[65vh] 3xl:h-[70vh] overflow-hidden bg-black">
           {/* Text Overlay - Horizontal Layout */}
-          <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 3xl:px-20 z-20 pt-16 md:pt-18 lg:pt-20 xl:pt-22 2xl:pt-24 3xl:pt-26">
+          <div className="absolute inset-0 flex items-center justify-between px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 2xl:px-12 3xl:px-16 z-20 pt-12 sm:pt-14 md:pt-16 lg:pt-18 xl:pt-20 2xl:pt-22 3xl:pt-24">
             {/* Left Side - Main Content */}
-            <div className="flex flex-col items-start text-left space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7 2xl:space-y-8 3xl:space-y-10 max-w-[45%] md:max-w-[48%] lg:max-w-[50%] xl:max-w-[52%] 2xl:max-w-[55%]">
+            <div className="flex flex-col items-start text-left space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 2xl:space-y-7 3xl:space-y-8 max-w-[45%] sm:max-w-[47%] md:max-w-[48%] lg:max-w-[50%] xl:max-w-[52%] 2xl:max-w-[54%]">
               {/* Main Sign Up Bonus */}
-              <div className="flex items-center space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 2xl:space-x-7 3xl:space-x-8 border-white border-2 md:border-3 rounded-2xl md:rounded-3xl lg:rounded-4xl px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 3xl:px-14 py-2 md:py-3 lg:py-4 xl:py-5 2xl:py-6 3xl:py-7 bg-black/40 backdrop-blur-sm shadow-2xl">
-                <span className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl font-black text-white leading-none tracking-tight">
+              <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 2xl:space-x-7 border-white border-2 md:border-3 rounded-xl sm:rounded-2xl md:rounded-3xl px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-5 2xl:py-6 bg-black/40 backdrop-blur-sm shadow-2xl">
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-black text-white leading-none tracking-tight">
                   125%
                 </span>
-                <span className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
                   SIGN UP BONUS
                 </span>
               </div>
 
               {/* Supporting Text */}
-              <div className="space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 2xl:space-y-6">
-                <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-bold text-white leading-tight tracking-tight">
+              <div className="space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-bold text-white leading-tight tracking-tight">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-white leading-tight tracking-tight">
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-white leading-tight tracking-tight">
                   Bet Smarter, Win Bigger
                 </div>
               </div>
@@ -189,7 +189,7 @@ function CasinoContent({
               {/* Call to Action Button */}
               <button
                 onClick={onSignUpClick}
-                className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 3xl:px-24 py-4 md:py-5 lg:py-6 xl:py-7 2xl:py-8 3xl:py-10 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 md:border-3 border-white/30 inline-flex items-center justify-center"
+                className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-2 sm:py-3 md:py-4 lg:py-5 xl:py-6 2xl:py-7 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 md:border-3 border-white/30 inline-flex items-center justify-center"
               >
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
@@ -197,20 +197,20 @@ function CasinoContent({
             </div>
 
             {/* Right Side - Crypto Bonus */}
-            <div className="flex flex-col items-end text-right space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7 2xl:space-y-8 max-w-[35%] md:max-w-[32%] lg:max-w-[30%] xl:max-w-[28%] 2xl:max-w-[25%] z-25">
-              <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 3xl:p-12 text-center space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 2xl:space-y-7 shadow-2xl">
-                <div className="flex items-center justify-center space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 2xl:space-x-7">
-                  <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 2xl:w-20 2xl:h-20 3xl:w-24 3xl:h-24 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-black">
+            <div className="flex flex-col items-end text-right space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 max-w-[35%] sm:max-w-[33%] md:max-w-[30%] lg:max-w-[28%] xl:max-w-[26%] 2xl:max-w-[24%] z-25">
+              <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 text-center space-y-2 sm:space-y-3 md:space-y-4 shadow-2xl">
+                <div className="flex items-center justify-center space-x-2 sm:space-x-3 md:space-x-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-18 2xl:h-18 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
+                    <span className="font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-black">
                       ₿
                     </span>
                   </div>
                   <div className="text-center">
-                    <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-black leading-none tracking-tight text-white">
+                    <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-black leading-none tracking-tight text-white">
                       CRYPTO BONUS
                     </div>
                     <div
-                      className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
                       style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
                     >
                       BOOST!
@@ -241,7 +241,7 @@ function CasinoContent({
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
               alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
               width={400}
-              height={300}
+              height={600}
               className="w-full h-full object-contain object-bottom"
               priority
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 45vw, 40vw"
@@ -257,7 +257,7 @@ function CasinoContent({
           <div className="absolute bottom-0 right-0 w-[50%] md:w-[52%] lg:w-[55%] xl:w-[58%] 2xl:w-[60%] 3xl:w-[65%] h-[75%] md:h-[78%] lg:h-[80%] xl:h-[82%] 2xl:h-[85%] 3xl:h-[88%] z-8 overflow-hidden pointer-events-none">
             <div className="absolute inset-0">
               <div className="absolute top-1/4 right-1/4 w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 3xl:w-36 h-16 md:h-20 lg:h-24 xl:h-28 2xl:h-32 3xl:h-36 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
-              <div className="absolute top-1/3 right-1/5 w-14 md:w-16 lg:w-20 xl:w-24 2xl:w-28 3xl:w-32 h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28 3xl:w-32 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+              <div className="absolute top-1/3 right-1/5 w-14 md:w-16 lg:w-20 xl:w-24 2xl:w-28 3xl:w-32 h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28 3xl:h-32 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
               <div className="absolute top-1/2 right-1/3 w-12 md:w-14 lg:w-16 xl:w-20 2xl:w-24 3xl:w-28 h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24 3xl:h-28 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
               <div className="absolute bottom-1/3 right-1/6 w-10 md:w-12 lg:w-14 xl:w-16 2xl:w-20 3xl:w-24 h-10 md:h-12 lg:h-14 xl:h-16 2xl:h-20 3xl:h-24 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
               <div className="absolute top-1/6 right-1/8 w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 3xl:w-40 h-20 md:h-24 lg:h-28 xl:h-32 2xl:h-36 3xl:h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
@@ -274,14 +274,14 @@ function CasinoContent({
         {/* Mobile Hero */}
         <div className="block md:hidden relative w-full bg-black">
           {/* Mobile Hero Image */}
-          <div className="relative w-full h-[50vh] xs:h-[55vh] sm:h-[60vh] overflow-hidden">
+          <div className="relative w-full h-[50vh] xs:h-[55vh] sm:h-[60vh] landscape:h-[85vh] landscape:xs:h-[90vh] landscape:sm:h-[95vh] overflow-hidden">
             {/* Stadium Background Overlay */}
             <div className="absolute inset-0 z-0">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/estadio-de-futbol-vacio-por-la-noche-multitud-viendo-el-juego-bajo-las-luces.jpg-IRMstCEjNsbMbfuOHOqhaOMDwzaQHH.jpeg"
                 alt="Football stadium background"
                 width={400}
-                height={300}
+                height={600}
                 className="w-full h-full object-cover"
                 sizes="100vw"
               />
@@ -290,7 +290,7 @@ function CasinoContent({
 
             {/* Football Player - Positioned on Right */}
             <div
-              className="absolute bottom-0 right-[-5%] z-40 w-[70%] xs:w-[75%] sm:w-[80%] h-[90%] xs:h-[95%] sm:h-[100%] cursor-pointer hover:scale-105 transition-transform duration-300"
+              className="absolute bottom-0 right-[-5%] landscape:right-[-2%] z-40 w-[70%] xs:w-[75%] sm:w-[80%] landscape:w-[50%] landscape:xs:w-[55%] landscape:sm:w-[60%] h-[90%] xs:h-[95%] sm:h-[100%] landscape:h-[85%] landscape:xs:h-[90%] landscape:sm:h-[95%] cursor-pointer hover:scale-105 transition-transform duration-300"
               onClick={onSignUpClick}
             >
               <Image
@@ -304,27 +304,27 @@ function CasinoContent({
               />
               {/* Clickable overlay indicator */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary-green/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 text-white text-xs font-bold opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-black/60 backdrop-blur-sm rounded-full px-2 xs:px-3 py-1 text-white text-xs font-bold opacity-0 hover:opacity-100 transition-opacity duration-300">
                   TAP TO JOIN
                 </div>
               </div>
             </div>
 
             {/* Mobile Hero Text - Over Image */}
-            <div className="absolute inset-0 flex items-center justify-start px-3 xs:px-4 sm:px-6 z-30">
-              <div className="w-[60%] xs:w-[65%] sm:w-[70%] h-full flex items-center">
-                <div className="bg-black/80 backdrop-blur-sm rounded-none h-full w-full flex flex-col items-center justify-center p-3 xs:p-4 sm:p-5 space-y-4 xs:space-y-5 sm:space-y-6">
+            <div className="absolute inset-0 flex items-center justify-start px-2 xs:px-3 sm:px-4 landscape:px-4 landscape:xs:px-6 landscape:sm:px-8 z-30">
+              <div className="w-[60%] xs:w-[65%] sm:w-[70%] landscape:w-[45%] landscape:xs:w-[50%] landscape:sm:w-[55%] h-full flex items-center">
+                <div className="bg-black/80 backdrop-blur-sm rounded-none h-full w-full flex flex-col items-center justify-center p-2 xs:p-3 sm:p-4 landscape:p-3 landscape:xs:p-4 landscape:sm:p-5 space-y-3 xs:space-y-4 sm:space-y-5 landscape:space-y-2 landscape:xs:space-y-3 landscape:sm:space-y-4">
                   {/* Sign Up Bonus Box - Horizontal Layout */}
-                  <div className="bg-black/60 border-2 border-white rounded-2xl xs:rounded-3xl px-4 xs:px-6 sm:px-8 py-3 xs:py-4 sm:py-5 text-center w-full">
-                    <div className="flex items-center justify-center space-x-3 xs:space-x-4">
-                      <span className="text-3xl xs:text-4xl sm:text-5xl font-black text-white leading-none tracking-tight">
+                  <div className="bg-black/60 border-2 border-white rounded-xl xs:rounded-2xl sm:rounded-3xl landscape:rounded-2xl px-3 xs:px-4 sm:px-6 landscape:px-4 landscape:xs:px-5 landscape:sm:px-6 py-2 xs:py-3 sm:py-4 landscape:py-2 landscape:xs:py-3 text-center w-full">
+                    <div className="flex items-center justify-center space-x-2 xs:space-x-3 sm:space-x-4 landscape:space-x-3">
+                      <span className="text-2xl xs:text-3xl sm:text-4xl landscape:text-3xl landscape:xs:text-4xl landscape:sm:text-5xl font-black text-white leading-none tracking-tight">
                         125%
                       </span>
                       <div className="flex flex-col items-start">
-                        <span className="text-lg xs:text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                        <span className="text-sm xs:text-base sm:text-lg landscape:text-base landscape:xs:text-lg landscape:sm:text-xl font-black text-brand-golden-yellow leading-none tracking-tight">
                           SIGN UP
                         </span>
-                        <span className="text-lg xs:text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                        <span className="text-sm xs:text-base sm:text-lg landscape:text-base landscape:xs:text-lg landscape:sm:text-xl font-black text-brand-golden-yellow leading-none tracking-tight">
                           BONUS
                         </span>
                       </div>
@@ -332,11 +332,11 @@ function CasinoContent({
                   </div>
 
                   {/* Supporting Text */}
-                  <div className="space-y-2 xs:space-y-3 text-center">
-                    <div className="text-xl xs:text-2xl sm:text-3xl font-black text-white leading-tight tracking-tight">
+                  <div className="space-y-1 xs:space-y-2 sm:space-y-3 landscape:space-y-1 landscape:xs:space-y-2 text-center">
+                    <div className="text-lg xs:text-xl sm:text-2xl landscape:text-xl landscape:xs:text-2xl landscape:sm:text-3xl font-black text-white leading-tight tracking-tight">
                       QUICK PAYOUTS
                     </div>
-                    <div className="text-lg xs:text-xl sm:text-2xl font-semibold text-white leading-tight tracking-tight">
+                    <div className="text-base xs:text-lg sm:text-xl landscape:text-lg landscape:xs:text-xl landscape:sm:text-2xl font-semibold text-white leading-tight tracking-tight">
                       Bet Smarter, Win Bigger
                     </div>
                   </div>
@@ -344,7 +344,7 @@ function CasinoContent({
                   {/* Call to Action Button */}
                   <button
                     onClick={onSignUpClick}
-                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 xs:px-10 sm:px-12 py-4 xs:py-5 sm:py-6 text-xl xs:text-2xl sm:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full inline-flex items-center justify-center"
+                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 xs:px-8 sm:px-10 landscape:px-8 landscape:xs:px-10 landscape:sm:px-12 py-3 xs:py-4 sm:py-5 landscape:py-3 landscape:xs:py-4 landscape:sm:py-5 text-lg xs:text-xl sm:text-2xl landscape:text-xl landscape:xs:text-2xl landscape:sm:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full inline-flex items-center justify-center"
                   >
                     <span className="relative z-10 drop-shadow-lg font-black">JOIN NOW</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
@@ -360,18 +360,20 @@ function CasinoContent({
           </div>
 
           {/* Mobile Crypto Bonus Section - Moving Banner */}
-          <div className="px-3 xs:px-4 sm:px-6 py-2 xs:py-3 bg-black overflow-hidden">
-            <div className="relative w-fit mx-auto h-14 xs:h-16 sm:h-18 bg-black/60 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl xs:rounded-2xl shadow-2xl overflow-hidden">
-              <div className="flex items-center h-full px-4 xs:px-6 sm:px-8">
-                <div className="flex items-center space-x-2 xs:space-x-3">
-                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-sm xs:text-base sm:text-lg text-black">₿</span>
+          <div className="px-2 xs:px-3 sm:px-4 landscape:px-4 landscape:xs:px-6 landscape:sm:px-8 py-2 xs:py-3 landscape:py-2 bg-black overflow-hidden">
+            <div className="relative w-fit mx-auto h-12 xs:h-14 sm:h-16 landscape:h-14 landscape:xs:h-16 landscape:sm:h-18 bg-black/60 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl xs:rounded-2xl shadow-2xl overflow-hidden">
+              <div className="flex items-center h-full px-3 xs:px-4 sm:px-6 landscape:px-4 landscape:xs:px-6 landscape:sm:px-8">
+                <div className="flex items-center space-x-2 xs:space-x-3 landscape:space-x-3">
+                  <div className="w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 landscape:w-8 landscape:h-8 landscape:xs:w-10 landscape:xs:h-10 landscape:sm:w-12 landscape:sm:h-12 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
+                    <span className="font-bold text-xs xs:text-sm sm:text-base landscape:text-sm landscape:xs:text-base landscape:sm:text-lg text-black">
+                      ₿
+                    </span>
                   </div>
-                  <span className="text-base xs:text-lg sm:text-xl font-black leading-none tracking-tight text-white">
+                  <span className="text-sm xs:text-base sm:text-lg landscape:text-base landscape:xs:text-lg landscape:sm:text-xl font-black leading-none tracking-tight text-white">
                     CRYPTO BONUS
                   </span>
                   <span
-                    className="text-sm xs:text-base sm:text-lg font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                    className="text-xs xs:text-sm sm:text-base landscape:text-sm landscape:xs:text-base landscape:sm:text-lg font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
                     style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
                   >
                     BOOST!
@@ -384,135 +386,73 @@ function CasinoContent({
       </section>
 
       {/* Promotions Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10 w-full">
-        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          {/* Header */}
-          <div className="text-center mb-4 sm:mb-6 md:mb-8 mt-2 sm:mt-4">
-            <h2 className="font-black text-brand-soft-white mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+      <section className="py-8 bg-black border-b border-brand-smoke-gray/10 w-full">
+        <div className="w-full px-4 md:px-8">
+          <div className="text-center mb-8">
+            <h2 className="font-black text-brand-soft-white mb-4 text-2xl md:text-4xl">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 POWER YOUR PLAY
               </span>{" "}
               WITH IBET PROMOTIONS
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray mb-3 sm:mb-4 md:mb-6 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-brand-smoke-gray mb-6 max-w-2xl mx-auto">
               Unlock exclusive bonuses and maximize your gaming experience
             </p>
             <Button
               onClick={() => setActiveTab("promotions")}
               variant="outline"
-              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 sm:py-2.5 md:py-3 lg:py-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold rounded-lg"
+              className="text-brand-primary-green border-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black"
             >
               SEE ALL PROMOTIONS →
             </Button>
           </div>
 
-          {/* Promotions Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
-            {/* Crypto Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 rounded-xl">
-              <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
-                {/* Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
-                    <span className="text-brand-primary-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                      ₿
-                    </span>
-                  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-16 h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <span className="text-brand-primary-green font-bold text-2xl">₿</span>
                 </div>
-
-                {/* Content */}
-                <div className="text-center space-y-2 sm:space-y-3">
-                  <div className="flex flex-col items-center space-y-1">
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
-                        200%
-                      </span>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-brand-vibrant-green">
-                        CRYPTO BONUS
-                      </span>
-                    </div>
-                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">BITCOIN & ETHEREUM</p>
-                  </div>
-                  <Button
-                    onClick={() => setActiveTab("promotions")}
-                    variant="link"
-                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
-                  >
-                    MORE INFO
-                  </Button>
+                <div>
+                  <div className="text-3xl font-black text-brand-soft-white">200%</div>
+                  <div className="text-sm font-bold text-brand-vibrant-green">CRYPTO BONUS</div>
+                  <p className="text-brand-smoke-gray text-sm">BITCOIN & ETHEREUM</p>
                 </div>
+                <Button variant="link" className="text-brand-vibrant-green p-0 h-auto">
+                  MORE INFO
+                </Button>
               </div>
             </Card>
 
-            {/* Sign Up Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 hover:border-brand-vibrant-green/60 hover:shadow-xl hover:shadow-brand-vibrant-green/20 transition-all duration-300 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 rounded-xl">
-              <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
-                {/* Tag Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
-                    <span className="text-brand-vibrant-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                      %
-                    </span>
-                  </div>
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 p-6 rounded-xl">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-16 h-16 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <span className="text-brand-vibrant-green font-bold text-2xl">%</span>
                 </div>
-
-                {/* Content */}
-                <div className="text-center space-y-2 sm:space-y-3">
-                  <div className="flex flex-col items-center space-y-1">
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
-                        125%
-                      </span>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-brand-vibrant-green">
-                        SIGN-UP BONUS
-                      </span>
-                    </div>
-                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">ON YOUR FIRST 3 DEPOSITS</p>
-                  </div>
-                  <Button
-                    onClick={() => setActiveTab("promotions")}
-                    variant="link"
-                    className="text-brand-vibrant-green hover:text-brand-primary-green p-0 h-auto font-semibold text-xs md:text-sm"
-                  >
-                    MORE INFO
-                  </Button>
+                <div>
+                  <div className="text-3xl font-black text-brand-soft-white">125%</div>
+                  <div className="text-sm font-bold text-brand-vibrant-green">SIGN-UP BONUS</div>
+                  <p className="text-brand-smoke-gray text-sm">ON YOUR FIRST 3 DEPOSITS</p>
                 </div>
+                <Button variant="link" className="text-brand-vibrant-green p-0 h-auto">
+                  MORE INFO
+                </Button>
               </div>
             </Card>
 
-            {/* Casino Bonus Card */}
-            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 hover:border-brand-primary-green/60 hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 rounded-xl sm:col-span-2 lg:col-span-1">
-              <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
-                {/* Playing Cards Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
-                    <span className="text-brand-primary-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                      ♠
-                    </span>
-                  </div>
+            <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6 rounded-xl sm:col-span-2 lg:col-span-1">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-16 h-16 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <span className="text-brand-primary-green font-bold text-2xl">♠</span>
                 </div>
-
-                {/* Content */}
-                <div className="text-center space-y-2 sm:space-y-3">
-                  <div className="flex flex-col items-center space-y-1">
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2">
-                      <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white">
-                        150%
-                      </span>
-                      <span className="text-xs sm:text-sm md:text-base font-bold text-brand-primary-green">
-                        CASINO RELOAD
-                      </span>
-                    </div>
-                    <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">WEEKLY RELOAD BONUS</p>
-                  </div>
-                  <Button
-                    onClick={() => setActiveTab("promotions")}
-                    variant="link"
-                    className="text-brand-primary-green hover:text-brand-vibrant-green p-0 h-auto font-semibold text-xs md:text-sm"
-                  >
-                    MORE INFO
-                  </Button>
+                <div>
+                  <div className="text-3xl font-black text-brand-soft-white">150%</div>
+                  <div className="text-sm font-bold text-brand-primary-green">CASINO RELOAD</div>
+                  <p className="text-brand-smoke-gray text-sm">WEEKLY RELOAD BONUS</p>
                 </div>
+                <Button variant="link" className="text-brand-primary-green p-0 h-auto">
+                  MORE INFO
+                </Button>
               </div>
             </Card>
           </div>
@@ -520,23 +460,22 @@ function CasinoContent({
       </section>
 
       {/* Gaming Options Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10 w-full">
-        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
+      <section className="py-8 bg-brand-charcoal-black border-b border-brand-smoke-gray/10 w-full">
+        <div className="w-full px-4 md:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-black text-brand-soft-white mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 GAMING OPTIONS
               </span>{" "}
               FOR EVERY PLAYER
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-brand-smoke-gray max-w-2xl mx-auto">
               From thrilling slots to strategic table games, discover your perfect gaming experience
             </p>
           </div>
 
-          {/* Updated Gaming Options Section - Responsive Grid */}
           <div className="w-full max-w-6xl mx-auto">
-            <div className="relative w-full h-[60vh] bg-white rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative w-full h-[80vh] bg-white rounded-lg overflow-hidden shadow-2xl">
               <iframe
                 src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_COM"
                 className="w-full h-full border-0"
@@ -548,48 +487,44 @@ function CasinoContent({
       </section>
 
       {/* Recent Bets Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-black border-b border-brand-smoke-gray/10 w-full">
-        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
+      <section className="py-8 bg-black border-b border-brand-smoke-gray/10 w-full">
+        <div className="w-full px-4 md:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-4xl font-black text-brand-soft-white mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
                 RECENT BETS
               </span>{" "}
               LIVE FEED
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
-              See what other players are winning in real-time
-            </p>
+            <p className="text-brand-smoke-gray max-w-2xl mx-auto">See what other players are winning in real-time</p>
           </div>
 
-          <div className="bg-brand-charcoal-black-secondary rounded-lg sm:rounded-xl border border-brand-smoke-gray/20 overflow-hidden">
-            <div className="max-h-80 sm:max-h-96 overflow-y-auto">
+          <div className="bg-brand-charcoal-black-secondary rounded-xl border border-brand-smoke-gray/20 overflow-hidden">
+            <div className="max-h-96 overflow-y-auto">
               {bets.map((bet, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 border-b border-brand-smoke-gray/10 last:border-b-0 hover:bg-brand-smoke-gray/5 transition-colors duration-200"
+                  className="flex items-center justify-between p-4 border-b border-brand-smoke-gray/10 last:border-b-0 hover:bg-brand-smoke-gray/5 transition-colors duration-200"
                 >
-                  <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center flex-shrink-0">
-                      <span className="text-brand-charcoal-black font-bold text-xs sm:text-sm">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center">
+                      <span className="text-brand-charcoal-black font-bold text-sm">
                         {bet.user.charAt(0).toUpperCase()}
                       </span>
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-brand-soft-white font-semibold text-sm sm:text-base truncate">
-                        {bet.user}
-                      </div>
-                      <div className="text-brand-smoke-gray text-xs sm:text-sm">
+                    <div>
+                      <div className="text-brand-soft-white font-semibold">{bet.user}</div>
+                      <div className="text-brand-smoke-gray text-sm">
                         {bet.game} • {bet.time}
                       </div>
                     </div>
                   </div>
-                  <div className="text-right flex-shrink-0">
-                    <div className="text-brand-soft-white font-bold text-xs sm:text-sm md:text-base">
+                  <div className="text-right">
+                    <div className="text-brand-soft-white font-bold">
                       ${bet.amount.toFixed(2)} × {bet.mult.toFixed(2)}
                     </div>
                     <div
-                      className={`text-xs sm:text-sm font-semibold ${bet.profit > 0 ? "text-brand-primary-green" : "text-red-400"}`}
+                      className={`text-sm font-semibold ${bet.profit > 0 ? "text-brand-primary-green" : "text-red-400"}`}
                     >
                       {bet.profit > 0 ? "+" : ""}${bet.profit.toFixed(2)}
                     </div>

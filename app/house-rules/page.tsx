@@ -27,7 +27,7 @@ export default function HouseRulesPage() {
 
       {/* Main Content */}
       <div className="py-12 md:py-16">
-        <div className="container mx-auto px-4 md:px:6">
+        <div className="container mx-auto px-4 md:px-6">
           {/* Introduction */}
           <div className="bg-brand-charcoal-black-secondary rounded-lg p-6 md:p-8 mb-8">
             <div className="flex items-start space-x-4">
@@ -233,6 +233,32 @@ export default function HouseRulesPage() {
                     </ul>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="bg-gradient-to-r from-brand-primary-green/10 to-brand-primary-green/5 rounded-lg p-6 md:p-8">
+            <div className="text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-brand-soft-white mb-4">
+                Questions About House Rules?
+              </h2>
+              <p className="text-brand-smoke-gray mb-6 max-w-2xl mx-auto">
+                Our customer support team is available 24/7 to help clarify any house rules or resolve disputes.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/live-chat"
+                  className="bg-brand-primary-green hover:bg-brand-primary-green/90 text-brand-charcoal-black font-bold py-3 px-6 rounded-lg transition-colors"
+                >
+                  Live Chat Support
+                </a>
+                <a
+                  href="mailto:support@ibetsports.ag"
+                  className="bg-brand-charcoal-black-secondary hover:bg-brand-charcoal-black border border-brand-primary-green text-brand-primary-green font-bold py-3 px-6 rounded-lg transition-colors"
+                >
+                  Email Support
+                </a>
               </div>
             </div>
           </div>
