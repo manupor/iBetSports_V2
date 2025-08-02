@@ -136,29 +136,7 @@ export function TopNavigation({
         {/* Navigation Tabs - Desktop & Tablet */}
         {showTabs && (
           <div className="hidden md:block w-full">
-            <div className="w-full px-3 xs:px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-center">
-                <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
-                  {tabs.map((tab) => {
-                    const IconComponent = tab.icon
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => handleTabChange(tab.id)}
-                        className={`px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center gap-1 md:gap-2 ${
-                          activeTab === tab.id
-                            ? "text-brand-primary-green border-brand-primary-green"
-                            : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
-                        }`}
-                      >
-                        <IconComponent className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5" />
-                        {tab.label}
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
+            
           </div>
         )}
       </nav>

@@ -199,25 +199,23 @@ function CasinoContent({
             {/* Right Side - Crypto Bonus */}
             <div className="flex flex-col items-end text-right space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 2xl:space-y-7 max-w-[32%] md:max-w-[30%] lg:max-w-[28%] xl:max-w-[26%] 2xl:max-w-[24%] z-25">
               <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-lg md:rounded-xl lg:rounded-2xl p-3 md:p-4 lg:p-5 xl:p-6 2xl:p-8 3xl:p-10 text-center space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 2xl:space-y-6 shadow-2xl">
-                <div className="text-center">
-                  <div className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl font-black leading-none tracking-tight text-white">
-                    CRYPTO BONUS
+                <div className="flex items-center justify-center space-x-2 md:space-x-3 lg:space-x-4 xl:space-x-5 2xl:space-x-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-18 2xl:h-18 3xl:w-20 3xl:h-20 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
+                    <span className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-black">
+                      ₿
+                    </span>
                   </div>
-                  <div
-                    className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
-                    style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
-                  >
-                    BOOST!
+                  <div className="text-center">
+                    <div className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl font-black leading-none tracking-tight text-white">
+                      CRYPTO BONUS
+                    </div>
+                    <div
+                      className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                      style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
+                    >
+                      BOOST!
+                    </div>
                   </div>
-                </div>
-                <div className="flex justify-center bg-transparent">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bitcoin-um0OkqHMcd69jNgRM2yiVmoJiNRrRP.png"
-                    alt="Golden Bitcoin cryptocurrency coin"
-                    width={80}
-                    height={80}
-                    className="w-12 h-12 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 object-contain bg-transparent drop-shadow-2xl shadow-2xl shadow-brand-golden-yellow/50 hover:shadow-brand-golden-yellow/70 transition-shadow duration-300 filter brightness-110"
-                  />
                 </div>
               </div>
             </div>
@@ -262,7 +260,7 @@ function CasinoContent({
               <div className="absolute top-1/3 right-1/5 w-14 md:w-16 lg:w-20 xl:w-24 2xl:w-28 3xl:w-32 h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28 3xl:h-32 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
               <div className="absolute top-1/2 right-1/3 w-12 md:w-14 lg:w-16 xl:w-20 2xl:w-24 3xl:w-28 h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24 3xl:h-28 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
               <div className="absolute bottom-1/3 right-1/6 w-10 md:w-12 lg:w-14 xl:w-16 2xl:w-20 3xl:w-24 h-10 md:h-12 lg:h-14 xl:h-16 2xl:h-20 3xl:h-24 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
-              <div className="absolute top-1/6 right-1/8 w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 3xl:w-40 h-20 md:h-24 lg:h-28 xl:h-32 2xl:h-36 3xl:w-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
+              <div className="absolute top-1/6 right-1/8 w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 3xl:w-40 h-20 md:h-24 lg:h-28 xl:h-32 2xl:h-36 3xl:h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
             </div>
           </div>
 
