@@ -9,13 +9,13 @@ import {
   BellIcon,
   Dice6,
   Trophy,
-  DogIcon as Horse,
   Video,
   CreditCard,
   Gift,
 } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 interface TopNavigationProps {
   activeTab?: string
@@ -37,7 +37,7 @@ export function TopNavigation({
   const tabs = [
     { id: "casino", label: "Casino", icon: Dice6 },
     { id: "sports", label: "Sports", icon: Trophy },
-    { id: "racebook", label: "Racebook", icon: Horse },
+    { id: "racebook", label: "Racebook", icon: null, customIcon: true },
     { id: "live-casino", label: "Live Casino", icon: Video },
     { id: "banking", label: "Banking", icon: CreditCard },
     { id: "promotions", label: "Promotions", icon: Gift },
@@ -163,7 +163,25 @@ export function TopNavigation({
                             : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
                         }`}
                       >
-                        <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                        {tab.customIcon ? (
+                          <Image
+                            src="/images/horse-icon.svg"
+                            alt="Horse"
+                            width={24}
+                            height={24}
+                            className={`w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${
+                              activeTab === tab.id ? "text-brand-primary-green" : "text-brand-smoke-gray"
+                            }`}
+                            style={{
+                              filter:
+                                activeTab === tab.id
+                                  ? "brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(1000%) hue-rotate(88deg) brightness(118%) contrast(119%)"
+                                  : "brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(15%) hue-rotate(314deg) brightness(95%) contrast(88%)",
+                            }}
+                          />
+                        ) : (
+                          <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                        )}
                         <span>{tab.label}</span>
                       </button>
                     )
