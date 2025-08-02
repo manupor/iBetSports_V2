@@ -73,25 +73,25 @@ function Footer() {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="/terms-conditions"
+                  href="/terms-conditions.html"
                   className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                 >
                   Terms & Conditions
                 </a>
                 <a
-                  href="/responsible-gaming"
+                  href="/responsible-gaming.html"
                   className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                 >
                   Responsible Gaming
                 </a>
                 <a
-                  href="/privacy-policy"
+                  href="/privacy-policy.html"
                   className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                 >
                   Privacy Policy
                 </a>
                 <a
-                  href="/help-faqs"
+                  href="/help-faqs.html"
                   className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                 >
                   Help & FAQs
@@ -112,25 +112,25 @@ function Footer() {
               {expandedSection === "legal" && (
                 <div className="grid grid-cols-1 gap-1 mt-2">
                   <a
-                    href="/dispute-resolution"
+                    href="/dispute-resolution.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Dispute Resolution
                   </a>
                   <a
-                    href="/fairness-rng"
+                    href="/fairness-rng.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Fairness & RNG Testing
                   </a>
                   <a
-                    href="/account-payouts"
+                    href="/account-payouts.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Account & Payouts
                   </a>
                   <a
-                    href="/aml"
+                    href="/aml.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     AML
@@ -152,19 +152,19 @@ function Footer() {
               {expandedSection === "rules" && (
                 <div className="grid grid-cols-1 gap-1 mt-2">
                   <a
-                    href="/house-rules"
+                    href="/house-rules.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     House Rules
                   </a>
                   <a
-                    href="/sports-rules"
+                    href="/sports-rules.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Sports Rules
                   </a>
                   <a
-                    href="/casino-rules"
+                    href="/casino-rules.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Casino Rules
@@ -186,31 +186,31 @@ function Footer() {
               {expandedSection === "terms" && (
                 <div className="grid grid-cols-1 gap-1 mt-2">
                   <a
-                    href="/terms-conditions"
+                    href="/terms-conditions.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     General Terms
                   </a>
                   <a
-                    href="/account-registration"
+                    href="/account-registration.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Account Registration
                   </a>
                   <a
-                    href="/deposits-withdrawals"
+                    href="/deposits-withdrawals.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Deposits & Withdrawals
                   </a>
                   <a
-                    href="/bonuses-promotions"
+                    href="/bonuses-promotions.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Bonuses & Promotions
                   </a>
                   <a
-                    href="/game-rules"
+                    href="/game-rules.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Game Rules & Fair Play
@@ -235,13 +235,13 @@ function Footer() {
               {expandedSection === "information" && (
                 <div className="grid grid-cols-1 gap-1 mt-2">
                   <a
-                    href="/about-us"
+                    href="/about-us.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     About Us
                   </a>
                   <a
-                    href="/help-faqs"
+                    href="/help-faqs.html"
                     className="text-xs text-brand-soft-white hover:text-brand-primary-green transition-colors"
                   >
                     Help & FAQs
@@ -261,7 +261,7 @@ function Footer() {
               <ul className="space-y-3 lg:space-y-4">
                 <li>
                   <a
-                    href="/terms-conditions"
+                    href="/terms-conditions.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Terms and Conditions
@@ -269,7 +269,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/dispute-resolution"
+                    href="/dispute-resolution.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Dispute Resolution
@@ -277,7 +277,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/fairness-rng"
+                    href="/fairness-rng.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Fairness & RNG Testing Methods
@@ -294,7 +294,7 @@ function Footer() {
               <ul className="space-y-3 lg:space-y-4">
                 <li>
                   <a
-                    href="/privacy-policy"
+                    href="/privacy-policy.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Privacy Policy
@@ -302,7 +302,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/responsible-gaming"
+                    href="/responsible-gaming.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Responsible Gaming
@@ -310,7 +310,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/account-payouts"
+                    href="/account-payouts.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Account, Payouts and Bonuses
@@ -318,7 +318,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/aml"
+                    href="/aml.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     AML
@@ -335,7 +335,7 @@ function Footer() {
               <ul className="space-y-3 lg:space-y-4">
                 <li>
                   <a
-                    href="/house-rules"
+                    href="/house-rules.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     House Rules
@@ -343,7 +343,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/sports-rules"
+                    href="/sports-rules.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Sports Rules
@@ -351,7 +351,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/casino-rules"
+                    href="/casino-rules.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Casino Rules
@@ -368,7 +368,7 @@ function Footer() {
               <ul className="space-y-3 lg:space-y-4">
                 <li>
                   <a
-                    href="/about-us"
+                    href="/about-us.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     About Us
@@ -376,7 +376,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/help-faqs"
+                    href="/help-faqs.html"
                     className="text-brand-soft-white hover:text-brand-primary-green transition-colors uppercase text-sm font-medium hover:underline"
                   >
                     Help & FAQs
