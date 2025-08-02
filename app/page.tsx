@@ -355,7 +355,7 @@ function CasinoContent({
 
             {/* Green Effects */}
             <div className="absolute bottom-0 right-0 w-full h-full z-8 pointer-events-none">
-              <div className="absolute bottom-1/4 right-1/4 w-full h-full bg-gradient-radial from-brand-primary-green/20 via-brand-primary-green/10 to-transparent rounded-full blur-xl animate-pulse"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-full h-full bg-gradient-radial from-brand-primary-green/3 via-brand-primary-green/1 to-transparent rounded-full blur-xl animate-pulse"></div>
             </div>
           </div>
 
