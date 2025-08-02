@@ -257,7 +257,7 @@ function CasinoContent({
           <div className="absolute bottom-0 right-0 w-[50%] md:w-[52%] lg:w-[55%] xl:w-[58%] 2xl:w-[60%] 3xl:w-[65%] h-[75%] md:h-[78%] lg:h-[80%] xl:h-[82%] 2xl:h-[85%] 3xl:h-[88%] z-8 overflow-hidden pointer-events-none">
             <div className="absolute inset-0">
               <div className="absolute top-1/4 right-1/4 w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 3xl:w-36 h-16 md:h-20 lg:h-24 xl:h-28 2xl:h-32 3xl:h-36 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
-              <div className="absolute top-1/3 right-1/5 w-14 md:w-16 lg:w-20 xl:w-24 2xl:w-28 3xl:w-32 h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28 3xl:h-32 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+              <div className="absolute top-1/3 right-1/5 w-14 md:w-16 lg:w-20 xl:w-24 2xl:w-28 3xl:w-32 h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28 3xl:w-32 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
               <div className="absolute top-1/2 right-1/3 w-12 md:w-14 lg:w-16 xl:w-20 2xl:w-24 3xl:w-28 h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24 3xl:h-28 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
               <div className="absolute bottom-1/3 right-1/6 w-10 md:w-12 lg:w-14 xl:w-16 2xl:w-20 3xl:w-24 h-10 md:h-12 lg:h-14 xl:h-16 2xl:h-20 3xl:h-24 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
               <div className="absolute top-1/6 right-1/8 w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 3xl:w-40 h-20 md:h-24 lg:h-28 xl:h-32 2xl:h-36 3xl:h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
@@ -449,7 +449,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:w-16 lg:w-18 lg:h-18 xl:w-20 xl:w-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <span className="text-brand-vibrant-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       %
                     </span>
@@ -485,7 +485,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Playing Cards Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:w-16 lg:w-18 lg:h-18 xl:w-20 xl:w-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-primary-green/40 bg-brand-primary-green/10 flex items-center justify-center">
                     <span className="text-brand-primary-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       ♠
                     </span>
@@ -536,7 +536,7 @@ function CasinoContent({
 
           {/* Updated Gaming Options Section - Responsive Grid */}
           <div className="w-full max-w-6xl mx-auto">
-            <div className="relative w-full h-[80vh] bg-white rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative w-full h-[60vh] bg-white rounded-lg overflow-hidden shadow-2xl">
               <iframe
                 src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_COM"
                 className="w-full h-full border-0"
