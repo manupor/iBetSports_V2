@@ -161,27 +161,27 @@ function CasinoContent({
       {/* Hero Section */}
       <section className="relative w-full">
         {/* Desktop Hero */}
-        <div className="hidden md:block relative w-full h-[40vh] md:h-[45vh] lg:h-[50vh] xl:h-[55vh] 2xl:h-[60vh] overflow-hidden bg-black">
+        <div className="hidden md:block relative w-full h-[45vh] md:h-[50vh] lg:h-[55vh] xl:h-[60vh] 2xl:h-[65vh] 3xl:h-[70vh] overflow-hidden bg-black">
           {/* Text Overlay - Horizontal Layout */}
-          <div className="absolute inset-0 flex items-center justify-between px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 z-20 pt-16 md:pt-20 lg:pt-24">
+          <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 3xl:px-20 z-20 pt-16 md:pt-18 lg:pt-20 xl:pt-22 2xl:pt-24 3xl:pt-26">
             {/* Left Side - Main Content */}
-            <div className="flex flex-col items-start text-left space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8 max-w-[45%] sm:max-w-[50%]">
+            <div className="flex flex-col items-start text-left space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7 2xl:space-y-8 3xl:space-y-10 max-w-[45%] md:max-w-[48%] lg:max-w-[50%] xl:max-w-[52%] 2xl:max-w-[55%]">
               {/* Main Sign Up Bonus */}
-              <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 border-white border-3 rounded-2xl sm:rounded-3xl px-3 sm:px-4 md:px-6 lg:px-8 py-1 sm:py-2 md:py-3 bg-black/40 backdrop-blur-sm shadow-2xl">
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-white leading-none tracking-tight">
+              <div className="flex items-center space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 2xl:space-x-7 3xl:space-x-8 border-white border-2 md:border-3 rounded-2xl md:rounded-3xl lg:rounded-4xl px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 3xl:px-14 py-2 md:py-3 lg:py-4 xl:py-5 2xl:py-6 3xl:py-7 bg-black/40 backdrop-blur-sm shadow-2xl">
+                <span className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl font-black text-white leading-none tracking-tight">
                   125%
                 </span>
-                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                <span className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight">
                   SIGN UP BONUS
                 </span>
               </div>
 
               {/* Supporting Text */}
-              <div className="space-y-1 sm:space-y-2 md:space-y-3">
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white leading-tight tracking-tight">
+              <div className="space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 2xl:space-y-6">
+                <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-bold text-white leading-tight tracking-tight">
                   QUICK PAYOUTS
                 </div>
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold text-white leading-tight tracking-tight">
+                <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl font-semibold text-white leading-tight tracking-tight">
                   Bet Smarter, Win Bigger
                 </div>
               </div>
@@ -189,7 +189,7 @@ function CasinoContent({
               {/* Call to Action Button */}
               <button
                 onClick={onSignUpClick}
-                className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 py-3 sm:py-4 md:py-5 lg:py-6 xl:py-7 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-3 border-white/30 inline-flex items-center justify-center"
+                className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 3xl:px-24 py-4 md:py-5 lg:py-6 xl:py-7 2xl:py-8 3xl:py-10 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 md:border-3 border-white/30 inline-flex items-center justify-center"
               >
                 <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
@@ -197,20 +197,20 @@ function CasinoContent({
             </div>
 
             {/* Right Side - Crypto Bonus */}
-            <div className="flex flex-col items-end text-right space-y-3 sm:space-y-4 md:space-y-6 max-w-[35%] sm:max-w-[30%] z-25">
-              <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-center space-y-3 sm:space-y-4 shadow-2xl">
-                <div className="flex items-center justify-center space-x-3 sm:space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black">
+            <div className="flex flex-col items-end text-right space-y-4 md:space-y-5 lg:space-y-6 xl:space-y-7 2xl:space-y-8 max-w-[35%] md:max-w-[32%] lg:max-w-[30%] xl:max-w-[28%] 2xl:max-w-[25%] z-25">
+              <div className="bg-black/60 backdrop-blur-sm border border-brand-primary-green/40 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-5 lg:p-6 xl:p-8 2xl:p-10 3xl:p-12 text-center space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 2xl:space-y-7 shadow-2xl">
+                <div className="flex items-center justify-center space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6 2xl:space-x-7">
+                  <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 2xl:w-20 2xl:h-20 3xl:w-24 3xl:h-24 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
+                    <span className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl text-black">
                       ₿
                     </span>
                   </div>
                   <div className="text-center">
-                    <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-black leading-none tracking-tight text-white">
+                    <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-black leading-none tracking-tight text-white">
                       CRYPTO BONUS
                     </div>
                     <div
-                      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                      className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
                       style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
                     >
                       BOOST!
@@ -236,7 +236,7 @@ function CasinoContent({
           </div>
 
           {/* Hero Image - NFL Player on Right Side */}
-          <div className="absolute bottom-0 right-[10%] sm:right-[12%] md:right-[15%] w-[45%] sm:w-[50%] md:w-[55%] h-[85%] sm:h-[90%] md:h-[95%] z-15">
+          <div className="absolute bottom-0 right-[8%] md:right-[10%] lg:right-[12%] xl:right-[15%] 2xl:right-[18%] 3xl:right-[20%] w-[45%] md:w-[48%] lg:w-[50%] xl:w-[52%] 2xl:w-[55%] 3xl:w-[58%] h-[85%] md:h-[88%] lg:h-[90%] xl:h-[92%] 2xl:h-[95%] 3xl:h-[98%] z-15">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
               alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -249,25 +249,25 @@ function CasinoContent({
           </div>
 
           {/* Green Smoke Effect */}
-          <div className="absolute bottom-0 right-0 w-[50%] sm:w-[55%] md:w-[60%] h-[75%] sm:h-[80%] md:h-[85%] z-10 pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-[50%] md:w-[52%] lg:w-[55%] xl:w-[58%] 2xl:w-[60%] 3xl:w-[65%] h-[75%] md:h-[78%] lg:h-[80%] xl:h-[82%] 2xl:h-[85%] 3xl:h-[88%] z-10 pointer-events-none">
             <div className="absolute bottom-0 right-1/4 w-full h-full bg-gradient-radial from-brand-primary-green/25 via-brand-primary-green/10 to-transparent rounded-full blur-2xl animate-pulse"></div>
           </div>
 
           {/* Wave Effects Behind Player */}
-          <div className="absolute bottom-0 right-0 w-[50%] sm:w-[55%] md:w-[60%] h-[75%] sm:h-[80%] md:h-[85%] z-8 overflow-hidden pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-[50%] md:w-[52%] lg:w-[55%] xl:w-[58%] 2xl:w-[60%] 3xl:w-[65%] h-[75%] md:h-[78%] lg:h-[80%] xl:h-[82%] 2xl:h-[85%] 3xl:h-[88%] z-8 overflow-hidden pointer-events-none">
             <div className="absolute inset-0">
-              <div className="absolute top-1/4 right-1/4 w-16 sm:w-20 md:w-24 lg:w-32 h-16 sm:h-20 md:h-24 lg:h-32 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
-              <div className="absolute top-1/3 right-1/5 w-14 sm:w-16 md:w-20 lg:w-28 h-14 sm:h-16 md:h-20 lg:h-28 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
-              <div className="absolute top-1/2 right-1/3 w-12 sm:w-14 md:w-16 lg:w-24 h-12 sm:h-14 md:h-16 lg:h-24 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
-              <div className="absolute bottom-1/3 right-1/6 w-10 sm:w-12 md:w-14 lg:w-20 h-10 sm:h-12 md:h-14 lg:h-20 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
-              <div className="absolute top-1/6 right-1/8 w-20 sm:w-24 md:w-32 lg:w-40 h-20 sm:h-24 md:h-32 lg:h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
+              <div className="absolute top-1/4 right-1/4 w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 3xl:w-36 h-16 md:h-20 lg:h-24 xl:h-28 2xl:h-32 3xl:h-36 border border-brand-primary-green/20 rounded-full animate-pulse transform scale-75"></div>
+              <div className="absolute top-1/3 right-1/5 w-14 md:w-16 lg:w-20 xl:w-24 2xl:w-28 3xl:w-32 h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28 3xl:h-32 border border-brand-vibrant-green/15 rounded-full animate-ping transform scale-90 animation-delay-1000"></div>
+              <div className="absolute top-1/2 right-1/3 w-12 md:w-14 lg:w-16 xl:w-20 2xl:w-24 3xl:w-28 h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24 3xl:h-28 border border-brand-primary-green/25 rounded-full animate-pulse transform scale-110 animation-delay-2000"></div>
+              <div className="absolute bottom-1/3 right-1/6 w-10 md:w-12 lg:w-14 xl:w-16 2xl:w-20 3xl:w-24 h-10 md:h-12 lg:h-14 xl:h-16 2xl:h-20 3xl:h-24 border border-brand-vibrant-green/20 rounded-full animate-ping transform scale-125 animation-delay-3000"></div>
+              <div className="absolute top-1/6 right-1/8 w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 3xl:w-40 h-20 md:h-24 lg:h-28 xl:h-32 2xl:h-36 3xl:h-40 border border-brand-primary-green/10 rounded-full animate-pulse transform scale-150 animation-delay-4000"></div>
             </div>
           </div>
 
           <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
-            <div className="absolute top-1/4 left-1/6 w-4 sm:w-5 md:w-6 lg:w-8 h-4 sm:h-5 md:h-6 lg:h-8 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/5 w-3 sm:w-4 md:w-4 lg:w-6 h-3 sm:h-4 md:h-4 lg:h-6 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-1/3 left-1/4 w-2 sm:w-3 md:w-3 lg:w-4 h-2 sm:h-3 md:h-3 lg:h-4 border border-brand-vibrant-green/25 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/4 left-1/6 w-4 md:w-5 lg:w-6 xl:w-7 2xl:w-8 3xl:w-10 h-4 md:h-5 lg:h-6 xl:h-7 2xl:h-8 3xl:h-10 border border-brand-primary-green/20 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/5 w-3 md:w-4 lg:w-5 xl:w-6 2xl:w-7 3xl:w-8 h-3 md:h-4 lg:h-5 xl:h-6 2xl:h-7 3xl:h-8 border border-brand-vibrant-green/30 rounded-full animate-bounce"></div>
+            <div className="absolute bottom-1/3 left-1/4 w-2 md:w-3 lg:w-4 xl:w-5 2xl:w-6 3xl:w-7 h-2 md:h-3 lg:h-4 xl:h-5 2xl:h-6 3xl:h-7 border border-brand-vibrant-green/25 rounded-full animate-pulse"></div>
           </div>
         </div>
 
@@ -289,7 +289,10 @@ function CasinoContent({
             </div>
 
             {/* Football Player - Positioned on Right */}
-            <div className="absolute bottom-0 right-[-8%] z-40 w-[65%] xs:w-[70%] sm:w-[75%] h-[90%] xs:h-[95%] sm:h-[100%]">
+            <div
+              className="absolute bottom-0 right-[-5%] z-40 w-[70%] xs:w-[75%] sm:w-[80%] h-[90%] xs:h-[95%] sm:h-[100%] cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={onSignUpClick}
+            >
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -299,23 +302,29 @@ function CasinoContent({
                 priority
                 sizes="(max-width: 640px) 50vw, 45vw"
               />
+              {/* Clickable overlay indicator */}
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary-green/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 text-white text-xs font-bold opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  TAP TO JOIN
+                </div>
+              </div>
             </div>
 
             {/* Mobile Hero Text - Over Image */}
             <div className="absolute inset-0 flex items-center justify-start px-3 xs:px-4 sm:px-6 z-30">
-              <div className="w-[50%] xs:w-[55%] sm:w-[60%] h-full flex items-center">
-                <div className="bg-black/80 backdrop-blur-sm rounded-none h-full w-full flex flex-col items-center justify-center p-3 xs:p-4 sm:p-5 space-y-3 xs:space-y-4 border-r border-white/20">
-                  {/* Sign Up Bonus Box */}
-                  <div className="bg-black/60 border-2 border-white rounded-xl xs:rounded-2xl px-6 xs:px-8 sm:px-10 py-4 xs:py-5 sm:py-6 text-center w-full">
-                    <div className="flex items-center justify-between space-x-4">
-                      <span className="text-4xl xs:text-5xl sm:text-6xl font-black text-white leading-none tracking-tight">
+              <div className="w-[60%] xs:w-[65%] sm:w-[70%] h-full flex items-center">
+                <div className="bg-black/80 backdrop-blur-sm rounded-none h-full w-full flex flex-col items-center justify-center p-3 xs:p-4 sm:p-5 space-y-4 xs:space-y-5 sm:space-y-6">
+                  {/* Sign Up Bonus Box - Horizontal Layout */}
+                  <div className="bg-black/60 border-2 border-white rounded-2xl xs:rounded-3xl px-4 xs:px-6 sm:px-8 py-3 xs:py-4 sm:py-5 text-center w-full">
+                    <div className="flex items-center justify-center space-x-3 xs:space-x-4">
+                      <span className="text-3xl xs:text-4xl sm:text-5xl font-black text-white leading-none tracking-tight">
                         125%
                       </span>
-                      <div className="flex flex-col items-end">
-                        <span className="text-xl xs:text-2xl sm:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                      <div className="flex flex-col items-start">
+                        <span className="text-lg xs:text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
                           SIGN UP
                         </span>
-                        <span className="text-xl xs:text-2xl sm:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                        <span className="text-lg xs:text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
                           BONUS
                         </span>
                       </div>
@@ -324,10 +333,10 @@ function CasinoContent({
 
                   {/* Supporting Text */}
                   <div className="space-y-2 xs:space-y-3 text-center">
-                    <div className="text-lg xs:text-xl sm:text-2xl font-black text-white leading-tight tracking-tight">
+                    <div className="text-xl xs:text-2xl sm:text-3xl font-black text-white leading-tight tracking-tight">
                       QUICK PAYOUTS
                     </div>
-                    <div className="text-base xs:text-lg sm:text-xl font-semibold text-white leading-tight tracking-tight">
+                    <div className="text-lg xs:text-xl sm:text-2xl font-semibold text-white leading-tight tracking-tight">
                       Bet Smarter, Win Bigger
                     </div>
                   </div>
@@ -335,11 +344,9 @@ function CasinoContent({
                   {/* Call to Action Button */}
                   <button
                     onClick={onSignUpClick}
-                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-5 text-base xs:text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full inline-flex items-center justify-center"
+                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 xs:px-10 sm:px-12 py-4 xs:py-5 sm:py-6 text-xl xs:text-2xl sm:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full inline-flex items-center justify-center"
                   >
-                    <span className="relative z-10 drop-shadow-lg text-lg xs:text-xl sm:text-2xl font-black">
-                      JOIN NOW
-                    </span>
+                    <span className="relative z-10 drop-shadow-lg font-black">JOIN NOW</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
                   </button>
                 </div>
