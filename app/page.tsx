@@ -320,16 +320,13 @@ function CasinoContent({
                 <div className="bg-black/80 backdrop-blur-sm rounded-none h-full w-full flex flex-col items-center justify-center p-3 xs:p-4 sm:p-5 space-y-4 xs:space-y-5 sm:space-y-6">
                   {/* Sign Up Bonus Box - Horizontal Layout */}
                   <div className="bg-black/60 border-2 border-white rounded-2xl xs:rounded-3xl px-4 xs:px-6 sm:px-8 py-3 xs:py-4 sm:py-5 text-center w-full">
-                    <div className="flex items-center justify-center space-x-3 xs:space-x-4">
+                    <div className="flex flex-col items-center justify-center space-y-2 xs:space-y-3">
                       <span className="text-3xl xs:text-4xl sm:text-5xl font-black text-white leading-none tracking-tight">
                         125%
                       </span>
-                      <div className="flex flex-col items-start">
+                      <div className="text-center">
                         <span className="text-lg xs:text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
-                          SIGN UP
-                        </span>
-                        <span className="text-lg xs:text-xl sm:text-2xl font-black text-brand-golden-yellow leading-none tracking-tight">
-                          BONUS
+                          SIGN UP BONUS
                         </span>
                       </div>
                     </div>
