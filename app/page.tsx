@@ -289,7 +289,7 @@ function CasinoContent({
             </div>
 
             {/* Football Player - Positioned on Right */}
-            <div className="absolute bottom-0 right-0 z-5 w-[60%] xs:w-[65%] sm:w-[70%] h-[90%] xs:h-[95%] sm:h-[100%]">
+            <div className="absolute bottom-0 right-[-8%] z-40 w-[65%] xs:w-[70%] sm:w-[75%] h-[90%] xs:h-[95%] sm:h-[100%]">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nfl44-AxYQchGkxdsTaYsTPvWANpfbVqM3SW.png"
                 alt="Colorado football player #30 running with ball in black uniform against green background - sports betting hero"
@@ -302,28 +302,44 @@ function CasinoContent({
             </div>
 
             {/* Mobile Hero Text - Over Image */}
-            <div className="absolute inset-0 flex flex-col items-start justify-center px-3 xs:px-4 sm:px-6 text-left space-y-3 xs:space-y-4 z-30">
-              <div className="bg-black/70 backdrop-blur-sm rounded-xl xs:rounded-2xl p-3 xs:p-4 sm:p-6 space-y-3 xs:space-y-4 max-w-[55%] xs:max-w-[60%] sm:max-w-[65%]">
-                <div className="flex items-center justify-start space-x-1 xs:space-x-2 border-white border-2 rounded-lg xs:rounded-xl px-2 xs:px-3 py-1 xs:py-2 max-w-fit">
-                  <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-white leading-none tracking-tight">
-                    125%
-                  </span>
-                  <span className="text-xs xs:text-sm sm:text-base font-black text-brand-golden-yellow leading-none tracking-tight">
-                    SIGN UP BONUS
-                  </span>
-                </div>
-                <div className="text-sm xs:text-base sm:text-lg font-bold text-white leading-tight tracking-tight text-left">
-                  QUICK PAYOUTS
-                </div>
-                <div className="text-sm xs:text-base sm:text-lg font-semibold text-white leading-tight tracking-tight mb-3 xs:mb-4 text-left">
-                  Bet Smarter, Win Bigger
-                </div>
-                <div className="flex justify-start w-full">
+            <div className="absolute inset-0 flex items-center justify-start px-3 xs:px-4 sm:px-6 z-30">
+              <div className="w-[50%] xs:w-[55%] sm:w-[60%] h-full flex items-center">
+                <div className="bg-black/80 backdrop-blur-sm rounded-none h-full w-full flex flex-col items-center justify-center p-3 xs:p-4 sm:p-5 space-y-3 xs:space-y-4 border-r border-white/20">
+                  {/* Sign Up Bonus Box */}
+                  <div className="bg-black/60 border-2 border-white rounded-xl xs:rounded-2xl px-6 xs:px-8 sm:px-10 py-4 xs:py-5 sm:py-6 text-center w-full">
+                    <div className="flex items-center justify-between space-x-4">
+                      <span className="text-4xl xs:text-5xl sm:text-6xl font-black text-white leading-none tracking-tight">
+                        125%
+                      </span>
+                      <div className="flex flex-col items-end">
+                        <span className="text-xl xs:text-2xl sm:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                          SIGN UP
+                        </span>
+                        <span className="text-xl xs:text-2xl sm:text-3xl font-black text-brand-golden-yellow leading-none tracking-tight">
+                          BONUS
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Supporting Text */}
+                  <div className="space-y-2 xs:space-y-3 text-center">
+                    <div className="text-lg xs:text-xl sm:text-2xl font-black text-white leading-tight tracking-tight">
+                      QUICK PAYOUTS
+                    </div>
+                    <div className="text-base xs:text-lg sm:text-xl font-semibold text-white leading-tight tracking-tight">
+                      Bet Smarter, Win Bigger
+                    </div>
+                  </div>
+
+                  {/* Call to Action Button */}
                   <button
                     onClick={onSignUpClick}
-                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-4 xs:px-6 sm:px-8 py-2 xs:py-3 sm:py-4 text-sm xs:text-base sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full max-w-[140px] xs:max-w-[160px] sm:max-w-[200px] inline-flex items-center justify-center"
+                    className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-5 text-base xs:text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full inline-flex items-center justify-center"
                   >
-                    <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
+                    <span className="relative z-10 drop-shadow-lg text-lg xs:text-xl sm:text-2xl font-black">
+                      JOIN NOW
+                    </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
                   </button>
                 </div>
@@ -338,17 +354,17 @@ function CasinoContent({
 
           {/* Mobile Crypto Bonus Section - Moving Banner */}
           <div className="px-3 xs:px-4 sm:px-6 py-2 xs:py-3 bg-black overflow-hidden">
-            <div className="relative w-fit mx-auto h-10 xs:h-12 sm:h-14 bg-black/60 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl xs:rounded-2xl shadow-2xl overflow-hidden">
-              <div className="flex items-center h-full px-3 xs:px-4 sm:px-6">
+            <div className="relative w-fit mx-auto h-14 xs:h-16 sm:h-18 bg-black/60 backdrop-blur-sm border border-brand-primary-green/30 rounded-xl xs:rounded-2xl shadow-2xl overflow-hidden">
+              <div className="flex items-center h-full px-4 xs:px-6 sm:px-8">
                 <div className="flex items-center space-x-2 xs:space-x-3">
-                  <div className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
-                    <span className="font-bold text-xs xs:text-sm sm:text-base text-black">₿</span>
+                  <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green flex items-center justify-center shadow-lg shadow-black/50">
+                    <span className="font-bold text-sm xs:text-base sm:text-lg text-black">₿</span>
                   </div>
-                  <span className="text-sm xs:text-base sm:text-lg font-black leading-none tracking-tight text-white">
+                  <span className="text-base xs:text-lg sm:text-xl font-black leading-none tracking-tight text-white">
                     CRYPTO BONUS
                   </span>
                   <span
-                    className="text-xs xs:text-sm sm:text-base font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
+                    className="text-sm xs:text-base sm:text-lg font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
                     style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
                   >
                     BOOST!
@@ -426,7 +442,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:w-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:w-16 lg:w-18 lg:h-18 xl:w-20 xl:w-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <span className="text-brand-vibrant-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       %
                     </span>
