@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { Menu, X, User, Wallet, Bell, Dices, Trophy, DogIcon as Horse, Video, CreditCard, Gift } from "lucide-react"
+import { Menu, X, User, Wallet, Bell } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
@@ -23,12 +23,12 @@ export function TopNavigation({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const tabs = [
-    { id: "casino", label: "Casino", icon: Dices },
-    { id: "sports", label: "Sports", icon: Trophy },
-    { id: "racebook", label: "Racebook", icon: Horse },
-    { id: "live-casino", label: "Live Casino", icon: Video },
-    { id: "banking", label: "Banking", icon: CreditCard },
-    { id: "promotions", label: "Promotions", icon: Gift },
+    { id: "casino", label: "Casino" },
+    { id: "sports", label: "Sports" },
+    { id: "racebook", label: "Racebook" },
+    { id: "live-casino", label: "Live Casino" },
+    { id: "banking", label: "Banking" },
+    { id: "promotions", label: "Promotions" },
   ]
 
   const handleTabChange = (tabId: string) => {
@@ -136,7 +136,25 @@ export function TopNavigation({
         {/* Navigation Tabs - Desktop & Tablet */}
         {showTabs && (
           <div className="hidden md:block w-full">
-            
+            <div className="w-full px-3 xs:px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-center">
+                <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => handleTabChange(tab.id)}
+                      className={`px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 ${
+                        activeTab === tab.id
+                          ? "text-brand-primary-green border-brand-primary-green"
+                          : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </nav>
@@ -149,23 +167,19 @@ export function TopNavigation({
             {showTabs && (
               <div className="flex-1 px-3 xs:px-4 py-4 xs:py-6 overflow-y-auto">
                 <div className="space-y-1 xs:space-y-2">
-                  {tabs.map((tab) => {
-                    const IconComponent = tab.icon
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => handleTabChange(tab.id)}
-                        className={`w-full text-left px-3 xs:px-4 py-2 xs:py-3 rounded-lg text-sm xs:text-base font-medium transition-all duration-200 block flex items-center gap-2 xs:gap-3 ${
-                          activeTab === tab.id
-                            ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
-                            : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
-                        }`}
-                      >
-                        <IconComponent className="w-4 h-4 xs:w-5 xs:h-5 flex-shrink-0" />
-                        {tab.label}
-                      </button>
-                    )
-                  })}
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => handleTabChange(tab.id)}
+                      className={`w-full text-left px-3 xs:px-4 py-2 xs:py-3 rounded-lg text-sm xs:text-base font-medium transition-all duration-200 block ${
+                        activeTab === tab.id
+                          ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
+                          : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
                 </div>
               </div>
             )}

@@ -40,7 +40,7 @@ function Footer() {
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 text-brand-primary-green" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
-                <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white" />
+                <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="black" />
               </svg>
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-brand-charcoal-black text-brand-soft-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                 Secure Site
