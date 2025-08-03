@@ -195,7 +195,7 @@ export function TopNavigation({
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-14 xs:top-16 sm:top-18 bg-brand-charcoal-black/95 backdrop-blur-sm z-50">
+        <div className="md:hidden fixed inset-0 top-14 xs:top-16 sm:top-18 bg-brand-charcoal-black/95 backdrop-blur-sm z-40">
           <div className="flex flex-col h-full">
             {/* Mobile Navigation */}
             {showTabs && (
