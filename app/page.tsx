@@ -172,7 +172,7 @@ function CasinoContent({
                   125%
                 </span>
                 <span className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-black text-brand-golden-yellow leading-none tracking-tight">
-                  SIGN UP BONUS
+                  SIGN UP BONUS!
                 </span>
               </div>
 
@@ -528,14 +528,6 @@ function CasinoContent({
 
       {/* Gaming Options Section */}
       <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10 w-full relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/15 rounded-full animate-ping animation-delay-1000"></div>
-          <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-primary-green/20 rounded-full animate-pulse animation-delay-2000"></div>
-          <div className="absolute top-1/6 right-1/8 w-40 h-40 border border-brand-vibrant-green/8 rounded-full animate-pulse animation-delay-3000"></div>
-        </div>
-
         <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
@@ -592,7 +584,6 @@ function CasinoContent({
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-xl bg-brand-charcoal-black-secondary border border-brand-primary-green/20 hover:border-brand-primary-green/60 shadow-lg hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 cursor-pointer transform hover:scale-105"
-                onClick={() => setActiveTab("casino")}
               >
                 <div className="aspect-[3/4] relative">
                   <Image
@@ -643,11 +634,12 @@ function CasinoContent({
 
                   {/* Hover Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
-                    <div className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black rounded-full p-3 transform hover:scale-110 transition-all duration-200 shadow-lg">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
+                    <button
+                      onClick={onSignUpClick}
+                      className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black rounded-full px-4 py-2 transform hover:scale-110 transition-all duration-200 shadow-lg font-bold text-sm"
+                    >
+                      PLAY NOW!
+                    </button>
                   </div>
 
                   {/* Game Title */}
