@@ -1,8 +1,8 @@
+import TopNavigation from "@/components/top-navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Shield, Clock, DollarSign, AlertTriangle, Heart } from "lucide-react"
-import { TopNavigation } from "@/components/top-navigation"
-import { Footer } from "@/components/footer"
+import Footer from "@/components/footer"
 
 export default function ResponsibleGamingPage() {
   const tools = [

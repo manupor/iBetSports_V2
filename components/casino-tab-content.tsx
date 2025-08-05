@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Play, Search, Filter, LayoutGrid, List, Star, Zap, Crown, Eye, Heart, Share2, TrendingUp, Clock, Users } from 'lucide-react'
+import { Search, Filter, LayoutGrid, List, Star, Zap, Crown, TrendingUp, Clock, Users } from "lucide-react"
 
 interface CasinoTabContentProps {
   setIsRegistrationOpen?: (open: boolean) => void
@@ -1951,35 +1951,13 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
         <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button
             onClick={() => setIsRegistrationOpen && setIsRegistrationOpen(true)}
-            className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold mb-3 px-6 py-3 text-sm shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-black px-6 py-3 text-sm rounded-lg shadow-xl transform hover:scale-105 transition-all duration-200 mb-3"
           >
-            <Play className="w-4 h-4 mr-2" />
-            PLAY NOW - SIGN UP!
+            PLAY NOW
           </Button>
+
           <p className="text-brand-primary-green text-xs font-bold mb-2">🎁 GET 125% BONUS!</p>
-          <div className="flex space-x-2 mb-3">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent p-2"
-            >
-              <Eye className="w-4 h-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent p-2"
-            >
-              <Heart className="w-4 h-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-brand-primary-green text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent p-2"
-            >
-              <Share2 className="w-4 h-4" />
-            </Button>
-          </div>
+
           <p className="text-brand-soft-white text-xs text-center px-2">{game.description}</p>
         </div>
       </div>
@@ -2149,24 +2127,27 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
       </div>
 
       {/* Categories */}
-      <div className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 py-4">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex flex-wrap gap-2 md:gap-3">
+      <div className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 py-3 md:py-4">
+        <div className="max-w-7xl mx-auto px-3 md:px-6">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center sm:justify-start">
             {categories.map((category) => (
               <Button
                 key={category.id}
                 variant={selectedCategory === category.id ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCategory(category.id)}
-                className={
+                className={`text-xs sm:text-sm px-2 sm:px-3 py-1.5 sm:py-2 ${
                   selectedCategory === category.id
                     ? "bg-brand-primary-green text-brand-charcoal-black hover:bg-brand-primary-green-dark"
                     : "border-brand-primary-green/30 text-brand-soft-white hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent"
-                }
+                }`}
               >
                 <span className="mr-2">{category.icon}</span>
                 {category.name}
-                <Badge variant="secondary" className="ml-2 bg-brand-smoke-gray/20 text-brand-soft-white">
+                <Badge
+                  variant="secondary"
+                  className="ml-1 sm:ml-2 bg-brand-smoke-gray/20 text-brand-soft-white text-xs px-1 sm:px-2"
+                >
                   {category.count}
                 </Badge>
               </Button>

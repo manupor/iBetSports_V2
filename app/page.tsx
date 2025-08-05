@@ -456,7 +456,7 @@ function CasinoContent({
               <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                 {/* Tag Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:w-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 border-brand-vibrant-green/40 bg-brand-vibrant-green/10 flex items-center justify-center">
                     <span className="text-brand-vibrant-green font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
                       %
                     </span>
@@ -584,6 +584,7 @@ function CasinoContent({
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-xl bg-brand-charcoal-black-secondary border border-brand-primary-green/20 hover:border-brand-primary-green/60 shadow-lg hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 cursor-pointer transform hover:scale-105"
+                onClick={() => setActiveTab("casino")}
               >
                 <div className="aspect-[3/4] relative">
                   <Image
@@ -636,9 +637,11 @@ function CasinoContent({
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
                     <button
                       onClick={onSignUpClick}
-                      className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black rounded-full px-4 py-2 transform hover:scale-110 transition-all duration-200 shadow-lg font-bold text-sm"
+                      className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black rounded-full p-3 transform hover:scale-110 transition-all duration-200 shadow-lg"
                     >
-                      PLAY NOW!
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </button>
                   </div>
 
