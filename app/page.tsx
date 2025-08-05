@@ -667,7 +667,7 @@ function CasinoContent({
             <div className="relative z-10">
               <div className="mb-6">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-brand-soft-white mb-4">
-                  🎰 READY TO PLAY?
+                  READY TO PLAY?
                 </h3>
                 <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-2">
                   Explore our complete collection of{" "}
@@ -684,7 +684,6 @@ function CasinoContent({
                   onClick={() => setActiveTab("casino")}
                   className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto"
                 >
-                  <span className="mr-2">🎮</span>
                   EXPLORE ALL GAMES
                 </Button>
 
@@ -693,7 +692,6 @@ function CasinoContent({
                   variant="outline"
                   className="border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl rounded-full font-bold transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
                 >
-                  <span className="mr-2">🎁</span>
                   CLAIM BONUS
                 </Button>
               </div>
