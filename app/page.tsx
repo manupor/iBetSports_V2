@@ -527,28 +527,201 @@ function CasinoContent({
       </section>
 
       {/* Gaming Options Section */}
-      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10 w-full">
-        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <section className="py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 bg-brand-charcoal-black border-b border-brand-smoke-gray/10 w-full relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-brand-primary-green/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/5 w-24 h-24 border border-brand-vibrant-green/15 rounded-full animate-ping animation-delay-1000"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border border-brand-primary-green/20 rounded-full animate-pulse animation-delay-2000"></div>
+          <div className="absolute top-1/6 right-1/8 w-40 h-40 border border-brand-vibrant-green/8 rounded-full animate-pulse animation-delay-3000"></div>
+        </div>
+
+        <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black text-brand-soft-white mb-3 sm:mb-4">
               <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-                GAMING OPTIONS
+                FEATURED GAMES
               </span>{" "}
-              FOR EVERY PLAYER
+              COLLECTION
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed">
-              From thrilling slots to strategic table games, discover your perfect gaming experience
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed mb-4">
+              Experience our handpicked selection of premium casino games with the highest RTPs and biggest wins
             </p>
+
+            {/* Pulsing Stats */}
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-6">
+              <div className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 rounded-xl px-4 py-2 transform hover:scale-105 transition-all duration-300">
+                <div className="text-brand-primary-green font-black text-lg sm:text-xl">2,800+</div>
+                <div className="text-brand-smoke-gray text-xs sm:text-sm">Games</div>
+              </div>
+              <div className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 rounded-xl px-4 py-2 transform hover:scale-105 transition-all duration-300">
+                <div className="text-brand-vibrant-green font-black text-lg sm:text-xl">99.7%</div>
+                <div className="text-brand-smoke-gray text-xs sm:text-sm">Max RTP</div>
+              </div>
+              <div className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 rounded-xl px-4 py-2 transform hover:scale-105 transition-all duration-300">
+                <div className="text-brand-primary-green font-black text-lg sm:text-xl">$15M+</div>
+                <div className="text-brand-smoke-gray text-xs sm:text-sm">Jackpots</div>
+              </div>
+            </div>
           </div>
 
-          {/* Updated Gaming Options Section - Responsive Grid */}
-          <div className="w-full max-w-6xl mx-auto">
-            <div className="relative w-full h-[80vh] md:h-[90vh] lg:h-screen bg-white rounded-lg overflow-hidden shadow-2xl">
-              <iframe
-                src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_COM"
-                className="w-full h-full border-0"
-                title="Casino Games"
-              />
+          {/* Featured Games Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6 mb-8">
+            {[
+              { name: "Mega Fortune", image: "/images/Fizzy-Pennyslot.jpg", jackpot: "$2.8M", hot: true },
+              { name: "Lightning Roulette", image: "/images/Golden-Catch.jpg", rtp: "97.3%", live: true },
+              { name: "Sweet Bonanza", image: "/images/Chocolates.jpg", multiplier: "21,100x", hot: true },
+              { name: "Gates of Olympus", image: "/images/Danger-High-Voltage.jpg", multiplier: "5,000x", new: true },
+              { name: "Book of Dead", image: "/images/Max-Megaways-2.jpg", rtp: "96.2%", popular: true },
+              { name: "Starburst", image: "/images/Kingmaker-Fully-Loaded.jpg", rtp: "96.1%", classic: true },
+              { name: "Crazy Time", image: "/images/Gifts-of-Fortune.jpg", live: true, hot: true },
+              { name: "Big Bass Bonanza", image: "/images/coins-98.jpg", multiplier: "2,100x", popular: true },
+              { name: "Wolf Gold", image: "/images/Big-Bad-Bison.jpg", jackpot: "$250K", popular: true },
+              { name: "Blackjack Pro", image: "/images/Castle-of-Terror.jpg", rtp: "99.4%", table: true },
+              { name: "Monopoly Live", image: "/images/wonderful-lamp.jpg", live: true, hot: true },
+              { name: "Bonanza Megaways", image: "/images/cash-quest.jpg", ways: "117,649", popular: true },
+              { name: "Divine Fortune", image: "/images/football-hero-promotions.jpg", jackpot: "$1.2M", hot: true },
+              { name: "European Roulette", image: "/images/tacomania.jpg", rtp: "97.3%", classic: true },
+              { name: "Razor Shark", image: "/images/wild-mustang.jpg", multiplier: "2,500x", popular: true },
+              { name: "Money Train 2", image: "/images/wild-rocks.jpg", multiplier: "20,000x", hot: true },
+              { name: "Lightning Blackjack", image: "/images/ultimo-bingo-paris.jpg", live: true, new: true },
+              { name: "Mines", image: "/images/originals-mines.png", multiplier: "24.47x", strategy: true },
+              { name: "Speed Baccarat", image: "/images/xtreme.jpg", live: true, fast: true },
+              { name: "Jurassic Park", image: "/images/warrior-angels.jpg", ways: "243", popular: true },
+            ].map((game, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-xl bg-brand-charcoal-black-secondary border border-brand-primary-green/20 hover:border-brand-primary-green/60 shadow-lg hover:shadow-xl hover:shadow-brand-primary-green/20 transition-all duration-300 cursor-pointer transform hover:scale-105"
+                onClick={() => setActiveTab("casino")}
+              >
+                <div className="aspect-[3/4] relative">
+                  <Image
+                    src={game.image || "/placeholder.svg"}
+                    alt={game.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+
+                  {/* Badges */}
+                  <div className="absolute top-2 left-2 flex flex-col gap-1">
+                    {game.hot && (
+                      <div className="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">
+                        🔥 HOT
+                      </div>
+                    )}
+                    {game.new && (
+                      <div className="bg-brand-vibrant-green text-brand-charcoal-black text-xs px-2 py-1 rounded-full font-bold">
+                        ✨ NEW
+                      </div>
+                    )}
+                    {game.live && (
+                      <div className="bg-red-600 text-white text-xs px-2 py-1 rounded-full font-bold">🎥 LIVE</div>
+                    )}
+                  </div>
+
+                  {/* Game Stats */}
+                  <div className="absolute top-2 right-2">
+                    {game.jackpot && (
+                      <div className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold">
+                        💰 {game.jackpot}
+                      </div>
+                    )}
+                    {game.rtp && (
+                      <div className="bg-brand-primary-green text-brand-charcoal-black text-xs px-2 py-1 rounded-full font-bold">
+                        RTP {game.rtp}
+                      </div>
+                    )}
+                    {game.multiplier && (
+                      <div className="bg-brand-vibrant-green text-brand-charcoal-black text-xs px-2 py-1 rounded-full font-bold">
+                        {game.multiplier}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Hover Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
+                    <div className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black rounded-full p-3 transform hover:scale-110 transition-all duration-200 shadow-lg">
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Game Title */}
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <h3 className="text-brand-soft-white font-bold text-sm truncate">{game.name}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action Section */}
+          <div className="relative bg-gradient-to-r from-brand-primary-green/10 via-brand-vibrant-green/10 to-brand-primary-green/10 rounded-2xl border border-brand-primary-green/30 p-6 sm:p-8 md:p-10 text-center overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-4 left-4 w-8 h-8 border border-brand-primary-green rounded-full"></div>
+              <div className="absolute top-8 right-8 w-6 h-6 border border-brand-vibrant-green rounded-full"></div>
+              <div className="absolute bottom-6 left-8 w-4 h-4 border border-brand-primary-green rounded-full"></div>
+              <div className="absolute bottom-4 right-4 w-10 h-10 border border-brand-vibrant-green rounded-full"></div>
+            </div>
+
+            <div className="relative z-10">
+              <div className="mb-6">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-brand-soft-white mb-4">
+                  🎰 READY TO PLAY?
+                </h3>
+                <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-2">
+                  Explore our complete collection of{" "}
+                  <span className="text-brand-primary-green font-bold">2,800+ games</span>
+                </p>
+                <p className="text-base sm:text-lg text-brand-smoke-gray">
+                  Sign up now and get <span className="text-brand-vibrant-green font-bold">125% Welcome Bonus</span> +
+                  Free Spins!
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <Button
+                  onClick={() => setActiveTab("casino")}
+                  className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full sm:w-auto"
+                >
+                  <span className="mr-2">🎮</span>
+                  EXPLORE ALL GAMES
+                </Button>
+
+                <Button
+                  onClick={onSignUpClick}
+                  variant="outline"
+                  className="border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black bg-transparent px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl rounded-full font-bold transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
+                >
+                  <span className="mr-2">🎁</span>
+                  CLAIM BONUS
+                </Button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-8 pt-6 border-t border-brand-primary-green/20">
+                <div className="flex items-center space-x-2 text-brand-smoke-gray">
+                  <div className="w-2 h-2 bg-brand-primary-green rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">Instant Play</span>
+                </div>
+                <div className="flex items-center space-x-2 text-brand-smoke-gray">
+                  <div className="w-2 h-2 bg-brand-vibrant-green rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">Quick Payouts</span>
+                </div>
+                <div className="flex items-center space-x-2 text-brand-smoke-gray">
+                  <div className="w-2 h-2 bg-brand-primary-green rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">24/7 Support</span>
+                </div>
+                <div className="flex items-center space-x-2 text-brand-smoke-gray">
+                  <div className="w-2 h-2 bg-brand-vibrant-green rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium">Secure & Licensed</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
