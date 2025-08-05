@@ -3,7 +3,7 @@
 import { Instagram, ChevronDown, ChevronUp } from "lucide-react"
 import { useState } from "react"
 
-function Footer() {
+export default function Footer() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
 
   const toggleSection = (section: string) => {
@@ -438,6 +438,3 @@ function Footer() {
     </footer>
   )
 }
-
-export { Footer }
-export default Footer

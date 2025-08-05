@@ -25,7 +25,7 @@ interface TopNavigationProps {
   onLoginClick?: () => void
 }
 
-export function TopNavigation({
+export default function TopNavigation({
   activeTab = "home",
   setActiveTab,
   showTabs = true,
