@@ -1924,6 +1924,8 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
           alt={game.name}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-500"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         />
 
         {/* Badges */}
@@ -2003,7 +2005,8 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
             alt="Casino background"
             fill
             className="object-cover"
-            priority
+            priority={false}
+            loading="lazy"
             sizes="100vw"
           />
         </div>
@@ -2032,7 +2035,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
       {/* Desktop Hero Section */}
       <div className="hidden md:block relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
         <div className="absolute inset-0">
-          <Image src="/images/casino-hero.jpg" alt="Casino background" fill className="object-cover" />
+          <Image src="/images/casino-hero.jpg" alt="Casino background" fill className="object-cover" loading="lazy" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-left flex flex-col justify-center items-start h-full">
