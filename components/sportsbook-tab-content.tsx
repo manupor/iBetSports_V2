@@ -1,198 +1,194 @@
 "use client"
 
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
+import { ExternalLink, Trophy, TrendingUp, Clock } from "lucide-react"
+import Image from "next/image"
 
-interface SportsbookTabContentProps {
-  setIsRegistrationOpen?: () => void
-}
+const featuredMatches = [
+  {
+    id: 1,
+    sport: "Football",
+    homeTeam: "Manchester United",
+    awayTeam: "Liverpool",
+    homeOdds: "2.10",
+    drawOdds: "3.40",
+    awayOdds: "3.20",
+    time: "15:30",
+    date: "Today",
+  },
+  {
+    id: 2,
+    sport: "Basketball",
+    homeTeam: "Lakers",
+    awayTeam: "Warriors",
+    homeOdds: "1.85",
+    drawOdds: null,
+    awayOdds: "1.95",
+    time: "20:00",
+    date: "Today",
+  },
+  {
+    id: 3,
+    sport: "Tennis",
+    homeTeam: "Djokovic",
+    awayTeam: "Nadal",
+    homeOdds: "1.75",
+    drawOdds: null,
+    awayOdds: "2.05",
+    time: "14:00",
+    date: "Tomorrow",
+  },
+]
 
-export default function SportsbookTabContent({ setIsRegistrationOpen }: SportsbookTabContentProps) {
+const popularSports = [
+  { name: "Football", icon: "⚽", matches: 156 },
+  { name: "Basketball", icon: "🏀", matches: 89 },
+  { name: "Tennis", icon: "🎾", matches: 67 },
+  { name: "Baseball", icon: "⚾", matches: 45 },
+  { name: "Hockey", icon: "🏒", matches: 34 },
+  { name: "Soccer", icon: "⚽", matches: 234 },
+]
+
+export default function SportsbookTabContent() {
+  const sportsbookUrl = "https://www.betus.com.pa/sportsbook/"
+
   return (
-    <div className="min-h-screen bg-brand-charcoal-black font-poppins">
+    <div className="space-y-8">
       {/* Hero Section */}
-      <section className="relative w-full">
-        {/* Mobile Hero Layout - Image first, then text below */}
-        <div className="block md:hidden">
-          {/* Mobile Hero Image */}
-          <div className="relative w-full h-48 sm:h-56 overflow-hidden">
-            <Image
-              src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
-              alt="Neon style American football player"
-              fill
-              className="object-cover object-center"
-              priority
-              sizes="100vw"
-            />
-          </div>
+      <div className="relative rounded-lg overflow-hidden">
+        <Image
+          src="/placeholder.svg?height=400&width=1200&text=Sports+Betting+Hero"
+          alt="Sportsbook Hero"
+          width={1200}
+          height={400}
+          className="w-full h-64 md:h-80 object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg">Live Sports Betting</h2>
+          <p className="mt-2 text-lg text-gray-200 drop-shadow">Bet on your favorite teams and players!</p>
+          <Button
+            onClick={() => window.open(sportsbookUrl, "_blank")}
+            className="mt-6 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold text-lg px-8 py-6"
+          >
+            <ExternalLink className="mr-2 h-5 w-5" />
+            Launch Sportsbook
+          </Button>
+        </div>
+      </div>
 
-          {/* Mobile Hero Text Content */}
-          <div className="bg-brand-charcoal-black py-8 px-4 text-center">
+      {/* Featured Matches and Popular Sports */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <Card className="lg:col-span-2 bg-gray-900/70 border-gray-700">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-2xl font-bold text-white flex items-center">
+                <Trophy className="mr-2 text-yellow-400" />
+                Featured Matches
+              </h3>
+              <Button
+                variant="outline"
+                onClick={() => window.open(sportsbookUrl, "_blank")}
+                className="bg-gray-800 border-gray-600 hover:bg-gray-700 text-white"
+              >
+                <ExternalLink className="mr-2 h-4 w-4" />
+                View All
+              </Button>
+            </div>
+
             <div className="space-y-4">
-              <h1 className="text-2xl sm:text-3xl font-black text-brand-soft-white">
-                GAME ON.
-                <span className="block">BET BIG, WIN BIGGER.</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-white">
-                From NFL to NBA, MLB to NHL—every game, every bet, every win starts here.
+              {featuredMatches.map((match) => (
+                <Card key={match.id} className="bg-gray-800/50 border-gray-600">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-sm text-gray-400">{match.sport}</span>
+                        <Clock className="h-4 w-4 text-gray-400" />
+                        <span className="text-sm text-gray-300">
+                          {match.date} {match.time}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="text-white font-semibold">{match.homeTeam}</div>
+                        <div className="text-gray-300 text-sm">vs</div>
+                        <div className="text-white font-semibold">{match.awayTeam}</div>
+                      </div>
+
+                      <div className="flex space-x-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-green-600/20 border-green-500 text-green-400 hover:bg-green-600/30"
+                        >
+                          {match.homeOdds}
+                        </Button>
+                        {match.drawOdds && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="bg-yellow-600/20 border-yellow-500 text-yellow-400 hover:bg-yellow-600/30"
+                          >
+                            {match.drawOdds}
+                          </Button>
+                        )}
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-red-600/20 border-red-500 text-red-400 hover:bg-red-600/30"
+                        >
+                          {match.awayOdds}
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-gray-900/70 border-gray-700">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-bold text-white mb-6 flex items-center">
+              <TrendingUp className="mr-2 text-pink-400" />
+              Popular Sports
+            </h3>
+
+            <div className="space-y-3">
+              {popularSports.map((sport) => (
+                <Button
+                  key={sport.name}
+                  variant="outline"
+                  className="w-full justify-between bg-gray-800 border-gray-600 hover:bg-gray-700 text-white"
+                  onClick={() => window.open(sportsbookUrl, "_blank")}
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="text-xl">{sport.icon}</span>
+                    <span>{sport.name}</span>
+                  </div>
+                  <span className="text-sm text-gray-400">{sport.matches} matches</span>
+                </Button>
+              ))}
+            </div>
+
+            <div className="mt-6 p-4 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-lg border border-pink-500/30">
+              <h4 className="font-bold text-white mb-2">🎯 Bet Builder Available</h4>
+              <p className="text-sm text-gray-300 mb-3">
+                Create custom bets by combining multiple selections from the same match.
               </p>
               <Button
-                onClick={setIsRegistrationOpen}
-                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
+                size="sm"
+                onClick={() => window.open(sportsbookUrl, "_blank")}
+                className="w-full bg-pink-600 hover:bg-pink-700"
               >
-                START BETTING
+                Try Bet Builder
               </Button>
             </div>
-          </div>
-        </div>
-
-        {/* Desktop Hero Layout - Overlay design */}
-        <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
-          <Image
-            src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
-            alt="Neon style American football player"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
-            <div className="text-left space-y-4">
-              <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">
-                GAME ON.
-                <span className="block">BET BIG, WIN BIGGER.</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-white">
-                From NFL to NBA, MLB to NHL—every game, every bet, every win starts here.
-              </p>
-              <Button
-                onClick={setIsRegistrationOpen}
-                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
-              >
-                START BETTING
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Sports Categories */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-black text-brand-soft-white mb-6">
-            <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-              POPULAR SPORTS
-            </span>
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              { name: "NFL", games: "16 Games Today" },
-              { name: "NBA", games: "12 Games Today" },
-              { name: "MLB", games: "15 Games Today" },
-              { name: "NHL", games: "8 Games Today" },
-              { name: "Soccer", games: "25 Games Today" },
-              { name: "Tennis", games: "18 Matches Today" },
-              { name: "Boxing", games: "3 Fights This Week" },
-              { name: "MMA", games: "2 Events This Week" },
-            ].map((sport, index) => (
-              <Card
-                key={index}
-                className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 p-4"
-              >
-                <div className="text-center space-y-3">
-                  <h3 className="text-lg font-bold text-brand-soft-white">{sport.name}</h3>
-                  <p className="text-sm text-brand-smoke-gray">{sport.games}</p>
-                  <Button
-                    onClick={setIsRegistrationOpen}
-                    className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300"
-                  >
-                    BET NOW
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Featured Games */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-black text-brand-soft-white mb-6">
-            <span className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green bg-clip-text text-transparent">
-              FEATURED GAMES
-            </span>
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {[
-              {
-                team1: "Kansas City Chiefs",
-                team2: "Buffalo Bills",
-                time: "8:20 PM EST",
-                spread: "KC -3.5",
-                total: "O/U 54.5",
-              },
-              {
-                team1: "Los Angeles Lakers",
-                team2: "Boston Celtics",
-                time: "10:00 PM EST",
-                spread: "LAL +2.5",
-                total: "O/U 225.5",
-              },
-            ].map((game, index) => (
-              <Card key={index} className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-6">
-                <div className="space-y-4">
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold text-brand-soft-white">
-                      {game.team1} vs {game.team2}
-                    </h3>
-                    <p className="text-brand-primary-green font-semibold">{game.time}</p>
-                  </div>
-                  <div className="flex justify-between text-brand-smoke-gray">
-                    <span>
-                      Spread: <span className="text-brand-soft-white">{game.spread}</span>
-                    </span>
-                    <span>
-                      Total: <span className="text-brand-soft-white">{game.total}</span>
-                    </span>
-                  </div>
-                  <Button
-                    onClick={setIsRegistrationOpen}
-                    className="w-full bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black py-3 text-lg rounded-lg transition-all duration-300"
-                  >
-                    PLACE BET
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="text-center py-12">
-          <h2 className="text-3xl font-black text-brand-soft-white mb-4">Ready to Start Winning?</h2>
-          <p className="text-xl text-brand-smoke-gray mb-8 max-w-3xl mx-auto">
-            Don't miss a beat—join today and start betting on your favorite sports! Sign up now, make your deposit, and
-            take advantage of our exclusive betting offers to kick off your winning streak!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={setIsRegistrationOpen}
-              className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg"
-            >
-              Join Now
-            </Button>
-            <Button
-              onClick={setIsRegistrationOpen}
-              className="bg-transparent border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black font-bold px-8 py-3 text-lg"
-            >
-              Sign Up & Bet
-            </Button>
-          </div>
-        </section>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )

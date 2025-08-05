@@ -1,10 +1,8 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import { Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react"
@@ -14,8 +12,6 @@ interface PromotionsTabContentProps {
 }
 
 const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentProps = {}) => {
-  const [selectedCategory, setSelectedCategory] = useState("all")
-
   const promotions = [
     {
       id: 1,
@@ -126,9 +122,6 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
     { id: "referral", label: "Referral", icon: Users },
   ]
 
-  const filteredPromotions =
-    selectedCategory === "all" ? promotions : promotions.filter((promo) => promo.category === selectedCategory)
-
   return (
     <div className="container mx-auto py-8">
       {/* Mobile Hero - Image First, Text Below */}
@@ -228,9 +221,9 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
               return (
                 <button
                   key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
+                  onClick={() => {}}
                   className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all ${
-                    selectedCategory === category.id
+                    false
                       ? "bg-brand-primary-green text-brand-charcoal-black"
                       : "bg-brand-charcoal-black-secondary text-brand-soft-white hover:bg-brand-primary-green/20"
                   }`}
@@ -248,7 +241,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredPromotions.map((promo) => (
+            {[].map((promo) => (
               <Card
                 key={promo.id}
                 className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 overflow-hidden group hover:border-brand-primary-green/50 transition-all duration-300"
@@ -297,34 +290,6 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
                     >
                       Claim Bonus
                     </Button>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className="border-brand-smoke-gray text-brand-smoke-gray hover:bg-brand-smoke-gray hover:text-brand-charcoal-black bg-transparent"
-                        >
-                          Terms
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 text-brand-soft-white max-w-2xl max-h-[80vh] overflow-y-auto">
-                        <DialogHeader>
-                          <DialogTitle className="text-brand-primary-green">Terms and Conditions</DialogTitle>
-                        </DialogHeader>
-                        <div
-                          className="prose prose-invert max-w-none"
-                          dangerouslySetInnerHTML={{ __html: promo.terms }}
-                        />
-                        <div className="mt-6 p-4 bg-brand-charcoal-black rounded-lg">
-                          <p className="text-sm text-brand-smoke-gray">
-                            <strong>Important Disclaimer:</strong> The user is warned that they should make their own
-                            inquiry into the legality of participating in any of these games and/or activities.
-                            IBETSPORTS assumes no responsibility for the actions by and makes no representation or
-                            endorsement of any of these games and/or activities if they are illegal in the jurisdiction
-                            of the reader or client of this site.
-                          </p>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
                   </div>
                 </CardContent>
               </Card>

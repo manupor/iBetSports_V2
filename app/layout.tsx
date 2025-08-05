@@ -1,37 +1,36 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "next-themes"
-import { Toaster } from "react-hot-toast"
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/theme-provider"
+import TopNavigation from "@/components/top-navigation"
+import Footer from "@/components/footer"
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-})
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ibetsports.ag - Online Sportsbook & Casino",
+  title: "LuckySpin Casino - Your Premier Gaming Destination",
   description:
-    "Bet on sports, play casino games, and enjoy live dealer action at ibetsports.ag. Join now for a 125% sign-up bonus and fast crypto payouts.",
-  generator: "v0.dev",
+    "Experience the thrill of online gaming with LuckySpin Casino. Play slots, live casino games, and sports betting with amazing bonuses!",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning className={poppins.variable}>
-      <body className={cn("min-h-screen bg-background font-poppins antialiased w-full")}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(inter.className, "min-h-screen bg-background font-sans antialiased")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <div className="w-full">{children}</div>
-          <Toaster />
+          <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-[#0d012c] to-[#1a0258]">
+            <TopNavigation />
+            <main className="flex-1 pt-14">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
-        <script src="https://images.betimages.com/Betslip/js/quickmail.login.js" defer></script>
       </body>
     </html>
   )

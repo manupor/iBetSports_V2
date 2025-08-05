@@ -1,250 +1,189 @@
 "use client"
+
 import { useState } from "react"
-import { Button, buttonVariants } from "@/components/ui/button"
-import {
-  MenuIcon,
-  DoorClosedIcon as CloseIcon,
-  UserIcon,
-  WalletIcon,
-  BellIcon,
-  Dice6,
-  Trophy,
-  Video,
-  CreditCard,
-  Gift,
-} from "lucide-react"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
-import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog"
+import { Menu, X, Gem } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
-interface TopNavigationProps {
-  activeTab?: string
-  setActiveTab?: (tab: string) => void
-  showTabs?: boolean
-  onSignUpClick?: () => void
-  onLoginClick?: () => void
-}
-
-export function TopNavigation({
-  activeTab = "home",
-  setActiveTab,
-  showTabs = true,
-  onSignUpClick,
-  onLoginClick,
-}: TopNavigationProps) {
+export default function TopNavigation() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const tabs = [
-    { id: "casino", label: "Casino", icon: Dice6 },
-    { id: "sports", label: "Sports", icon: Trophy },
-    { id: "racebook", label: "Racebook", icon: null, customIcon: true },
-    { id: "live-casino", label: "Live Casino", icon: Video },
-    { id: "banking", label: "Banking", icon: CreditCard },
-    { id: "promotions", label: "Promotions", icon: Gift },
+  const navLinks = [
+    { href: "#", label: "Casino" },
+    { href: "#", label: "Sports" },
+    { href: "#", label: "Promotions" },
+    { href: "#", label: "VIP" },
   ]
-
-  const handleTabChange = (tabId: string) => {
-    if (setActiveTab) {
-      setActiveTab(tabId)
-    }
-    setIsMobileMenuOpen(false)
-  }
 
   return (
     <>
-      <nav className="bg-brand-charcoal-black border-b border-brand-smoke-gray/20 sticky top-0 z-50 backdrop-blur-sm w-full">
-        {/* Top Bar */}
-        <div className="border-b border-brand-smoke-gray/10 w-full">
-          <div className="w-full px-3 xs:px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-14 xs:h-16 sm:h-18">
-              {/* Logo */}
-              <div className="flex-shrink-0">
-                <Link href="/" className="cursor-pointer" onClick={() => setActiveTab && setActiveTab("home")}>
-                  <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
-                    ibetsports.ag
-                  </span>
+      <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 items-center px-4">
+          <div className="mr-4 hidden md:flex">
+            <Link href="/" className="mr-6 flex items-center space-x-2">
+              <Gem className="h-6 w-6 text-pink-500" />
+              <span className="hidden font-bold sm:inline-block text-white">LuckySpin</span>
+            </Link>
+            <nav className="flex items-center space-x-6 text-sm font-medium">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="transition-colors hover:text-foreground/80 text-foreground/60"
+                >
+                  {link.label}
                 </Link>
-              </div>
-
-              {/* Desktop Actions */}
-              <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-                <Button
-                  variant="outline"
-                  size="default"
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 bg-transparent text-sm xl:text-base"
-                  onClick={onLoginClick}
-                >
-                  <UserIcon className="w-3 h-3 xl:w-4 xl:h-4 mr-1 xl:mr-2" />
-                  Login
-                </Button>
-                <Button
-                  onClick={onSignUpClick}
-                  className={cn(
-                    buttonVariants({ size: "default" }),
-                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 text-sm xl:text-base animate-pulse",
-                  )}
-                >
-                  Sign Up
-                </Button>
-              </div>
-
-              {/* Tablet Actions */}
-              <div className="hidden md:flex lg:hidden items-center space-x-2 xl:space-x-3">
-                <Button
-                  variant="outline"
-                  size="default"
-                  onClick={onLoginClick}
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-4 xl:px-6 py-2 xl:py-3 bg-transparent text-sm xl:text-base"
-                >
-                  Login
-                </Button>
-                <Button
-                  onClick={onSignUpClick}
-                  className={cn(
-                    buttonVariants({ size: "default" }),
-                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base",
-                  )}
-                >
-                  Sign Up
-                </Button>
-              </div>
-
-              {/* Mobile Actions and Menu Button */}
-              <div className="flex md:hidden items-center space-x-1 xs:space-x-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={onLoginClick}
-                  className="border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black px-2 xs:px-3 py-1 xs:py-1.5 bg-transparent text-xs"
-                >
-                  Login
-                </Button>
-                <Button
-                  onClick={onSignUpClick}
-                  className={cn(
-                    buttonVariants({ size: "sm" }),
-                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 xs:px-3 py-1 xs:py-1.5 text-xs animate-pulse shadow-sm",
-                  )}
-                >
-                  Join Now!
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="text-brand-soft-white hover:text-brand-primary-green p-1.5 xs:p-2 ml-1 xs:ml-2"
-                >
-                  {isMobileMenuOpen ? (
-                    <CloseIcon className="w-4 h-4 xs:w-5 xs:h-5" />
-                  ) : (
-                    <MenuIcon className="w-4 h-4 xs:w-5 xs:h-5" />
-                  )}
-                </Button>
-              </div>
+              ))}
+            </nav>
+          </div>
+          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+            <div className="md:hidden flex-1">
+              <Link href="/" className="flex items-center space-x-2">
+                <Gem className="h-6 w-6 text-pink-500" />
+                <span className="font-bold text-white">LuckySpin</span>
+              </Link>
+            </div>
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                {isMobileMenuOpen ? <X className="text-white" /> : <Menu className="text-white" />}
+              </Button>
+            </div>
+            <div className="hidden md:flex items-center space-x-2">
+              <Button variant="ghost" onClick={() => setIsLoginOpen(true)} className="text-white hover:bg-gray-800">
+                Log In
+              </Button>
+              <Button onClick={() => setIsRegisterOpen(true)} className="bg-pink-600 hover:bg-pink-700 text-white">
+                Sign Up
+              </Button>
             </div>
           </div>
         </div>
-
-        {/* Navigation Tabs - Desktop & Tablet */}
-        {showTabs && (
-          <div className="hidden md:block w-full">
-            <div className="w-full px-3 xs:px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center justify-center">
-                <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
-                  {tabs.map((tab) => {
-                    const IconComponent = tab.icon
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => handleTabChange(tab.id)}
-                        className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 ${
-                          activeTab === tab.id
-                            ? "text-brand-primary-green border-brand-primary-green"
-                            : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
-                        }`}
-                      >
-                        {tab.customIcon ? (
-                          <Image
-                            src="/images/horse-icon.svg"
-                            alt="Horse"
-                            width={24}
-                            height={24}
-                            className={`w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${
-                              activeTab === tab.id ? "text-brand-primary-green" : "text-brand-smoke-gray"
-                            }`}
-                            style={{
-                              filter:
-                                activeTab === tab.id
-                                  ? "brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(1000%) hue-rotate(88deg) brightness(118%) contrast(119%)"
-                                  : "brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(15%) hue-rotate(314deg) brightness(95%) contrast(88%)",
-                            }}
-                          />
-                        ) : (
-                          <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
-                        )}
-                        <span>{tab.label}</span>
-                      </button>
-                    )
-                  })}
-                </div>
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-background/95 border-t border-border/40">
+            <nav className="flex flex-col items-start space-y-2 p-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="w-full p-2 rounded-md transition-colors hover:bg-accent text-foreground/60"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="w-full border-t pt-4 flex flex-col space-y-2">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    setIsLoginOpen(true)
+                    setIsMobileMenuOpen(false)
+                  }}
+                >
+                  Log In
+                </Button>
+                <Button
+                  className="w-full justify-start bg-pink-600 hover:bg-pink-700"
+                  onClick={() => {
+                    setIsRegisterOpen(true)
+                    setIsMobileMenuOpen(false)
+                  }}
+                >
+                  Sign Up
+                </Button>
               </div>
-            </div>
+            </nav>
           </div>
         )}
-      </nav>
+      </header>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-14 xs:top-16 sm:top-18 bg-brand-charcoal-black/95 backdrop-blur-sm z-50">
-          <div className="flex flex-col h-full">
-            {/* Mobile Navigation */}
-            {showTabs && (
-              <div className="flex-1 px-3 xs:px-4 py-4 xs:py-6 overflow-y-auto">
-                <div className="space-y-1 xs:space-y-2">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => handleTabChange(tab.id)}
-                      className={`w-full text-left px-3 xs:px-4 py-2 xs:py-3 rounded-lg text-sm xs:text-base font-medium transition-all duration-200 block ${
-                        activeTab === tab.id
-                          ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
-                          : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Mobile Actions Footer */}
-            <div className="border-t border-brand-smoke-gray/20 p-3 xs:p-4 space-y-2 xs:space-y-3 bg-brand-charcoal-black-secondary">
-              <div className="grid grid-cols-2 gap-2 xs:gap-3">
-                <Button
-                  variant="ghost"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
-                >
-                  <BellIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
-                  Notifications
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
-                >
-                  <WalletIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
-                  Balance: $0.00
-                </Button>
-              </div>
-              <div className="pt-1 xs:pt-2 border-t border-brand-smoke-gray/10">
-                <p className="text-xs text-brand-smoke-gray text-center">
-                  Welcome to ibetsports.ag - Your Premium Gaming Destination
-                </p>
-              </div>
+      {/* Login Dialog */}
+      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+        <DialogContent className="sm:max-w-[425px] bg-gray-900 text-white border-purple-500">
+          <DialogHeader>
+            <DialogTitle>Log In</DialogTitle>
+            <DialogDescription>Access your LuckySpin account.</DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="email-login" className="text-right">
+                Email
+              </Label>
+              <Input
+                id="email-login"
+                type="email"
+                placeholder="you@example.com"
+                className="col-span-3 bg-gray-800 border-gray-700 text-white"
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="password-login" className="text-right">
+                Password
+              </Label>
+              <Input
+                id="password-login"
+                type="password"
+                className="col-span-3 bg-gray-800 border-gray-700 text-white"
+              />
             </div>
           </div>
-        </div>
-      )}
+          <DialogFooter>
+            <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
+              Log In
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Register Dialog */}
+      <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+        <DialogContent className="sm:max-w-[425px] bg-gray-900 text-white border-pink-500">
+          <DialogHeader>
+            <DialogTitle>Sign Up</DialogTitle>
+            <DialogDescription>Create your LuckySpin account to start playing.</DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="email-register" className="text-right">
+                Email
+              </Label>
+              <Input
+                id="email-register"
+                type="email"
+                placeholder="you@example.com"
+                className="col-span-3 bg-gray-800 border-gray-700 text-white"
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="password-register" className="text-right">
+                Password
+              </Label>
+              <Input
+                id="password-register"
+                type="password"
+                className="col-span-3 bg-gray-800 border-gray-700 text-white"
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button type="submit" className="w-full bg-pink-600 hover:bg-pink-700">
+              Create Account
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

@@ -1,14 +1,6 @@
 "use client"
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-
-interface RacebookTabContentProps {
-  setIsRegistrationOpen?: () => void
-}
-
-export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTabContentProps) {
+export default function RacebookTabContent() {
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
       {/* Hero Section */}
@@ -17,12 +9,12 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
         <div className="block md:hidden">
           {/* Mobile Hero Image */}
           <div className="relative w-full h-48 sm:h-56 overflow-hidden">
-            <Image
+            <img
               src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
               alt="Horse racing track with neon lighting effects"
               fill
               className="object-cover object-center"
-              priority
+              style={{ objectFit: "cover", objectPosition: "center", width: "100%", height: "100%" }}
               sizes="100vw"
             />
           </div>
@@ -37,24 +29,21 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
               <p className="text-lg sm:text-xl text-white">
                 Stay ahead of the pack with live odds, fast results, and daily race coverage.
               </p>
-              <Button
-                onClick={setIsRegistrationOpen}
-                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
-              >
+              <button className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300">
                 START BETTING
-              </Button>
+              </button>
             </div>
           </div>
         </div>
 
         {/* Desktop Hero Layout - Overlay design */}
         <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
-          <Image
+          <img
             src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
             alt="Horse racing track with neon lighting effects"
             fill
             className="object-cover object-center"
-            priority
+            style={{ objectFit: "cover", objectPosition: "center", width: "100%", height: "100%" }}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
@@ -67,12 +56,9 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
               <p className="text-xl md:text-2xl text-white">
                 Stay ahead of the pack with live odds, fast results, and daily race coverage.
               </p>
-              <Button
-                onClick={setIsRegistrationOpen}
-                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
-              >
+              <button className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300">
                 START BETTING
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -98,7 +84,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
               { name: "Keeneland", races: 6, nextRace: "6:30 PM" },
               { name: "Gulfstream Park", races: 11, nextRace: "7:15 PM" },
             ].map((track, index) => (
-              <Card
+              <div
                 key={index}
                 className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 p-6"
               >
@@ -108,14 +94,11 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
                     <p className="text-brand-smoke-gray">{track.races} races today</p>
                     <p className="text-brand-primary-green font-semibold">Next: {track.nextRace}</p>
                   </div>
-                  <Button
-                    onClick={setIsRegistrationOpen}
-                    className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300"
-                  >
+                  <button className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300">
                     VIEW RACES
-                  </Button>
+                  </button>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </section>
@@ -128,7 +111,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
             </span>
           </h2>
 
-          <Card className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-8">
+          <div className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 p-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold text-brand-soft-white mb-4">Kentucky Derby Stakes</h3>
@@ -148,15 +131,12 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <Button
-                  onClick={setIsRegistrationOpen}
-                  className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-12 py-4 text-xl rounded-lg transition-all duration-300"
-                >
+                <button className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-12 py-4 text-xl rounded-lg transition-all duration-300">
                   BET NOW
-                </Button>
+                </button>
               </div>
             </div>
-          </Card>
+          </div>
         </section>
 
         {/* Betting Types */}
@@ -178,7 +158,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
               { type: "Daily Double", description: "Pick winners of two consecutive races" },
               { type: "Pick 3", description: "Pick winners of three consecutive races" },
             ].map((bet, index) => (
-              <Card
+              <div
                 key={index}
                 className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 p-4"
               >
@@ -186,7 +166,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
                   <h3 className="text-lg font-bold text-brand-primary-green">{bet.type}</h3>
                   <p className="text-sm text-brand-smoke-gray">{bet.description}</p>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </section>

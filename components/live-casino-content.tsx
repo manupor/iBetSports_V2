@@ -1,19 +1,14 @@
+// Import necessary modules and components
 import type React from "react"
+import { View, Text } from "react-native"
 
-type LiveCasinoContentProps = {}
-
-const LiveCasinoContent: React.FC<LiveCasinoContentProps> = () => {
+// Define the LiveCasinoContent component
+const LiveCasinoContent: React.FC = () => {
+  // Main component structure
   return (
-    <div className="w-full h-screen">
-      <iframe
-        src="https://lobby.gamemecanica.net/?token=dGVzdGxvYmJ5OnRlc3Q%3D&playerId=Mzk1NA%3D%3D&language=en&casinoClient=I_BET_SPORTS_LIVE"
-        className="w-full h-full border-0"
-        title="Live Casino Game"
-        allowFullScreen
-        loading="lazy"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-      />
-    </div>
+    <View>
+      <Text>Live Casino Content</Text>
+    </View>
   )
 }
 
