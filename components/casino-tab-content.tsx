@@ -2159,17 +2159,17 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
       {/* Games Grid */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {/* Results Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-center sm:justify-between mb-6 space-y-3 sm:space-y-0">
           <div className="flex items-center space-x-4">
-            <h2 className="text-xl md:text-2xl font-bold text-brand-soft-white">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-brand-soft-white text-center sm:text-left">
               {selectedCategory === "all" ? "All Games" : categories.find((cat) => cat.id === selectedCategory)?.name}
             </h2>
             <Badge variant="outline" className="text-brand-primary-green border-brand-primary-green">
               {filteredGames.length} games
             </Badge>
           </div>
-          <div className="flex items-center space-x-2 text-brand-smoke-gray text-sm">
-            <Clock className="w-4 h-4" />
+          <div className="flex items-center space-x-2 text-brand-smoke-gray text-xs sm:text-sm">
+            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
             <span>Updated 2 minutes ago</span>
           </div>
         </div>

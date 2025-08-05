@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import TopNavigation from "@/components/top-navigation"
-import LiveCasinoTabContent from "@/components/live-casino-tab-content"
+import BankingTabContent from "@/components/banking-tab-content"
 import Footer from "@/components/footer"
 
-export default function LiveCasinoPage() {
-  const [activeTab, setActiveTab] = useState("live-casino")
+export default function BankingPage() {
+  const [activeTab, setActiveTab] = useState("banking")
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
 
   return (
@@ -18,7 +18,7 @@ export default function LiveCasinoPage() {
         onSignUpClick={() => setIsRegistrationOpen(true)}
         onLoginClick={() => console.log("Login clicked")}
       />
-      <LiveCasinoTabContent setIsRegistrationOpen={() => setIsRegistrationOpen(true)} />
+      <BankingTabContent setIsRegistrationOpen={() => setIsRegistrationOpen(true)} />
       <Footer />
     </div>
   )

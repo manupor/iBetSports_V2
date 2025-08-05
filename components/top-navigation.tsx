@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
   MenuIcon,
@@ -33,20 +34,22 @@ export default function TopNavigation({
   onLoginClick,
 }: TopNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const router = useRouter()
 
   const tabs = [
-    { id: "casino", label: "Casino", icon: Dice6 },
-    { id: "sports", label: "Sports", icon: Trophy },
-    { id: "racebook", label: "Racebook", icon: null, customIcon: true },
-    { id: "live-casino", label: "Live Casino", icon: Video },
-    { id: "banking", label: "Banking", icon: CreditCard },
-    { id: "promotions", label: "Promotions", icon: Gift },
+    { id: "casino", label: "Casino", icon: Dice6, path: "/?tab=casino" },
+    { id: "sports", label: "Sports", icon: Trophy, path: "/?tab=sports" },
+    { id: "racebook", label: "Racebook", icon: null, customIcon: true, path: "/?tab=racebook" },
+    { id: "live-casino", label: "Live Casino", icon: Video, path: "/?tab=live-casino" },
+    { id: "banking", label: "Banking", icon: CreditCard, path: "/?tab=banking" },
+    { id: "promotions", label: "Promotions", icon: Gift, path: "/?tab=promotions" },
   ]
 
-  const handleTabChange = (tabId: string) => {
+  const handleTabChange = (tabId: string, path: string) => {
     if (setActiveTab) {
       setActiveTab(tabId)
     }
+    router.push(path, { scroll: false })
     setIsMobileMenuOpen(false)
   }
 
@@ -156,7 +159,7 @@ export default function TopNavigation({
                     return (
                       <button
                         key={tab.id}
-                        onClick={() => handleTabChange(tab.id)}
+                        onClick={() => handleTabChange(tab.id, tab.path)}
                         className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 ${
                           activeTab === tab.id
                             ? "text-brand-primary-green border-brand-primary-green"
@@ -204,7 +207,7 @@ export default function TopNavigation({
                   {tabs.map((tab) => (
                     <button
                       key={tab.id}
-                      onClick={() => handleTabChange(tab.id)}
+                      onClick={() => handleTabChange(tab.id, tab.path)}
                       className={`w-full text-left px-3 xs:px-4 py-2 xs:py-3 rounded-lg text-sm xs:text-base font-medium transition-all duration-200 block ${
                         activeTab === tab.id
                           ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"

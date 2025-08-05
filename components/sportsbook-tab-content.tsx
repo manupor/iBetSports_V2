@@ -2,12 +2,26 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { useEffect } from "react"
 
 interface SportsbookTabContentProps {
   setIsRegistrationOpen?: () => void
 }
 
 export default function SportsbookTabContent({ setIsRegistrationOpen }: SportsbookTabContentProps) {
+  useEffect(() => {
+    // Preload the iframe content
+    const link = document.createElement("link")
+    link.rel = "preload"
+    link.href = "https://betslip.ibetsports.com/mainbk/betslip"
+    link.as = "document"
+    document.head.appendChild(link)
+
+    return () => {
+      document.head.removeChild(link)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
       {/* Hero Section */}
@@ -83,7 +97,7 @@ export default function SportsbookTabContent({ setIsRegistrationOpen }: Sportsbo
           src="https://betslip.ibetsports.com/mainbk/betslip"
           className="w-full h-full border-none"
           title="Sportsbook"
-          loading="lazy"
+          loading="eager"
           allow="fullscreen"
           style={{
             minHeight: "100vh",
