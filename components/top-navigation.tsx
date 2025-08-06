@@ -186,8 +186,10 @@ export default function TopNavigation({
                         </button>
                         <div className="text-center mt-4">
                           <a
-                            href="/reset-password"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300"
+                            href="https://betslip.ibetsports.ag/home/reset-pass"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300 underline"
                           >
                             Forgot your password?
                           </a>
@@ -296,8 +298,10 @@ export default function TopNavigation({
                         </button>
                         <div className="text-center mt-4">
                           <a
-                            href="/reset-password"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300"
+                            href="https://betslip.ibetsports.ag/home/reset-pass"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300 underline"
                           >
                             Forgot your password?
                           </a>
@@ -406,8 +410,10 @@ export default function TopNavigation({
                         </button>
                         <div className="text-center mt-4">
                           <a
-                            href="/reset-password"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300"
+                            href="https://betslip.ibetsports.ag/home/reset-pass"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300 underline"
                           >
                             Forgot your password?
                           </a>
@@ -477,45 +483,45 @@ export default function TopNavigation({
               <div className="flex items-center justify-center">
                 <div className="flex space-x-0 overflow-x-auto scrollbar-hide">
                   {tabs.map((tab) => {
-  const IconComponent = tab.icon
-  return (
-    <Link
-      key={tab.id}
-      href={tab.path}
-      onClick={(e) => {
-        if (setActiveTab) {
-          setActiveTab(tab.id);
-        }
-      }}
-      className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 ${
-        activeTab === tab.id
-          ? "text-brand-primary-green border-brand-primary-green"
-          : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
-      }`}
-    >
-      {tab.customIcon ? (
-        <Image
-          src="/images/horse-icon.svg"
-          alt="Horse"
-          width={24}
-          height={24}
-          className={`w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${
-            activeTab === tab.id ? "text-brand-primary-green" : "text-brand-smoke-gray"
-          }`}
-          style={{
-            filter:
-              activeTab === tab.id
-                ? "brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(1000%) hue-rotate(88deg) brightness(118%) contrast(119%)"
-                : "brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(15%) hue-rotate(314deg) brightness(95%) contrast(88%)",
-          }}
-        />
-      ) : IconComponent ? (
-        <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
-      ) : null}
-      <span>{tab.label}</span>
-    </Link>
-  )
-})}
+                    const IconComponent = tab.icon
+                    return (
+                      <Link
+                        key={tab.id}
+                        href={tab.path}
+                        onClick={(e) => {
+                          if (setActiveTab) {
+                            setActiveTab(tab.id);
+                          }
+                        }}
+                        className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 ${
+                          activeTab === tab.id
+                            ? "text-brand-primary-green border-brand-primary-green"
+                            : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
+                        }`}
+                      >
+                        {tab.customIcon ? (
+                          <Image
+                            src="/images/horse-icon.svg"
+                            alt="Horse"
+                            width={24}
+                            height={24}
+                            className={`w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ${
+                              activeTab === tab.id ? "text-brand-primary-green" : "text-brand-smoke-gray"
+                            }`}
+                            style={{
+                              filter:
+                                activeTab === tab.id
+                                  ? "brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(1000%) hue-rotate(88deg) brightness(118%) contrast(119%)"
+                                  : "brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(15%) hue-rotate(314deg) brightness(95%) contrast(88%)",
+                            }}
+                          />
+                        ) : IconComponent ? (
+                          <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                        ) : null}
+                        <span>{tab.label}</span>
+                      </Link>
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -526,55 +532,55 @@ export default function TopNavigation({
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-14 xs:top-16 sm:top-18 bg-brand-charcoal-black/95 backdrop-blur-sm z-50">
-        <div className="flex flex-col h-full">
-          {/* Mobile Navigation */}
-          {showTabs && (
-            <div className="flex-1 px-3 xs:px-4 py-4 xs:py-6 overflow-y-auto">
-              <div className="space-y-1 xs:space-y-2">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => handleTabChange(tab.id, tab.path)}
-                    className={`w-full text-left px-3 xs:px-4 py-2 xs:py-3 rounded-lg text-sm xs:text-base font-medium transition-all duration-200 block ${
-                      activeTab === tab.id
-                        ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
-                        : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+          <div className="flex flex-col h-full">
+            {/* Mobile Navigation */}
+            {showTabs && (
+              <div className="flex-1 px-3 xs:px-4 py-4 xs:py-6 overflow-y-auto">
+                <div className="space-y-1 xs:space-y-2">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => handleTabChange(tab.id, tab.path)}
+                      className={`w-full text-left px-3 xs:px-4 py-2 xs:py-3 rounded-lg text-sm xs:text-base font-medium transition-all duration-200 block ${
+                        activeTab === tab.id
+                          ? "bg-brand-primary-green text-brand-charcoal-black shadow-lg"
+                          : "text-brand-soft-white hover:text-brand-primary-green hover:bg-brand-charcoal-black-secondary"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Mobile Actions Footer */}
-          <div className="border-t border-brand-smoke-gray/20 p-3 xs:p-4 space-y-2 xs:space-y-3 bg-brand-charcoal-black-secondary">
-            <div className="grid grid-cols-2 gap-2 xs:gap-3">
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
-              >
-                <BellIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
-                Notifications
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
-              >
-                <WalletIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
-                Balance: $0.00
-              </Button>
-            </div>
-            <div className="pt-1 xs:pt-2 border-t border-brand-smoke-gray/10">
-              <p className="text-xs text-brand-smoke-gray text-center">
-                Welcome to ibetsports.ag - Your Premium Gaming Destination
-              </p>
+            {/* Mobile Actions Footer */}
+            <div className="border-t border-brand-smoke-gray/20 p-3 xs:p-4 space-y-2 xs:space-y-3 bg-brand-charcoal-black-secondary">
+              <div className="grid grid-cols-2 gap-2 xs:gap-3">
+                <Button
+                  variant="ghost"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
+                >
+                  <BellIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
+                  Notifications
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
+                >
+                  <WalletIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
+                  Balance: $0.00
+                </Button>
+              </div>
+              <div className="pt-1 xs:pt-2 border-t border-brand-smoke-gray/10">
+                <p className="text-xs text-brand-smoke-gray text-center">
+                  Welcome to ibetsports.ag - Your Premium Gaming Destination
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </>
   )
 }
