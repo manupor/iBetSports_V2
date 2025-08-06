@@ -38,7 +38,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
                 Stay ahead of the pack with live odds, fast results, and daily race coverage.
               </p>
               <Button
-                onClick={setIsRegistrationOpen}
+                onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
                 START BETTING
@@ -68,7 +68,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
                 Stay ahead of the pack with live odds, fast results, and daily race coverage.
               </p>
               <Button
-                onClick={setIsRegistrationOpen}
+                onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
                 START BETTING
@@ -109,7 +109,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
                     <p className="text-brand-primary-green font-semibold">Next: {track.nextRace}</p>
                   </div>
                   <Button
-                    onClick={setIsRegistrationOpen}
+                    onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                     className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300"
                   >
                     VIEW RACES
@@ -149,7 +149,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
               </div>
               <div className="flex items-center justify-center">
                 <Button
-                  onClick={setIsRegistrationOpen}
+                  onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                   className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-12 py-4 text-xl rounded-lg transition-all duration-300"
                 >
                   BET NOW

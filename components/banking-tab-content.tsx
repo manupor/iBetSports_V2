@@ -171,7 +171,7 @@ export default function BankingTabContent({ setIsRegistrationOpen }: BankingTabC
                   </div>
 
                   <Button
-                    onClick={setIsRegistrationOpen}
+                    onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                     className="w-full bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-bold py-2 px-4 rounded-lg transition-colors duration-300"
                   >
                     Get Started
@@ -231,13 +231,13 @@ export default function BankingTabContent({ setIsRegistrationOpen }: BankingTabC
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              onClick={setIsRegistrationOpen}
+              onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
               className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-8 py-3 text-lg"
             >
               Create Account
             </Button>
             <Button
-              onClick={setIsRegistrationOpen}
+              onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
               className="bg-transparent border-2 border-brand-primary-green text-brand-primary-green hover:bg-brand-primary-green hover:text-brand-charcoal-black font-bold px-8 py-3 text-lg"
             >
               Make First Deposit

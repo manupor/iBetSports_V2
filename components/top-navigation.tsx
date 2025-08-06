@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog"
-import { MenuIcon, DoorClosedIcon as CloseIcon, UserIcon, WalletIcon, BellIcon, Dice6, Trophy, Video, CreditCard, Gift, Home, X } from 'lucide-react'
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { MenuIcon, DoorClosedIcon as CloseIcon, UserIcon, WalletIcon, BellIcon, Dice6, Trophy, Video, CreditCard, Gift, Home } from 'lucide-react'
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
@@ -81,8 +81,16 @@ export default function TopNavigation({
     if (setActiveTab) {
       setActiveTab(tabId)
     }
-    router.push(path, { scroll: false })
     setIsMobileMenuOpen(false)
+    router.push(path, { scroll: false })
+  }
+
+  const handleLogoClick = () => {
+    if (setActiveTab) {
+      setActiveTab(null)
+    }
+    setIsMobileMenuOpen(false)
+    router.push("/", { scroll: false })
   }
 
   const handleLogin = () => {
@@ -106,22 +114,14 @@ export default function TopNavigation({
             <div className="flex items-center justify-between h-14 xs:h-16 sm:h-18">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <Link
-                  href="/"
-                  className="cursor-pointer"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    if (setActiveTab) {
-                      setActiveTab(null)
-                    }
-                    setIsMobileMenuOpen(false)
-                    window.location.href = "/"
-                  }}
+                <button
+                  onClick={handleLogoClick}
+                  className="cursor-pointer bg-transparent border-none p-0"
                 >
                   <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">
                     ibetsports.ag
                   </span>
-                </Link>
+                </button>
               </div>
 
               {/* Desktop Actions */}
@@ -138,11 +138,13 @@ export default function TopNavigation({
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-brand-charcoal-black border-brand-primary-green">
-                    <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                      <X className="h-4 w-4 text-brand-soft-white hover:text-brand-primary-green" />
-                      <span className="sr-only">Close</span>
-                    </DialogClose>
-                    <div className="p-6">
+                    <div className="p-6 relative">
+                      <button
+                        onClick={() => setIsLoginOpen(false)}
+                        className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                      >
+                        <span className="text-xl font-bold">×</span>
+                      </button>
                       <h2 className="text-2xl font-bold text-white mb-6 text-center">Login to Your Account</h2>
                       <form
                         name="Loginform"
@@ -186,10 +188,10 @@ export default function TopNavigation({
                         </button>
                         <div className="text-center mt-4">
                           <a
-                            href="https://betslip.ibetsports.ag/home/reset-pass"
+                            href="https://betslip.ibetsports.com/home/reset-pass"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300 underline"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300"
                           >
                             Forgot your password?
                           </a>
@@ -198,43 +200,15 @@ export default function TopNavigation({
                     </div>
                   </DialogContent>
                 </Dialog>
-                <Dialog open={isSignUpOpen} onOpenChange={setIsSignUpOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      onClick={handleSignUp}
-                      className={cn(
-                        buttonVariants({ size: "default" }),
-                        "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 text-sm xl:text-base animate-pulse",
-                      )}
-                    >
-                      Sign Up
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
-                    <iframe
-                      src="https://betslip.ibetsports.ag/signup"
-                      className="w-full h-full border-0 rounded-lg"
-                      title="Sign Up"
-                      loading="eager"
-                      onLoad={(e) => {
-                        const iframe = e.target as HTMLIFrameElement
-                        if (iframe.contentWindow) {
-                          iframe.style.visibility = "visible"
-                        }
-                      }}
-                      style={{ visibility: "hidden" }}
-                    />
-                    <div
-                      className="absolute inset-0 flex items-center justify-center bg-brand-charcoal-black rounded-lg"
-                      id="signup-loader"
-                    >
-                      <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary-green mx-auto mb-4"></div>
-                        <p className="text-brand-soft-white">Loading Sign Up Form...</p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <Button
+                  onClick={handleSignUp}
+                  className={cn(
+                    buttonVariants({ size: "default" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 h-10 xl:h-12 text-sm xl:text-base animate-pulse",
+                  )}
+                >
+                  Sign Up
+                </Button>
               </div>
 
               {/* Tablet Actions */}
@@ -250,11 +224,13 @@ export default function TopNavigation({
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-brand-charcoal-black border-brand-primary-green">
-                    <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                      <X className="h-4 w-4 text-brand-soft-white hover:text-brand-primary-green" />
-                      <span className="sr-only">Close</span>
-                    </DialogClose>
-                    <div className="p-6">
+                    <div className="p-6 relative">
+                      <button
+                        onClick={() => setIsLoginOpen(false)}
+                        className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                      >
+                        <span className="text-xl font-bold">×</span>
+                      </button>
                       <h2 className="text-2xl font-bold text-white mb-6 text-center">Login to Your Account</h2>
                       <form
                         name="Loginform"
@@ -298,10 +274,10 @@ export default function TopNavigation({
                         </button>
                         <div className="text-center mt-4">
                           <a
-                            href="https://betslip.ibetsports.ag/home/reset-pass"
+                            href="https://betslip.ibetsports.com/home/reset-pass"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300 underline"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300"
                           >
                             Forgot your password?
                           </a>
@@ -310,43 +286,15 @@ export default function TopNavigation({
                     </div>
                   </DialogContent>
                 </Dialog>
-                <Dialog open={isSignUpOpen} onOpenChange={setIsSignUpOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      onClick={handleSignUp}
-                      className={cn(
-                        buttonVariants({ size: "default" }),
-                        "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base",
-                      )}
-                    >
-                      Sign Up
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
-                    <iframe
-                      src="https://betslip.ibetsports.ag/signup"
-                      className="w-full h-full border-0 rounded-lg"
-                      title="Sign Up"
-                      loading="eager"
-                      onLoad={(e) => {
-                        const iframe = e.target as HTMLIFrameElement
-                        if (iframe.contentWindow) {
-                          iframe.style.visibility = "visible"
-                        }
-                      }}
-                      style={{ visibility: "hidden" }}
-                    />
-                    <div
-                      className="absolute inset-0 flex items-center justify-center bg-brand-charcoal-black rounded-lg"
-                      id="signup-loader"
-                    >
-                      <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary-green mx-auto mb-4"></div>
-                        <p className="text-brand-soft-white">Loading Sign Up Form...</p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <Button
+                  onClick={handleSignUp}
+                  className={cn(
+                    buttonVariants({ size: "default" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base",
+                  )}
+                >
+                  Sign Up
+                </Button>
               </div>
 
               {/* Mobile Actions and Menu Button */}
@@ -362,11 +310,13 @@ export default function TopNavigation({
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-brand-charcoal-black border-brand-primary-green">
-                    <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                      <X className="h-4 w-4 text-brand-soft-white hover:text-brand-primary-green" />
-                      <span className="sr-only">Close</span>
-                    </DialogClose>
-                    <div className="p-6">
+                    <div className="p-6 relative">
+                      <button
+                        onClick={() => setIsLoginOpen(false)}
+                        className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                      >
+                        <span className="text-xl font-bold">×</span>
+                      </button>
                       <h2 className="text-2xl font-bold text-white mb-6 text-center">Login to Your Account</h2>
                       <form
                         name="Loginform"
@@ -410,10 +360,10 @@ export default function TopNavigation({
                         </button>
                         <div className="text-center mt-4">
                           <a
-                            href="https://betslip.ibetsports.ag/home/reset-pass"
+                            href="https://betslip.ibetsports.com/home/reset-pass"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300 underline"
+                            className="text-brand-primary-green hover:text-brand-vibrant-green text-sm transition-colors duration-300"
                           >
                             Forgot your password?
                           </a>
@@ -422,43 +372,15 @@ export default function TopNavigation({
                     </div>
                   </DialogContent>
                 </Dialog>
-                <Dialog open={isSignUpOpen} onOpenChange={setIsSignUpOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      onClick={handleSignUp}
-                      className={cn(
-                        buttonVariants({ size: "sm" }),
-                        "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 xs:px-3 py-1 xs:py-1.5 text-xs animate-pulse shadow-sm",
-                      )}
-                    >
-                      Join Now!
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
-                    <iframe
-                      src="https://betslip.ibetsports.ag/signup"
-                      className="w-full h-full border-0 rounded-lg"
-                      title="Sign Up"
-                      loading="eager"
-                      onLoad={(e) => {
-                        const iframe = e.target as HTMLIFrameElement
-                        if (iframe.contentWindow) {
-                          iframe.style.visibility = "visible"
-                        }
-                      }}
-                      style={{ visibility: "hidden" }}
-                    />
-                    <div
-                      className="absolute inset-0 flex items-center justify-center bg-brand-charcoal-black rounded-lg"
-                      id="signup-loader"
-                    >
-                      <div className="text-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary-green mx-auto mb-4"></div>
-                        <p className="text-brand-soft-white">Loading Sign Up Form...</p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <Button
+                  onClick={handleSignUp}
+                  className={cn(
+                    buttonVariants({ size: "sm" }),
+                    "bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-2 xs:px-3 py-1 xs:py-1.5 text-xs animate-pulse shadow-sm",
+                  )}
+                >
+                  Join Now!
+                </Button>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -485,15 +407,10 @@ export default function TopNavigation({
                   {tabs.map((tab) => {
                     const IconComponent = tab.icon
                     return (
-                      <Link
+                      <button
                         key={tab.id}
-                        href={tab.path}
-                        onClick={(e) => {
-                          if (setActiveTab) {
-                            setActiveTab(tab.id);
-                          }
-                        }}
-                        className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 ${
+                        onClick={() => handleTabChange(tab.id, tab.path)}
+                        className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5 text-sm md:text-base lg:text-lg font-semibold whitespace-nowrap transition-all duration-200 border-b-2 flex-shrink-0 flex items-center space-x-2 cursor-pointer ${
                           activeTab === tab.id
                             ? "text-brand-primary-green border-brand-primary-green"
                             : "text-brand-smoke-gray border-transparent hover:text-brand-soft-white hover:border-brand-smoke-gray/50"
@@ -519,7 +436,7 @@ export default function TopNavigation({
                           <IconComponent className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                         ) : null}
                         <span>{tab.label}</span>
-                      </Link>
+                      </button>
                     )
                   })}
                 </div>
@@ -566,7 +483,7 @@ export default function TopNavigation({
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs xs:text-sm"
+                  className="text-brand-smoke-gray hover:text-brand-soft-white hover:bg-brand-charcoal-black justify-start px-2 xs:px-3 py-2 xs:py-3 h-auto text-xs:text-sm"
                 >
                   <WalletIcon className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2" />
                   Balance: $0.00

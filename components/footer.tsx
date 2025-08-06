@@ -1,6 +1,6 @@
 "use client"
 
-import { Instagram, ChevronDown, ChevronUp, X, ArrowLeft } from "lucide-react"
+import { Instagram, ChevronDown, ChevronUp, X, ArrowLeft } from 'lucide-react'
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
@@ -823,7 +823,7 @@ export default function Footer() {
           <div className="container mx-auto px-3 sm:px-4 md:px-6">
             <div className="flex justify-center space-x-3 sm:space-x-4">
               <a
-                href="https://www.instagram.com/i_betsports/"
+                href="https://www.instagram.com/i_bet_sports?igsh=MW1mNmRtZXR2OTlrag=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 sm:w-10 sm:h-10 bg-brand-smoke-gray/20 rounded-lg flex items-center justify-center hover:bg-brand-primary-green/20 transition-colors"

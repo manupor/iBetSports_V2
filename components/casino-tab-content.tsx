@@ -1908,11 +1908,16 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
   ]
 
   const filteredGames = allGames.filter((game) => {
-    const matchesSearch =
+    const matchesSearch = searchQuery === "" ||
       game.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       game.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
       game.description.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesCategory = selectedCategory === "all" || game.category === selectedCategory
+  
+    const matchesCategory = selectedCategory === "all" || 
+      game.category === selectedCategory ||
+      (selectedCategory === "new" && game.isNew) ||
+      (selectedCategory === "popular" && game.isHot)
+    
     return matchesSearch && matchesCategory
   })
 

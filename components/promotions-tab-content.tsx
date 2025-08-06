@@ -154,7 +154,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
               Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
             </p>
             <Button
-              onClick={setIsRegistrationOpen}
+              onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
               className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-6 py-3 text-base"
             >
               <Play className="w-4 h-4 mr-2" />
@@ -186,7 +186,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
               Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
             </p>
             <Button
-              onClick={setIsRegistrationOpen}
+              onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
               className="bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-sm sm:text-base md:text-lg rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 touch-manipulation"
             >
               <Play className="w-5 h-5 mr-2" />
@@ -292,7 +292,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
 
                   <div className="flex space-x-3">
                     <Button
-                      onClick={setIsRegistrationOpen}
+                      onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                       className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold"
                     >
                       Claim Bonus

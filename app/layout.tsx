@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
 import { Toaster } from "react-hot-toast"
@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   description:
     "Bet on sports, play casino games, and enjoy live dealer action at ibetsports.ag. Join now for a 125% sign-up bonus and fast crypto payouts.",
   generator: "v0.dev",
-  icons: {
-    icon: '/favicon.ico',
-  },
 }
 
 export default function RootLayout({

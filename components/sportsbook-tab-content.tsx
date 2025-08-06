@@ -66,7 +66,7 @@ export default function SportsbookTabContent({ setIsRegistrationOpen }: Sportsbo
                 From NFL to NBA, MLB to NHL—every game, every bet, every win starts here.
               </p>
               <Button
-                onClick={setIsRegistrationOpen}
+                onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
                 className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
               >
                 START BETTING
