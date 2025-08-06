@@ -18,12 +18,7 @@ export const metadata: Metadata = {
     "Bet on sports, play casino games, and enjoy live dealer action at ibetsports.ag. Join now for a 125% sign-up bonus and fast crypto payouts.",
   generator: "v0.dev",
   icons: {
-    icon: [
-      {
-        url: '/favicon.png',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/favicon.ico',
   },
 }
 
@@ -34,9 +29,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
-      <head>
-        <link rel="icon" href="/favicon.png" type="image/svg+xml" />
-      </head>
       <body className={cn("min-h-screen bg-background font-poppins antialiased w-full")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <div className="w-full">{children}</div>
