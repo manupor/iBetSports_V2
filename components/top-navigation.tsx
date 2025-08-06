@@ -115,7 +115,7 @@ export default function TopNavigation({
                       setActiveTab(null)
                     }
                     setIsMobileMenuOpen(false)
-                    router.push("/")
+                    window.location.href = "/"
                   }}
                 >
                   <span className="bg-gradient-to-r from-brand-primary-green via-white via-brand-vibrant-green to-brand-primary-green bg-clip-text text-transparent font-black text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:opacity-80 transition-opacity bg-[length:300%_100%] animate-[shimmer_2s_ease-in-out_infinite]">

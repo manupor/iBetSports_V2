@@ -13,7 +13,7 @@ import RacebookTabContent from "@/components/racebook-tab-content"
 import LiveCasinoTabContent from "@/components/live-casino-tab-content"
 import BankingTabContent from "@/components/banking-tab-content"
 import PromotionsTabContent from "@/components/promotions-tab-content"
-import { X } from "lucide-react"
+import { X } from 'lucide-react'
 
 function HomePageContent() {
   const searchParams = useSearchParams()
