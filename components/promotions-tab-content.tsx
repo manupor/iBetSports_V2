@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Play } from "lucide-react"
+import { Play } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react"
+import { Gift, Star, Trophy, Users, DollarSign, Calendar } from 'lucide-react'
 
 interface PromotionsTabContentProps {
   setIsRegistrationOpen?: () => void
@@ -21,7 +21,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       id: 1,
       title: "125% Sports Welcome Bonus",
       description: "Get up to $1,000 bonus on your first sports deposit",
-      image: "/images/jugador-de-futbol-americano-de-estilo-neon.jpg",
+      image: "/images/jugador-de-futbol-americano-de-estilo-neon.avif",
       category: "sports",
       bonus: "125%",
       maxBonus: "$1,000",
@@ -51,7 +51,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       id: 2,
       title: "200% Crypto Casino Bonus",
       description: "Double your crypto deposits with our exclusive casino bonus",
-      image: "/images/retrato-de-personas-jugando-y-jugando-en-un-casino.jpg",
+      image: "/images/retrato-de-personas-jugando-y-jugando-en-un-casino.avif",
       category: "casino",
       bonus: "200%",
       maxBonus: "$2,000",
@@ -80,7 +80,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       id: 3,
       title: "150% Casino Reload Bonus",
       description: "Reload your account and get 150% extra to play with",
-      image: "/images/crypto-bull-neon.jpg",
+      image: "/images/renderizado-en-3d-del-toro-de-neon-financiero.avif",
       category: "casino",
       bonus: "150%",
       maxBonus: "$1,000",
@@ -102,7 +102,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       id: 4,
       title: "200% Refer a Friend Bonus",
       description: "Earn bonuses for every friend you refer to our platform",
-      image: "/images/signup-bonus-celebration.jpg",
+      image: "/images/imagen-para-el-dia-de-san-patricio-en-el-estilo-de-gestos-fluidos.avif",
       category: "referral",
       bonus: "200%",
       maxBonus: "$200",
@@ -135,7 +135,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       <section className="block md:hidden">
         <div className="relative h-48 sm:h-56 w-full overflow-hidden rounded-lg">
           <Image
-            src="/images/football-hero-promotions.jpg"
+            src="/images/football-hero-promotions.avif"
             alt="Promotions Hero"
             fill
             className="object-cover"
@@ -167,7 +167,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       {/* Desktop Hero - Overlay Design */}
       <section className="hidden md:block relative h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
         <Image
-          src="/images/football-hero-promotions.jpg"
+          src="/images/football-hero-promotions.avif"
           alt="Promotions Hero"
           fill
           className="object-cover"

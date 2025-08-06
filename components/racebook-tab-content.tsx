@@ -18,7 +18,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
           {/* Mobile Hero Image */}
           <div className="relative w-full h-48 sm:h-56 overflow-hidden">
             <Image
-              src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+              src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.avif"
               alt="Horse racing track with neon lighting effects"
               fill
               className="object-cover object-center"
@@ -50,7 +50,7 @@ export default function RacebookTabContent({ setIsRegistrationOpen }: RacebookTa
         {/* Desktop Hero Layout - Overlay design */}
         <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
           <Image
-            src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.jpg"
+            src="/images/las-carreras-de-caballos-de-fondo-pista-de-carreras-en-fondo-de-neon.avif"
             alt="Horse racing track with neon lighting effects"
             fill
             className="object-cover object-center"

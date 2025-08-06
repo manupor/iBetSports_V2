@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CreditCard, Smartphone, Bitcoin, Shield, Clock, CheckCircle } from "lucide-react"
+import { CreditCard, Smartphone, Bitcoin, Shield, Clock, CheckCircle } from 'lucide-react'
 
 interface BankingTabContentProps {
   setIsRegistrationOpen?: () => void
@@ -54,7 +54,7 @@ export default function BankingTabContent({ setIsRegistrationOpen }: BankingTabC
         {/* Hero Image */}
         <div className="relative h-48 sm:h-56">
           <Image
-            src="/images/banking-hero-money.jpg"
+            src="/images/banking-hero-money.avif"
             alt="Banking and payments background"
             fill
             className="object-cover"
@@ -90,7 +90,7 @@ export default function BankingTabContent({ setIsRegistrationOpen }: BankingTabC
       <div className="hidden md:block relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
         <div className="absolute inset-0">
           <Image
-            src="/images/banking-hero-money.jpg"
+            src="/images/banking-hero-money.avif"
             alt="Banking and payments background"
             fill
             className="object-cover"

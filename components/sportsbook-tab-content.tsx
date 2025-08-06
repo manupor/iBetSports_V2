@@ -76,34 +76,7 @@ export default function SportsbookTabContent({ setIsRegistrationOpen }: Sportsbo
         </div>
 
         {/* Desktop Hero Layout - Overlay design */}
-        <div className="hidden md:block relative w-full h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
-          <Image
-            src="/images/jugador-de-futbol-americano-de-estilo-neon.jpg"
-            alt="Neon style American football player"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-start pl-6 lg:pl-12">
-            <div className="text-left space-y-4">
-              <h1 className="text-4xl md:text-6xl font-black text-brand-soft-white">
-                GAME ON.
-                <span className="block">BET BIG, WIN BIGGER.</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-white">
-                From NFL to NBA, MLB to NHL—every game, every bet, every win starts here.
-              </p>
-              <Button
-                onClick={setIsRegistrationOpen}
-                className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transition-all duration-300"
-              >
-                START BETTING
-              </Button>
-            </div>
-          </div>
-        </div>
+        
       </section>
 
       {/* Sportsbook Iframe */}

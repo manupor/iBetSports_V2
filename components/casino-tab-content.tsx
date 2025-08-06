@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Search, Filter, LayoutGrid, List, Star, Zap, Crown, TrendingUp, Clock, Users } from "lucide-react"
+import { Search, Filter, LayoutGrid, List, Star, Zap, Crown, TrendingUp, Clock, Users } from 'lucide-react'
 
 interface CasinoTabContentProps {
   setIsRegistrationOpen?: (open: boolean) => void
@@ -2001,7 +2001,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
       <div className="block md:hidden">
         <div className="relative h-48 sm:h-56">
           <Image
-            src="/images/casino-hero.jpg"
+            src="/images/casino-hero.avif"
             alt="Casino background"
             fill
             className="object-cover"
@@ -2036,7 +2036,7 @@ export default function CasinoTabContent({ setIsRegistrationOpen }: CasinoTabCon
       <div className="hidden md:block relative bg-gradient-to-r from-brand-charcoal-black via-brand-charcoal-black-secondary to-brand-charcoal-black h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
         <div className="absolute inset-0">
           <Image
-            src="/images/casino-hero.jpg"
+            src="/images/casino-hero.avif"
             alt="Casino background"
             fill
             className="object-cover"
