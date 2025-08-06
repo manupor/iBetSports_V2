@@ -10,6 +10,19 @@ interface SportsbookTabContentProps {
 
 export default function SportsbookTabContent({ setIsRegistrationOpen }: SportsbookTabContentProps) {
   useEffect(() => {
+    // Preconnect to the iframe domain for faster connection
+    const preconnect = document.createElement("link")
+    preconnect.rel = "preconnect"
+    preconnect.href = "https://betslip.ibetsports.com"
+    preconnect.crossOrigin = "anonymous"
+    document.head.appendChild(preconnect)
+
+    // DNS prefetch for even faster domain resolution
+    const dnsPrefetch = document.createElement("link")
+    dnsPrefetch.rel = "dns-prefetch"
+    dnsPrefetch.href = "https://betslip.ibetsports.com"
+    document.head.appendChild(dnsPrefetch)
+
     // Preload the iframe content
     const link = document.createElement("link")
     link.rel = "preload"
@@ -18,7 +31,9 @@ export default function SportsbookTabContent({ setIsRegistrationOpen }: Sportsbo
     document.head.appendChild(link)
 
     return () => {
-      document.head.removeChild(link)
+      if (document.head.contains(preconnect)) document.head.removeChild(preconnect)
+      if (document.head.contains(dnsPrefetch)) document.head.removeChild(dnsPrefetch)
+      if (document.head.contains(link)) document.head.removeChild(link)
     }
   }, [])
 
@@ -99,6 +114,8 @@ export default function SportsbookTabContent({ setIsRegistrationOpen }: Sportsbo
           title="Sportsbook"
           loading="eager"
           allow="fullscreen"
+          importance="high"
+          fetchPriority="high"
           style={{
             minHeight: "100vh",
             background: "#000",
