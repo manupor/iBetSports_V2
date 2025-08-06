@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { MenuIcon, DoorClosedIcon as CloseIcon, UserIcon, WalletIcon, BellIcon, Dice6, Trophy, Video, CreditCard, Gift, Home } from 'lucide-react'
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog"
+import { MenuIcon, DoorClosedIcon as CloseIcon, UserIcon, WalletIcon, BellIcon, Dice6, Trophy, Video, CreditCard, Gift, Home, X } from 'lucide-react'
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
@@ -138,6 +138,10 @@ export default function TopNavigation({
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-brand-charcoal-black border-brand-primary-green">
+                    <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                      <X className="h-4 w-4 text-brand-soft-white hover:text-brand-primary-green" />
+                      <span className="sr-only">Close</span>
+                    </DialogClose>
                     <div className="p-6">
                       <h2 className="text-2xl font-bold text-white mb-6 text-center">Login to Your Account</h2>
                       <form
@@ -244,6 +248,10 @@ export default function TopNavigation({
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-brand-charcoal-black border-brand-primary-green">
+                    <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                      <X className="h-4 w-4 text-brand-soft-white hover:text-brand-primary-green" />
+                      <span className="sr-only">Close</span>
+                    </DialogClose>
                     <div className="p-6">
                       <h2 className="text-2xl font-bold text-white mb-6 text-center">Login to Your Account</h2>
                       <form
@@ -350,6 +358,10 @@ export default function TopNavigation({
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-brand-charcoal-black border-brand-primary-green">
+                    <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                      <X className="h-4 w-4 text-brand-soft-white hover:text-brand-primary-green" />
+                      <span className="sr-only">Close</span>
+                    </DialogClose>
                     <div className="p-6">
                       <h2 className="text-2xl font-bold text-white mb-6 text-center">Login to Your Account</h2>
                       <form
