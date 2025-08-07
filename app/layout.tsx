@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
+import { Poppins } from 'next/font/google'
+import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
 import { Toaster } from "react-hot-toast"
@@ -31,7 +32,24 @@ export default function RootLayout({
           <div className="w-full">{children}</div>
           <Toaster />
         </ThemeProvider>
-        <script src="https://images.betimages.com/Betslip/js/quickmail.login.js" defer></script>
+        <Script src="https://images.betimages.com/Betslip/js/quickmail.login.js" strategy="lazyOnload" />
+        <Script
+          id="tawk-to-chat"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/677ab10d49e2fd8dfe02cf01/1igrk77hr';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   )
