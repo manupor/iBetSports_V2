@@ -1,0 +1,104 @@
+/*
+Theme Name: IBetSports Theme
+Theme URI: https://ibetsports.ag
+Author: IBetSports
+Author URI: https://ibetsports.ag
+Description: Dark, branded theme with Tawk.to chat, login/signup modals, and header/footer structure.
+Version: 1.0.0
+License: GPL-2.0+
+Text Domain: ibetsports
+*/
+
+:root {
+  --brand-primary-green: #00ff88;
+  --brand-primary-green-dark: #00cc6a;
+  --brand-vibrant-green: #39ff14;
+  --brand-charcoal-black: #0a0a0a;
+  --brand-charcoal-black-secondary: #1a1a1a;
+  --brand-soft-white: #f8f8f8;
+  --brand-smoke-gray: #888888;
+  --brand-golden-yellow: #ffd700;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--brand-charcoal-black);
+  color: var(--brand-soft-white);
+}
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* Header / Nav */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--brand-charcoal-black);
+  border-bottom: 1px solid rgba(136,136,136,.2);
+}
+.header-bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand {
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--brand-primary-green), #fff, var(--brand-vibrant-green), var(--brand-primary-green));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 300% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+  text-decoration: none;
+  font-size: 22px;
+}
+@keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn {
+  appearance: none; border: 1px solid transparent; border-radius: 10px; cursor: pointer;
+  font-weight: 700; transition: all .2s ease; padding: 10px 16px; font-size: 14px;
+}
+.btn-outline {
+  border-color: var(--brand-primary-green);
+  color: var(--brand-primary-green);
+  background: transparent;
+}
+.btn-outline:hover { background: var(--brand-primary-green); color: var(--brand-charcoal-black); }
+.btn-primary {
+  background: var(--brand-primary-green);
+  color: var(--brand-charcoal-black);
+}
+.btn-primary:hover { background: var(--brand-primary-green-dark); }
+
+/* Footer */
+.site-footer { background: #0e0e0e; color: var(--brand-soft-white); }
+.footer-top { border-top: 1px solid rgba(136,136,136,.1); border-bottom: 1px solid rgba(136,136,136,.1); padding: 16px 0; }
+.socials { display: flex; justify-content: center; gap: 12px; }
+.social-link {
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(136,136,136,.2); border-radius: 10px; color: var(--brand-soft-white);
+  transition: background .2s ease;
+}
+.social-link:hover { background: rgba(0,255,136,.2); }
+
+.footer-bottom { border-top: 1px solid rgba(136,136,136,.2); padding: 12px 0; text-align: center; }
+
+/* Simple modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px;
+}
+.modal-backdrop.active { display: flex; }
+.modal {
+  position: relative; width: 100%; max-width: 960px; height: 80vh; background: #111; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,255,136,.3);
+}
+.modal-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 40px; height: 40px; border-radius: 9999px; background: #ef4444; color: #fff; font-weight: 900;
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.modal iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+
+/* Utility */
+.hidden { display: none !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brand { font-size: 18px; }
+  .header-bar { height: 56px; }
+}

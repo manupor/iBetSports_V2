@@ -111,8 +111,8 @@ importers:
         specifier: 8.5.1
         version: 8.5.1(react@19.0.0)
       geist:
-        specifier: ^1.3.1
-        version: 1.3.1(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+        specifier: latest
+        version: 1.4.2(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       input-otp:
         specifier: 1.4.1
         version: 1.4.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -123,7 +123,7 @@ importers:
         specifier: 15.2.4
         version: 15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next-themes:
-        specifier: latest
+        specifier: ^0.4.4
         version: 0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
         specifier: ^19
@@ -137,9 +137,6 @@ importers:
       react-hook-form:
         specifier: ^7.54.1
         version: 7.54.1(react@19.0.0)
-      react-hot-toast:
-        specifier: latest
-        version: 2.5.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-resizable-panels:
         specifier: ^2.1.7
         version: 2.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1474,8 +1471,8 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  geist@1.3.1:
-    resolution: {integrity: sha512-Q4gC1pBVPN+D579pBaz0TRRnGA4p9UK6elDY/xizXdFk/g4EKR5g0I+4p/Kj6gM0SajDBZ/0FvDV9ey9ud7BWw==}
+  geist@1.4.2:
+    resolution: {integrity: sha512-OQUga/KUc8ueijck6EbtT07L4tZ5+TZgjw8PyWfxo16sL5FWk7gNViPNU8hgCFjy6bJi9yuTP+CRpywzaGN8zw==}
     peerDependencies:
       next: '>=13.2.0'
 
@@ -1494,11 +1491,6 @@ packages:
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
-
-  goober@2.1.16:
-    resolution: {integrity: sha512-erjk19y1U33+XAMe1VTvIONHYoSqE4iS7BYUZfHaqeohLmnC0FdxEh7rQU+6MZ4OajItzjZFSRtVANrQwNq6/g==}
-    peerDependencies:
-      csstype: ^3.0.10
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
@@ -1742,13 +1734,6 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
-
-  react-hot-toast@2.5.2:
-    resolution: {integrity: sha512-Tun3BbCxzmXXM7C+NI4qiv6lT0uwGh4oAfeJyNOjYUejTsm35mK9iCaYLGv8cBz9L5YxZLx/2ii7zsIwPtPUdw==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>=16'
-      react-dom: '>=16'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -3270,7 +3255,7 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  geist@1.3.1(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)):
+  geist@1.4.2(next@15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)):
     dependencies:
       next: 15.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
@@ -3292,10 +3277,6 @@ snapshots:
       minipass: 7.1.2
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
-
-  goober@2.1.16(csstype@3.1.3):
-    dependencies:
-      csstype: 3.1.3
 
   hasown@2.0.2:
     dependencies:
@@ -3503,13 +3484,6 @@ snapshots:
   react-hook-form@7.54.1(react@19.0.0):
     dependencies:
       react: 19.0.0
-
-  react-hot-toast@2.5.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
-    dependencies:
-      csstype: 3.1.3
-      goober: 2.1.16(csstype@3.1.3)
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
 
   react-is@16.13.1: {}
 

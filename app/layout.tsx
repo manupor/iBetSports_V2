@@ -1,56 +1,65 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Poppins } from 'next/font/google'
+import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
+import './globals.css'
 import Script from "next/script"
-import "./globals.css"
-import { ThemeProvider } from "next-themes"
-import { Toaster } from "react-hot-toast"
-import { cn } from "@/lib/utils"
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-})
 
 export const metadata: Metadata = {
-  title: "ibetsports.ag - Online Sportsbook & Casino",
-  description:
-    "Bet on sports, play casino games, and enjoy live dealer action at ibetsports.ag. Join now for a 125% sign-up bonus and fast crypto payouts.",
-  generator: "v0.dev",
+title: 'v0 App',
+description: 'Created with v0',
+generator: 'v0.dev',
 }
 
 export default function RootLayout({
-  children,
+children,
 }: Readonly<{
-  children: React.ReactNode
+children: React.ReactNode
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning className={poppins.variable}>
-      <body className={cn("min-h-screen bg-background font-poppins antialiased w-full")}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <div className="w-full">{children}</div>
-          <Toaster />
-        </ThemeProvider>
-        <Script src="https://images.betimages.com/Betslip/js/quickmail.login.js" strategy="lazyOnload" />
-        <Script
-          id="tawk-to-chat"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-              (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/677ab10d49e2fd8dfe02cf01/1igrk77hr';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-              })();
-            `,
-          }}
-        />
-      </body>
-    </html>
-  )
+return (
+  <html lang="en">
+    <head>
+      <style>{`
+html {
+font-family: ${GeistSans.style.fontFamily};
+--font-sans: ${GeistSans.variable};
+--font-mono: ${GeistMono.variable};
+}
+      `}</style>
+      {/* Perf hints for external services */}
+      <link rel="preconnect" href="https://signup.isppro.net" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://signup.isppro.net" />
+      <link rel="preconnect" href="https://betslip.ibetsports.com" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://betslip.ibetsports.com" />
+    </head>
+    <body>
+      {children}
+      <Script
+        id="tawk-livechat"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function () {
+            try {
+              var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+              var s1 = document.createElement("script");
+              var s0 = document.getElementsByTagName("script")[0];
+              s1.async = true;
+              s1.src = "https://embed.tawk.to/677ab10d49e2fd8dfe02cf01/1igrk77hr";
+              s1.charset = "UTF-8";
+              s1.setAttribute("crossorigin", "*");
+              s1.onerror = function () {
+                console.warn("Tawk.to failed to load");
+              };
+              s0.parentNode.insertBefore(s1, s0);
+            } catch (err) {
+              console.warn("Tawk.to init error:", err);
+            }
+          })();`,
+        }}
+        onError={(e) => {
+          console.warn("Tawk.to script error:", e);
+        }}
+      />
+    </body>
+  </html>
+)
 }
