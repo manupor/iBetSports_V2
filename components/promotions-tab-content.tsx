@@ -1,20 +1,28 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Play } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Gift, Star, Trophy, Users, DollarSign, Calendar } from 'lucide-react'
+import { useState } from "react";
+import Image from "next/image";
+import { Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Gift, Star, Trophy, Users, DollarSign, Calendar } from "lucide-react";
 
 interface PromotionsTabContentProps {
-  setIsRegistrationOpen?: () => void
+  setIsRegistrationOpen?: () => void;
 }
 
-const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentProps = {}) => {
-  const [selectedCategory, setSelectedCategory] = useState("all")
+const PromotionsTabContent = ({
+  setIsRegistrationOpen,
+}: PromotionsTabContentProps = {}) => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const promotions = [
     {
@@ -50,7 +58,8 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
     {
       id: 2,
       title: "200% Crypto Casino Bonus",
-      description: "Double your crypto deposits with our exclusive casino bonus",
+      description:
+        "Double your crypto deposits with our exclusive casino bonus",
       image: "/images/retrato-de-personas-jugando-y-jugando-en-un-casino.avif",
       category: "casino",
       bonus: "200%",
@@ -102,7 +111,8 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       id: 4,
       title: "200% Refer a Friend Bonus",
       description: "Earn bonuses for every friend you refer to our platform",
-      image: "/images/imagen-para-el-dia-de-san-patricio-en-el-estilo-de-gestos-fluidos.avif",
+      image:
+        "/images/imagen-para-el-dia-de-san-patricio-en-el-estilo-de-gestos-fluidos.avif",
       category: "referral",
       bonus: "200%",
       maxBonus: "$200",
@@ -117,17 +127,19 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
      <p>Enjoy an unlimited amount of referral bonuses and get paid with each new friend that joins!</p>
    `,
     },
-  ]
+  ];
 
   const categories = [
     { id: "all", label: "All Promotions", icon: Gift },
     { id: "sports", label: "Sports", icon: Trophy },
     { id: "casino", label: "Casino", icon: Star },
     { id: "referral", label: "Referral", icon: Users },
-  ]
+  ];
 
   const filteredPromotions =
-    selectedCategory === "all" ? promotions : promotions.filter((promo) => promo.category === selectedCategory)
+    selectedCategory === "all"
+      ? promotions
+      : promotions.filter((promo) => promo.category === selectedCategory);
 
   return (
     <div className="container mx-auto py-8">
@@ -151,7 +163,8 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
               </span>
             </h1>
             <p className="text-base sm:text-lg text-brand-smoke-gray max-w-md mx-auto">
-              Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
+              Unlock exclusive bonuses, cashback rewards, and VIP perks designed
+              to maximize your winnings.
             </p>
             <Button
               onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
@@ -183,7 +196,8 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
               </span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed">
-              Unlock exclusive bonuses, cashback rewards, and VIP perks designed to maximize your winnings.
+              Unlock exclusive bonuses, cashback rewards, and VIP perks designed
+              to maximize your winnings.
             </p>
             <Button
               onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
@@ -200,19 +214,27 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">$50K+</div>
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">
+                $50K+
+              </div>
               <div className="text-brand-smoke-gray">Daily Bonuses</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">24/7</div>
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">
+                24/7
+              </div>
               <div className="text-brand-smoke-gray">Active Promos</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">200%</div>
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">
+                200%
+              </div>
               <div className="text-brand-smoke-gray">Max Bonus</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">15K+</div>
+              <div className="text-3xl md:text-4xl font-bold text-brand-primary-green mb-2">
+                15K+
+              </div>
               <div className="text-brand-smoke-gray">Happy Winners</div>
             </div>
           </div>
@@ -224,7 +246,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {categories.map((category) => {
-              const IconComponent = category.icon
+              const IconComponent = category.icon;
               return (
                 <button
                   key={category.id}
@@ -238,7 +260,7 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
                   <IconComponent size={20} />
                   <span>{category.label}</span>
                 </button>
-              )
+              );
             })}
           </div>
         </div>
@@ -267,15 +289,23 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
                         Featured
                       </Badge>
                     )}
-                    {promo.hot && <Badge className="absolute top-4 left-4 bg-red-500 text-white">Hot</Badge>}
-                    <div className="absolute top-4 right-4 bg-brand-primary-green text-brand-charcoal-black px-3 py-1 rounded-full font-bold">
+                    {promo.hot && (
+                      <Badge className="absolute top-4 left-4 bg-red-500 text-white">
+                        Hot
+                      </Badge>
+                    )}
+                    <div className="absolute top-4 right-4 bg-brand-primary-green text-brand-charcoal-black px-4 py-2 rounded-full font-bold text-2xl">
                       {promo.bonus}
                     </div>
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-brand-soft-white mb-2">{promo.title}</h3>
-                  <p className="text-brand-smoke-gray mb-4">{promo.description}</p>
+                  <h3 className="text-2xl font-bold text-brand-soft-white mb-2">
+                    {promo.title}
+                  </h3>
+                  <p className="text-brand-smoke-gray mb-4 text-lg">
+                    {promo.description}
+                  </p>
 
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-4">
@@ -292,7 +322,9 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
 
                   <div className="flex space-x-3">
                     <Button
-                      onClick={() => setIsRegistrationOpen && setIsRegistrationOpen()}
+                      onClick={() =>
+                        setIsRegistrationOpen && setIsRegistrationOpen()
+                      }
                       className="flex-1 bg-brand-primary-green hover:bg-brand-primary-green-dark text-brand-charcoal-black font-bold"
                     >
                       Claim Bonus
@@ -308,7 +340,9 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
                       </DialogTrigger>
                       <DialogContent className="bg-brand-charcoal-black-secondary border-brand-smoke-gray/20 text-brand-soft-white max-w-2xl max-h-[80vh] overflow-y-auto">
                         <DialogHeader>
-                          <DialogTitle className="text-brand-primary-green">Terms and Conditions</DialogTitle>
+                          <DialogTitle className="text-brand-primary-green">
+                            Terms and Conditions
+                          </DialogTitle>
                         </DialogHeader>
                         <div
                           className="prose prose-invert max-w-none"
@@ -316,11 +350,14 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
                         />
                         <div className="mt-6 p-4 bg-brand-charcoal-black rounded-lg">
                           <p className="text-sm text-brand-smoke-gray">
-                            <strong>Important Disclaimer:</strong> The user is warned that they should make their own
-                            inquiry into the legality of participating in any of these games and/or activities.
-                            IBETSPORTS assumes no responsibility for the actions by and makes no representation or
-                            endorsement of any of these games and/or activities if they are illegal in the jurisdiction
-                            of the reader or client of this site.
+                            <strong>Important Disclaimer:</strong> The user is
+                            warned that they should make their own inquiry into
+                            the legality of participating in any of these games
+                            and/or activities. IBETSPORTS assumes no
+                            responsibility for the actions by and makes no
+                            representation or endorsement of any of these games
+                            and/or activities if they are illegal in the
+                            jurisdiction of the reader or client of this site.
                           </p>
                         </div>
                       </DialogContent>
@@ -339,9 +376,12 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
           <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-primary-green rounded-full mb-6">
             <Trophy size={32} className="text-brand-charcoal-black" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-soft-white mb-4">Ready for VIP Treatment?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-soft-white mb-4">
+            Ready for VIP Treatment?
+          </h2>
           <p className="text-xl text-brand-smoke-gray mb-8 max-w-2xl mx-auto">
-            Join our exclusive VIP program and unlock premium bonuses, personal account managers, and exclusive events.
+            Join our exclusive VIP program and unlock premium bonuses, personal
+            account managers, and exclusive events.
           </p>
           <Button
             onClick={setIsRegistrationOpen}
@@ -356,13 +396,15 @@ const PromotionsTabContent = ({ setIsRegistrationOpen }: PromotionsTabContentPro
       <section className="py-8 px-4 bg-brand-charcoal-black-secondary">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-brand-smoke-gray text-sm">
-            Please gamble responsibly. All bonuses come with terms and conditions. Players must be 18+ and located in
-            eligible jurisdictions. If you feel you have a gambling problem, please seek help.
+            Please gamble responsibly. All bonuses come with terms and
+            conditions. Players must be 18+ and located in eligible
+            jurisdictions. If you feel you have a gambling problem, please seek
+            help.
           </p>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default PromotionsTabContent
+export default PromotionsTabContent;

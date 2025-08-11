@@ -1,98 +1,218 @@
-"use client"
+"use client";
 
-import { useState, useEffect, Suspense } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import TopNavigation from "@/components/top-navigation"
-import Footer from "@/components/footer"
-import CasinoTabContent from "@/components/casino-tab-content"
-import SportsbookTabContent from "@/components/sportsbook-tab-content"
-import RacebookTabContent from "@/components/racebook-tab-content"
-import LiveCasinoTabContent from "@/components/live-casino-tab-content"
-import BankingTabContent from "@/components/banking-tab-content"
-import PromotionsTabContent from "@/components/promotions-tab-content"
-import { X } from 'lucide-react'
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import TopNavigation from "@/components/top-navigation";
+import Footer from "@/components/footer";
+import CasinoTabContent from "@/components/casino-tab-content";
+import SportsbookTabContent from "@/components/sportsbook-tab-content";
+import RacebookTabContent from "@/components/racebook-tab-content";
+import LiveCasinoTabContent from "@/components/live-casino-tab-content";
+import BankingTabContent from "@/components/banking-tab-content";
+import PromotionsTabContent from "@/components/promotions-tab-content";
+import { X } from "lucide-react";
 
 function HomePageContent() {
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const [activeTab, setActiveTab] = useState("home")
-  const [showSignup, setShowSignup] = useState(false)
-  const [showLogin, setShowLogin] = useState(false)
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [activeTab, setActiveTab] = useState("home");
+  const [showSignup, setShowSignup] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
-    const tab = searchParams.get("tab")
-    if (tab && ["casino", "sports", "racebook", "live-casino", "banking", "promotions"].includes(tab)) {
-      setActiveTab(tab)
+    const tab = searchParams.get("tab");
+    if (
+      tab &&
+      [
+        "casino",
+        "sports",
+        "racebook",
+        "live-casino",
+        "banking",
+        "promotions",
+      ].includes(tab)
+    ) {
+      setActiveTab(tab);
     } else {
-      setActiveTab("home")
+      setActiveTab("home");
     }
-  }, [searchParams])
+  }, [searchParams]);
 
-  const [timeLeft, setTimeLeft] = useState({ hours: 45, minutes: 56, seconds: 23 })
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 45,
+    minutes: 56,
+    seconds: 23,
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
-        let { hours, minutes, seconds } = prev
+        let { hours, minutes, seconds } = prev;
         if (seconds > 0) {
-          seconds--
+          seconds--;
         } else if (minutes > 0) {
-          seconds = 59
-          minutes--
+          seconds = 59;
+          minutes--;
         } else if (hours > 0) {
-          seconds = 59
-          minutes = 59
-          hours--
+          seconds = 59;
+          minutes = 59;
+          hours--;
         } else {
-          clearInterval(timer)
+          clearInterval(timer);
         }
-        return { hours, minutes, seconds }
-      })
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
+        return { hours, minutes, seconds };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const bets = [
-    { user: "abirdesigns", game: "Mines", time: "7:49 PM", amount: 2893.0, mult: 1.032, profit: 92.58 },
-    { user: "CryptoKing", game: "Crash", time: "7:48 PM", amount: 1250.0, mult: 2.45, profit: 1812.5 },
-    { user: "LuckyPlayer", game: "Slots", time: "7:47 PM", amount: 500.0, mult: 0.0, profit: -500.0 },
-    { user: "HighRoller", game: "Blackjack", time: "7:46 PM", amount: 5000.0, mult: 1.5, profit: 2500.0 },
-    { user: "SlotMaster", game: "Roulette", time: "7:45 PM", amount: 750.0, mult: 35.0, profit: 26250.0 },
-    { user: "BetKing", game: "Poker", time: "7:44 PM", amount: 1200.0, mult: 0.0, profit: -1200.0 },
-    { user: "WinnerX", game: "Crash", time: "7:43 PM", amount: 300.0, mult: 5.2, profit: 1560.0 },
-    { user: "ProGamer", game: "Mines", time: "7:42 PM", amount: 2000.0, mult: 2.1, profit: 4200.0 },
-    { user: "CasinoAce", game: "Slots", time: "7:41 PM", amount: 450.0, mult: 12.5, profit: 5625.0 },
-    { user: "BigBetter", game: "Blackjack", time: "7:40 PM", amount: 3500.0, mult: 1.5, profit: 5250.0 },
-    { user: "LuckyStar", game: "Roulette", time: "7:39 PM", amount: 800.0, mult: 0.0, profit: -800.0 },
-    { user: "MegaWin", game: "Crash", time: "7:38 PM", amount: 1500.0, mult: 8.7, profit: 13050.0 },
-  ]
+    {
+      user: "abirdesigns",
+      game: "Mines",
+      time: "7:49 PM",
+      amount: 2893.0,
+      mult: 1.032,
+      profit: 92.58,
+    },
+    {
+      user: "CryptoKing",
+      game: "Crash",
+      time: "7:48 PM",
+      amount: 1250.0,
+      mult: 2.45,
+      profit: 1812.5,
+    },
+    {
+      user: "LuckyPlayer",
+      game: "Slots",
+      time: "7:47 PM",
+      amount: 500.0,
+      mult: 0.0,
+      profit: -500.0,
+    },
+    {
+      user: "HighRoller",
+      game: "Blackjack",
+      time: "7:46 PM",
+      amount: 5000.0,
+      mult: 1.5,
+      profit: 2500.0,
+    },
+    {
+      user: "SlotMaster",
+      game: "Roulette",
+      time: "7:45 PM",
+      amount: 750.0,
+      mult: 35.0,
+      profit: 26250.0,
+    },
+    {
+      user: "BetKing",
+      game: "Poker",
+      time: "7:44 PM",
+      amount: 1200.0,
+      mult: 0.0,
+      profit: -1200.0,
+    },
+    {
+      user: "WinnerX",
+      game: "Crash",
+      time: "7:43 PM",
+      amount: 300.0,
+      mult: 5.2,
+      profit: 1560.0,
+    },
+    {
+      user: "ProGamer",
+      game: "Mines",
+      time: "7:42 PM",
+      amount: 2000.0,
+      mult: 2.1,
+      profit: 4200.0,
+    },
+    {
+      user: "CasinoAce",
+      game: "Slots",
+      time: "7:41 PM",
+      amount: 450.0,
+      mult: 12.5,
+      profit: 5625.0,
+    },
+    {
+      user: "BigBetter",
+      game: "Blackjack",
+      time: "7:40 PM",
+      amount: 3500.0,
+      mult: 1.5,
+      profit: 5250.0,
+    },
+    {
+      user: "LuckyStar",
+      game: "Roulette",
+      time: "7:39 PM",
+      amount: 800.0,
+      mult: 0.0,
+      profit: -800.0,
+    },
+    {
+      user: "MegaWin",
+      game: "Crash",
+      time: "7:38 PM",
+      amount: 1500.0,
+      mult: 8.7,
+      profit: 13050.0,
+    },
+  ];
 
   const handleTabChange = (tabId: string) => {
-    setActiveTab(tabId)
+    setActiveTab(tabId);
     if (tabId === "home") {
-      router.push("/", { scroll: false })
+      router.push("/", { scroll: false });
     } else {
-      router.push(`/?tab=${tabId}`, { scroll: false })
+      router.push(`/?tab=${tabId}`, { scroll: false });
     }
-  }
+  };
 
   const renderTabContent = () => {
     switch (activeTab) {
       case "casino":
-        return <CasinoTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        return (
+          <CasinoTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        );
       case "sports":
-        return <SportsbookTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        return (
+          <SportsbookTabContent
+            setIsRegistrationOpen={() => setShowSignup(true)}
+          />
+        );
       case "racebook":
-        return <RacebookTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        return (
+          <RacebookTabContent
+            setIsRegistrationOpen={() => setShowSignup(true)}
+          />
+        );
       case "live-casino":
-        return <LiveCasinoTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        return (
+          <LiveCasinoTabContent
+            setIsRegistrationOpen={() => setShowSignup(true)}
+          />
+        );
       case "banking":
-        return <BankingTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        return (
+          <BankingTabContent
+            setIsRegistrationOpen={() => setShowSignup(true)}
+          />
+        );
       case "promotions":
-        return <PromotionsTabContent setIsRegistrationOpen={() => setShowSignup(true)} />
+        return (
+          <PromotionsTabContent
+            setIsRegistrationOpen={() => setShowSignup(true)}
+          />
+        );
       default:
         return (
           <div className="font-poppins bg-black w-full">
@@ -129,7 +249,9 @@ function HomePageContent() {
                       onClick={() => setShowSignup(true)}
                       className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 3xl:px-24 py-4 md:py-5 lg:py-6 xl:py-7 2xl:py-8 3xl:py-10 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 md:border-3 border-white/30 inline-flex items-center justify-center"
                     >
-                      <span className="relative z-10 drop-shadow-lg">JOIN NOW</span>
+                      <span className="relative z-10 drop-shadow-lg">
+                        JOIN NOW
+                      </span>
                       <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
                     </button>
                   </div>
@@ -153,7 +275,9 @@ function HomePageContent() {
                           </div>
                           <div
                             className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
-                            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
+                            style={{
+                              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+                            }}
                           >
                             BOOST!
                           </div>
@@ -285,7 +409,9 @@ function HomePageContent() {
                           onClick={() => setShowSignup(true)}
                           className="relative bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-8 xs:px-10 sm:px-12 py-4 xs:py-5 sm:py-6 text-xl xs:text-2xl sm:text-3xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-white/20 w-full inline-flex items-center justify-center"
                         >
-                          <span className="relative z-10 drop-shadow-lg font-black">JOIN NOW</span>
+                          <span className="relative z-10 drop-shadow-lg font-black">
+                            JOIN NOW
+                          </span>
                           <div className="absolute inset-0 bg-gradient-to-r from-brand-primary-green/20 to-brand-vibrant-green/20 rounded-full animate-pulse opacity-30 animate-[blink_2s_ease-in-out_infinite]"></div>
                         </button>
                       </div>
@@ -317,7 +443,9 @@ function HomePageContent() {
                         </span>
                         <span
                           className="text-sm xs:text-base sm:text-lg font-black text-brand-golden-yellow leading-none tracking-tight drop-shadow-lg"
-                          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
+                          style={{
+                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+                          }}
                         >
                           BOOST!
                         </span>
@@ -376,7 +504,9 @@ function HomePageContent() {
                               CRYPTO BONUS
                             </span>
                           </div>
-                          <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">BITCOIN & ETHEREUM</p>
+                          <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">
+                            BITCOIN & ETHEREUM
+                          </p>
                         </div>
                         <Button
                           onClick={() => handleTabChange("promotions")}
@@ -450,7 +580,9 @@ function HomePageContent() {
                               CASINO RELOAD
                             </span>
                           </div>
-                          <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">WEEKLY RELOAD BONUS</p>
+                          <p className="text-brand-smoke-gray text-xs md:text-sm font-medium">
+                            WEEKLY RELOAD BONUS
+                          </p>
                         </div>
                         <Button
                           onClick={() => handleTabChange("promotions")}
@@ -477,22 +609,35 @@ function HomePageContent() {
                     COLLECTION
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-brand-smoke-gray max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-3xl mx-auto font-medium leading-relaxed mb-4">
-                    Experience our handpicked selection of premium casino games with the highest RTPs and biggest wins
+                    Experience our handpicked selection of premium casino games
+                    with the highest RTPs and biggest wins
                   </p>
 
                   {/* Pulsing Stats */}
                   <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-6">
                     <div className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 rounded-xl px-4 py-2 transform hover:scale-105 transition-all duration-300">
-                      <div className="text-brand-primary-green font-black text-lg sm:text-xl">2,800+</div>
-                      <div className="text-brand-smoke-gray text-xs sm:text-sm">Games</div>
+                      <div className="text-brand-primary-green font-black text-lg sm:text-xl">
+                        2,800+
+                      </div>
+                      <div className="text-brand-smoke-gray text-xs sm:text-sm">
+                        Games
+                      </div>
                     </div>
                     <div className="bg-brand-charcoal-black-secondary border border-brand-vibrant-green/30 rounded-xl px-4 py-2 transform hover:scale-105 transition-all duration-300">
-                      <div className="text-brand-vibrant-green font-black text-lg sm:text-xl">99.7%</div>
-                      <div className="text-brand-smoke-gray text-xs sm:text-sm">Max RTP</div>
+                      <div className="text-brand-vibrant-green font-black text-lg sm:text-xl">
+                        99.7%
+                      </div>
+                      <div className="text-brand-smoke-gray text-xs sm:text-sm">
+                        Max RTP
+                      </div>
                     </div>
                     <div className="bg-brand-charcoal-black-secondary border border-brand-primary-green/30 rounded-xl px-4 py-2 transform hover:scale-105 transition-all duration-300">
-                      <div className="text-brand-primary-green font-black text-lg sm:text-xl">$15M+</div>
-                      <div className="text-brand-smoke-gray text-xs sm:text-sm">Jackpots</div>
+                      <div className="text-brand-primary-green font-black text-lg sm:text-xl">
+                        $15M+
+                      </div>
+                      <div className="text-brand-smoke-gray text-xs sm:text-sm">
+                        Jackpots
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -500,36 +645,126 @@ function HomePageContent() {
                 {/* Featured Games Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6 mb-8">
                   {[
-                    { name: "Mega Fortune", image: "/images/Fizzy-Pennyslot.jpg", jackpot: "$2.8M", hot: true },
-                    { name: "Lightning Roulette", image: "/images/Golden-Catch.jpg", rtp: "97.3%", live: true },
-                    { name: "Sweet Bonanza", image: "/images/Chocolates.jpg", multiplier: "21,100x", hot: true },
+                    {
+                      name: "Mega Fortune",
+                      image: "/images/Fizzy-Pennyslot.jpg",
+                      jackpot: "$2.8M",
+                      hot: true,
+                    },
+                    {
+                      name: "Lightning Roulette",
+                      image: "/images/Golden-Catch.jpg",
+                      rtp: "97.3%",
+                      live: true,
+                    },
+                    {
+                      name: "Sweet Bonanza",
+                      image: "/images/Chocolates.jpg",
+                      multiplier: "21,100x",
+                      hot: true,
+                    },
                     {
                       name: "Gates of Olympus",
                       image: "/images/Danger-High-Voltage.jpg",
                       multiplier: "5,000x",
                       new: true,
                     },
-                    { name: "Book of Dead", image: "/images/Max-Megaways-2.jpg", rtp: "96.2%", popular: true },
-                    { name: "Starburst", image: "/images/Kingmaker-Fully-Loaded.jpg", rtp: "96.1%", classic: true },
-                    { name: "Crazy Time", image: "/images/Gifts-of-Fortune.jpg", live: true, hot: true },
-                    { name: "Big Bass Bonanza", image: "/images/coins-98.jpg", multiplier: "2,100x", popular: true },
-                    { name: "Wolf Gold", image: "/images/Big-Bad-Bison.jpg", jackpot: "$250K", popular: true },
-                    { name: "Blackjack Pro", image: "/images/Castle-of-Terror.jpg", rtp: "99.4%", table: true },
-                    { name: "Monopoly Live", image: "/images/wonderful-lamp.jpg", live: true, hot: true },
-                    { name: "Bonanza Megaways", image: "/images/cash-quest.jpg", ways: "117,649", popular: true },
+                    {
+                      name: "Book of Dead",
+                      image: "/images/Max-Megaways-2.jpg",
+                      rtp: "96.2%",
+                      popular: true,
+                    },
+                    {
+                      name: "Starburst",
+                      image: "/images/Kingmaker-Fully-Loaded.jpg",
+                      rtp: "96.1%",
+                      classic: true,
+                    },
+                    {
+                      name: "Crazy Time",
+                      image: "/images/Gifts-of-Fortune.jpg",
+                      live: true,
+                      hot: true,
+                    },
+                    {
+                      name: "Big Bass Bonanza",
+                      image: "/images/coins-98.jpg",
+                      multiplier: "2,100x",
+                      popular: true,
+                    },
+                    {
+                      name: "Wolf Gold",
+                      image: "/images/Big-Bad-Bison.jpg",
+                      jackpot: "$250K",
+                      popular: true,
+                    },
+                    {
+                      name: "Blackjack Pro",
+                      image: "/images/Castle-of-Terror.jpg",
+                      rtp: "99.4%",
+                      table: true,
+                    },
+                    {
+                      name: "Monopoly Live",
+                      image: "/images/wonderful-lamp.jpg",
+                      live: true,
+                      hot: true,
+                    },
+                    {
+                      name: "Bonanza Megaways",
+                      image: "/images/cash-quest.jpg",
+                      ways: "117,649",
+                      popular: true,
+                    },
                     {
                       name: "Divine Fortune",
                       image: "/images/football-hero-promotions.jpg",
                       jackpot: "$1.2M",
                       hot: true,
                     },
-                    { name: "European Roulette", image: "/images/tacomania.jpg", rtp: "97.3%", classic: true },
-                    { name: "Razor Shark", image: "/images/wild-mustang.jpg", multiplier: "2,500x", popular: true },
-                    { name: "Money Train 2", image: "/images/wild-rocks.jpg", multiplier: "20,000x", hot: true },
-                    { name: "Lightning Blackjack", image: "/images/ultimo-bingo-paris.jpg", live: true, new: true },
-                    { name: "Mines", image: "/images/originals-mines.png", multiplier: "24.47x", strategy: true },
-                    { name: "Speed Baccarat", image: "/images/xtreme.jpg", live: true, fast: true },
-                    { name: "Jurassic Park", image: "/images/warrior-angels.jpg", ways: "243", popular: true },
+                    {
+                      name: "European Roulette",
+                      image: "/images/tacomania.jpg",
+                      rtp: "97.3%",
+                      classic: true,
+                    },
+                    {
+                      name: "Razor Shark",
+                      image: "/images/wild-mustang.jpg",
+                      multiplier: "2,500x",
+                      popular: true,
+                    },
+                    {
+                      name: "Money Train 2",
+                      image: "/images/wild-rocks.jpg",
+                      multiplier: "20,000x",
+                      hot: true,
+                    },
+                    {
+                      name: "Lightning Blackjack",
+                      image: "/images/ultimo-bingo-paris.jpg",
+                      live: true,
+                      new: true,
+                    },
+                    {
+                      name: "Mines",
+                      image: "/images/originals-mines.png",
+                      multiplier: "24.47x",
+                      strategy: true,
+                    },
+                    {
+                      name: "Speed Baccarat",
+                      image: "/images/xtreme.jpg",
+                      live: true,
+                      fast: true,
+                    },
+                    {
+                      name: "Jurassic Park",
+                      image: "/images/warrior-angels.jpg",
+                      ways: "243",
+                      popular: true,
+                    },
                   ].map((game, index) => (
                     <div
                       key={index}
@@ -591,7 +826,11 @@ function HomePageContent() {
                             onClick={() => setShowSignup(true)}
                             className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black rounded-full p-3 transform hover:scale-110 transition-all duration-200 shadow-lg"
                           >
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <svg
+                              className="w-6 h-6"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
                               <path d="M8 5v14l11-7z" />
                             </svg>
                           </button>
@@ -599,7 +838,9 @@ function HomePageContent() {
 
                         {/* Game Title */}
                         <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <h3 className="text-brand-soft-white font-bold text-sm truncate">{game.name}</h3>
+                          <h3 className="text-brand-soft-white font-bold text-sm truncate">
+                            {game.name}
+                          </h3>
                         </div>
                       </div>
                     </div>
@@ -623,11 +864,16 @@ function HomePageContent() {
                       </h3>
                       <p className="text-lg sm:text-xl md:text-2xl text-brand-smoke-gray mb-2">
                         Explore our complete collection of{" "}
-                        <span className="text-brand-primary-green font-bold">2,800+ games</span>
+                        <span className="text-brand-primary-green font-bold">
+                          2,800+ games
+                        </span>
                       </p>
                       <p className="text-base sm:text-lg text-brand-smoke-gray">
                         Sign up now and get{" "}
-                        <span className="text-brand-vibrant-green font-bold">125% Welcome Bonus</span> + Free Spins!
+                        <span className="text-brand-vibrant-green font-bold">
+                          125% Welcome Bonus
+                        </span>{" "}
+                        + Free Spins!
                       </p>
                     </div>
 
@@ -652,19 +898,27 @@ function HomePageContent() {
                     <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-8 pt-6 border-t border-brand-primary-green/20">
                       <div className="flex items-center space-x-2 text-brand-smoke-gray">
                         <div className="w-2 h-2 bg-brand-primary-green rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">Instant Play</span>
+                        <span className="text-sm font-medium">
+                          Instant Play
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2 text-brand-smoke-gray">
                         <div className="w-2 h-2 bg-brand-vibrant-green rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">Quick Payouts</span>
+                        <span className="text-sm font-medium">
+                          Quick Payouts
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2 text-brand-smoke-gray">
                         <div className="w-2 h-2 bg-brand-primary-green rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">24/7 Support</span>
+                        <span className="text-sm font-medium">
+                          24/7 Support
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2 text-brand-smoke-gray">
                         <div className="w-2 h-2 bg-brand-vibrant-green rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">Secure & Licensed</span>
+                        <span className="text-sm font-medium">
+                          Secure & Licensed
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -714,7 +968,11 @@ function HomePageContent() {
                             ${bet.amount.toFixed(2)} × {bet.mult.toFixed(2)}
                           </div>
                           <div
-                            className={`text-xs sm:text-sm font-semibold ${bet.profit > 0 ? "text-brand-primary-green" : "text-red-400"}`}
+                            className={`text-xs sm:text-sm font-semibold ${
+                              bet.profit > 0
+                                ? "text-brand-primary-green"
+                                : "text-red-400"
+                            }`}
                           >
                             {bet.profit > 0 ? "+" : ""}${bet.profit.toFixed(2)}
                           </div>
@@ -726,12 +984,12 @@ function HomePageContent() {
               </div>
             </section>
           </div>
-        )
+        );
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-brand-charcoal-black font-poppins w-full">
+    <div className=" min-h-screen bg-brand-charcoal-black font-poppins w-full">
       <TopNavigation
         activeTab={activeTab}
         setActiveTab={handleTabChange}
@@ -739,7 +997,9 @@ function HomePageContent() {
         onLoginClick={() => setShowLogin(true)}
       />
 
-      <main className="flex-1 transition-all duration-300 w-full">{renderTabContent()}</main>
+      <main className="flex-1 transition-all duration-300 w-full">
+        {renderTabContent()}
+      </main>
 
       <Footer />
 
@@ -772,12 +1032,16 @@ function HomePageContent() {
             >
               <X className="w-6 h-6" />
             </button>
-            <iframe src="https://betslip.ibetsports.ag/login" className="w-full h-full border-0" title="Login" />
+            <iframe
+              src="https://betslip.ibetsports.ag/login"
+              className="w-full h-full border-0"
+              title="Login"
+            />
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default function HomePage() {
@@ -785,5 +1049,5 @@ export default function HomePage() {
     <Suspense fallback={<div>Loading...</div>}>
       <HomePageContent />
     </Suspense>
-  )
+  );
 }

@@ -1,20 +1,21 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { useState } from "react"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 export default function LiveCasinoTabContent() {
-  const registrationUrl = "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en"
+  const registrationUrl =
+    "https://signup.isppro.net/signup?domain=ibetsports.ag&lang=en";
 
   const liveGames = [
     {
       id: 1,
-      name: "Gods of Olympus",
-      image: "/images/gods-of-olympus.jpg",
+      name: "Peeks of Baccarat",
+      image: "/images/Peek-Baccarat.webp",
       players: 1247,
       category: "Slots",
       status: "live",
@@ -23,8 +24,8 @@ export default function LiveCasinoTabContent() {
     },
     {
       id: 2,
-      name: "Blackjack Players Choice",
-      image: "/images/blackjack-players-choice.jpg",
+      name: "Ruleta Relampago En Vivo",
+      image: "/images/Ruleta-Relampago-En-Vivo.webp",
       players: 892,
       category: "Blackjack",
       status: "live",
@@ -33,8 +34,8 @@ export default function LiveCasinoTabContent() {
     },
     {
       id: 3,
-      name: "Dark Thirst",
-      image: "/images/dark-thirst.jpg",
+      name: "First Person Craps",
+      image: "/images/First-Person-Craps.webp",
       players: 634,
       category: "Slots",
       status: "live",
@@ -43,8 +44,8 @@ export default function LiveCasinoTabContent() {
     },
     {
       id: 4,
-      name: "Astro Roulette",
-      image: "/images/astro-roulette.jpg",
+      name: "First Person Top Card",
+      image: "/images/First-Person-Top-Card.webp",
       players: 423,
       category: "Roulette",
       status: "live",
@@ -53,8 +54,8 @@ export default function LiveCasinoTabContent() {
     },
     {
       id: 5,
-      name: "Boom Time",
-      image: "/images/boom-time.jpg",
+      name: "Lightning Dragon Tiger",
+      image: "/images/Lightning-Dragon-Tiger.webp",
       players: 567,
       category: "Slots",
       status: "live",
@@ -63,42 +64,44 @@ export default function LiveCasinoTabContent() {
     },
     {
       id: 6,
-      name: "European Roulette Live",
-      image: "/images/european-roulette-live.jpg",
+      name: "Monopoly Live",
+      image: "/images/Monopoly-Live.webp",
       players: 789,
       category: "Roulette",
       status: "live",
       minBet: "$0.50",
       maxBet: "$2500",
     },
-    {
-      id: 7,
-      name: "Classic Fruits",
-      image: "/images/classic-fruits.jpg",
-      players: 345,
-      category: "Slots",
-      status: "live",
-      minBet: "$0.10",
-      maxBet: "$25",
-    },
-    {
-      id: 8,
-      name: "Downtown",
-      image: "/images/downtown.jpg",
-      players: 678,
-      category: "Slots",
-      status: "live",
-      minBet: "$0.20",
-      maxBet: "$75",
-    },
-  ]
+    // {
+    //   id: 7,
+    //   name: "Classic Fruits",
+    //   image: "/images/classic-fruits.jpg",
+    //   players: 345,
+    //   category: "Slots",
+    //   status: "live",
+    //   minBet: "$0.10",
+    //   maxBet: "$25",
+    // },
+    // {
+    //   id: 8,
+    //   name: "Downtown",
+    //   image: "/images/downtown.jpg",
+    //   players: 678,
+    //   category: "Slots",
+    //   status: "live",
+    //   minBet: "$0.20",
+    //   maxBet: "$75",
+    // },
+  ];
 
-  const categories = ["All", "Slots", "Roulette", "Blackjack", "Baccarat"]
-  const [selectedCategory, setSelectedCategory] = useState("All")
-  const [showSignupModal, setShowSignupModal] = useState(false)
+  const categories = ["All", "Slots", "Roulette", "Blackjack", "Baccarat"];
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
   const filteredGames =
-    selectedCategory === "All" ? liveGames : liveGames.filter((game) => game.category === selectedCategory)
+    selectedCategory === "All"
+      ? liveGames
+      : liveGames.filter((game) => game.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-brand-charcoal-black font-poppins">
@@ -126,7 +129,8 @@ export default function LiveCasinoTabContent() {
                 <span className="block">REAL THRILLS. INSTANT WINS.</span>
               </h1>
               <p className="text-lg sm:text-xl text-white">
-                Experience the authentic casino atmosphere with professional dealers streaming live 24/7.
+                Experience the authentic casino atmosphere with professional
+                dealers streaming live 24/7.
               </p>
               <Dialog>
                 <DialogTrigger asChild>
@@ -150,7 +154,6 @@ export default function LiveCasinoTabContent() {
         </div>
 
         {/* Desktop Hero Layout - Overlay design */}
-        
       </section>
 
       {/* Live Casino Lobby */}
@@ -161,18 +164,30 @@ export default function LiveCasinoTabContent() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-brand-primary-green rounded-full animate-pulse"></div>
-                <span className="text-brand-soft-white font-semibold">Live Now</span>
+                <span className="text-brand-soft-white font-semibold">
+                  Live Now
+                </span>
               </div>
               <div className="text-brand-smoke-gray">
-                <span className="text-brand-primary-green font-bold text-xl">5,847</span> players online
+                <span className="text-brand-primary-green font-bold text-xl">
+                  5,847
+                </span>{" "}
+                players online
               </div>
               <div className="text-brand-smoke-gray">
-                <span className="text-brand-primary-green font-bold text-xl">24</span> live tables
+                <span className="text-brand-primary-green font-bold text-xl">
+                  24
+                </span>{" "}
+                live tables
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Badge className="bg-brand-golden-yellow text-brand-charcoal-black font-bold">🔥 HOT</Badge>
-              <Badge className="bg-brand-primary-green text-brand-charcoal-black font-bold">NEW</Badge>
+              <Badge className="bg-brand-golden-yellow text-brand-charcoal-black font-bold">
+                🔥 HOT
+              </Badge>
+              <Badge className="bg-brand-primary-green text-brand-charcoal-black font-bold">
+                NEW
+              </Badge>
             </div>
           </div>
         </div>
@@ -198,26 +213,28 @@ export default function LiveCasinoTabContent() {
 
         {/* Live Games Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {filteredGames.map((game) => (
               <Card
                 key={game.id}
                 className="bg-brand-charcoal-black-secondary border border-brand-smoke-gray/20 hover:border-brand-primary-green/50 transition-all duration-300 overflow-hidden group cursor-pointer"
               >
-                <div className="relative">
-                  <div className="relative h-64 overflow-hidden">
+                <div className="relative ">
+                  <div className="relative h-[26rem]  overflow-hidden">
                     <Image
                       src={game.image || "/placeholder.svg"}
                       alt={game.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className=" group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                     {/* Live Badge */}
                     <div className="absolute top-3 left-3">
-                      <Badge className="bg-red-600 text-white font-bold animate-pulse">🔴 LIVE</Badge>
+                      <Badge className="bg-red-600 text-white font-bold animate-pulse">
+                        🔴 LIVE
+                      </Badge>
                     </div>
 
                     {/* Players Count */}
@@ -229,9 +246,13 @@ export default function LiveCasinoTabContent() {
 
                     {/* Game Info Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-lg font-bold text-white mb-1">{game.name}</h3>
+                      <h3 className="text-lg font-bold text-white mb-1">
+                        {game.name}
+                      </h3>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="text-brand-smoke-gray">{game.category}</span>
+                        <span className="text-brand-smoke-gray">
+                          {game.category}
+                        </span>
                         <span className="text-brand-primary-green font-semibold">
                           {game.minBet} - {game.maxBet}
                         </span>
@@ -241,7 +262,10 @@ export default function LiveCasinoTabContent() {
 
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Dialog open={showSignupModal} onOpenChange={setShowSignupModal}>
+                    <Dialog
+                      open={showSignupModal}
+                      onOpenChange={setShowSignupModal}
+                    >
                       <DialogTrigger asChild>
                         <Button className="bg-brand-primary-green hover:bg-brand-vibrant-green text-brand-charcoal-black font-black px-8 py-3 text-lg rounded-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
                           PLAY NOW
@@ -267,17 +291,21 @@ export default function LiveCasinoTabContent() {
 
         {/* Sign Up CTA with Iframe */}
         <div className="text-center py-12 mt-12 border-t border-brand-smoke-gray/20 max-w-7xl mx-auto">
-          <h2 className="text-3xl font-black text-brand-soft-white mb-4">Ready to Experience Live Casino Action?</h2>
+          <h2 className="text-3xl font-black text-brand-soft-white mb-4">
+            Ready to Experience Live Casino Action?
+          </h2>
           <p className="text-xl text-brand-smoke-gray mb-8 max-w-3xl mx-auto">
-            Join thousands of players at our live tables with professional dealers. Sign up now and get your welcome
-            bonus!
+            Join thousands of players at our live tables with professional
+            dealers. Sign up now and get your welcome bonus!
           </p>
 
           {/* Sign Up Iframe */}
           <div className="max-w-4xl mx-auto mb-8"></div>
 
           <div className="text-center">
-            <p className="text-brand-smoke-gray mb-4">Already have an account?</p>
+            <p className="text-brand-smoke-gray mb-4">
+              Already have an account?
+            </p>
             <Dialog>
               <DialogTrigger asChild>
                 <Button className="bg-gradient-to-r from-brand-primary-green to-brand-vibrant-green hover:from-brand-vibrant-green hover:to-brand-primary-green text-brand-charcoal-black font-black px-12 py-4 text-xl rounded-lg transition-all duration-300">
@@ -299,5 +327,5 @@ export default function LiveCasinoTabContent() {
         </div>
       </div>
     </div>
-  )
+  );
 }
