@@ -183,8 +183,9 @@ export default function PromotionsContent() {
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex items-center justify-between p-6 md:p-8">
                   <div className="flex-1">
-                    <div className="mb-4">
-                      <div className="text-5xl md:text-6xl font-black text-yellow-400 leading-none">{promo.title}</div>
+                    {/* Bloque escalado para aumentar porcentaje + shape */}
+                    <div className="mb-4 scale-110 md:scale-125 origin-left">
+                      <div className="text-7xl md:text-8xl font-black text-yellow-400 leading-tight">{promo.title}</div>
                       <div className="text-2xl md:text-3xl font-bold text-brand-soft-white mt-1">{promo.subtitle}</div>
                       <div className="text-lg md:text-xl font-semibold text-brand-soft-white">{promo.description}</div>
                       {promo.subtext && (
