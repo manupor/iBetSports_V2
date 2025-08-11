@@ -294,7 +294,7 @@ const PromotionsTabContent = ({
                         Hot
                       </Badge>
                     )}
-                    <div className="absolute top-4 right-4 bg-brand-primary-green text-brand-charcoal-black px-4 py-2 rounded-full font-bold text-2xl">
+                    <div className="absolute top-4 right-4 bg-brand-primary-green text-brand-charcoal-black px-4 py-2 rounded-full font-bold text-4xl">
                       {promo.bonus}
                     </div>
                   </div>
