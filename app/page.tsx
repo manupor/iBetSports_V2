@@ -719,7 +719,7 @@ function HomePageContent() {
                     },
                     {
                       name: "Divine Fortune",
-                      image: "/images/football-hero-promotions.jpg",
+                      image: "/images/Fizzy-Pennyslot.jpg",
                       jackpot: "$1.2M",
                       hot: true,
                     },
