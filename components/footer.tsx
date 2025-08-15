@@ -1053,11 +1053,6 @@ const HouseRulesContent = () => (
           require an account to complete a standard KYC process whenever deemed
           necessary.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed">
-          34 - ibetsports.ag reserves the right to request documentation and
-          require an account to complete a standard KYC process whenever deemed
-          necessary.
-        </p>
       </section>
 
       {/* <section>
