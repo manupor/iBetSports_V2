@@ -838,7 +838,7 @@ const AMLContent = () => (
 );
 
 const HouseRulesContent = () => (
-  <div className="space-y-6">
+  <div className="max-w-4xl mx-auto p-4">
     <h1 className="text-3xl font-bold text-brand-primary-green mb-6">
       House Rules & Regulations
     </h1>
@@ -847,16 +847,16 @@ const HouseRulesContent = () => (
         <h2 className="text-xl font-semibold text-brand-primary-green mb-3">
           Rule Clarification
         </h2>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           1 - All rules, regulations, and payoffs are subject to change by
           ibetsports.ag without prior written notice.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           2 - Any sports or horse racing ruling not specifically stated in the
           rules or regulations will be decided according to official Las Vegas
           rules.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           3 - ibetsports.ag shall not be responsible for any damages or losses
           deemed or alleged to have resulted from, or been caused by, this
           website or its content. This includes any person’s use or misuse of
@@ -864,16 +864,16 @@ const HouseRulesContent = () => (
           operations or transmission, communication failures, or any errors or
           omissions in the content.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           4 - All clients must be at least the legal alcoholic beverage drinking
           age in their country, state, or jurisdiction.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           5 - All rules, regulations, and wagering odds will be constantly
           updated on our website. Please double-check any issue or difference in
           the rules before making a claim with our customer service staff.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           6 - ibetsports.ag reserves the right to limit or refuse services for
           any reason and to refuse wagers from clients located in jurisdictions
           where online wagering is illegal. Certain countries may be restricted
@@ -899,24 +899,24 @@ const HouseRulesContent = () => (
           must show balanced action across different bet types, markets, and
           events (“50/50 action” requirements).
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           9 - ibetsports.ag will not accept a wager without the proper account
           number and password for both telephone and online wagering.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           10 - Each client is responsible for maintaining the security of their
           betting account and should take all necessary measures to prevent its
           use by any third party. Any transaction made with the account number
           and password will be considered valid, subject to the current account
           balance.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           11 - All accounts are private and confidential. All telephone calls
           are recorded for the protection of ibetsports.ag and its clients in
           case of disputes. Any dispute must be claimed within seven (7) days of
           the graded wager.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           12 - When wagering online, members are solely responsible for their
           own account transactions. Please review all wagers for accuracy before
           submitting them. ibetsports.ag is not responsible for missing or
@@ -925,20 +925,20 @@ const HouseRulesContent = () => (
           “OPEN BETS” on the site after each session to ensure all wagers were
           accepted. Check all xtransactions carefully.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           13 - Wagers placed online or by phone can be changed or cancelled by
           the customer only if all of the following conditions are met:
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           A. The lines and odds are the same as the original wager.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           B. No more than five (5) minutes have passed since the original wager.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           C. The game or event has not started.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           14 - After wagers are placed by telephone, the clerk will read them
           back. If the read-back is correct, the client must confirm by stating
           their account number and password. If a mistake is noticed, it is the
@@ -947,57 +947,57 @@ const HouseRulesContent = () => (
           up before confirming but the plays were read back correctly, all plays
           are considered final.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           15 - If a client is disconnected before a read-back is completed, it
           is their responsibility to call back as soon as possible to verify
           pending wagers. If the client provided a team and amount before
           disconnection, the wager will be entered into the system even without
           a read-back
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           16 - Wagers are graded only after the contest is final.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           17 - Baseball, Football, Basketball, Hockey, and Soccer events must be
           played on the scheduled date. Any game cancelled or postponed will be
           deemed “no action” and funds returned. Tennis, Boxing, NASCAR, and
           Golf events must be played within seven (7) days of the original date.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           18 - For suspended games, continued games, and overturned decisions,
           ibetsports.ag follows generally accepted Las Vegas gaming rules.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           19 - In all future wagers (e.g., Super Bowl winner), the winner as
           determined by the League Commissioner will be declared the winner for
           betting purposes. In NCAA Football, the winner of the BCS Championship
           Game will be declared the National Champion. Any future wager does not
           count toward any rollover requirement.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           20 - For horse racing, the clerk will provide the POST TIME once the
           ticket is completed. This POST TIME must match or be earlier than the
           OFF TIME posted at the grading website. Post times are non-negotiable
           and final. Horse wagers do not count toward rollover requirements
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           21 - ibetsports.ag relies entirely on the information provided by the
           customer in their application to establish a wagering account. Payouts
           will only be made to the name on the account. Payments to third
           parties are not allowed
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           22 - If funds are credited to a customer’s account in error, the
           customer must notify ibetsports.ag immediately. Unless otherwise
           notified by ibetsports.ag, any transactions made with such funds will
           be void.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           23 - Although our computer system maintains exact balances, it is the
           client’s responsibility to verify their account balance each time they
           log in or call by phone.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           24 - Payout requests must be submitted online via our cashier. Some
           payment options may be available only by phone for specific account
           profiles. Payment methods and limits are subject to change without
@@ -1008,52 +1008,51 @@ const HouseRulesContent = () => (
           Payouts are sent using the same method as the deposit (restrictions
           may apply)
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           25 - Action on Casino, Future Wagers, Live Wagering, and Horses does
           not count toward sportsbook bonus rollover. For Casino rollover, some
           games and/or providers may not count or may be excluded from specific
           promotions.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           26 - The maximum payout for any parlay is 500:1.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           27 - You must play your deposit amount at least once before requesting
           a payout. The 1x calculation is based on the lesser of the “Risk” or
           “Win” amount.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           28 - Winnings from free plays in free contests have a maximum payout
           of $100. For all non-deposit bonuses (contests, free plays,
           complimentary spins, etc.), a minimum deposit and action requirements
           will apply.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           29 - Bonus rollover requirements may vary by location at the
           discretion of management.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           30 - Third-party products such as Live Wagering and Props Builder may
           have different rules for certain sports. Please refer to each
           product’s page for specific rules. It is the client’s responsibility
           to know and understand these rules.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           31 - Customers cannot combine bonuses. If an account receives multiple
           bonuses, rollover requirements will be cumulative, and withdrawal
           restrictions will remain until all rollovers are completed.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           32 - In case of duplicate accounts, the site will consolidate them
           into one active account and close all others. Bonuses received may be
           forfeited or collected from all accounts.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm">
+        <p className="text-brand-smoke-gray leading-relaxed">
           33 - ibetsports.ag reserves the right to request documentation and
           require an account to complete a standard KYC process whenever deemed
           necessary.
         </p>
-        <p className="text-brand-smoke-gray leading-relaxed text-sm"></p>
       </section>
 
       {/* <section>
